@@ -22,7 +22,7 @@
 ### About Demokratis
 The consultation procedure is a fundamental, but lesser known integral part of Swiss democracy. While in theory the consultation procedure is open to everyone the barriers to participation are rather high. [Demokratis.ch](https://demokratis.ch) is an accessible and user-friendly web platform which makes it easy to explore, contribute to and monitor consultation procedures in Switzerland.
 
-Demokratis is developed and run by a Swiss association ("Verein") with the same name and you are most welcome to join us!
+Demokratis is developed and run by a team in Switzerland, Spain and the Czech Republic and you are most welcome to join us!
 
 ### About machine learning at Demokratis
 We use machine learning to process and understand the legal text drafts (Vorlagen) that are the subject of the consultation procedure, as well as to process related documents such as reports and letters accompanying the drafts.
@@ -56,8 +56,8 @@ TODO: explain what is where in this monorepo.
 ## What data we use
 We obtain information about federal and cantonal consultations through APIs and website scraping. For each consultation (Vernehmlassung) we typically collect a number of documents of various types:
 
-* The proposed law change (draft, Vorlage, Entwurf, ...)
-* A report explaining the proposed change (Erläuterungsbericht)
+* The proposed law change (draft, "Vorlage", "Entwurf", ...)
+* A report explaining the proposed change ("Erläuternder Bericht")
 * Accompanying letters, questionnaires, synoptic tables etc...
 
 The documents are almost always just PDFs. We also get some metadata for the consultation itself, e.g. its title, starting and ending dates, and perhaps a short description.
@@ -66,7 +66,7 @@ See the Pandera schemata in [data/schemata.py](data/schemata.py) for a complete 
 
 We use data from two main sources:
 
-* [Fedlex](https://www.fedlex.admin.ch/) for federal (Bund) consultations.
+* [Fedlex](https://www.fedlex.admin.ch/) for federal ("Bund") consultations.
 * [Open Parl Data](https://opendata.ch/projects/openparldata/) for cantonal consultations.
 
 > [!NOTE]
