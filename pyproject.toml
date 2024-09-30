@@ -1,0 +1,40 @@
+[project]
+name = "demokratis-ml"
+version = "0.1.0"
+description = "Machine learning for Swiss consultation procedures"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandera>=0.20.4",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pre-commit>=3.8.0",
+    "ruff>=0.6.7",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    # These errors are silenced intentionally.
+    "N803",  # invalid-argument-name: to allow uppercase 'X' variables
+    "PD901",  # pandas-df-variable-name
+    "T201",  # print
+    "S101",  # assert
+    "FA102",  # future-required-type-annotation
+    "COM812",  # missing-trailing-comma
+    "ARG001",  # unused-function-argument: very common in sklearn-compatible functions
+    "RET504",  # unnecessary-assign
+    "FBT",  # boolean trap
+    "EM101",  # raw-string-in-exception
+    "FIX",  # flake8-fixme
+    "TRY003",  # raise-vanilla-args
+    "TD",  # to do
+    "D203",  # one-blank-line-before-class; we prefer `no-blank-line-before-class` (D211)
+    "D212",  # `multi-line-summary-first-line`; do not enforce this little detail
+    "D213",  # `multi-line-summary-second-line`; do not enforce this little detail
+]
