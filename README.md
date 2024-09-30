@@ -35,9 +35,9 @@ The machine learning stack runs separately from the main [Demokratis.ch](https:/
 * [What data we use](#what-data-we-use)
 * [Our models and open ML problems](#our-models-and-open-ml-problems)
     * [Current status](#current-status)
-    * [Classifying consultation topics](#classifying-consultation-topics)
-    * [Extracting structure from documents](#extracting-structure-from-documents)
-    * [Classifying document types](#classifying-document-types)
+    * [I. Classifying consultation topics](#i-classifying-consultation-topics)
+    * [II. Extracting structure from documents](#ii-extracting-structure-from-documents)
+    * [III. Classifying document types](#iii-classifying-document-types)
 
 ***
 
@@ -64,14 +64,19 @@ The documents are almost always just PDFs. We also get some metadata for the con
 
 See the Pandera schemata in [data/schemata.py](data/schemata.py) for a complete specification of the data we have on consultations and their documents.
 
+We use data from two main sources:
+
+* [Fedlex](https://www.fedlex.admin.ch/) for federal (Bund) consultations.
+* [Open Parl Data](https://opendata.ch/projects/openparldata/) for cantonal consultations.
+
 > [!NOTE]
-> We are currently working with our data providers to make the datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
+> We are currently working with our data providers to make our compiled, enriched datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
 
 <!--
 ### The federal dataset: Fedlex
 TODO - explain this data source
 
-### The cantonal dataset: POLITmonitor
+### The cantonal dataset: Open Parl Data
 TODO - explain this data source
 -->
 
@@ -86,20 +91,20 @@ We are also awaiting consent from our data providers before making the datasets 
 
 | Problem | Public dataset? | Open-source code/model? | Initial research | Proof of concept model | Deployed in production |
 |-|-|-|-|-|-|
-| [Classifying consultation topics](#classifying-consultation-topics) | ❌ | ❌ | ✅ | ✅ | ❌
-| [Extracting structure from documents](#extracting-structure-from-documents) | ❌ | ❌ | ✅ | ❌ | ❌
-| [Classifying document types](#classifying-document-types) | ❌ | ❌ | ✅ | ✅ | ❌
+| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ❌ | ❌ | ✅ | ✅ | ❌
+| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | ❌ | ❌ | ✅ | ❌ | ❌
+| [III. Classifying document types](#iii-classifying-document-types) | ❌ | ❌ | ✅ | ✅ | ❌
 
-### Classifying consultation topics
+### I. Classifying consultation topics
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
 
 #### Our datasets
-To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [POLITmonitor API](https://www.politmonitor.ch/en/welcome/). You can see the full list of our topics in [data/schemata.py:CONSULTATION_TOPICS](data/schemata.py#L7).
+To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [data/schemata.py:CONSULTATION_TOPICS](data/schemata.py#L7).
 
 #### Our models
 To increase the breadth of input for the models, we first classify individual *documents*, even though all documents of a given consultation obviously fall into the same topics. To then predict the topics of the consultation itself, we let the document outputs "vote" on the final set of topics. This approach has proven to be effective because we are giving the model more data to learn from, as opposed to classifying consultations directly – in which case we have to pick a limited number of documents, drastically concatenate them etc.
 
-We disregard documents of type `RECIPIENT_LIST` and `SYNOPTIC_TABLE` because we have not found their signals useful. There might be more room for improvement in document selection.
+We disregard documents of type `RECIPIENT_LIST` and `SYNOPTIC_TABLE` because we have not found their signals useful. There might be more room for improvement in document selection. This, however, also depends on our problem #3, [classifying document types (below)](#iii-classifying-document-types).
 
 We currently have **two models** with good results:
 
@@ -110,6 +115,7 @@ We currently have **two models** with good results:
         MultiOutputClassifier(LogisticRegression()),
     )
     ```
+    We found that OpenAI embeddings work better than [jina-embeddings-v2-base-de](https://huggingface.co/jinaai/jina-embeddings-v2-base-de), which in turn works better than general-purpose sentence transformer models.
 2. Fine-tuning a domain-specific language model from the [🤗 joelniklaus/legallms](https://huggingface.co/collections/joelniklaus/legallms-65303ccfc2f20ed637f17cb6) collection, usually [joelniklaus/legal-swiss-roberta-large](https://huggingface.co/joelniklaus/legal-swiss-roberta-large). These pre-trained models were introduced in the paper [MultiLegalPile: A 689GB Multilingual Legal Corpus](https://arxiv.org/abs/2306.02069).
 
 #### Current results
@@ -132,7 +138,7 @@ Current sample-weighted F1 scores:
 ![Colour-coded classification report](docs/example_topics_classification.png)
 </details>
 
-### Extracting structure from documents
+### II. Extracting structure from documents
 An important goal of Demokratis is to make it easy for people and organisations to provide feedback (statements, Stellungnahmen) on consultations. To facilitate writing comments or suggesting edits on long complex legal documents, we need to break them apart into sections, paragraphs, lists, footnotes etc. Since all the consultation documents we can currently access are PDFs, it is surprisingly hard to extract machine-readable structure from them!
 
 We are still researching the possible solutions to this problem. For shorter documents, the most workable solution seems to be to prompt GPT-4o to analyse a whole uploaded PDF file and emit the extracted structure in JSON. It may be possible to make this work for longer documents too with careful chunking. In initial tests, GPT-4o performed better at this task than Gemini 1.5 Pro.
@@ -140,7 +146,7 @@ We are still researching the possible solutions to this problem. For shorter doc
 The services typically used for extracting PDFs – AWS Textract, Azure Document AI, Adobe Document Services – all do not seem to be reliable at detecting PDF layouts. In particular, they do not consistently differentiate between headers, paragraphs, lists, or even footnotes. The open-source project [surya](https://github.com/VikParuchuri/surya) performs similarly as these cloud services and can easily be run locally. Another option we have not tried yet is using a LayoutLM model.
 
 
-### Classifying document types
+### III. Classifying document types
 Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [data/schemata.py:DOCUMENT_TYPES](data/schemata.py#L32).)
 
 ![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
