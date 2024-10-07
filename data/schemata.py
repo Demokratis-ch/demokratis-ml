@@ -1,5 +1,8 @@
 """Pandera schema definitions for the data used in the project."""
 
+from typing import Any, cast
+
+import numpy as np
 import pandas as pd
 import pandera as pa
 from pandera.typing import Series
@@ -65,12 +68,21 @@ class ConsultationDocumentSchemaV1(pa.DataFrameModel):
     """ ID of the organisation that published the consultation; ID is assigned by Demokratis """
     organisation_name: str = pa.Field(str_length={"min_value": 3})
     """ Name of the organisation that published the consultation """
-    topics: tuple[str, ...]
+    topics: np.object_
     """ Zero, one, or more topics that the consultation covers """
 
     @pa.check("topics")
-    def _check_topics(cls, topics: Series[tuple[str, ...]]) -> Series[bool]:  # noqa: N805
-        return topics.map(lambda topic_tuple: set(topic_tuple) <= CONSULTATION_TOPICS)
+    def _check_topics(cls, topics: Series[Any]) -> Series[bool]:  # noqa: N805
+        return cast(
+            Series[bool],
+            topics.map(
+                lambda topics: isinstance(topics, np.ndarray)
+                # and topics.dtype.type is np.str_
+                # The string dtype is not preserved in Parquet but that's okay since we check
+                # against the predefined CONSULTATION_TOPICS set anyway.
+                and set(topics) <= CONSULTATION_TOPICS
+            ),
+        )
 
     # --- Document attributes ---
     document_id: int
