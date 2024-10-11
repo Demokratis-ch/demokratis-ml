@@ -22,7 +22,7 @@
 ### About Demokratis
 The consultation procedure is a fundamental, but lesser known integral part of Swiss democracy. While in theory the consultation procedure is open to everyone the barriers to participation are rather high. [Demokratis.ch](https://demokratis.ch) is an accessible and user-friendly web platform which makes it easy to explore, contribute to and monitor consultation procedures in Switzerland.
 
-Demokratis is developed and run by a team in Switzerland, Spain and the Czech Republic and you are most welcome to join us!
+Demokratis is developed and run as a civil society initiative and you are most welcome to join us!
 
 ### About machine learning at Demokratis
 We use machine learning to process and understand the legal text drafts (Vorlagen) that are the subject of the consultation procedure, as well as to process related documents such as reports and letters accompanying the drafts.
