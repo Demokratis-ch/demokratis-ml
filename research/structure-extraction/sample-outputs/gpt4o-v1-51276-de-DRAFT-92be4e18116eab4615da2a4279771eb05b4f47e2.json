@@ -1,0 +1,186 @@
+{
+  "document_title": "Vorentwurf: Bundesgesetz über Radio und Fernsehen (RTVG)",
+  "amendment": "Abgabenanteile für lokale Radio- und regionale Fernsehveranstalter und Fördermassnahmen zugunsten der elektronischen Medien",
+  "structure": [
+    {
+      "section": "I",
+      "content": [
+        {
+          "article": "1",
+          "title": "Gegenstand und Geltungsbereich",
+          "paragraphs": [
+            {
+              "number": "1",
+              "text": "Dieses Gesetz regelt:",
+              "list": [
+                { "index": "a", "text": "die Veranstaltung, die Aufbereitung, die Übertragung und den Empfang von Radio- und Fernsehprogrammen;" },
+                { "index": "b", "text": "die Fördermassnahmen zugunsten der elektronischen Medien." }
+              ]
+            },
+            {
+              "number": "1bis",
+              "text": "Soweit in diesem Gesetz nichts anderes vorgesehen ist, richtet sich die fernmeldetechnische Übertragung von Programmen nach dem Fernmeldegesetz vom 30. April 1997 (FMG)."
+            }
+          ]
+        },
+        {
+          "article": "2",
+          "title": "In diesem Gesetz bedeuten",
+          "paragraphs": [
+            {
+              "index": "abis",
+              "text": "Elektronische Medien: Medienangebote, die fernmeldetechnisch übertragen werden, für die Allgemeinheit bestimmt sind und nach redaktionellen Kriterien zusammengestellt werden."
+            }
+          ]
+        },
+        {
+          "article": "38",
+          "title": "Abs. 3, 2. Satz",
+          "paragraphs": [
+            {
+              "number": "3",
+              "text": "... eine Konzession mit Abgabenanteil erteilt. Lokalen TV-Stationen mit einer eigenständigen und regelmässigen Berichterstattung über nationale und kantonale Politik kann eine zusätzliche Konzession mit Abgabenanteil erteilt werden."
+            }
+          ],
+          "minority": ["Stark", "Broulis", "Friedli Esther", "Häberli-Koller"]
+        },
+        {
+          "article": "40",
+          "title": "Abs. 1 Einleitungsteil und Abs. 2, 3. Satz",
+          "paragraphs": [
+            {
+              "number": "1",
+              "text": "Die Abgabenanteile für Veranstalter mit Abgabenanteil nach Artikel 68a Absatz 1 Buchstabe b betragen 6 bis 8 Prozent des Ertrages der Abgabe für Radio und Fernsehen.",
+              "list": [
+                { "text": "Der Bundesrat bestimmt:" }
+              ]
+            },
+            {
+              "number": "2",
+              "text": "... inklusive Verbreitungskosten erbringen muss. Es legt die jeweiligen Anteile der Konzessionäre so fest, dass sie sich unter Berücksichtigung der Teuerung und im Vergleich zur letzten Konzessionsperiode angemessen erhöhen."
+            }
+          ]
+        },
+        {
+          "article": "68a",
+          "title": "Abs. 1 Bst. h",
+          "paragraphs": [
+            {
+              "number": "1",
+              "text": "Der Bundesrat bestimmt die Höhe der Abgabe für Haushalte und für Unternehmen. Massgebend ist der Bedarf für:",
+              "list": [
+                { "index": "h", "text": "die Fördermassnahmen zugunsten der elektronischen Medien (Art. 76–76c)." }
+              ]
+            }
+          ]
+        },
+        {
+          "chapter": "3. Kapitel",
+          "title": "Fördermassnahmen zugunsten der elektronischen Medien",
+          "articles": [
+            {
+              "article": "76",
+              "title": "Aus- und Weiterbildung",
+              "paragraphs": [
+                {
+                  "number": "1",
+                  "text": "Das BAKOM kann unabhängige Institutionen, die dauerhaft praxisnahe Aus- und Weiterbildungen für redaktionell tätige Mitarbeitende von elektronischen Medien anbieten, auf ihr Gesuch hin finanziell unterstützen, insbesondere Grundausbildungen und Weiterbildungen im Informationsjournalismus."
+                },
+                {
+                  "number": "2",
+                  "text": "Die Diplome und Zertifikate dieser Institutionen müssen von der Branche anerkannt sein."
+                }
+              ]
+            },
+            {
+              "article": "76a",
+              "title": "Selbstregulierung der Branche",
+              "paragraphs": [
+                {
+                  "number": "1",
+                  "text": "Das BAKOM kann in der Branche anerkannte Organisationen, die Regeln für die journalistische Praxis entwickeln und deren Einhaltung beaufsichtigen, auf ihr Gesuch hin finanziell unterstützen."
+                }
+              ]
+            },
+            {
+              "article": "76b",
+              "title": "Agenturleistungen",
+              "paragraphs": [
+                {
+                  "number": "1",
+                  "text": "Das BAKOM kann Nachrichtenagenturen und Agenturen für audiovisuelle Inhalte auf ihr Gesuch hin finanziell unterstützen, sofern es sich um Agenturen von nationaler Bedeutung handelt und ihr Angebot auf Deutsch, Französisch und Italienisch gleichwertig ist."
+                },
+                {
+                  "number": "2",
+                  "text": "Das Gesuch muss begründet sein."
+                },
+                {
+                  "number": "3",
+                  "text": "Das Ausschütten von Dividenden während der Dauer der Finanzierung durch das BAKOM ist untersagt."
+                },
+                {
+                  "number": "4",
+                  "text": "Die SRG kann mit Nachrichtenagenturen zusammenarbeiten oder sich daran beteiligen."
+                }
+              ]
+            },
+            {
+              "article": "76c",
+              "title": "Gemeinsame Bestimmungen",
+              "paragraphs": [
+                {
+                  "number": "1",
+                  "text": "Das BAKOM bemisst die Beiträge nach den Artikeln 76–76b aufgrund der anrechenbaren Kosten der geförderten Tätigkeiten."
+                },
+                {
+                  "number": "2",
+                  "text": "Der Bundesrat legt den Anteil der anrechenbaren Kosten fest; der Anteil beträgt höchstens 80 Prozent."
+                },
+                {
+                  "number": "3",
+                  "text": "Er regelt die Anrechenbarkeit der Kosten und die dafür zu liefernden Nachweise so, dass nur Leistungen zugunsten elektronischer Medien berücksichtigt werden."
+                },
+                {
+                  "number": "4",
+                  "text": "Die Beiträge werden aus dem Ertrag der Abgabe für Radio und Fernsehen entrichtet (Art. 68a). Der Anteil beträgt höchstens ein Prozent des gesamten Ertrags der Abgabe."
+                },
+                {
+                  "number": "2bis",
+                  "text": "Die Unterstützungsbeiträge werden im Verhältnis zur Summe der Beiträge der Träger der unterstützten Organisationen geleistet. Ausgangspunkt dafür ist die Summe der Trägerbeiträge im Jahr 2024.",
+                  "minority": ["Stark", "Friedli Esther", "Häberli-Koller"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "II",
+      "content": [
+        {
+          "number": "1",
+          "text": "Dieses Gesetz untersteht dem fakultativen Referendum."
+        },
+        {
+          "number": "2",
+          "text": "Der Bundesrat bestimmt das Inkrafttreten."
+        }
+      ]
+    }
+  ],
+  "footnotes": [
+    {
+      "id": "footnote-1",
+      "text": "BBl 2024 ..."
+    },
+    {
+      "id": "footnote-2",
+      "text": "SR 784.40"
+    },
+    {
+      "id": "footnote-3",
+      "text": "SR 784.10"
+    }
+  ]
+}
