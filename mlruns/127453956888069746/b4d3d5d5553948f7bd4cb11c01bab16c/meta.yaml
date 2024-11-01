@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/127453956888069746/b4d3d5d5553948f7bd4cb11c01bab16c/artifacts
+end_time: 1730298775840
+entry_point_name: ''
+experiment_id: '127453956888069746'
+lifecycle_stage: active
+run_id: b4d3d5d5553948f7bd4cb11c01bab16c
+run_name: adaptable-smelt-263
+run_uuid: b4d3d5d5553948f7bd4cb11c01bab16c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730298775788
+status: 4
+tags: []
+user_id: thiloweber

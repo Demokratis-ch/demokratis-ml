@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/f72433dd626a4c24ac4eff7bee8544a2/artifacts
+deleted_time: 1730469115084
+end_time: 1730388523604
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: f72433dd626a4c24ac4eff7bee8544a2
+run_name: dapper-toad-437
+run_uuid: f72433dd626a4c24ac4eff7bee8544a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730388516302
+status: 4
+tags: []
+user_id: thiloweber

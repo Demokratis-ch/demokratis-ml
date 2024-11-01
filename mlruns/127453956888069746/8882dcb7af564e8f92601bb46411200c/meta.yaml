@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/127453956888069746/8882dcb7af564e8f92601bb46411200c/artifacts
+end_time: 1730298818561
+entry_point_name: ''
+experiment_id: '127453956888069746'
+lifecycle_stage: active
+run_id: 8882dcb7af564e8f92601bb46411200c
+run_name: unequaled-pig-734
+run_uuid: 8882dcb7af564e8f92601bb46411200c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730298817856
+status: 4
+tags: []
+user_id: thiloweber

@@ -1,0 +1,11 @@
+python-dotenv
+pandera
+pandas
+openai
+mlflow
+notebook
+pdfminer.six
+pypdf2
+#langchain
+#langchain-community
+#langchain-openai

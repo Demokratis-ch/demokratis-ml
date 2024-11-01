@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/ff3ff60d465746deb947e12bab7f930d/artifacts
+deleted_time: 1730469115084
+end_time: 1730387520812
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: ff3ff60d465746deb947e12bab7f930d
+run_name: fun-mink-640
+run_uuid: ff3ff60d465746deb947e12bab7f930d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730387513844
+status: 4
+tags: []
+user_id: thiloweber

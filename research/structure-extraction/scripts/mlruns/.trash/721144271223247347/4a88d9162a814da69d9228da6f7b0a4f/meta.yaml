@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/4a88d9162a814da69d9228da6f7b0a4f/artifacts
+deleted_time: 1730469115084
+end_time: 1730468206626
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 4a88d9162a814da69d9228da6f7b0a4f
+run_name: grandiose-snake-321
+run_uuid: 4a88d9162a814da69d9228da6f7b0a4f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730468199694
+status: 4
+tags: []
+user_id: thiloweber

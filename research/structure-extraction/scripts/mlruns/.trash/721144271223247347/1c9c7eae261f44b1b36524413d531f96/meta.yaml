@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/1c9c7eae261f44b1b36524413d531f96/artifacts
+deleted_time: 1730469115084
+end_time: 1730385973054
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 1c9c7eae261f44b1b36524413d531f96
+run_name: smiling-mink-939
+run_uuid: 1c9c7eae261f44b1b36524413d531f96
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730385962064
+status: 4
+tags: []
+user_id: thiloweber

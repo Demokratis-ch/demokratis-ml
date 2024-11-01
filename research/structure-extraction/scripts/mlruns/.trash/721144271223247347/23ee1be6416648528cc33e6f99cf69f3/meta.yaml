@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/23ee1be6416648528cc33e6f99cf69f3/artifacts
+deleted_time: 1730469115084
+end_time: 1730385374119
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 23ee1be6416648528cc33e6f99cf69f3
+run_name: gifted-flea-407
+run_uuid: 23ee1be6416648528cc33e6f99cf69f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730385374070
+status: 4
+tags: []
+user_id: thiloweber

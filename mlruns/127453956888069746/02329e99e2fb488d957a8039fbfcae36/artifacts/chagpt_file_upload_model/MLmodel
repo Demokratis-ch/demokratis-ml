@@ -1,0 +1,25 @@
+artifact_path: chagpt_file_upload_model
+flavors:
+  python_function:
+    cloudpickle_version: 3.1.0
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.loaders.code_model
+    model_code_path: /Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/chatgpt_file_upload_model.py
+    python_version: 3.12.7
+    streamable: false
+mlflow_version: 2.17.1
+model_size_bytes: 5023
+model_uuid: 636fb98d5a3046a6a776951b52ec24a6
+run_id: 02329e99e2fb488d957a8039fbfcae36
+saved_input_example_info:
+  artifact_path: input_example.json
+  serving_input_path: serving_input_example.json
+  type: json_object
+signature:
+  inputs: '[{"type": "string", "required": true}]'
+  outputs: null
+  params: null
+utc_time_created: '2024-10-30 14:35:35.871926'

@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/8d1143e773f148f1aa307c94e2b05308/artifacts
+deleted_time: 1730469115084
+end_time: 1730388352844
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 8d1143e773f148f1aa307c94e2b05308
+run_name: spiffy-grub-720
+run_uuid: 8d1143e773f148f1aa307c94e2b05308
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730388346176
+status: 4
+tags: []
+user_id: thiloweber

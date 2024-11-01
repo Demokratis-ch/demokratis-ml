@@ -1,0 +1,136 @@
+{
+    "document_title": "Bundesgesetz \u00fcber Radio und Fernsehen",
+    "amendment": "\u00c4nderung vom \u2026",
+    "sections": [
+        {
+            "section": "I",
+            "articles": [
+                {
+                    "article": "Art. 1",
+                    "title": "Gegenstand und Geltungsbereich",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "1",
+                            "text": "Dieses Gesetz regelt: die Veranstaltung, die Aufbereitung, die \u00dcbertragung und den Empfang von Radio- und Fernsehprogrammen; die F\u00f6rdermassnahmen zugunsten der elektronischen Medien.",
+                            "list": []
+                        },
+                        {
+                            "number": "1bis",
+                            "text": "Soweit in diesem Gesetz nichts anderes vorgesehen ist, richtet sich die fernmeldetechnische \u00dcbertragung von Programmen nach dem Fernmeldegesetz vom 30. April 1997."
+                        }
+                    ]
+                },
+                {
+                    "article": "Art. 2 Bst. abis",
+                    "title": "",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "abis",
+                            "text": "Elektronische Medien: Medienangebote, die fernmeldetechnisch \u00fcbertragen werden, f\u00fcr die Allgemeinheit bestimmt sind und nach redaktionellen Kriterien zusammengestellt werden.",
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "article": "Art. 38 Abs. 3, 2. Satz",
+                    "title": "",
+                    "minorities": "Minderheit (Stark, Broulis, Friedli Esther, H\u00e4berli-Koller)",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "3",
+                            "text": "\u2026 eine Konzession mit Abgabenanteil erteilt. Lokalen TV-Stationen mit einer eigenst\u00e4ndigen und regelm\u00e4ssigen Berichterstattung \u00fcber nationale und kantonale Politik kann eine zus\u00e4tzliche Konzession mit Abgabenanteil erteilt werden.",
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "article": "Art. 40 Abs. 1 Einleitungsteil und Abs. 2, 3. Satz",
+                    "title": "",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "1",
+                            "text": "Die Abgabenanteile f\u00fcr Veranstalter mit Abgabenanteil nach Artikel 68a Absatz 1 Buchstabe b betragen 6 bis 8 Prozent des Ertrages der Abgabe f\u00fcr Radio und Fernsehen. Der Bundesrat bestimmt:",
+                            "list": []
+                        },
+                        {
+                            "number": "2",
+                            "text": "\u2026 inklusive Verbreitungskosten erbringen muss. Es legt die jeweiligen Anteile der Konzession\u00e4re so fest, dass sie sich unter Ber\u00fccksichtigung der Teuerung und im Vergleich zur letzten Konzessionsperiode angemessen erh\u00f6hen.",
+                            "list": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "II",
+            "articles": [
+                {
+                    "article": "Art. 68a Abs. 1 Bst. h",
+                    "title": "",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "1",
+                            "text": "Der Bundesrat bestimmt die H\u00f6he der Abgabe f\u00fcr Haushalte und f\u00fcr Unternehmen. Massgebend ist der Bedarf f\u00fcr:",
+                            "list": [
+                                {
+                                    "index": "h",
+                                    "text": "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien (Art. 76\u201376c)."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "article": "Art. 76",
+                    "title": "Aus- und Weiterbildung",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "1",
+                            "text": "Das BAKOM kann unabh\u00e4ngige Institutionen, die dauerhaft praxisnahe Aus- und Weiterbildungen f\u00fcr redaktionell t\u00e4tige Mitarbeitende von elektronischen Medien anbieten, auf ihr Gesuch hin finanziell unterst\u00fctzen, insbesondere Grundausbildungen und Weiterbildungen im Informationsjournalismus.",
+                            "list": []
+                        },
+                        {
+                            "number": "2",
+                            "text": "Die Diplome und Zertifikate dieser Institutionen m\u00fcssen von der Branche anerkannt sein.",
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "article": "Art. 76a",
+                    "title": "Selbstregulierung der Branche",
+                    "minorities": "",
+                    "text": "",
+                    "paragraphs": [
+                        {
+                            "number": "",
+                            "text": "Das BAKOM kann in der Branche anerkannte Organisationen, die Regeln f\u00fcr die journalistische Praxis entwickeln und deren Einhaltung beaufsichtigen, auf ihr Gesuch hin finanziell unterst\u00fctzen.",
+                            "list": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "footnotes": [
+        {
+            "footnote_id": "1",
+            "text": "[Datum des Entscheids der Kommission]"
+        },
+        {
+            "footnote_id": "2",
+            "text": "[Datum]"
+        }
+    ]
+}

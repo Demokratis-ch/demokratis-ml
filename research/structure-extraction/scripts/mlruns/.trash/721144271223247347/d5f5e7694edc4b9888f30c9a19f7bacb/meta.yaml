@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/d5f5e7694edc4b9888f30c9a19f7bacb/artifacts
+deleted_time: 1730469115084
+end_time: 1730468275322
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: d5f5e7694edc4b9888f30c9a19f7bacb
+run_name: caring-asp-925
+run_uuid: d5f5e7694edc4b9888f30c9a19f7bacb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730468267453
+status: 3
+tags: []
+user_id: thiloweber

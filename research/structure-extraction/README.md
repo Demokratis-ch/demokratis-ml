@@ -17,3 +17,43 @@ This PDF is a Swiss German document proposing an amendment to a federal law, or 
 ```
 
 For the sample document [51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.pdf](./sample-documents/51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.pdf) this produces a [partially correct output](./sample-outputs/gpt4o-v1-51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.json) with several problems. In particular, parts of the document are missing and footnotes are not really referenced and are incomplete.
+
+## Evaluation
+For evaluation, different metrics and artifacts are logged to mlflow.
+From the parsed structured json a text file is generaated that is compared
+to direct text extractions from the PDF (with libraries pdfminer and PyPdf2).
+This comparison allows to check if important texts parts are missing,
+or hallucinated text has been added by the parsing model. 
+For a detailed comparison every PDF extraction needs to be checked manually
+using the HTML-Diff file (see below).
+
+Metrics:
+* `avg_percnt_added_chars`: Average of characters added by the parsing algorithm
+not existing in the extracted PDF texts.
+* `avg_percnt_missing_chars`: Average of characters missing in the parsing algorithm
+result compared to the extracted PDF texts. Some parts of the PDF texts might be 
+irrelevant, so some missing character might be correct.
+* `cost`: Cost of external parsing API's (e.g. openai)
+* `parsed_files`: Number of successfully parsed files. Sometimes errors occur
+in the external API calls.
+
+Artifacts:
+* `..._parsed.json`: Parsed output for each input PDF.
+* `..._pdfminer.html`: HTML-Diff file for each input PDF comparing the parsed
+text with directly extracted text. These files can be used to check for missing
+or hallucinated text parts.
+* `..._model.py`: Saved model for each run. Saved using mlflow models from code
+[https://mlflow.org/docs/latest/models.html#models-from-code]
+
+
+## Conclusion
+So far, the structure extraction with ChatGPT-File upload (see file
+`research/structure-extraction/scripts/chatgpt_file_upload.ipynb`) 
+doesn't work stable. Every run gives different results, some really good,
+others not so good. The PDF from Kanton ZH could never been parsed so far.
+Other extraction methods should be investigated, e.g.:
+* Nuextract: https://huggingface.co/learn/cookbook/en/information_extraction_haystack_nuextract
+* LlamaParse: https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/
+* PyMuPDF4LLM: https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html
+* ...
+

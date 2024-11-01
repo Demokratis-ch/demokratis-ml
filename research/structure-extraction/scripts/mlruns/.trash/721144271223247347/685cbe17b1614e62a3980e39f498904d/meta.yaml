@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/685cbe17b1614e62a3980e39f498904d/artifacts
+deleted_time: 1730469115084
+end_time: 1730365884225
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 685cbe17b1614e62a3980e39f498904d
+run_name: secretive-zebra-196
+run_uuid: 685cbe17b1614e62a3980e39f498904d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730308949515
+status: 4
+tags: []
+user_id: thiloweber

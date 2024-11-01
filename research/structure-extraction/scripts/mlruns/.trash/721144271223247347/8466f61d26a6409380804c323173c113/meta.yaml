@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/8466f61d26a6409380804c323173c113/artifacts
+deleted_time: 1730469115084
+end_time: 1730387560284
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: 8466f61d26a6409380804c323173c113
+run_name: rebellious-quail-646
+run_uuid: 8466f61d26a6409380804c323173c113
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730387552286
+status: 4
+tags: []
+user_id: thiloweber

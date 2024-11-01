@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/c84b696e75ec43a58cccbe7de18273a6/artifacts
+deleted_time: 1730469115084
+end_time: 1730388471760
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: c84b696e75ec43a58cccbe7de18273a6
+run_name: vaunted-stag-607
+run_uuid: c84b696e75ec43a58cccbe7de18273a6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730388465916
+status: 4
+tags: []
+user_id: thiloweber

@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/scripts/mlruns/721144271223247347/d1de478cd2214c3bbabecdff5bd0bfcb/artifacts
+deleted_time: 1730469115084
+end_time: 1730468291009
+entry_point_name: ''
+experiment_id: '721144271223247347'
+lifecycle_stage: deleted
+run_id: d1de478cd2214c3bbabecdff5bd0bfcb
+run_name: big-bat-302
+run_uuid: d1de478cd2214c3bbabecdff5bd0bfcb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730468283570
+status: 3
+tags: []
+user_id: thiloweber
