@@ -9,15 +9,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pandera>=0.20.4",
-    "pandas",
-    "langchain",
-    "langchain-community",
-    "langchain-openai",
-    "openai",
-    "mlflow",
-    "notebook",
-    "pdfminer.six",
-    "PyPDF2"
 ]
 
 [tool.uv]
