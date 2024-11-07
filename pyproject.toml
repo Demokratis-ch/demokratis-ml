@@ -31,10 +31,12 @@ ignore = [
     "RET504",  # unnecessary-assign
     "FBT",  # boolean trap
     "EM101",  # raw-string-in-exception
-    "FIX",  # flake8-fixme
     "TRY003",  # raise-vanilla-args
+    "FIX",  # flake8-fixme
     "TD",  # to do
+    "ERA001",  # `commented-out-code`; too strict since we're doing research?
     "D203",  # one-blank-line-before-class; we prefer `no-blank-line-before-class` (D211)
     "D212",  # `multi-line-summary-first-line`; do not enforce this little detail
     "D213",  # `multi-line-summary-second-line`; do not enforce this little detail
+    "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
 ]
