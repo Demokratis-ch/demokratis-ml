@@ -1,8 +1,7 @@
 <br>
 <div align="center">
   <a href="https://demokratis.ch" target="_blank">
-    <img width="300" src="logo.svg">
-  </a>
+    <img width="300" src="logo.svg"></a>
   <p>Consultation procedures for the people</p>
 
   <a href="https://demokratis.ch">Demokratis.ch</a> |
@@ -10,14 +9,11 @@
   <a href="mailto:team@demokratis.ch">team@demokratis.ch</a>
 
   <a href="https://github.com/astral-sh/uv">
-    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
-  </a>
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv"></a>
   <a href="https://github.com/astral-sh/ruff">
-    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff">
-  </a>
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
   <a href="https://github.com/demokratis-ch/demokratis-ml/blob/main/LICENSE.md">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Demokratis is released under the MIT License">
-  </a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Demokratis is released under the MIT License"></a>
 </div>
 <br>
 
