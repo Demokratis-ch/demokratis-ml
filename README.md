@@ -1,15 +1,21 @@
 <br>
 <div align="center">
-    <a href="https://demokratis.ch" target="_blank">
-        <img width="300" src="logo.svg">
-    </a>
-    <p>Consultation procedures for the people</p>
+  <a href="https://demokratis.ch" target="_blank">
+    <img width="300" src="logo.svg">
+  </a>
+  <p>Consultation procedures for the people</p>
 
   <a href="https://demokratis.ch">Demokratis.ch</a> |
   <a href="https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A">Slack</a> |
   <a href="mailto:team@demokratis.ch">team@demokratis.ch</a>
 
-   <a href="https://github.com/demokratis-ch/demokratis-ml/blob/main/LICENSE.md">
+  <a href="https://github.com/astral-sh/uv">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv">
+  </a>
+  <a href="https://github.com/astral-sh/ruff">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff">
+  </a>
+  <a href="https://github.com/demokratis-ch/demokratis-ml/blob/main/LICENSE.md">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Demokratis is released under the MIT License">
   </a>
 </div>
@@ -47,6 +53,13 @@ As a community-driven project in its early stages, we welcome your feedback and 
 [Join us on Slack](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) in the `#ml` channel to say hello, ask questions, and discuss our data and models.
 
 The challenges of understanding legal text with machine learning are complex. If you have experience in NLP or ML, we’d love your input! We can’t do this alone and appreciate any help or insights you can offer.
+
+
+### Tooling and code quality
+* We use [uv](https://docs.astral.sh/uv/) to manage dependencies. After cloning the repository, run `uv sync --dev` to install all dependencies.
+* To ensure code quality and enforce a common standard, we use [ruff](https://docs.astral.sh/ruff/) and [pre-commit](https://pre-commit.com/) to format code and eliminate common issues. To make sure pre-commit runs all checks automatically when you commit, install the git hooks with `uv run pre-commit install`.
+* We've started out with a fairly strict ruff configuration. We expect to loosen up some rules when they become too bothersome. A research project cannot be tied up with the same rules as a big production app. Still, it's a lot easier to start with strict rules and gradually soften them than going the other way around.
+* **All code must be auto-formatted** by ruff before being accepted into the repository. pre-commit hooks (or your code editor) will do that for you. To invoke the formatter manually, run `uv run ruff format your_file.py`. It works on Jupyter notebooks, too.
 
 <!--
 ### Repository structure
