@@ -67,3 +67,59 @@ def extract_text_from_pdf(pdf_path: str, pdf_library: Literal["pdfminer", "PyPDF
     text_pdf = format_pdf_text(text_pdf)
 
     return text_pdf
+
+
+def parse_markdown_to_json_schema(markdown):
+    """
+    Parses a markdown string into a defined JSON schema structure.
+    Args:
+        markdown (str): The markdown string to be parsed.
+    Returns:
+        dict: A JSON schema representation of the markdown content.
+            The structure includes:
+            - "label": A string label for the node.
+            - "type": The type of the node (e.g., "document", "heading", "list", "list_item", "content").
+            - "content": A list containing the content of the node.
+            - "children": A list of child nodes, each following the same structure.
+    """
+
+    lines = markdown.split('\n')
+    document = {"label": "", "type": "document", "content": [], "children": []}
+    stack = [document]
+    list_stack = []
+
+    for line in lines:
+        indent_level = line.find(line.lstrip())
+
+        line = line.strip()
+        if not line:
+            continue
+
+        if line.startswith('#'):
+            level = len(re.match(r'#+', line).group(0))
+            content = line[level:].strip()
+            node = {"label": str(level), "type": "heading", "content": [content], "children": []}
+            stack[-1]["children"].append(node)
+            stack.append(node)
+            list_stack = []
+        elif line.startswith('-'):
+            match = re.match(r'- \[(.*?)\] (.*)', line)
+            if match:
+                label, content = match.groups()
+                node = {"label": label, "type": "list_item", "indent_level": indent_level, "content": [content], "children": []}
+                if list_stack and list_stack[-1][0] == indent_level:
+                    list_stack[-1][1]["children"].append(node)
+                else:
+                    if not list_stack or list_stack[-1][0] < indent_level:
+                        list_node = {"label": "", "type": "list", "content": [], "children": []}
+                        stack[-1]["children"].append(list_node)
+                        list_stack.append((indent_level, list_node))
+                    list_stack[-1][1]["children"].append(node)
+                    stack.append(node)
+        else:
+            node = {"label": "", "type": "content", "content": [line], "children": []}
+            stack[-1]["children"].append(node)
+
+    return document
+
+
