@@ -18,7 +18,18 @@ This PDF is a Swiss German document proposing an amendment to a federal law, or 
 
 For the sample document [51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.pdf](./sample-documents/51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.pdf) this produces a [partially correct output](./sample-outputs/gpt4o-v1-51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2.json) with several problems. In particular, parts of the document are missing and footnotes are not really referenced and are incomplete.
 
-## Evaluation
+## Evaluation Tracking
+We use MLflow to track each test run of a specific model with specific parameters.
+1. Run local MLflow tracking server in terminal:
+````
+cd research && mlflow ui
+````
+2. Run model evaluations with Jupyter Notebook:
+````
+research/structure-extraction/scripts/run_model_evaluation.ipynb
+````
+
+## Evaluation Methods
 For evaluation, different metrics and artifacts are logged to mlflow.
 From the parsed structured json a text file is generaated that is compared
 to direct text extractions from the PDF (with libraries pdfminer and PyPdf2).
@@ -46,14 +57,27 @@ or hallucinated text parts.
 [https://mlflow.org/docs/latest/models.html#models-from-code]
 
 
-## Conclusion
-So far, the structure extraction with ChatGPT-File upload (see file
-`research/structure-extraction/scripts/chatgpt_file_upload.ipynb`) 
+## Parsing Models
+### ChatGPT-File upload
+So far, the structure extraction with ChatGPT-File upload 
 doesn't work stable. Every run gives different results, some really good,
 others not so good. The PDF from Kanton ZH could never been parsed so far.
+
+### LlamaParse and manual parsing
+Using LlamaParse for extracting markdown from PDF's, then parsing the markdown
+into the structured output using a manual python script.
+
+So far, the most stable approach. 
+But creating the correct output structure manually is quite difficult. 
+Still some problems, e.g., with nested lists.
+
+### LlamaParse and ChatGPT parsing
+Using LlamaParse for extracting markdown from PDF's, then parsing the markdown
+into the structured output using again ChatGPT.
+
+### Further possible investigations
 Other extraction methods should be investigated, e.g.:
 * Nuextract: https://huggingface.co/learn/cookbook/en/information_extraction_haystack_nuextract
-* LlamaParse: https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/
-* PyMuPDF4LLM: https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html
+* Unstructured: https://huggingface.co/learn/cookbook/rag_with_unstructured_data
 * ...
 

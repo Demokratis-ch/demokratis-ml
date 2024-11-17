@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/ba8c8de1f16b4171af404abec9ba17ff/artifacts
+end_time: 1731814487188
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: ba8c8de1f16b4171af404abec9ba17ff
+run_name: resilient-stag-478
+run_uuid: ba8c8de1f16b4171af404abec9ba17ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731814485529
+status: 3
+tags: []
+user_id: thiloweber

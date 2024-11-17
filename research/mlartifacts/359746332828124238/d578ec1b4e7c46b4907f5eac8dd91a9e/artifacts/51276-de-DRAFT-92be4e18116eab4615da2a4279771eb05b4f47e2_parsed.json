@@ -1,0 +1,220 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "I",
+            "type": "heading",
+            "content": [
+                "Das Bundesgesetz \u00fcber Radio und Fernsehen (RTVG)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Bundesversammlung der Schweizerischen Eidgenossenschaft, nach Einsicht in den Bericht der eidgen\u00f6ssischen Kommission f\u00fcr Verkehr und Fernmeldewesen des St\u00e4nderates und in die Stellungnahme des Bundesrates, beschliesst:"
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "1",
+                    "type": "heading",
+                    "content": [
+                        "\u00c4nderungen am RTVG"
+                    ],
+                    "children": [
+                        {
+                            "label": "Art. 1",
+                            "type": "heading",
+                            "content": [
+                                "Sach\u00fcberschrift, Abs. 1 und 1bis Gegenstand und Geltungsbereich"
+                            ],
+                            "children": [
+                                {
+                                    "label": "1",
+                                    "type": "content",
+                                    "content": [
+                                        "Dieses Gesetz regelt:"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "content": [],
+                                    "children": [
+                                        {
+                                            "label": "a)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die Veranstaltung, die Aufbereitung, die \u00dcbertragung und den Empfang von Radio- und Fernsehprogrammen."
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "b)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "1bis",
+                                    "type": "content",
+                                    "content": [
+                                        "Soweit in diesem Gesetz nichts anderes vorgesehen ist, richtet sich die fernmelde-technische \u00dcbertragung von Programmen nach dem Fernmeldegesetz vom 30. April 1997 (FMG)."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Art. 2",
+                            "type": "heading",
+                            "content": [
+                                "Bst. abis"
+                            ],
+                            "children": [
+                                {
+                                    "label": "1",
+                                    "type": "content",
+                                    "content": [
+                                        "In diesem Gesetz bedeuten:"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "content": [],
+                                    "children": [
+                                        {
+                                            "label": "abis.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Elektronische Medien: Medienangebote, die fernmeldetechnisch \u00fcbertragen werden, f\u00fcr die Allgemeinheit bestimmt sind und nach redaktionellen Kriterien zusammengestellt werden."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Art. 38",
+                            "type": "heading",
+                            "content": [
+                                "Abs. 3, 2. Satz"
+                            ],
+                            "children": [
+                                {
+                                    "label": "1",
+                                    "type": "content",
+                                    "content": [
+                                        "Eine Konzession mit Abgabenanteil erteilt."
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "2",
+                                    "type": "content",
+                                    "content": [
+                                        "Lokalen TV-Stationen mit einer eigenst\u00e4ndigen und regelm\u00e4ssigen Berichterstattung \u00fcber nationale und kantonale Politik kann eine zus\u00e4tzliche Konzession mit Abgabenanteil erteilt werden."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Art. 40",
+                            "type": "heading",
+                            "content": [
+                                "Abs. 1 Einleitungsteil und Abs. 2, 3. Satz"
+                            ],
+                            "children": [
+                                {
+                                    "label": "1",
+                                    "type": "content",
+                                    "content": [
+                                        "Die Abgabenanteile f\u00fcr Veranstalter betragen 6 bis 8 Prozent des Ertrages der Abgabe f\u00fcr Radio und Fernsehen."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Art. 68a",
+                            "type": "heading",
+                            "content": [
+                                "Abs. 1 Bst. h"
+                            ],
+                            "children": [
+                                {
+                                    "label": "1",
+                                    "type": "content",
+                                    "content": [
+                                        "Der Bundesrat bestimmt die H\u00f6he der Abgabe f\u00fcr Haushalte und f\u00fcr Unternehmen."
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "2",
+                                    "type": "content",
+                                    "content": [
+                                        "Massgebend ist der Bedarf f\u00fcr:"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "content": [],
+                                    "children": [
+                                        {
+                                            "label": "h.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien (Art. 76\u201376c)."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "II",
+            "type": "heading",
+            "content": [
+                "Sonstiges"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieses Gesetz untersteht dem fakultativen Referendum."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Bundesrat bestimmt das Inkrafttreten."
+                    ],
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

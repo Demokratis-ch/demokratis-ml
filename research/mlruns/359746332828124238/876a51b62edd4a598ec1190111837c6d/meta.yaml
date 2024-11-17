@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/876a51b62edd4a598ec1190111837c6d/artifacts
+end_time: 1731815039980
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: 876a51b62edd4a598ec1190111837c6d
+run_name: intelligent-bee-594
+run_uuid: 876a51b62edd4a598ec1190111837c6d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731815015486
+status: 3
+tags: []
+user_id: thiloweber

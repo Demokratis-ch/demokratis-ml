@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/3dc7ff51a2d84e2caec2f8a780fb9949/artifacts
+deleted_time: 1731815354227
+end_time: 1731815152171
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: deleted
+run_id: 3dc7ff51a2d84e2caec2f8a780fb9949
+run_name: sneaky-calf-903
+run_uuid: 3dc7ff51a2d84e2caec2f8a780fb9949
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731815129035
+status: 3
+tags: []
+user_id: thiloweber

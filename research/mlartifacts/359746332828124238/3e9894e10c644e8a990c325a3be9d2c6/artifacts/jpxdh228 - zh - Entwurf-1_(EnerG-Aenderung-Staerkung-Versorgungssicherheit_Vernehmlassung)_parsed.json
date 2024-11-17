@@ -1,0 +1,209 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "",
+            "type": "heading",
+            "content": [
+                "\u00c4nderung Energiegesetz, St\u00e4rkung der Versorgungssicherheit durch Solard\u00e4cher und Saisonspeicher"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "heading",
+            "content": [
+                "Vernehmlassung"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "heading",
+            "content": [
+                "Zusammenfassung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Umstieg von fossilen Heizungen auf W\u00e4rmepumpen sowie der Umstieg auf Elektromobilit\u00e4t wird in den n\u00e4chsten Jahrzehnten zu einem Anstieg des Stromverbrauchs f\u00fchren. Mittelfristig wird zudem die Stromerzeugung aus der Kernkraft in der Schweiz schrittweise zur\u00fcckgehen. Es ist jedoch nicht sicher, dass die Schweiz jederzeit gen\u00fcgend Strom aus dem Ausland importieren kann."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "I",
+            "type": "heading",
+            "content": [
+                "Besondere Massnahmen"
+            ],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "heading",
+                    "content": [
+                        "Energiesparmassnahmen und Nutzung erneuerbarer Energien"
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "a)",
+                    "type": "list",
+                    "content": [],
+                    "children": [
+                        {
+                            "label": "1)",
+                            "type": "list_item",
+                            "content": [
+                                "Auf grossen, geeigneten D\u00e4chern ist fl\u00e4chendeckend eine Solaranlage zu installieren, wenn dies technisch m\u00f6glich und wirtschaftlich ist und nicht \u00fcberwiegende \u00f6ffentliche Interessen entgegenstehen:"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "b)",
+                    "type": "list",
+                    "content": [],
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Neubauten,"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "bei der umfassenden Sanierung des Dachs oder sp\u00e4testens bis 2040."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "2",
+                    "type": "heading",
+                    "content": [
+                        "Wirtschaftlichkeitsnachweis"
+                    ],
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "content",
+                            "content": [
+                                "Von den Anforderungen ausgenommen ist, wer nachweist, dass bei Ber\u00fccksichtigung der Investitionskosten und der Betriebskosten sowie des Ertrags \u00fcber die Lebensdauer die Anlage nicht wirtschaftlich ist."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "II",
+            "type": "heading",
+            "content": [
+                "F\u00f6rderung der Energiespeicherung durch die Stromnetzbetreiber"
+            ],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "heading",
+                    "content": [
+                        "F\u00f6rderung der saisonalen Speicherung"
+                    ],
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "content",
+                            "content": [
+                                "Zur St\u00e4rkung der Stromversorgungssicherheit im Winterhalbjahr f\u00f6rdern die Netzbetreiber die saisonale Speicherung von Energie."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a)",
+                            "type": "list",
+                            "content": [],
+                            "children": [
+                                {
+                                    "label": "1.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "wettbewerbliche Ausschreibungen,"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "2.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "Unterst\u00fctzung von Projekten und Anlagen, die der Erprobung, Anwendung und Bekanntmachung von neuartigen Technologien und Prozessen dienen."
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "III",
+            "type": "heading",
+            "content": [
+                "Schlussbestimmungen"
+            ],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "heading",
+                    "content": [
+                        "Vollzug"
+                    ],
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "content",
+                            "content": [
+                                "Der Regierungsrat regelt durch Verordnung:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a)",
+                            "type": "list",
+                            "content": [],
+                            "children": [
+                                {
+                                    "label": "1.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "die Durchf\u00fchrung der kantonalen Energieplanung,"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "2.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "die Rechte und Pflichten der Beteiligten bei der Mitwirkung an der Energieplanung."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

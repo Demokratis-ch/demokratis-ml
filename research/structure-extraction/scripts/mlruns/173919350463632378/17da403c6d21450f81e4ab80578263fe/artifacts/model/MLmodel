@@ -1,0 +1,21 @@
+artifact_path: model
+flavors:
+  python_function:
+    cloudpickle_version: 3.1.0
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.loaders.code_model
+    model_code_path: /Users/thiloweber/Repositories/demokratis-ml/research/structure-extraction/models/llama_parse_markdown_model.py
+    python_version: 3.12.7
+    streamable: false
+mlflow_version: 2.17.2
+model_size_bytes: 13911
+model_uuid: 3ed3f284b1984e82af3fb46d5a7527b8
+run_id: 17da403c6d21450f81e4ab80578263fe
+signature:
+  inputs: '[{"type": "string", "required": true}]'
+  outputs: null
+  params: null
+utc_time_created: '2024-11-15 16:49:11.476769'

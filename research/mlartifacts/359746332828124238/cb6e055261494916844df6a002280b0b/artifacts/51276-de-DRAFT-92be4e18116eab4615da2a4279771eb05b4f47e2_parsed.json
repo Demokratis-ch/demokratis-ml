@@ -1,0 +1,603 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vorentwurf"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Dies ist der Inhalt des Vorentwurfs. Weitere Informationen finden Sie im Dokument."
+            ],
+            "children": []
+        },
+        {
+            "label": "[^1]",
+            "type": "footnote",
+            "content": [
+                "Dies ist eine Fu\u00dfnote und bietet zus\u00e4tzliche Informationen."
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Hier ist ein weiterer Abschnitt des Dokuments, der zus\u00e4tzliche Informationen enth\u00e4lt."
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Bundesgesetz \u00fcber Radio und Fernsehen (RTVG)"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "(Abgabenanteile f\u00fcr lokale Radio- und regionale Fernsehveranstalter und F\u00f6rdermassnahmen zugunsten der elektronischen Medien)"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "\u00c4nderung vom ..."
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Die Bundesversammlung der Schweizerischen Eidgenossenschaft, nach Einsicht in den Bericht der eidgen\u00f6ssischen Kommission f\u00fcr Verkehr und Fernmeldewesen des St\u00e4nderates [Datum des Entscheids der Kommission][^BBl 2024 ...] und in die Stellungnahme des Bundesrates vom [Datum][^BBl 2024 ...], beschliesst: "
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Minderheit (Friedli Esther, Stark)"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Nichteintreten"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "I"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das Bundesgesetz vom 24. M\u00e4rz 2006[^SR 784.40] \u00fcber Radio und Fernsehen wird wie folgt ge\u00e4ndert:"
+            ],
+            "children": []
+        },
+        {
+            "label": "BBl 2024 ...",
+            "type": "footnote",
+            "content": [
+                "Datum des Entscheids der Kommission"
+            ],
+            "children": []
+        },
+        {
+            "label": "BBl 2024 ...",
+            "type": "footnote",
+            "content": [
+                "Datum"
+            ],
+            "children": []
+        },
+        {
+            "label": "SR 784.40",
+            "type": "footnote",
+            "content": [
+                "Bundesgesetz vom 24. M\u00e4rz 2006"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 1 Sach\u00fcberschrift, Abs. 1 und 1bis"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Gegenstand und Geltungsbereich"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "1.",
+                    "type": "list_item",
+                    "content": [
+                        "Dieses Gesetz regelt:"
+                    ],
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list",
+                            "content": [],
+                            "children": [
+                                {
+                                    "label": "a.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "die Veranstaltung, die Aufbereitung, die \u00dcbertragung und den Empfang von Radio- und Fernsehprogrammen;"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "b.",
+                                    "type": "list_item",
+                                    "content": [
+                                        "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "1bis.",
+                    "type": "list_item",
+                    "content": [
+                        "Soweit in diesem Gesetz nichts anderes vorgesehen ist, richtet sich die fernmeldetechnische \u00dcbertragung von Programmen nach dem Fernmeldegesetz vom 30. April 1997[^1]."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 2 Bst. a^bis"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "In diesem Gesetz bedeuten:",
+                ""
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list_item",
+                    "content": [],
+                    "children": [
+                        {
+                            "label": "abis.",
+                            "type": "footnote",
+                            "content": [
+                                "Elektronische Medien: Medienangebote, die fernmeldetechnisch \u00fcbertragen werden, f\u00fcr die Allgemeinheit bestimmt sind und nach redaktionellen Kriterien zusammengestellt werden;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 38 Abs. 3, 2. Satz"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Minderheit (Stark, Broulis, Friedli Esther, H\u00e4berli-Koller)"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list_item",
+                    "content": [],
+                    "children": [
+                        {
+                            "label": "3",
+                            "type": "footnote",
+                            "content": [
+                                "... eine Konzession mit Abgabenanteil erteilt. Lokalen TV-Stationen mit einer eigenst\u00e4ndigen und regelm\u00e4ssigen Berichterstattung \u00fcber nationale und kantonale Politik kann eine zus\u00e4tzliche Konzession mit Abgabenanteil erteilt werden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list_item",
+                    "content": [],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 40 Abs. 1 Einleitungsteil und Abs. 2, 3. Satz"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Die Abgabenanteile f\u00fcr Veranstalter mit Abgabenanteil nach Artikel 68a Absatz 1 Buchstabe b betragen 6 bis 8 Prozent des Ertrages der Abgabe f\u00fcr Radio und Fernsehen. Der Bundesrat bestimmt:"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "list_item",
+                    "content": [
+                        "... inklusive Verbreitungskosten erbringen muss. Es legt die jeweiligen Anteile der Konzession\u00e4re so fest, dass sie sich unter Ber\u00fccksichtigung der Teuerung und im Vergleich zur letzten Konzessionsperiode angemessen erh\u00f6hen."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "footnote",
+            "content": [],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "footnote",
+                    "content": [
+                        "Die Abgabenanteile f\u00fcr Veranstalter mit Abgabenanteil nach Artikel 68a Absatz 1 Buchstabe b betragen 6 bis 8 Prozent des Ertrages der Abgabe f\u00fcr Radio und Fernsehen."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "2",
+                    "type": "footnote",
+                    "content": [
+                        "... inklusive Verbreitungskosten erbringen muss. Es legt die jeweiligen Anteile der Konzession\u00e4re so fest, dass sie sich unter Ber\u00fccksichtigung der Teuerung und im Vergleich zur letzten Konzessionsperiode angemessen erh\u00f6hen."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 68a Abs. 1 Bst. h"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list_item",
+                    "content": [
+                        "Der Bundesrat bestimmt die H\u00f6he der Abgabe f\u00fcr Haushalte und f\u00fcr Unternehmen. Massgebend ist der Bedarf f\u00fcr:"
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "h",
+                    "type": "list_item",
+                    "content": [
+                        "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien (Art. 76\u201376c)."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Kapitel: F\u00f6rdermassnahmen zugunsten der elektronischen Medien"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 76 Aus- und Weiterbildung"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das BAKOM kann unabh\u00e4ngige Institutionen, die dauerhaft praxisnahe Aus- und Weiterbildungen f\u00fcr redaktionell t\u00e4tige Mitarbeitende von elektronischen Medien anbieten, auf ihr Gesuch hin finanziell unterst\u00fctzen, insbesondere Grundausbildungen und Weiterbildungen im Informationsjournalismus.[^1]",
+                "Die Diplome und Zertifikate dieser Institutionen m\u00fcssen von der Branche anerkannt sein.[^2]"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "Einf\u00fcgen der Art. 76a\u201376c vor dem Gliederungstitel des 4. Kapitels"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "footnote",
+            "content": [
+                "Das BAKOM kann unabh\u00e4ngige Institutionen, die dauerhaft praxisnahe Aus- und Weiterbildungen f\u00fcr redaktionell t\u00e4tige Mitarbeitende von elektronischen Medien anbieten, auf ihr Gesuch hin finanziell unterst\u00fctzen, insbesondere Grundausbildungen und Weiterbildungen im Informationsjournalismus."
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "footnote",
+            "content": [
+                "Die Diplome und Zertifikate dieser Institutionen m\u00fcssen von der Branche anerkannt sein."
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 76a Selbstregulierung der Branche"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das BAKOM kann in der Branche anerkannte Organisationen, die Regeln f\u00fcr die journalistische Praxis entwickeln und deren Einhaltung beaufsichtigen, auf ihr Gesuch hin finanziell unterst\u00fctzen."
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 76b Agenturleistungen"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das BAKOM kann Nachrichtenagenturen und Agenturen f\u00fcr audiovisuelle Inhalte auf ihr Gesuch hin finanziell unterst\u00fctzen, sofern es sich um Agenturen von nationaler Bedeutung handelt und ihr Angebot auf Deutsch, Franz\u00f6sisch und Italienisch gleichwertig ist."
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das Gesuch muss begr\u00fcndet sein."
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Das Aussch\u00fctten von Dividenden w\u00e4hrend der Dauer der Finanzierung durch das BAKOM ist untersagt."
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Die SRG kann mit Nachrichtenagenturen zusammenarbeiten oder sich daran beteiligen."
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 76c Gemeinsame Bestimmungen"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "list_item",
+                    "content": [
+                        "Das BAKOM bemisst die Beitr\u00e4ge nach den Artikeln 76\u201376b aufgrund der anrechenbaren Kosten der gef\u00f6rderten T\u00e4tigkeiten."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "2",
+                    "type": "list_item",
+                    "content": [
+                        "Der Bundesrat legt den Anteil der anrechenbaren Kosten fest; der Anteil betr\u00e4gt h\u00f6chstens 80 Prozent."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "3",
+                    "type": "list_item",
+                    "content": [
+                        "Er regelt die Anrechenbarkeit der Kosten und die daf\u00fcr zu liefernden Nachweise so, dass nur Leistungen zugunsten elektronischer Medien ber\u00fccksichtigt werden."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "4",
+                    "type": "list_item",
+                    "content": [
+                        "Die Beitr\u00e4ge werden aus dem Ertrag der Abgabe f\u00fcr Radio und Fernsehen entrichtet (Art. 68a). Der Anteil betr\u00e4gt h\u00f6chstens ein Prozent des gesamten Ertrags der Abgabe."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "footnote",
+            "content": [],
+            "children": []
+        },
+        {
+            "label": "###",
+            "type": "heading",
+            "content": [
+                "Art. 76c Abs. 2bis"
+            ],
+            "children": []
+        },
+        {
+            "label": "-",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "2bis.",
+                    "type": "list_item",
+                    "content": [
+                        "Die Unterst\u00fctzungsbeitr\u00e4ge werden im Verh\u00e4ltnis zur Summe der Beitr\u00e4ge der Tr\u00e4ger der unterst\u00fctzten Organisationen geleistet. Ausgangspunkt daf\u00fcr ist die Summe der Tr\u00e4gerbeitr\u00e4ge im Jahr 2024."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Minderheit (Stark, Friedli Esther, H\u00e4berli-Koller)",
+                "Minderheit (Friedli Esther, Stark, Wicki)"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Kapitel: F\u00f6rdermassnahmen zugunsten der elektronischen Medien"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "streichen"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "(Betrifft auch Untertitel, Art. 1 Abs. 1 Bst. b, Art. 2 Bst. a[^bis] und Art. 68a, Abs. 1, Bst. h: streichen)"
+            ],
+            "children": []
+        },
+        {
+            "label": "III",
+            "type": "heading",
+            "content": [
+                "II"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "list",
+            "content": [],
+            "children": [
+                {
+                    "label": "1.",
+                    "type": "list_item",
+                    "content": [
+                        "Dieses Gesetz untersteht dem fakultativen Referendum."
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "2.",
+                    "type": "list_item",
+                    "content": [
+                        "Der Bundesrat bestimmt das Inkrafttreten."
+                    ],
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

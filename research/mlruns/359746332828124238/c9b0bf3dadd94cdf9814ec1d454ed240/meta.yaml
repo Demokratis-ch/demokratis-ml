@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/c9b0bf3dadd94cdf9814ec1d454ed240/artifacts
+end_time: 1731815335760
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: c9b0bf3dadd94cdf9814ec1d454ed240
+run_name: nervous-snail-577
+run_uuid: c9b0bf3dadd94cdf9814ec1d454ed240
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731815313025
+status: 3
+tags: []
+user_id: thiloweber
