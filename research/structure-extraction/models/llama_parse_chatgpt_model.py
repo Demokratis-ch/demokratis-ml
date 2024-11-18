@@ -188,7 +188,6 @@ class LlamaParseMarkdownParser(PythonModel):
         return json.loads(response.choices[0].message.content), response.usage.prompt_tokens, response.usage.completion_tokens
 
 
-
     def nodes_to_json(self, nodes):
         """
         Convert a list of Node objects to a JSON schema.

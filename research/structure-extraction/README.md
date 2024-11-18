@@ -20,14 +20,15 @@ For the sample document [51276-de-DRAFT-92be4e18116eab4615da2a4279771eb05b4f47e2
 
 ## Evaluation Tracking
 We use MLflow to track each test run of a specific model with specific parameters.
-1. Run local MLflow tracking server in terminal:
+1. Run local MLflow tracking server in terminal, this creates and writes to the directories `research/mlruns` and `research/mlartifacts`:
 ````
 cd research && mlflow ui
 ````
-2. Run model evaluations with Jupyter Notebook:
+2. Run model evaluations with Jupyter Notebook, the evaluation results are loged to the local MLflow tracking server:
 ````
 research/structure-extraction/scripts/run_model_evaluation.ipynb
 ````
+3. Current and old evaluation results can be inspected and compared by opening the MLflow-GUI in a browser: `http://localhost:5000/` or `http://127.0.0.1:5000/`.
 
 ## Evaluation Methods
 For evaluation, different metrics and artifacts are logged to mlflow.
@@ -50,7 +51,7 @@ in the external API calls.
 
 Artifacts:
 * `..._parsed.json`: Parsed output for each input PDF.
-* `..._pdfminer.html`: HTML-Diff file for each input PDF comparing the parsed
+* `..._pdfminer.html` and `...pypdf2.html`: HTML-Diff file for each input PDF comparing the parsed
 text with directly extracted text. These files can be used to check for missing
 or hallucinated text parts.
 * `..._model.py`: Saved model for each run. Saved using mlflow models from code
@@ -59,25 +60,40 @@ or hallucinated text parts.
 
 ## Parsing Models
 ### ChatGPT-File upload
-So far, the structure extraction with ChatGPT-File upload 
+Pipleline:
+1. Uploading PDF files ChatGPT assistant API: https://platform.openai.com/docs/assistants/tools/file-search
+2. Asking ChatGPT to generate the desired output structure from the uploaded files.
+
+Notes:
+- So far, the structure extraction with ChatGPT-File upload 
 doesn't work stable. Every run gives different results, some really good,
-others not so good. The PDF from Kanton ZH could never been parsed so far.
+others not so good. 
+- Structured output with JSON-schema doesn't seem to be supported for assistant API with file-search so far: https://community.openai.com/t/structured-outputs-with-assistants/900658/15
+- The PDF from Kanton ZH could never been parsed so far.
 
-### LlamaParse and manual parsing
-Using LlamaParse for extracting markdown from PDF's, then parsing the markdown
-into the structured output using a manual python script.
+### LlamaParse and manual parsing (BEST pipeline so far)
+Pipeline:
+1. Using LlamaParse for extracting markdown from PDF's,
+2. splitting markdown into nodes using `llama_index.core.node_parser.MarkdownNodeParser`
+3. parsing each node into the structured output with a manual python function,
+4. merging all parsed nodes to one document.
 
-So far, the most stable approach. 
-But creating the correct output structure manually is quite difficult. 
-Still some problems, e.g., with nested lists.
+Notes:
+- So far, the most stable approach. 
+- Creating the correct output structure manually is quite difficult. There are still some parsing problems, e.g., with nested lists. --> Could be improved with extra brain work...
 
 ### LlamaParse and ChatGPT parsing
-Using LlamaParse for extracting markdown from PDF's, then parsing the markdown
-into the structured output using again ChatGPT.
+Pipline: Same as above, but using ChatGPT in step 3. instead of manual python function for parsing each node.
+
+Notes:
+- Time and cost are about twice the direct ChatGPT approach.
+- Now, with the completions API we can use strucuted outputs to submit the JSON-schema to ChatGPT: https://platform.openai.com/docs/guides/structured-outputs
+- Still, the parsed structure doen't seem very stable to me...
 
 ### Further possible investigations
 Other extraction methods should be investigated, e.g.:
-* Nuextract: https://huggingface.co/learn/cookbook/en/information_extraction_haystack_nuextract
-* Unstructured: https://huggingface.co/learn/cookbook/rag_with_unstructured_data
-* ...
+- LlamaParse JSON response and continous_mode: I have tried the request so far at the bottom of the script `research/structure-extraction/scripts/run_model_evaluation.ipynb`, section "Trying out stuff..."
+- Nuextract: https://huggingface.co/learn/cookbook/en/information_extraction_haystack_nuextract
+- Unstructured: https://huggingface.co/learn/cookbook/rag_with_unstructured_data
+- ...
 
