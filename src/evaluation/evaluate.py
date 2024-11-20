@@ -1,6 +1,9 @@
 from typing import Dict, Any, Tuple, List
 import difflib
 import re
+import json
+import jsonschema
+import os
 
 
 def flatten_dict_and_extract_text(d: Dict[str, Any], parent_key: str = '', sep: str = '_') -> Dict[str, Any]:
@@ -34,7 +37,7 @@ def remove_extra_newlines(text):
     return re.sub(r'\n+(?=\n{1})', '', text)
 
 
-def extract_text_from_structured_dict(d: Dict[str, Any]) -> str:
+def extract_text_from_structured_dict_old(d: Dict[str, Any]) -> str:
     """
     Extracts and merges text values from a structured dictionary.
     This function flattens a nested dictionary and extracts text values. It then merges
@@ -72,6 +75,43 @@ def extract_text_from_structured_dict(d: Dict[str, Any]) -> str:
         else:
             text_values.append(v)
 
+    return "\n".join(text_values)
+
+
+def extract_text_from_structured_dict(d: Dict[str, Any]) -> str:
+    """
+    Extracts and merges text values from a structured dictionary.
+    This function flattens a nested dictionary and extracts text values. It then merges
+    specific pairs of text values based on predefined key suffix combinations.
+    Args:
+        d (dict): The structured dictionary to extract text from.
+    Returns:
+        str: A single string containing the merged text values, separated by newlines.
+    Note:
+        The function merges text values based on the following key suffix combinations:
+        - ("article", "title")
+        - ("number", "text")
+        - ("index", "text")
+        - ("footnote_id", "title")
+    """
+
+    flattened_dict = flatten_dict_and_extract_text(d)
+    flattened_dict = {
+        k: v for k, v in flattened_dict.items() 
+        if "content" in k or "label" in k or "type" in k
+        }
+
+    text_values = []
+    for i, (k, v) in enumerate(flattened_dict.items()):
+        if i > 2:
+            prev2_key = list(flattened_dict.keys())[i - 2]
+            prev_key = list(flattened_dict.keys())[i - 1]
+            if "label" in prev2_key and flattened_dict[prev_key]!='heading' and "content" in k:
+                text_values.append(f"{flattened_dict[prev2_key]} {v}".strip())
+            elif "label" in prev2_key and flattened_dict[prev_key]=='heading' and "content" in k:
+                text_values.append(str(v))
+        else:
+            text_values.append(str(v))
     return "\n".join(text_values)
 
 
@@ -206,5 +246,30 @@ def get_costs(model: str, input_tokens: List[int], output_tokens: List[int]) -> 
         costs.append(total_cost)
 
     return costs
+
+
+def validate_json_schema(parsed_dicts: List[Dict[str, Any]]) -> List[bool]:
+    """
+    Validates the JSON schema of the parsed dictionaries.
+    Args:
+        parsed_dicts (List[Dict[str, Any]]): A list of parsed dictionaries to validate.
+    Returns:
+        List[bool]: A list of boolean values indicating whether the JSON schema is valid for each parsed dictionary.
+    """
+    
+    # Open and load the schema JSON file
+    path = os.path.join(os.path.dirname(__file__), 'json_schema.json')
+    with open(path, 'r') as file:
+        schema = json.load(file)
+
+    result = []
+    for parsed_dict in parsed_dicts:
+        try:
+            jsonschema.validate(parsed_dict, schema)
+            result.append(True)
+        except jsonschema.exceptions.ValidationError:
+            result.append(False)
+
+    return result
 
 

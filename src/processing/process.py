@@ -103,9 +103,10 @@ def parse_markdown_to_json_schema(markdown):
             stack.append(node)
             list_stack = []
         elif line.startswith('-'):
-            match = re.match(r'- \[(.*?)\] (.*)', line)
+            match = re.match(r'- (\[.*?\] *)?(.*)', line)
             if match:
                 label, content = match.groups()
+                label = label.strip('[] ') if label else ""
                 node = {"label": label, "type": "list_item", "indent_level": indent_level, "content": [content], "children": []}
                 if list_stack and list_stack[-1][0] == indent_level:
                     list_stack[-1][1]["children"].append(node)
@@ -116,10 +117,15 @@ def parse_markdown_to_json_schema(markdown):
                         list_stack.append((indent_level, list_node))
                     list_stack[-1][1]["children"].append(node)
                     stack.append(node)
+        elif list_stack:
+            # If previous line was a list item, add content to the father of the list
+            node = {"label": "", "type": "content", "content": [line], "children": []}
+            stack[-2]["children"].append(node)
         else:
             node = {"label": "", "type": "content", "content": [line], "children": []}
             stack[-1]["children"].append(node)
 
     return document
+
 
 

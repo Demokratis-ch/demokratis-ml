@@ -59,7 +59,7 @@ or hallucinated text parts.
 
 
 ## Parsing Models
-### ChatGPT-File upload
+### 1 - ChatGPT-File upload
 Pipleline:
 1. Uploading PDF files ChatGPT assistant API: https://platform.openai.com/docs/assistants/tools/file-search
 2. Asking ChatGPT to generate the desired output structure from the uploaded files.
@@ -71,7 +71,7 @@ others not so good.
 - Structured output with JSON-schema doesn't seem to be supported for assistant API with file-search so far: https://community.openai.com/t/structured-outputs-with-assistants/900658/15
 - The PDF from Kanton ZH could never been parsed so far.
 
-### LlamaParse and manual parsing (BEST pipeline so far)
+### 2 - LlamaParse and manual parsing (BEST pipeline so far)
 Pipeline:
 1. Using LlamaParse for extracting markdown from PDF's,
 2. splitting markdown into nodes using `llama_index.core.node_parser.MarkdownNodeParser`
@@ -82,7 +82,7 @@ Notes:
 - So far, the most stable approach. 
 - Creating the correct output structure manually is quite difficult. There are still some parsing problems, e.g., with nested lists. --> Could be improved with extra brain work...
 
-### LlamaParse and ChatGPT parsing
+### 3 - LlamaParse and ChatGPT parsing
 Pipline: Same as above, but using ChatGPT in step 3. instead of manual python function for parsing each node.
 
 Notes:
@@ -95,5 +95,6 @@ Other extraction methods should be investigated, e.g.:
 - LlamaParse JSON response and continous_mode: I have tried the request so far at the bottom of the script `research/structure-extraction/scripts/run_model_evaluation.ipynb`, section "Trying out stuff..."
 - Nuextract: https://huggingface.co/learn/cookbook/en/information_extraction_haystack_nuextract
 - Unstructured: https://huggingface.co/learn/cookbook/rag_with_unstructured_data
+- MinerU: https://github.com/opendatalab/MinerU 
 - ...
 
