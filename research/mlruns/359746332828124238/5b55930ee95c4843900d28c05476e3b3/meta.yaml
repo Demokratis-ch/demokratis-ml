@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/359746332828124238/5b55930ee95c4843900d28c05476e3b3/artifacts
+deleted_time: 1732282041625
 end_time: 1731814989026
 entry_point_name: ''
 experiment_id: '359746332828124238'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 5b55930ee95c4843900d28c05476e3b3
 run_name: suave-flea-568
 run_uuid: 5b55930ee95c4843900d28c05476e3b3

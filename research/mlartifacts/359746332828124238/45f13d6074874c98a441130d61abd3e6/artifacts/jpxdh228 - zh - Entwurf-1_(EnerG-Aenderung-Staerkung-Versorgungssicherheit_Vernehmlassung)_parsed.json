@@ -1,0 +1,124 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "I",
+            "type": "heading",
+            "content": [
+                "Zielsetzung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gem\u00e4ss Art. 6 Abs. 2 EnG ist die Energieversorgung Sache der Energiewirtschaft. Bund und Kantone sorgen f\u00fcr die Rahmenbedingungen, die erforderlich sind, damit die Energiewirtschaft diese Aufgabe im Gesamtinteresse erf\u00fcllen kann. Weiter sorgt der Kanton gem\u00e4ss Art. 106 Kantonsverfassung (LS 101) f\u00fcr eine sichere und wirtschaftliche Elektrizit\u00e4tsversorgung. Die bereits getroffenen Massnahmen sowie der gegenw\u00e4rtige PV-Ausbau leisten einen wichtigen Beitrag, sind allerdings noch nicht ausreichend zur Sicherung der Stromversorgung, insbesondere in den kritischen Wintermonaten."
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "II",
+            "type": "heading",
+            "content": [
+                "Vorschrift zur Stromerzeugung auf grossen D\u00e4chern"
+            ],
+            "children": [
+                {
+                    "label": "10d",
+                    "type": "heading",
+                    "content": [
+                        "Solaranlagen auf grossen D\u00e4chern"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Auf grossen, geeigneten D\u00e4chern ist fl\u00e4chendeckend eine Solaranlage zu installieren, wenn dies technisch m\u00f6glich und wirtschaftlich ist und nicht \u00fcberwiegende \u00f6ffentliche Interessen entgegenstehen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list",
+                            "content": [],
+                            "children": [
+                                {
+                                    "label": "a)",
+                                    "type": "list_item",
+                                    "content": [
+                                        "bei Neubauten"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "b)",
+                                    "type": "list_item",
+                                    "content": [
+                                        "bei der umfassenden Sanierung des Dachs oder sp\u00e4testens bis 2040."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "Von den Anforderungen ausgenommen ist, wer nachweist, dass bei Ber\u00fccksichtigung der Investitionskosten und der Betriebskosten sowie des Ertrags \u00fcber die Lebensdauer die Anlage nicht wirtschaftlich ist."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3",
+                            "type": "content",
+                            "content": [
+                                "Die Verordnung regelt die Einzelheiten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "III",
+            "type": "heading",
+            "content": [
+                "Besondere Massnahmen"
+            ],
+            "children": [
+                {
+                    "label": "1",
+                    "type": "heading",
+                    "content": [
+                        "Energiesparmassnahmen und Nutzung erneuerbarer Energien"
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "label": "IV",
+            "type": "heading",
+            "content": [
+                "Schlussbestimmungen"
+            ],
+            "children": [
+                {
+                    "label": "17",
+                    "type": "content",
+                    "content": [
+                        "Der Regierungsrat regelt durch Verordnung:"
+                    ],
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "footnotes": {}
+}

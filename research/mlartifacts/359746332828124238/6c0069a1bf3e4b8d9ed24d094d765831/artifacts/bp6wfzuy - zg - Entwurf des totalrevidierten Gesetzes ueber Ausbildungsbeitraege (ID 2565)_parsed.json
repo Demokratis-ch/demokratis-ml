@@ -1,0 +1,208 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "",
+            "type": "heading",
+            "content": [
+                "Gesetz \u00fcber Ausbildungsbeitr\u00e4ge"
+            ],
+            "children": [
+                {
+                    "label": "\u00a7 1",
+                    "type": "heading",
+                    "content": [
+                        "Zweck"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Der Kanton leistet im Rahmen der Interkantonalen Vereinbarung zur Harmonisierung von Ausbildungsbeitr\u00e4gen nach diesem Gesetz und dessen Ausf\u00fchrungsbestimmungen Beitr\u00e4ge an die Schulungs- und Lebenshaltungskosten w\u00e4hrend den beitragsberechtigten Ausbildungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 2",
+                    "type": "heading",
+                    "content": [
+                        "Beitragsarten"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Beitr\u00e4ge werden als Stipendien bzw. Darlehen oder als Arbeitsmarktstipendien gew\u00e4hrt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "Stipendien sind einmalige oder wiederkehrende Beitr\u00e4ge ohne R\u00fcckzahlungspflicht."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3",
+                            "type": "content",
+                            "content": [
+                                "Darlehen sind Beitr\u00e4ge, die nach Abschluss der Ausbildung verzinst und zur\u00fcckbezahlt werden m\u00fcssen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4",
+                            "type": "content",
+                            "content": [
+                                "Arbeitsmarktstipendien werden gew\u00e4hrt f\u00fcr Weiterbildungen, die dem Erwerb, dem Erhalt und der St\u00e4rkung der Arbeitsmarktf\u00e4higkeit dienen. Sie werden ausgerichtet als:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "a)",
+                                    "type": "list_item",
+                                    "content": [
+                                        "Beitrag an die anerkannten Kosten der Weiterbildung;"
+                                    ],
+                                    "children": []
+                                },
+                                {
+                                    "label": "b)",
+                                    "type": "list_item",
+                                    "content": [
+                                        "Erwerbsersatz an den weiterbildungsbedingten Erwerbsausfall."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 3",
+                    "type": "heading",
+                    "content": [
+                        "Subsidiarit\u00e4t"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Beitr\u00e4ge werden gew\u00e4hrt, wenn die finanzielle Leistungsf\u00e4higkeit der Person in Ausbildung, deren Eltern und anderer gesetzlich Verpflichteter nicht ausreicht."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "Vorbehalten bleibt die Regelung von Darlehen bei Weiterbildung und Zweitausbildung bzw. zweitem Hochschulabschluss sowie diejenige bei den Arbeitsmarktstipendien."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 4",
+                    "type": "heading",
+                    "content": [
+                        "Beitragsberechtigte Ausbildungsarten"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Die beitragsberechtigten Ausbildungen und Weiterbildungen legt der Regierungsrat durch Verordnung fest."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 5",
+                    "type": "heading",
+                    "content": [
+                        "Beitragsberechtigte Personen"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Die Beitragsberechtigung f\u00fcr Stipendien und Darlehen richtet sich nach der Interkantonalen Vereinbarung zur Harmonisierung von Ausbildungsbeitr\u00e4gen. Der Regierungsrat regelt das Weitere durch Verordnung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "Die Beitragsberechtigung f\u00fcr die Arbeitsmarktstipendien regelt der Regierungsrat durch Verordnung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 6",
+                    "type": "heading",
+                    "content": [
+                        "Gesuche"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Die Gesuche sind der Stipendienstelle mit den erforderlichen Unterlagen einzureichen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "Versp\u00e4tet eingereichte Gesuche werden einzig f\u00fcr die verbleibende Zeit eines Ausbildungsjahrs ber\u00fccksichtigt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "\u00a7 7",
+                    "type": "heading",
+                    "content": [
+                        "Massgebender Wohnsitz"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Der stipendienrechtliche Wohnsitz f\u00fcr Stipendien und Darlehen bestimmt sich nach der Interkantonalen Vereinbarung zur Harmonisierung von Ausbildungsbeitr\u00e4gen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "content",
+                            "content": [
+                                "F\u00fcr die Bewilligung von Arbeitsmarktstipendien muss die gesuchstellende Person bei Beginn der Weiterbildung seit zwei Jahren ununterbrochen im Kanton Zug wohnhaft sein."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

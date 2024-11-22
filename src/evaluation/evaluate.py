@@ -136,20 +136,45 @@ def percnt_missing_and_added_characters(parsed_dicts: List, extracted_texts: Lis
             remove_extra_newlines(text_res_flat).splitlines()
         ))
 
-        text_len = len(extracted_texts)
+        text_len = len(extracted_text)
         num_missing_characters = sum(
-                [len(line)-2 for i, line in enumerate(diff) 
-                if line.startswith('- ') and (not diff[i+1].startswith('? ') if i<len(diff)-1 else True)]
-                ) + sum(
-                    [sum(c == '-' for c in line) for line in diff if line.startswith('? ')]
-                    )
+            [
+                len(line)-2 if (
+                    line.startswith('- ') 
+                    and (not diff[i+1].startswith('? ') if i<len(diff)-1 else True)
+                    and (not (diff[i+1].startswith('+ ') and diff[i+2].startswith('? ')) if i<len(diff)-2 else True)
+                ) else 0
+                for i, line in enumerate(diff) 
+            ]
+            ) + sum(
+                [
+                    len(re.findall(r'[\-^]', line)) if (
+                        line.startswith('? ')
+                        and (diff[i-1].startswith('- ') if i>0 else False)
+                    ) else 0
+                    for i, line in enumerate(diff)
+                ]
+                )
 
         num_added_characters = sum(
-                [len(line)-2 for i, line in enumerate(diff) 
-                if line.startswith('+ ') and (not diff[i-1].startswith('? ') if i>0 else True)]
+                [
+                    len(line)-2 if (
+                        line.startswith('+ ') 
+                        and (not diff[i-1].startswith('? ') if i>0 else True)
+                        and (not diff[i+1].startswith('? ') if i<len(diff)-1 else True)
+                    ) else 0
+                    for i, line in enumerate(diff)
+                ]
                 ) + sum(
-                    [sum(c == '^' for c in line) for line in diff if line.startswith('? ')]
-                    )
+                [
+                    len(re.findall(r'[+^]', line)) if (
+                        line.startswith('? ')
+                        and (diff[i-1].startswith('+ ') if i>0 else False)
+                    ) else 0
+                    for i, line in enumerate(diff)
+                ]
+                )
+
         
         percnt_missing_characters.append(num_missing_characters / text_len)
         percnt_added_characters.append(num_added_characters / text_len)

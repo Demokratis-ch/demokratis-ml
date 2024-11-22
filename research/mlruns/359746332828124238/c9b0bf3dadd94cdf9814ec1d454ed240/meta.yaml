@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/359746332828124238/c9b0bf3dadd94cdf9814ec1d454ed240/artifacts
+deleted_time: 1732282041624
 end_time: 1731815335760
 entry_point_name: ''
 experiment_id: '359746332828124238'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: c9b0bf3dadd94cdf9814ec1d454ed240
 run_name: nervous-snail-577
 run_uuid: c9b0bf3dadd94cdf9814ec1d454ed240

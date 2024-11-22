@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/45f13d6074874c98a441130d61abd3e6/artifacts
+end_time: 1732281416524
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: 45f13d6074874c98a441130d61abd3e6
+run_name: nervous-fish-986
+run_uuid: 45f13d6074874c98a441130d61abd3e6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732281357016
+status: 3
+tags: []
+user_id: thiloweber

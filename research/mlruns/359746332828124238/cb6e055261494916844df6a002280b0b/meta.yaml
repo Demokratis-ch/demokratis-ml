@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/359746332828124238/cb6e055261494916844df6a002280b0b/artifacts
+deleted_time: 1732282041623
 end_time: 1731815973270
 entry_point_name: ''
 experiment_id: '359746332828124238'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: cb6e055261494916844df6a002280b0b
 run_name: magnificent-ant-231
 run_uuid: cb6e055261494916844df6a002280b0b
