@@ -1,10 +1,32 @@
+import logging
+import os
 import pathlib
 from collections.abc import Iterable
 
+import boto3
 import pandas as pd
 import pandera as pa
 
 from demokratis_ml.data import schemata
+
+
+def ensure_dataframe_is_available(local_path: pathlib.Path) -> None:
+    """Download a dataframe from an Exoscale Simple Object Storage bucket if it is not already available locally."""
+    logger = logging.getLogger("ensure_dataframe_is_available")
+    if local_path.exists():
+        logger.info("File %s already exists locally.", local_path)
+        return
+    s3 = boto3.client(
+        "s3",
+        aws_access_key_id=os.environ["EXOSCALE_SOS_ACCESS_KEY"],
+        aws_secret_access_key=os.environ["EXOSCALE_SOS_SECRET_KEY"],
+        endpoint_url=os.environ["EXOSCALE_SOS_ENDPOINT"],
+    )
+    bucket_name = os.environ["EXOSCALE_SOS_BUCKET"]
+    remote_path = pathlib.Path("dataframes") / local_path.name
+    local_path.parent.mkdir(parents=True, exist_ok=True)
+    logger.warning("Downloading %s from bucket %s to %s", remote_path, bucket_name, local_path)
+    s3.download_file(bucket_name, str(remote_path), local_path)
 
 
 @pa.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
