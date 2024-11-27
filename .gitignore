@@ -2,8 +2,8 @@ data/consultation-documents/*
 data/dataframes/*
 data/embeddings-cache/*
 
-research/document-types/mlruns.db
-research/document-types/mlruns/*
+research/document_types/mlruns.db
+research/document_types/mlruns/*
 
 .vscode/*
 
@@ -23,8 +23,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/

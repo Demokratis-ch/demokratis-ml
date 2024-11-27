@@ -66,7 +66,7 @@ class EmbeddingsCache:
         return self._cache[cache_key]
 
     # I don't know how to simplify this function at the moment.
-    def get_embeddings_batch[InputType: (str, list[int])](  # noqa: C901
+    def get_embeddings_batch[InputType: (str, list[int])](
         self,
         inputs: list[InputType],
         batched_embedding_function: Callable[[list[InputType]], np.ndarray],
@@ -92,7 +92,7 @@ class EmbeddingsCache:
             batch_embeddings = batched_embedding_function(batch_inputs)
             initialize_resulting_embeddings(batch_embeddings[0])
             # Cache embeddings and insert them into the result
-            for i, batch_input, batch_embedding in zip(batch_indices, batch_inputs, batch_embeddings):
+            for i, batch_input, batch_embedding in zip(batch_indices, batch_inputs, batch_embeddings, strict=False):
                 self._cache[self._generate_cache_key(batch_input)] = batch_embedding
                 resulting_embeddings[i] = batch_embedding
             # Reset batch

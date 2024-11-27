@@ -5,10 +5,11 @@ import pathlib
 from collections.abc import Callable, Iterator
 from typing import Any, ClassVar
 
-import embeddings_cache
 import numpy as np
 import openai
 import tiktoken
+
+from research.lib import embeddings_cache
 
 
 class EmbeddingModel(abc.ABC):

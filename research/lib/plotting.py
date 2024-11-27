@@ -20,7 +20,7 @@ def plot_classification_report_heatmap(
     df_metrics = pd.DataFrame(report).iloc[:-1, :].transpose()
     df_support = pd.DataFrame(report).transpose()[["support"]]
     # Remove the support totals so that the color scale is not affected by them.
-    for total_cell in {"micro avg", "macro avg", "weighted avg", "samples avg"}:
+    for total_cell in ("micro avg", "macro avg", "weighted avg", "samples avg"):
         df_support.loc[total_cell] = np.nan
 
     sns.heatmap(df_metrics, cmap="coolwarm", ax=ax1, cbar=False, annot=True, fmt=".2f")
