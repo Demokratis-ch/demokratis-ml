@@ -445,7 +445,7 @@ dev = [
 requires-dist = [
     { name = "boto3", specifier = ">=1.35.69" },
     { name = "httpx", specifier = ">=0.27.2" },
-    { name = "iterative-stratification" },
+    { name = "iterative-stratification", specifier = ">=0.1.9" },
     { name = "lingua-language-detector", specifier = ">=2.0.2" },
     { name = "matplotlib", specifier = ">=3.9.2" },
     { name = "mlflow", specifier = ">=2.18.0" },

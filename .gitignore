@@ -1,5 +1,6 @@
 data/consultation-documents/*
 data/dataframes/*
+data/embeddings-cache/*
 
 research/document-types/mlruns.db
 research/document-types/mlruns/*

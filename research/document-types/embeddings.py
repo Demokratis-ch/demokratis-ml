@@ -5,11 +5,10 @@ import pathlib
 from collections.abc import Callable, Iterator
 from typing import Any, ClassVar
 
+import embeddings_cache
 import numpy as np
 import openai
 import tiktoken
-
-import embeddings_cache
 
 
 class EmbeddingModel(abc.ABC):
@@ -69,7 +68,7 @@ def create_embedding_model(model_name: str) -> EmbeddingModel:
 @contextlib.contextmanager
 def use_cache(
     model: EmbeddingModel,
-    cache_directory: pathlib.Path = pathlib.Path("data/embeddings-cache"),
+    cache_directory: pathlib.Path,
     tqdm: Any | None = None,
 ) -> Iterator[Callable[[list[str] | list[list[int]]], np.ndarray]]:
     """
