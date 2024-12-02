@@ -71,12 +71,21 @@ We obtain information about federal and cantonal consultations through APIs and 
 
 The documents are almost always just PDFs. We also get some metadata for the consultation itself, e.g. its title, starting and ending dates, and perhaps a short description.
 
-See the Pandera schemata in [data/schemata.py](data/schemata.py) for a complete specification of the data we have on consultations and their documents.
+See the Pandera schemata in [demokratis_ml/data/schemata.py](demokratis_ml/data/schemata.py) for a complete specification of the data we have on consultations and their documents.
 
+### Data acquisition and preprocessing
 We use data from two main sources:
 
 * [Fedlex](https://www.fedlex.admin.ch/) for federal ("Bund") consultations.
 * [Open Parl Data](https://opendata.ch/projects/openparldata/) for cantonal consultations.
+
+Document and consultation data is ingested from these sources into the Demokratis web platform running at [Demokratis.ch](https://demokratis.ch).
+The web platform is our main source of truth. In addition to making the data available to end users, it also runs an admin interface
+that we use for manual review and correction of our database of consultations and their documents.
+
+To transform the web platform data into a dataset for training models, we run a Prefect pipeline:
+[demokratis_ml/pipelines/preprocess_consultation_documents.py](demokratis_ml/pipelines/preprocess_consultation_documents.py).
+The result of this pipeline is a Parquet file conforming to the above-mentioned dataframe schema.
 
 > [!NOTE]
 > We are currently working with our data providers to make our compiled, enriched datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
@@ -108,7 +117,7 @@ We are also awaiting consent from our data providers before making the datasets 
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
 
 #### Our datasets
-To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [data/schemata.py:CONSULTATION_TOPICS](data/schemata.py#L7).
+To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [demokratis_ml/data/schemata.py:CONSULTATION_TOPICS](demokratis_ml/data/schemata.py#L10).
 
 #### Our models
 To increase the breadth of input for the models, we first classify individual *documents*, even though all documents of a given consultation obviously fall into the same topics. To then predict the topics of the consultation itself, we let the document outputs "vote" on the final set of topics. This approach has proven to be effective because we are giving the model more data to learn from, as opposed to classifying consultations directly – in which case we have to pick a limited number of documents, drastically concatenate them etc.
@@ -156,7 +165,7 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 
 
 ### III. Classifying document types
-Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [data/schemata.py:DOCUMENT_TYPES](data/schemata.py#L32).)
+Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py#L35).)
 
 ![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
 
