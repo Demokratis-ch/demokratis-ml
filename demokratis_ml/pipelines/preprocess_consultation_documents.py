@@ -1,4 +1,4 @@
-"""Preprocess consultation documents; see the `preprocess_data` flow for details."""
+"""Prefect pipeline for preprocessing consultation documents; see the `preprocess_data` flow for details."""
 
 import datetime
 import functools

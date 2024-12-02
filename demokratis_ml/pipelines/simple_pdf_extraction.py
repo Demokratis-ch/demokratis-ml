@@ -1,4 +1,4 @@
-"""Plain text extraction from PDF files using PyMuPDF."""
+"""Utility code for extracting plain text from PDF files."""
 
 import pymupdf
 

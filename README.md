@@ -73,10 +73,19 @@ The documents are almost always just PDFs. We also get some metadata for the con
 
 See the Pandera schemata in [demokratis_ml/data/schemata.py](demokratis_ml/data/schemata.py) for a complete specification of the data we have on consultations and their documents.
 
+### Data acquisition and preprocessing
 We use data from two main sources:
 
 * [Fedlex](https://www.fedlex.admin.ch/) for federal ("Bund") consultations.
 * [Open Parl Data](https://opendata.ch/projects/openparldata/) for cantonal consultations.
+
+Document and consultation data is ingested from these sources into the Demokratis web platform running at [Demokratis.ch](https://demokratis.ch).
+The web platform is our main source of truth. In addition to making the data available to end users, it also runs an admin interface
+that we use for manual review and correction of our database of consultations and their documents.
+
+To transform the web platform data into a dataset for training models, we run a Prefect pipeline:
+[demokratis_ml/pipelines/preprocess_consultation_documents.py](demokratis_ml/pipelines/preprocess_consultation_documents.py).
+The result of this pipeline is a Parquet file conforming to the above-mentioned dataframe schema.
 
 > [!NOTE]
 > We are currently working with our data providers to make our compiled, enriched datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
