@@ -1,3 +1,5 @@
+"""Utilities for selecting and loading input data."""
+
 import logging
 import os
 import pathlib
@@ -6,6 +8,7 @@ from collections.abc import Iterable
 import boto3
 import pandas as pd
 import pandera as pa
+from mlflow import MlflowClient
 
 from demokratis_ml.data import schemata
 
@@ -36,14 +39,14 @@ def ensure_dataframe_is_available(local_path: pathlib.Path) -> None:
 
 
 @pa.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
-def load_consultation_documents(
+def load_consultation_documents(  # noqa: PLR0913
     input_file: pathlib.Path,
     *,
     only_document_sources: Iterable[str] | None = None,
     only_languages: Iterable[str] | None = None,
     only_doc_types: Iterable[str] | None = None,
     starting_year: int | None = None,
-    mlflow=None,
+    mlflow: MlflowClient | None = None,
 ) -> pd.DataFrame:
     """Load and filter consultation documents from a parquet file.
 
@@ -58,7 +61,7 @@ def load_consultation_documents(
     if only_languages is not None:
         df = df[df["document_language"].isin(only_languages)]
     if only_doc_types is not None:
-        assert set(only_doc_types) <= schemata.DOCUMENT_TYPES, f"Unknown doc types: {only_doc_types}"
+        assert set(only_doc_types) - {None} <= schemata.DOCUMENT_TYPES, f"Unknown doc types: {only_doc_types}"
         df = df[df["document_type"].isin(only_doc_types)]
     if starting_year is not None:
         df = df[df["consultation_start_date"].dt.year >= starting_year]
