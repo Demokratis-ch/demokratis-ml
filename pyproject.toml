@@ -57,4 +57,5 @@ ignore = [
     "D213",  # `multi-line-summary-second-line`; do not enforce this little detail
     "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
     "INP001",  # `implicit-namespace-package`; nonsense for some directories
+    "ANN401",  # `any-type`; sometimes it's better than trying to describe the type accurately
 ]

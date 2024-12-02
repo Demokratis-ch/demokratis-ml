@@ -2,6 +2,9 @@ data/consultation-documents/*
 data/dataframes/*.parquet
 data/embeddings-cache/*.parquet
 
+research/consultation_topics/mlruns.db
+research/consultation_topics/mlruns/*
+
 research/document_types/mlruns.db
 research/document_types/mlruns/*
 

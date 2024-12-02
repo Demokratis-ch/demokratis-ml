@@ -4,11 +4,11 @@ import logging
 import os
 import pathlib
 from collections.abc import Iterable
+from typing import Any
 
 import boto3
 import pandas as pd
 import pandera as pa
-from mlflow import MlflowClient
 
 from demokratis_ml.data import schemata
 
@@ -46,7 +46,7 @@ def load_consultation_documents(  # noqa: PLR0913
     only_languages: Iterable[str] | None = None,
     only_doc_types: Iterable[str] | None = None,
     starting_year: int | None = None,
-    mlflow: MlflowClient | None = None,
+    mlflow: Any = None,
 ) -> pd.DataFrame:
     """Load and filter consultation documents from a parquet file.
 

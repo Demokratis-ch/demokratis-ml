@@ -1,9 +1,22 @@
+from collections.abc import Callable
+from typing import Any
+
 import matplotlib.figure
 import matplotlib.pyplot as plt
+import mlflow
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn.metrics
+
+
+def plot_and_log(plot_function: Callable, mlflow_file_name: str, **plot_kwargs: Any) -> matplotlib.figure.Figure:
+    """Plot and log the figure to MLFlow."""
+    fig, ax = plt.subplots()
+    plot_function(ax=ax, **plot_kwargs)
+    mlflow.log_figure(fig, mlflow_file_name)
+    plt.close(fig)
+    return fig
 
 
 def plot_classification_report_heatmap(
@@ -11,6 +24,7 @@ def plot_classification_report_heatmap(
     predictions: np.ndarray,
     target_names: list[str],
 ) -> matplotlib.figure.Figure:
+    """Colorize the standard sklearn classification report like a heatmap."""
     report = sklearn.metrics.classification_report(
         ground_truth, predictions, target_names=target_names, output_dict=True
     )
@@ -37,13 +51,15 @@ def plot_score_against_support(
     predictions: np.ndarray,
     target_names: list[str],
     score_metric: str = "f1-score",
+    ylim: tuple[float, float] = (0.0, 1.0),
 ) -> matplotlib.figure.Figure:
+    """Plot a scatter plot of the score metric against the support for each class."""
     report = pd.DataFrame(
         sklearn.metrics.classification_report(ground_truth, predictions, target_names=target_names, output_dict=True)
     ).transpose()
     report = report[["support", score_metric]]
-    report.drop(["micro avg", "macro avg", "weighted avg", "samples avg"], inplace=True)
-    report.sort_values(by="support", inplace=True)
+    report = report.drop(["micro avg", "macro avg", "weighted avg", "samples avg"])
+    report = report.sort_values(by="support")
 
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x="support", y=score_metric, data=report, ax=ax)
@@ -53,6 +69,6 @@ def plot_score_against_support(
             (report["support"].iloc[i], report[score_metric].iloc[i]),
             fontsize=8,
         )
-    plt.ylim(0.0, 1.0)
+    plt.ylim(*ylim)
     plt.close(fig)
     return fig
