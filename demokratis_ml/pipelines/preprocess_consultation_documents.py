@@ -28,6 +28,10 @@ CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE = pd.Timestamp("2024-08-20T
 """ For consultations reviewed after this date, the topics are considered to be manually
 reviewed and of the highest quality. """
 
+OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE = pd.Timestamp("2024-11-01T00:00:00")
+""" For OpenParlData consultations ingested into the platform after this date, we can trust the document type.
+Before this date, the document type wasn't consistently reviewed and defaulted to VARIOUS_TEXT."""
+
 
 @prefect.flow(
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
@@ -56,16 +60,22 @@ def preprocess_data(publish: bool) -> pd.DataFrame:
 
     # Language is unreliable for cantonal documents => detect it.
     # This assumes that we do have the content of cantonal documents retrieved from the API.
-    index = df["document_source"] == "openparldata"
-    detected_languages = detect_document_language(df.loc[index])
-    # TODO: log the % difference between detected_languages and df.loc[index, "document_language"]
-    df.loc[index, "document_language"] = detected_languages
+    openparldata_index = df["document_source"] == "openparldata"
+    detected_languages = detect_document_language(df.loc[openparldata_index])
+    # TODO: log the % difference between detected_languages and df.loc[openparldata_index, "document_language"]
+    df.loc[openparldata_index, "document_language"] = detected_languages
+    # Remove document_type labels that are not guaranteed to be correct.
+    df.loc[
+        openparldata_index
+        & (df["consultation_start_date"] < OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE),
+        "document_type",
+    ] = None
 
     # Download Fedlex documents and extract text
-    index = df["document_source"] == "fedlex"
-    assert df.loc[index, "document_content_plain"].isna().all(), "Fedlex documents should not have content yet"
-    extracted_content = download_documents_and_extract_content(df.loc[index])
-    df.loc[index, "document_content_plain"] = extracted_content
+    fedlex_index = df["document_source"] == "fedlex"
+    assert df.loc[fedlex_index, "document_content_plain"].isna().all(), "Fedlex documents should not have content yet"
+    extracted_content = download_documents_and_extract_content(df.loc[fedlex_index])
+    df.loc[fedlex_index, "document_content_plain"] = extracted_content
 
     # Drop documents that still don't have any content
     missing_content = df[df["document_content_plain"].isna()]
