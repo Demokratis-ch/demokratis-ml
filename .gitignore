@@ -1,5 +1,9 @@
 data/consultation-documents/*
-data/dataframes/*
+data/dataframes/*.parquet
+data/embeddings-cache/*.parquet
+
+research/document_types/mlruns.db
+research/document_types/mlruns/*
 
 .vscode/*
 
@@ -19,8 +23,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
