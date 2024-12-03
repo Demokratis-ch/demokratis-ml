@@ -2,6 +2,8 @@
 
 import os
 
+import prefect.filesystems
+
 from demokratis_ml.pipelines.blocks import DemokratisAPICredentials, ExtendedLocalFileSystem
 
 demokratis_api_credentials = DemokratisAPICredentials(
@@ -19,4 +21,16 @@ local_dataframe_storage = ExtendedLocalFileSystem(basepath="data/dataframes")
 local_dataframe_storage.save("local-dataframe-storage", overwrite=True)
 
 
-# TODO: define equivalent storages on Exoscale SOS.
+# TODO: define document storage on Exoscale SOS.
+
+remote_dataframe_storage = prefect.filesystems.RemoteFileSystem(
+    basepath=f"s3://{os.environ['EXOSCALE_SOS_BUCKET']}/dataframes",
+    settings={
+        "key": os.environ["EXOSCALE_SOS_ACCESS_KEY"],
+        "secret": os.environ["EXOSCALE_SOS_SECRET_KEY"],
+        "client_kwargs": {
+            "endpoint_url": os.environ["EXOSCALE_SOS_ENDPOINT"],
+        },
+    },
+)
+remote_dataframe_storage.save("remote-dataframe-storage", overwrite=True)

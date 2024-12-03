@@ -19,7 +19,7 @@ uv run prefect block register --file demokratis_ml/pipelines/blocks.py
 Run this to create block documents (configured block instances), and repeat every time they change:
 
 ```
-PYTHONPATH=. uv run demokratis_ml/pipelines/create_blocks.py
+PYTHONPATH=. uv run --env-file=.env demokratis_ml/pipelines/create_blocks.py
 ```
 
 Note that you will need some environment variables defined to correctly configure some secrets.

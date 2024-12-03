@@ -5,6 +5,7 @@ import functools
 import hashlib
 import pathlib
 import re
+import sys
 
 import httpx
 import lingua
@@ -15,6 +16,7 @@ import pandera as pa
 import prefect
 import prefect.blocks.core
 import prefect.cache_policies
+import prefect.filesystems
 import prefect.futures
 import prefect.logging
 import prefect.task_runners
@@ -32,7 +34,7 @@ reviewed and of the highest quality. """
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
 )
 @pa.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
-def preprocess_data() -> pd.DataFrame:
+def preprocess_data(publish: bool) -> pd.DataFrame:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
@@ -42,6 +44,8 @@ def preprocess_data() -> pd.DataFrame:
     - Store the resulting dataframe in a Parquet file.
 
     Only documents with non-empty content are kept in the final dataframe.
+
+    :param publish: If true, upload the resulting dataframe to our remote S3-like storage.
     """
     logger = prefect.logging.get_run_logger()
 
@@ -70,11 +74,12 @@ def preprocess_data() -> pd.DataFrame:
             "Missing content for %d documents (%.1f%%):\n%r",
             len(missing_content),
             100 * len(missing_content) / len(df),
-            missing_content.groupby("document_source").size(),
+            missing_content.groupby("document_source", observed=False).size(),
         )
         df = df[~df["document_content_plain"].isna()]
 
     # Store the dataframe
+    logger.info("Serialising dataframe with %d rows to Parquet", len(df))
     data = df.to_parquet(compression="gzip")
     # TODO: switch between local and S3 storage based on the environment
     fs = blocks.ExtendedLocalFileSystem.load("local-dataframe-storage")
@@ -84,6 +89,11 @@ def preprocess_data() -> pd.DataFrame:
         logger.warning("Overwriting existing file %r", path)
     logger.info("Writing %d rows, %.1f MiB to %r", len(df), len(data) / 1024**2, path)
     fs.write_path(path, data)
+
+    if publish:
+        remote_fs = prefect.filesystems.RemoteFileSystem.load("remote-dataframe-storage")
+        logger.info("Uploading to %s/%s", remote_fs.basepath, path)
+        remote_fs.write_path(str(path), data)
 
     return df
 
@@ -137,6 +147,10 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     df.loc[~manual_index & (df["document_source"] == "fedlex"), column] = "organisation_rule"
     df[column] = df[column].astype("category")
     logger.info("Topics label source (documents):\n%r", df[column].value_counts())
+    logger.info(
+        "Topics label source (consultations):\n%r",
+        df.groupby("consultation_id").agg({column: "first"}).value_counts(),
+    )
 
     # Cast to the correct types
     for time_column in ("consultation_start_date", "consultation_end_date", "consultation_reviewed_at"):
@@ -366,5 +380,6 @@ def extract_text_from_pdf(local_path_pdf: pathlib.Path, local_path_txt: pathlib.
 
 
 if __name__ == "__main__":
-    df = preprocess_data()
+    publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
+    df = preprocess_data(publish)
     print(df)
