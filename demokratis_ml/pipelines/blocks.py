@@ -20,6 +20,15 @@ class DemokratisAPICredentials(prefect.blocks.core.Block):
 DemokratisAPICredentials.register_type_and_schema()
 
 
+class HuggingFaceDatasetUploadCredentials(prefect.blocks.core.Block):
+    """Authentication token for uploading datasets to HuggingFace."""
+
+    token: pydantic.SecretStr
+
+
+HuggingFaceDatasetUploadCredentials.register_type_and_schema()
+
+
 class ExtendedLocalFileSystem(prefect.filesystems.LocalFileSystem):
     """Local filesystem with extra methods."""
 

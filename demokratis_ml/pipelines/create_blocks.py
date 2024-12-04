@@ -4,13 +4,23 @@ import os
 
 import prefect.filesystems
 
-from demokratis_ml.pipelines.blocks import DemokratisAPICredentials, ExtendedLocalFileSystem
+from demokratis_ml.pipelines.blocks import (
+    DemokratisAPICredentials,
+    ExtendedLocalFileSystem,
+    HuggingFaceDatasetUploadCredentials,
+)
 
 demokratis_api_credentials = DemokratisAPICredentials(
     username=os.environ["DEMOKRATIS_API_USERNAME"],
     password=os.environ["DEMOKRATIS_API_PASSWORD"],
 )
 demokratis_api_credentials.save("demokratis-api-credentials", overwrite=True)
+
+
+hf_credentials = HuggingFaceDatasetUploadCredentials(
+    token=os.environ["HF_TOKEN"],
+)
+hf_credentials.save("huggingface-dataset-upload-credentials", overwrite=True)
 
 
 local_document_storage = ExtendedLocalFileSystem(basepath="data/consultation-documents")

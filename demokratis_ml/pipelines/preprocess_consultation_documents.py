@@ -8,6 +8,7 @@ import re
 import sys
 
 import httpx
+import huggingface_hub
 import lingua
 import magic
 import numpy as np
@@ -49,7 +50,8 @@ def preprocess_data(publish: bool) -> pd.DataFrame:
 
     Only documents with non-empty content are kept in the final dataframe.
 
-    :param publish: If true, upload the resulting dataframe to our remote S3-like storage.
+    :param publish: If true, upload the resulting dataframe to our remote S3-like storage and our public
+        HuggingFace dataset repository.
     """
     logger = prefect.logging.get_run_logger()
 
@@ -101,11 +103,36 @@ def preprocess_data(publish: bool) -> pd.DataFrame:
     fs.write_path(path, data)
 
     if publish:
+        # Dispatch the HuggingFace upload task and the remote storage upload task in parallel.
+        hf_upload = upload_to_huggingface.submit(
+            repository_id="demokratis/consultation-documents",
+            # No need to include the date in the filename, as the HF dataset is a Git repository.
+            file_name="consultation-documents-preprocessed.parquet",
+            data=data,
+        )
+        # Remote storage upload
         remote_fs = prefect.filesystems.RemoteFileSystem.load("remote-dataframe-storage")
         logger.info("Uploading to %s/%s", remote_fs.basepath, path)
         remote_fs.write_path(str(path), data)
+        # Wait for the HuggingFace upload to finish before returning
+        hf_upload.result()
 
     return df
+
+
+@prefect.task()
+def upload_to_huggingface(repository_id: str, file_name: str, data: bytes) -> None:
+    """Upload our resulting preprocessed dataframe to our HuggingFace dataset repository."""
+    logger = prefect.logging.get_run_logger()
+    logger.info("Uploading to HuggingFace repository %s, file %s", repository_id, file_name)
+    hf_token = blocks.HuggingFaceDatasetUploadCredentials.load("huggingface-dataset-upload-credentials").token
+    hf_api = huggingface_hub.HfApi(token=hf_token.get_secret_value())
+    hf_api.upload_file(
+        repo_id=repository_id,
+        path_in_repo=file_name,
+        path_or_fileobj=data,
+        repo_type="dataset",
+    )
 
 
 def _get_document_storage() -> blocks.ExtendedLocalFileSystem:
