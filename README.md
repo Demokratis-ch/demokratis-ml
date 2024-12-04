@@ -6,7 +6,8 @@
 
   <a href="https://demokratis.ch">Demokratis.ch</a> |
   <a href="https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A">Slack</a> |
-  <a href="mailto:team@demokratis.ch">team@demokratis.ch</a>
+  <a href="mailto:team@demokratis.ch">team@demokratis.ch</a> |
+  <a href="https://huggingface.co/demokratis">🤗 demokratis</a>
 
   <a href="https://github.com/astral-sh/uv">
     <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv"></a>
@@ -87,8 +88,10 @@ To transform the web platform data into a dataset for training models, we run a 
 [demokratis_ml/pipelines/preprocess_consultation_documents.py](demokratis_ml/pipelines/preprocess_consultation_documents.py).
 The result of this pipeline is a Parquet file conforming to the above-mentioned dataframe schema.
 
-> [!NOTE]
-> We are currently working with our data providers to make our compiled, enriched datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
+### Our data is public
+Our preprocessed dataset is automatically published to HuggingFace and you can download it directly from
+[🤗 demokratis/consultation-documents](https://huggingface.co/datasets/demokratis/consultation-documents).
+Don't hesitate to [talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) if you have any questions about the data!
 
 <!--
 ### The federal dataset: Fedlex
@@ -105,13 +108,13 @@ After completing our initial research, we are now open-sourcing our ML work to e
 
 For problems where solid solutions have been developed, we'll be productizing the models and displaying their outputs on the main [Demokratis.ch](https://demokratis.ch) website — always with a human reviewer involved.
 
-We are also awaiting consent from our data providers before making the datasets publicly available.
-
 | Problem | Public dataset? | Open-source code/model? | Initial research | Proof of concept model | Deployed in production |
 |-|-|-|-|-|-|
-| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ❌ | ❌ | ✅ | ✅ | ❌
-| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | ❌ | ❌ | ✅ | ❌ | ❌
-| [III. Classifying document types](#iii-classifying-document-types) | ❌ | ❌ | ✅ | ✅ | ❌
+| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ✅ | ❌ | ✅ | ✅ | ❌
+| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ❌ | ✅ | ❌ | ❌
+| [III. Classifying document types](#iii-classifying-document-types) | ✅ | ❌ | ✅ | ✅ | ❌
+
+_*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
 ### I. Classifying consultation topics
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
