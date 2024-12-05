@@ -1,0 +1,27 @@
+[data]
+data_file_name = "consultation-documents-preprocessed-2024-11-26.parquet"
+document_sources = ["fedlex"]#, "openparldata"]
+languages = ["de"] # "fr", "it", ]
+from_year = 2000 # 2010
+doc_types = [
+    "LETTER",
+    "DRAFT",
+    "RECIPIENT_LIST",
+    "REPORT",
+    "FINAL_REPORT",
+    "OPINION",
+    "VARIOUS_TEXT",
+    "SYNOPTIC_TABLE",
+    "SURVEY",
+    "RESPONSE_FORM",
+    # None,  # Many openparldata documents don't have a known type
+]
+
+[training]
+embedding_model = "openai/text-embedding-3-large" # "openai/text-embedding-ada-002"
+cv_folds = 5
+test_size = 0.1
+random_state = 42
+
+[tracking]
+tracking_uri = "sqlite:///mlruns.db"
