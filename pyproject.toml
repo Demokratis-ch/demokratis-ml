@@ -8,7 +8,18 @@ description = "Machine learning for Swiss consultation procedures"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "httpx>=0.27.2",
+    "huggingface-hub>=0.26.3",
+    "lingua-language-detector>=2.0.2",
+    "numpy>=1.26.4",
     "pandera>=0.20.4",
+    "prefect>=3.1.1",
+    "pyarrow>=18.1.0",
+    "pymupdf>=1.24.14",
+    "python-dotenv>=1.0.1",
+    "python-magic>=0.4.27",
+    "s3fs[boto3]>=2024.10.0",
+    "tqdm>=4.67.1",
 ]
 
 [tool.uv]
@@ -34,10 +45,12 @@ ignore = [
     "RET504",  # unnecessary-assign
     "FBT",  # boolean trap
     "EM101",  # raw-string-in-exception
-    "FIX",  # flake8-fixme
     "TRY003",  # raise-vanilla-args
+    "FIX",  # flake8-fixme
     "TD",  # to do
+    "ERA001",  # `commented-out-code`; too strict since we're doing research?
     "D203",  # one-blank-line-before-class; we prefer `no-blank-line-before-class` (D211)
     "D212",  # `multi-line-summary-first-line`; do not enforce this little detail
     "D213",  # `multi-line-summary-second-line`; do not enforce this little detail
+    "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
 ]

@@ -1,17 +1,20 @@
 <br>
 <div align="center">
-    <a href="https://demokratis.ch" target="_blank">
-        <img width="300" src="logo.svg">
-    </a>
-    <p>Consultation procedures for the people</p>
+  <a href="https://demokratis.ch" target="_blank">
+    <img width="300" src="logo.svg"></a>
+  <p>Consultation procedures for the people</p>
 
   <a href="https://demokratis.ch">Demokratis.ch</a> |
   <a href="https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A">Slack</a> |
-  <a href="mailto:team@demokratis.ch">team@demokratis.ch</a>
+  <a href="mailto:team@demokratis.ch">team@demokratis.ch</a> |
+  <a href="https://huggingface.co/demokratis">🤗 demokratis</a>
 
-   <a href="https://github.com/demokratis-ch/demokratis-ml/blob/main/LICENSE.md">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Demokratis is released under the MIT License">
-  </a>
+  <a href="https://github.com/astral-sh/uv">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json" alt="uv"></a>
+  <a href="https://github.com/astral-sh/ruff">
+    <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
+  <a href="https://github.com/demokratis-ch/demokratis-ml/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Demokratis is released under the MIT License"></a>
 </div>
 <br>
 
@@ -48,6 +51,13 @@ As a community-driven project in its early stages, we welcome your feedback and 
 
 The challenges of understanding legal text with machine learning are complex. If you have experience in NLP or ML, we’d love your input! We can’t do this alone and appreciate any help or insights you can offer.
 
+
+### Tooling and code quality
+* We use [uv](https://docs.astral.sh/uv/) to manage dependencies. After cloning the repository, run `uv sync --dev` to install all dependencies.
+* To ensure code quality and enforce a common standard, we use [ruff](https://docs.astral.sh/ruff/) and [pre-commit](https://pre-commit.com/) to format code and eliminate common issues. To make sure pre-commit runs all checks automatically when you commit, install the git hooks with `uv run pre-commit install`.
+* We've started out with a fairly strict ruff configuration. We expect to loosen up some rules when they become too bothersome. A research project cannot be tied up with the same rules as a big production app. Still, it's a lot easier to start with strict rules and gradually soften them than going the other way around.
+* **All code must be auto-formatted** by ruff before being accepted into the repository. pre-commit hooks (or your code editor) will do that for you. To invoke the formatter manually, run `uv run ruff format your_file.py`. It works on Jupyter notebooks, too.
+
 <!--
 ### Repository structure
 TODO: explain what is where in this monorepo.
@@ -62,15 +72,26 @@ We obtain information about federal and cantonal consultations through APIs and 
 
 The documents are almost always just PDFs. We also get some metadata for the consultation itself, e.g. its title, starting and ending dates, and perhaps a short description.
 
-See the Pandera schemata in [data/schemata.py](data/schemata.py) for a complete specification of the data we have on consultations and their documents.
+See the Pandera schemata in [demokratis_ml/data/schemata.py](demokratis_ml/data/schemata.py) for a complete specification of the data we have on consultations and their documents.
 
+### Data acquisition and preprocessing
 We use data from two main sources:
 
 * [Fedlex](https://www.fedlex.admin.ch/) for federal ("Bund") consultations.
 * [Open Parl Data](https://opendata.ch/projects/openparldata/) for cantonal consultations.
 
-> [!NOTE]
-> We are currently working with our data providers to make our compiled, enriched datasets publicly accessible while following all applicable laws. [Please talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) to learn more about the data and gain early access.
+Document and consultation data is ingested from these sources into the Demokratis web platform running at [Demokratis.ch](https://demokratis.ch).
+The web platform is our main source of truth. In addition to making the data available to end users, it also runs an admin interface
+that we use for manual review and correction of our database of consultations and their documents.
+
+To transform the web platform data into a dataset for training models, we run a Prefect pipeline:
+[demokratis_ml/pipelines/preprocess_consultation_documents.py](demokratis_ml/pipelines/preprocess_consultation_documents.py).
+The result of this pipeline is a Parquet file conforming to the above-mentioned dataframe schema.
+
+### Our data is public
+Our preprocessed dataset is automatically published to HuggingFace and you can download it directly from
+[🤗 demokratis/consultation-documents](https://huggingface.co/datasets/demokratis/consultation-documents).
+Don't hesitate to [talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) if you have any questions about the data!
 
 <!--
 ### The federal dataset: Fedlex
@@ -87,19 +108,19 @@ After completing our initial research, we are now open-sourcing our ML work to e
 
 For problems where solid solutions have been developed, we'll be productizing the models and displaying their outputs on the main [Demokratis.ch](https://demokratis.ch) website — always with a human reviewer involved.
 
-We are also awaiting consent from our data providers before making the datasets publicly available.
-
 | Problem | Public dataset? | Open-source code/model? | Initial research | Proof of concept model | Deployed in production |
 |-|-|-|-|-|-|
-| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ❌ | ❌ | ✅ | ✅ | ❌
-| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | ❌ | ❌ | ✅ | ❌ | ❌
-| [III. Classifying document types](#iii-classifying-document-types) | ❌ | ❌ | ✅ | ✅ | ❌
+| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ✅ | ❌ | ✅ | ✅ | ❌
+| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ❌ | ✅ | ❌ | ❌
+| [III. Classifying document types](#iii-classifying-document-types) | ✅ | ❌ | ✅ | ✅ | ❌
+
+_*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
 ### I. Classifying consultation topics
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
 
 #### Our datasets
-To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [data/schemata.py:CONSULTATION_TOPICS](data/schemata.py#L7).
+To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [demokratis_ml/data/schemata.py:CONSULTATION_TOPICS](demokratis_ml/data/schemata.py#L10).
 
 #### Our models
 To increase the breadth of input for the models, we first classify individual *documents*, even though all documents of a given consultation obviously fall into the same topics. To then predict the topics of the consultation itself, we let the document outputs "vote" on the final set of topics. This approach has proven to be effective because we are giving the model more data to learn from, as opposed to classifying consultations directly – in which case we have to pick a limited number of documents, drastically concatenate them etc.
@@ -147,7 +168,7 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 
 
 ### III. Classifying document types
-Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [data/schemata.py:DOCUMENT_TYPES](data/schemata.py#L32).)
+Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py#L35).)
 
 ![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
 
