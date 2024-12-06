@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/d578ec1b4e7c46b4907f5eac8dd91a9e/artifacts
+deleted_time: 1731814544776
+end_time: 1731813880712
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: deleted
+run_id: d578ec1b4e7c46b4907f5eac8dd91a9e
+run_name: dashing-fly-1
+run_uuid: d578ec1b4e7c46b4907f5eac8dd91a9e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731813855664
+status: 3
+tags: []
+user_id: thiloweber

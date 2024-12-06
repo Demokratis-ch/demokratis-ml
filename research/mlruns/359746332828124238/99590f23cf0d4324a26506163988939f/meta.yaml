@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/99590f23cf0d4324a26506163988939f/artifacts
+deleted_time: 1731814502904
+end_time: 1731814305527
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: deleted
+run_id: 99590f23cf0d4324a26506163988939f
+run_name: popular-bug-638
+run_uuid: 99590f23cf0d4324a26506163988939f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731814239574
+status: 4
+tags: []
+user_id: thiloweber

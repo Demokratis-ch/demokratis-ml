@@ -1,0 +1,126 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "I",
+            "type": "heading",
+            "content": [
+                "\u00c4nderung des Energiegesetzes (EnerG)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Das Energiegesetz vom 19. Juni 1983 wird wie folgt ge\u00e4ndert:"
+                    ],
+                    "children": []
+                },
+                {
+                    "label": "III",
+                    "type": "heading",
+                    "content": [
+                        "Besondere Massnahmen"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "heading",
+                            "content": [
+                                "Energiesparmassnahmen und Nutzung erneuerbarer Energien"
+                            ],
+                            "children": [
+                                {
+                                    "label": "10 d",
+                                    "type": "heading",
+                                    "content": [
+                                        "Solaranlagen auf grossen D\u00e4chern"
+                                    ],
+                                    "children": [
+                                        {
+                                            "label": "1",
+                                            "type": "content",
+                                            "content": [
+                                                "Auf grossen, geeigneten D\u00e4chern ist fl\u00e4chendeckend eine Solaranlage zu installieren, wenn dies technisch m\u00f6glich und wirtschaftlich ist und nicht \u00fcberwiegende \u00f6ffentliche Interessen entgegenstehen:"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "a)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "bei Neubauten,"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "b)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "bei der umfassenden Sanierung des Dachs oder sp\u00e4testens bis 2040."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "2",
+                                    "type": "content",
+                                    "content": [
+                                        "Von den Anforderungen ausgenommen ist, wer nachweist, dass bei Ber\u00fccksichtigung der Investitionskosten und der Betriebskosten sowie des Ertrags \u00fcber die Lebensdauer die Anlage nicht wirtschaftlich ist."
+                                    ],
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "IV",
+            "type": "heading",
+            "content": [
+                "Schlussbestimmungen"
+            ],
+            "children": [
+                {
+                    "label": "17",
+                    "type": "heading",
+                    "content": [
+                        "Vollzug"
+                    ],
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "content",
+                            "content": [
+                                "Der Regierungsrat regelt durch Verordnung:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a)",
+                            "type": "list_item",
+                            "content": [
+                                "die Durchf\u00fchrung der kantonalen Energieplanung,"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b)",
+                            "type": "list_item",
+                            "content": [
+                                "die Rechte und Pflichten der Beteiligten bei der Mitwirkung an der Energieplanung im Sinne von \u00a7 5,"
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "footnotes": []
+}
