@@ -28,6 +28,8 @@ dependencies = [
 [tool.uv]
 dev-dependencies = [
     "pre-commit>=3.8.0",
+    "pytest-mock>=3.14.0",
+    "pytest>=8.3.4",
     "ruff>=0.6.7",
 ]
 
@@ -58,4 +60,14 @@ ignore = [
     "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
     "INP001",  # `implicit-namespace-package`; nonsense for some directories
     "ANN401",  # `any-type`; sometimes it's better than trying to describe the type accurately
+]
+
+[tool.ruff.lint.per-file-ignores]
+"research/*" = [
+    "D",  # pydocstyle
+]
+"test_*.py" = [
+    "ANN",  # annotations
+    "D",  # pydocstyle
+    "PLR2004",  # magic value comparisons
 ]

@@ -31,7 +31,7 @@ class OpenAIEmbeddingModel(EmbeddingModel):
         "text-embedding-3-large": 8192,
     }
 
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str) -> None:
         assert model_name.startswith("openai/")
         self.model_name = model_name
         self._model_name_api = model_name[len("openai/") :]

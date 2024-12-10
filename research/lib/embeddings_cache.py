@@ -10,19 +10,19 @@ import pyarrow.parquet
 
 
 class _NoTqdm:
-    def __init__(self, *_args, **_kwargs) -> None:
+    def __init__(self, *_args: Any, **_kwargs: Any) -> None:
         pass
 
-    def set_description(self, *_args, **_kwargs) -> None:
+    def set_description(self, *_args: Any, **_kwargs: Any) -> None:
         pass
 
-    def update(self, *_args, **_kwargs) -> None:
+    def update(self, *_args: Any, **_kwargs: Any) -> None:
         pass
 
     def __enter__(self) -> "_NoTqdm":
         return self
 
-    def __exit__(self, *_args) -> None:
+    def __exit__(self, *_args: object) -> None:
         pass
 
 
@@ -50,7 +50,7 @@ class EmbeddingsCache:
         return len(self._cache)
 
     def _generate_cache_key(self, text_or_tokens: str | list[int]) -> str:
-        return hashlib.md5(str(text_or_tokens).encode()).hexdigest()
+        return hashlib.md5(str(text_or_tokens).encode()).hexdigest()  # noqa: S324
 
     def get_embedding(
         self,

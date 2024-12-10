@@ -33,5 +33,5 @@ jobs:
       - name: Run pre-commit checks
         run: uv run pre-commit run -a
 
-    #   - name: Run tests
-    #     run: uv run pytest tests
+      - name: Run tests
+        run: PYTHONPATH=. uv run pytest research demokratis_ml
