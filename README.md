@@ -104,19 +104,20 @@ TODO - explain this data source
 ## Our models and open ML problems
 
 ### Current status
-After completing our initial research, we are now open-sourcing our ML work to enable feedback and contributions from the community.
 
-For problems where solid solutions have been developed, we'll be productizing the models and displaying their outputs on the main [Demokratis.ch](https://demokratis.ch) website — always with a human reviewer involved.
-
-| Problem | Public dataset? | Open-source code/model? | Initial research | Proof of concept model | Deployed in production |
-|-|-|-|-|-|-|
-| [I. Classifying consultation topics](#i-classifying-consultation-topics) | ✅ | ❌ | ✅ | ✅ | ❌
-| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ❌ | ✅ | ❌ | ❌
-| [III. Classifying document types](#iii-classifying-document-types) | ✅ | ❌ | ✅ | ✅ | ❌
+| Problem | Public dataset? | Initial research | Proof of concept model | Deployed in production |
+|-|-|-|-|-|
+| [I. Classifying consultation topics](#i-classifying-consultation-topics)           | ✅    | ✅ | ✅ | ❌
+| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ✅ | ❌ | ❌
+| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ❌
 
 _*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
 ### I. Classifying consultation topics
+
+>[!NOTE]
+>Latest work on this problem: [research/consultation_topics/VM_document_topic_classifier.ipynb](research/consultation_topics/VM_document_topic_classifier.ipynb).
+
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
 
 #### Our datasets
@@ -160,6 +161,10 @@ Current sample-weighted F1 scores:
 </details>
 
 ### II. Extracting structure from documents
+
+>[!NOTE]
+>Latest work on this problem: [PR!4](https://github.com/Demokratis-ch/demokratis-ml/pull/4) is trying to use LlamaParse to convert PDFs to Markdown.
+
 An important goal of Demokratis is to make it easy for people and organisations to provide feedback (statements, Stellungnahmen) on consultations. To facilitate writing comments or suggesting edits on long complex legal documents, we need to break them apart into sections, paragraphs, lists, footnotes etc. Since all the consultation documents we can currently access are PDFs, it is surprisingly hard to extract machine-readable structure from them!
 
 We are still researching the possible solutions to this problem. For shorter documents, the most workable solution seems to be to prompt GPT-4o to analyse a whole uploaded PDF file and emit the extracted structure in JSON. It may be possible to make this work for longer documents too with careful chunking. In initial tests, GPT-4o performed better at this task than Gemini 1.5 Pro. [See our starting prompt for GPT-4o here](./research/structure-extraction/README.md) along with sample input and output.
@@ -168,6 +173,10 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 
 
 ### III. Classifying document types
+
+>[!NOTE]
+>Latest work on this problem: [PR!8](https://github.com/Demokratis-ch/demokratis-ml/pull/8).
+
 Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py#L35).)
 
 ![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)

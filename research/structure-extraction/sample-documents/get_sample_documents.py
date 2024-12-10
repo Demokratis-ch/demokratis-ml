@@ -10,7 +10,7 @@ Usage:
     uv run \
         research/structure-extraction/sample-documents/get_sample_documents.py \
         data/dataframes/consultation-documents-preprocessed-2024-11-26.parquet
-"""  # noqa: INP001
+"""
 
 import hashlib
 import pathlib
