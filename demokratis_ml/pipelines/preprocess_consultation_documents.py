@@ -5,8 +5,10 @@ import functools
 import hashlib
 import pathlib
 import re
+import sys
 
 import httpx
+import huggingface_hub
 import lingua
 import magic
 import numpy as np
@@ -15,6 +17,7 @@ import pandera as pa
 import prefect
 import prefect.blocks.core
 import prefect.cache_policies
+import prefect.filesystems
 import prefect.futures
 import prefect.logging
 import prefect.task_runners
@@ -26,13 +29,17 @@ CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE = pd.Timestamp("2024-08-20T
 """ For consultations reviewed after this date, the topics are considered to be manually
 reviewed and of the highest quality. """
 
+OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE = pd.Timestamp("2024-11-01T00:00:00")
+""" For OpenParlData consultations ingested into the platform after this date, we can trust the document type.
+Before this date, the document type wasn't consistently reviewed and defaulted to VARIOUS_TEXT."""
+
 
 @prefect.flow(
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
 )
 @pa.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
-def preprocess_data() -> pd.DataFrame:
+def preprocess_data(publish: bool) -> pd.DataFrame:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
@@ -42,6 +49,9 @@ def preprocess_data() -> pd.DataFrame:
     - Store the resulting dataframe in a Parquet file.
 
     Only documents with non-empty content are kept in the final dataframe.
+
+    :param publish: If true, upload the resulting dataframe to our remote S3-like storage and our public
+        HuggingFace dataset repository.
     """
     logger = prefect.logging.get_run_logger()
 
@@ -52,16 +62,22 @@ def preprocess_data() -> pd.DataFrame:
 
     # Language is unreliable for cantonal documents => detect it.
     # This assumes that we do have the content of cantonal documents retrieved from the API.
-    index = df["document_source"] == "openparldata"
-    detected_languages = detect_document_language(df.loc[index])
-    # TODO: log the % difference between detected_languages and df.loc[index, "document_language"]
-    df.loc[index, "document_language"] = detected_languages
+    openparldata_index = df["document_source"] == "openparldata"
+    detected_languages = detect_document_language(df.loc[openparldata_index])
+    # TODO: log the % difference between detected_languages and df.loc[openparldata_index, "document_language"]
+    df.loc[openparldata_index, "document_language"] = detected_languages
+    # Remove document_type labels that are not guaranteed to be correct.
+    df.loc[
+        openparldata_index
+        & (df["consultation_start_date"] < OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE),
+        "document_type",
+    ] = None
 
     # Download Fedlex documents and extract text
-    index = df["document_source"] == "fedlex"
-    assert df.loc[index, "document_content_plain"].isna().all(), "Fedlex documents should not have content yet"
-    extracted_content = download_documents_and_extract_content(df.loc[index])
-    df.loc[index, "document_content_plain"] = extracted_content
+    fedlex_index = df["document_source"] == "fedlex"
+    assert df.loc[fedlex_index, "document_content_plain"].isna().all(), "Fedlex documents should not have content yet"
+    extracted_content = download_documents_and_extract_content(df.loc[fedlex_index])
+    df.loc[fedlex_index, "document_content_plain"] = extracted_content
 
     # Drop documents that still don't have any content
     missing_content = df[df["document_content_plain"].isna()]
@@ -70,11 +86,12 @@ def preprocess_data() -> pd.DataFrame:
             "Missing content for %d documents (%.1f%%):\n%r",
             len(missing_content),
             100 * len(missing_content) / len(df),
-            missing_content.groupby("document_source").size(),
+            missing_content.groupby("document_source", observed=False).size(),
         )
         df = df[~df["document_content_plain"].isna()]
 
     # Store the dataframe
+    logger.info("Serialising dataframe with %d rows to Parquet", len(df))
     data = df.to_parquet(compression="gzip")
     # TODO: switch between local and S3 storage based on the environment
     fs = blocks.ExtendedLocalFileSystem.load("local-dataframe-storage")
@@ -85,7 +102,37 @@ def preprocess_data() -> pd.DataFrame:
     logger.info("Writing %d rows, %.1f MiB to %r", len(df), len(data) / 1024**2, path)
     fs.write_path(path, data)
 
+    if publish:
+        # Dispatch the HuggingFace upload task and the remote storage upload task in parallel.
+        hf_upload = upload_to_huggingface.submit(
+            repository_id="demokratis/consultation-documents",
+            # No need to include the date in the filename, as the HF dataset is a Git repository.
+            file_name="consultation-documents-preprocessed.parquet",
+            data=data,
+        )
+        # Remote storage upload
+        remote_fs = prefect.filesystems.RemoteFileSystem.load("remote-dataframe-storage")
+        logger.info("Uploading to %s/%s", remote_fs.basepath, path)
+        remote_fs.write_path(str(path), data)
+        # Wait for the HuggingFace upload to finish before returning
+        hf_upload.result()
+
     return df
+
+
+@prefect.task()
+def upload_to_huggingface(repository_id: str, file_name: str, data: bytes) -> None:
+    """Upload our resulting preprocessed dataframe to our HuggingFace dataset repository."""
+    logger = prefect.logging.get_run_logger()
+    logger.info("Uploading to HuggingFace repository %s, file %s", repository_id, file_name)
+    hf_token = blocks.HuggingFaceDatasetUploadCredentials.load("huggingface-dataset-upload-credentials").token
+    hf_api = huggingface_hub.HfApi(token=hf_token.get_secret_value())
+    hf_api.upload_file(
+        repo_id=repository_id,
+        path_in_repo=file_name,
+        path_or_fileobj=data,
+        repo_type="dataset",
+    )
 
 
 def _get_document_storage() -> blocks.ExtendedLocalFileSystem:
@@ -137,6 +184,10 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     df.loc[~manual_index & (df["document_source"] == "fedlex"), column] = "organisation_rule"
     df[column] = df[column].astype("category")
     logger.info("Topics label source (documents):\n%r", df[column].value_counts())
+    logger.info(
+        "Topics label source (consultations):\n%r",
+        df.groupby("consultation_id").agg({column: "first"}).value_counts(),
+    )
 
     # Cast to the correct types
     for time_column in ("consultation_start_date", "consultation_end_date", "consultation_reviewed_at"):
@@ -366,5 +417,6 @@ def extract_text_from_pdf(local_path_pdf: pathlib.Path, local_path_txt: pathlib.
 
 
 if __name__ == "__main__":
-    df = preprocess_data()
+    publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
+    df = preprocess_data(publish)
     print(df)
