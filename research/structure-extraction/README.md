@@ -82,6 +82,12 @@ Notes:
 - So far, the most stable approach. 
 - Creating the correct output structure manually is quite difficult. There are still some parsing problems, e.g., with nested lists. --> Could be improved with extra brain work...
 
+Testing:
+- The function LlamaParseMarkdownParser.parse_markdown_to_json_schema is a python function that parses the intermediate markdown from LlamaParse into JSON. It can be tested/improved using running the test:
+````
+pytest test/test_parse_markdown_to_json.py -vv
+````
+
 ### 3 - LlamaParse and ChatGPT parsing
 Pipline: Same as above, but using ChatGPT in step 3. instead of manual python function for parsing each node.
 

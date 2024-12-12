@@ -23,109 +23,109 @@ Gegenstand und Geltungsbereich
 - [1.] Dieses Gesetz regelt:
   - [a.] die Veranstaltung, die Aufbereitung, die Übertragung und den Empfang von Radio- und Fernsehprogrammen;
   - [b.] die Fördermassnahmen zugunsten der elektronischen Medien.
-  - [abis.] blabla.
 - [2.] Es gilt für:
   - [a.] die Veranstalter von Radio- und Fernsehprogrammen;
+  - [abis.] blabla.
 
 Einfügen der Art. 76a-76c vor dem Gliederungstitel des 4. Kapitels
             """,
-            "expected_output": {
+"expected_output": {
+"label": "",
+"type": "document",
+"children": [
+    {
+    "label": "1",
+    "type": "heading",
+    "content": [
+        "Art. 1 Sach\u00fcberschrift, Abs. 1 und 1bis"
+    ],
+    "children": [
+        {
+        "label": "",
+        "type": "content",
+        "content": [
+            "Gegenstand und Geltungsbereich"
+        ]
+        },
+        {
+        "label": "",
+        "type": "list",
+        "children": [
+            {
+            "label": "1.",
+            "type": "list_item",
+            "content": [
+                "Dieses Gesetz regelt:"
+            ],
+            "children": [
+                {
                 "label": "",
-                "type": "document",
+                "type": "list",
                 "children": [
                     {
-                    "label": "1",
-                    "type": "heading",
+                    "label": "a.",
+                    "type": "list_item",
                     "content": [
-                        "Art. 1 Sach\u00fcberschrift, Abs. 1 und 1bis"
+                        "die Veranstaltung, die Aufbereitung, die \u00dcbertragung und den Empfang von Radio- und Fernsehprogrammen;"
                     ],
-                    "children": [
-                        {
-                        "label": "",
-                        "type": "content",
-                        "content": [
-                            "Gegenstand und Geltungsbereich"
-                        ]
-                        },
-                        {
-                        "label": "",
-                        "type": "list",
-                        "children": [
-                            {
-                            "label": "1.",
-                            "type": "list_item",
-                            "content": [
-                                "Dieses Gesetz regelt:"
-                            ],
-                            "children": [
-                                {
-                                "label": "",
-                                "type": "list",
-                                "children": [
-                                    {
-                                    "label": "a.",
-                                    "type": "list_item",
-                                    "content": [
-                                        "die Veranstaltung, die Aufbereitung, die \u00dcbertragung und den Empfang von Radio- und Fernsehprogrammen;"
-                                    ],
-                                    "children": []
-                                    },
-                                    {
-                                    "label": "b.",
-                                    "type": "list_item",
-                                    "content": [
-                                        "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien."
-                                    ],
-                                    "children": []
-                                    },
-                                    {
-                                    "label": "abis.",
-                                    "type": "list_item",
-                                    "content": [
-                                        "blabla."
-                                    ],
-                                    "children": []
-                                    }
-                                ]
-                                }
-                            ]
-                            },
-                            {
-                            "label": "2.",
-                            "type": "list_item",
-                            "content": [
-                                "Es gilt f\u00fcr:"
-                            ],
-                            "children": [
-                                {
-                                "label": "",
-                                "type": "list",
-                                "children": [
-                                    {
-                                    "label": "a.",
-                                    "type": "list_item",
-                                    "content": [
-                                        "die Veranstalter von Radio- und Fernsehprogrammen;"
-                                    ],
-                                    "children": []
-                                    }
-                                ]
-                                }
-                            ]
-                            }
-                        ]
-                        },
-                        {
-                        "label": "",
-                        "type": "content",
-                        "content": [
-                            "Einf\u00fcgen der Art. 76a-76c vor dem Gliederungstitel des 4. Kapitels"
-                        ]
-                        }
-                    ]
+                    "children": []
+                    },
+                    {
+                    "label": "b.",
+                    "type": "list_item",
+                    "content": [
+                        "die F\u00f6rdermassnahmen zugunsten der elektronischen Medien."
+                    ],
+                    "children": []
                     }
                 ]
                 }
+            ]
+            },
+            {
+            "label": "2.",
+            "type": "list_item",
+            "content": [
+                "Es gilt f\u00fcr:"
+            ],
+            "children": [
+                {
+                "label": "",
+                "type": "list",
+                "children": [
+                    {
+                    "label": "a.",
+                    "type": "list_item",
+                    "content": [
+                        "die Veranstalter von Radio- und Fernsehprogrammen;"
+                    ],
+                    "children": []
+                    },
+                    {
+                    "label": "abis.",
+                    "type": "list_item",
+                    "content": [
+                        "blabla."
+                    ],
+                    "children": []
+                    }
+                ]
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "label": "",
+        "type": "content",
+        "content": [
+            "Einf\u00fcgen der Art. 76a-76c vor dem Gliederungstitel des 4. Kapitels"
+        ]
+        }
+    ]
+    }
+]
+}
         },
         {
             "markdown": """
@@ -235,9 +235,9 @@ Einfügen der Art. 76a-76c vor dem Gliederungstitel des 4. Kapitels
 
     for i, case in enumerate(test_cases):
         print(f"Running test case {i}")
-        result = model.parse_markdown_to_json_schema(case["markdown"])
+        result = model.parse_markdown_to_json_schema_old(case["markdown"])
         assert json.dumps(result, indent=2) == json.dumps(case["expected_output"], indent=2)
-        #assert result == case["expected_output"]
+        # assert result == case["expected_output"]
 
 if __name__ == '__main__':
     pytest.main()
