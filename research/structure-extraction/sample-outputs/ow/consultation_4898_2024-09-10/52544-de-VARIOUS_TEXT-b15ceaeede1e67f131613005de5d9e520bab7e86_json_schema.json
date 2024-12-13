@@ -1,0 +1,1196 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Verordnung zum Einf\u00fchrungsgesetz zum Krankenversicherungsgesetz. Nachtrag 2024"
+            ],
+            "children": []
+        },
+        {
+            "label": "",
+            "type": "table",
+            "content": [
+                "| Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen |",
+                "|-----------------|----------------------------------------------------------|---------|",
+                "| | Verordnung zum Einf\u00fchrungsgesetz zum Krankenversicherungsgesetz (EV KVG) | |",
+                "| | Der Kantonsrat des Kantons Obwalden | |",
+                "| | beschliesst: | |",
+                "| | I. | |",
+                "| | Der Erlass GDB 851.11 (Verordnung zum Einf\u00fchrungsgesetz zum Krankenversicherungsgesetz [EV KVG] vom 28. Januar 1999) (Stand 1. Januar 2022) wird wie folgt ge\u00e4ndert: | |"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 1"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Aufgaben des Kantons"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "a. Regierungsrat"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat \u00fcbt die Aufsicht \u00fcber den Vollzug des KVG[^SR 832.10] aus, insbesondere indem er:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "a.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die bedarfsgerechte Spitalversorgung und Versorgung mit Pflegeleistungen festlegt und die entsprechenden Berichte genehmigt (Art. 39 Abs. 1 Bst. d KVG);"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "b.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die Spitalliste und die Pflegeheimliste des Kantons erl\u00e4sst (Art. 39 Abs. 1 Bst. e und Abs. 3 KVG);"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "c.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "\u00fcber die Mitwirkung des Kantons an der Institution der Versicherer zur F\u00f6rderung der Gesundheit und zur Verh\u00fctung von Krankheiten entscheidet (Art. 19 Abs. 2 KVG),"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here's the document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Bedarf eine Liste s\u00e4umiger Pr\u00e4mienzahlerinnen und Pr\u00e4mienzahler (Art. 64a Abs. 7 KVG) einf\u00fchrt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "list_item",
+                            "content": [
+                                "Er bestimmt die f\u00fcr die Pr\u00e4mienverbilligung in der Krankenversicherung und f\u00fcr die Koordination gem\u00e4ss Art. 64a KVG zust\u00e4ndigen kantonalen Amtsstellen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2",
+                            "type": "list_item",
+                            "content": [
+                                "Er bestimmt die f\u00fcr die Pr\u00e4mienverbilligung in der Krankenversicherung und f\u00fcr die Koordination gem\u00e4ss Art. 64a KVG zust\u00e4ndigen kantonalen ~~Amtsstellen~~Stellen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 2"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "b. Zust\u00e4ndiges Departement"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1",
+                            "type": "list_item",
+                            "content": [
+                                "Das zust\u00e4ndige Departement vollzieht dieses Gesetz im Zust\u00e4ndigkeitsbereich des Kantons, soweit keine andere Vollzugsbeh\u00f6rde bestimmt ist. Ihm obliegen insbesondere folgende Aufgaben:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "1",
+                            "type": "list_item",
+                            "content": [
+                                "Das ~~zust\u00e4ndige Departement~~Sicherheits- und Sozialdepartement vollzieht dieses Gesetz im Zust\u00e4ndigkeitsbereich des Kantons, soweit keine andere Vollzugsbeh\u00f6rde bestimmt ist. Ihm obliegen insbesondere folgende Aufgaben:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die Bev\u00f6lkerung \u00fcber die Versicherungspflicht und die Pr\u00e4mienverbilligung allgemein zu informieren;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die Bev\u00f6lkerung \u00fcber die Versicherungspflicht und die Pr\u00e4mienverbilligung[^Die Information bzgl. Pr\u00e4mienverbilligung liegt in der Zust\u00e4ndigkeit des Volkswirtschafsdepartements (vgl. GDB 133.111)] allgemein zu informieren;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "Ausnahmen von der Versicherungspflicht zu bewilligen (Art. 3 Abs. 2 KVG);"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b1.",
+                            "type": "list_item",
+                            "content": [
+                                "die Spitalplanung und die Pflegeheimplanung zu erarbeiten und die entsprechenden Planungsberichte zu erstellen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "die Erstellung der Gesundheitsstatistiken zu koordinieren (Art. 23 KVG);"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "die Betriebsvergleiche durchzuf\u00fchren (Art. 49 Abs. 7 KVG);"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "die Meldungen von Leistungserbringern, dass sie die Leistungen nach KVG nicht erbringen, entgegenzunehmen (Art. 44 Abs. 2 KVG)."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here's the document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "c. Zust\u00e4ndige kantonale Stelle f\u00fcr die Pr\u00e4mienverbilligung | c. Zust\u00e4ndige kantonale Stelle f\u00fcr die ~~den Vollzug der~~ Pr\u00e4mienverbilligung (Vollzugsstelle)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der zust\u00e4ndigen kantonalen Stelle obliegt insbesondere: | ~~Der zust\u00e4ndigen kantonalen Stelle obliegt~~ **Vollzugsstelle obliegen** insbesondere:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die Information der Bev\u00f6lkerung \u00fcber die M\u00f6glichkeit der Pr\u00e4mienverbilligung in der Krankenversicherung;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "die Festlegung der Anspr\u00fcche im Einzelfall;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "der Erlass der Verf\u00fcgungen und die Mitwirkung im Rechtsmittelverfahren;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "die R\u00fcckforderung unrechtm\u00e4ssig ausbezahlter Pr\u00e4mienbeitr\u00e4ge mittels Verf\u00fcgung,"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "die Koordination zwischen Versicherern, Kanton, Gemeinden und Ausgleichskassen gem\u00e4ss Art. 65 KVG. | e. die Koordination zwischen Versicherern, Kanton, Gemeinden und Ausgleichskassen gem\u00e4ss Art. **64a und** 65 KVG."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 4"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgaben der Einwohnergemeinden"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Einwohnergemeinden kontrollieren die Einhaltung der Versicherungspflicht; sie bezeichnen eine Gemeindestelle f\u00fcr Krankenversicherung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Sie unterst\u00fctzen den Kanton beim Vollzug der Pr\u00e4mienverbilligung in der Krankenversicherung insbesondere durch:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "allgemeine Ausk\u00fcnfte im Einzelfall;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "..."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "die Mitwirkung bei der \u00dcberpr\u00fcfung der wirtschaftlichen Leistungsf\u00e4higkeit der Antragsteller im Einzelfall;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Geltendes Recht"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "d. die Mitwirkung bei der Information der Bev\u00f6lkerung \u00fcber die M\u00f6glichkeit der Pr\u00e4mienverbilligung in der Krankenversicherung zusammen mit der zust\u00e4ndigen kantonalen Stelle."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Einwohnergemeinden \u00fcbernehmen uneinbringliche Pr\u00e4mien- und Kostenanteile der obligatorischen Krankenpflegeversicherung. Zust\u00e4ndig ist jene Gemeinde, in der die Schuldnerin oder der Schuldner den zivilrechtlichen Wohnsitz hat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Hat eine Gemeinde die uneinbringlichen Kosten gem\u00e4ss Absatz 3 \u00fcbernommen und erstattet der Versicherer dem Kanton nachtr\u00e4glich einen Teil zur\u00fcck, so ist der Betrag der betroffenen Gemeinde weiterzuleiten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Gemeinden haben innert 60 Tagen ab Anhebung der Betreibung die M\u00f6glichkeit, das Betreibungsverfahren zu stoppen und die Forderung zu 100 Prozent zu \u00fcbernehmen. Die entsprechende Meldung muss erfolgen, bevor das Fortsetzungsbegehren gestellt wird."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 9"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4mienverbilligungsverf\u00fcgung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Pr\u00e4mienverbilligungsverf\u00fcgung enth\u00e4lt die Berechnung der Pr\u00e4mienverbilligung f\u00fcr das Anspruchsjahr, die Kontrollangaben zur Vermeidung von Doppelbez\u00fcgen und zur Auszahlung der Beitr\u00e4ge an den Versicherer sowie eine Rechtsmittelbelehrung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die zust\u00e4ndige kantonale Stelle veranlasst im Einzelfall notwendige Zusatzabkl\u00e4rungen. Sie hat dabei auf die Folge der Anspruchsverwirkung hinzuweisen, wenn verlangte Angaben nicht fristgerecht eingereicht werden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "..."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 10"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Antragstellung und Fristen"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vernehmlassungsvorlage des Regierungsrats vom 10. September 2024"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "d. die Mitwirkung bei der Information der Bev\u00f6lkerung \u00fcber die M\u00f6glichkeit der Pr\u00e4mienverbilligung in der Krankenversicherung zusammen mit der ~~zust\u00e4ndigen kantonalen Stelle~~**Vollzugsstelle**."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die ~~zust\u00e4ndige kantonale Stelle~~ **Volllzugsstelle** veranlasst im Einzelfall notwendige Zusatzabkl\u00e4rungen. Sie hat dabei auf die ~~Folge~~**Folgen** der Anspruchsverwirkung hinzuweisen, wenn verlangte Angaben nicht fristgerecht eingereicht werden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Notizen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Geltendes Recht                                            Vernehmlassungsvorlage des Regierungs-                       Notizen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "rats vom 10. September 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1 Die zust\u00e4ndige kantonale Stelle stellt allen voraus-     1 Die zust\u00e4ndige kantonale Stelle Vollzugsstelle stellt al-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "sichtlich anspruchsberechtigten Personen bis Mitte De-     len voraussichtlich anspruchsberechtigten Personen bis"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "zember des dem Anspruchsjahr vorangehenden Jahr            MitteEnde Dezember des dem Anspruchsjahr vorange-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "ein vorgedrucktes Anmeldeformular zu.                      henden Jahr ein vorgedrucktes Anmeldeformulardie Zu-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gangsdaten zur Antragstellung zu."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "2 Versicherte, welche kein vorgedrucktes Anmeldefor-       2 Versicherte, welche kein vorgedrucktes Anmeldefor-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "mular erhalten haben, k\u00f6nnen bei der zust\u00e4ndigen kan-      mular keine Zugangsdaten erhalten haben, k\u00f6nnen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "tonalen Stelle ein Antragsformular verlangen.              diese bei der zust\u00e4ndigen kantonalen Stelle ein An-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "tragsformularVollzugsstelle verlangen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3 Die ausgef\u00fcllten Anmelde- oder Antragsformulare sind     3 Die ausgef\u00fcllten Anmelde- oder Antragsformulare sind"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "zusammen mit den n\u00f6tigen Unterlagen bis 31. Mai des        Der Antrag ist zusammen mit den n\u00f6tigen Unterlagen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Jahres, f\u00fcr das die Pr\u00e4mienverbilligung geltend ge-        bis 31. Mai30. April des Jahres, f\u00fcr das die Pr\u00e4mienver-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "macht wird, bei der zust\u00e4ndigen kantonalen Stelle ein-     billigung geltend gemacht wird, bei der zust\u00e4ndigen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "zureichen.                                                 kantonalen StelleVollzugsstelle einzureichen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4 Ebenfalls bis 31. Mai sind Antr\u00e4ge auf Pr\u00e4mienverbilli-  4 Ebenfalls bis 31. Mai30. April sind Antr\u00e4ge auf Pr\u00e4mi-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gung nach der wirtschaftlichen Leistungsf\u00e4higkeit im       enverbilligung nach der wirtschaftlichen Leistungsf\u00e4hig-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Sinne von Art. 8 Abs. 4 dieser Verordnung einzu-           keit im Sinne von Art. 8 Abs. 4 dieser Verordnung einzu-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "reichen. Treten die genannten Ereignisse sp\u00e4ter ein, so    reichen. Treten die genannten Ereignisse sp\u00e4ter ein, so"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "k\u00f6nnen sie erst im Folgejahr ber\u00fccksichtigt werden.        k\u00f6nnen sie erst im Folgejahr ber\u00fccksichtigt werden."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "5 \u2026"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "6 Die zust\u00e4ndigen Stellen der Einwohnergemeinden ha-       6 Die zust\u00e4ndigen Stellen der Einwohnergemeinden ha-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "ben die Antragsformulare f\u00fcr sozialhilfeberechtigte Per-   ben die Antragsformulare f\u00fcr sozialhilfeberechtigte Per-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "sonen und f\u00fcr Personen, welche Ereignisse im Sinne         sonen und f\u00fcr Personen, welche Ereignisse im Sinne"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "von Art. 8 Abs. 4 dieser Verordnung geltend machen,        von Art. 8 Abs. 4 dieser Verordnung geltend machen,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "bis 30. November bei der zust\u00e4ndigen kantonalen Stelle     bis 30. November bei der zust\u00e4ndigen kantonalen Stelle"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "einzureichen.                                              Vollzugsstelle einzureichen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "7 Werden Anspr\u00fcche nicht fristgerecht geltend gemacht"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "oder die erforderlichen Angaben nicht fristgerecht ein-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gereicht und liegen daf\u00fcr keine besonderen Gr\u00fcnde vor,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "so gelten die Anspr\u00fcche auf Pr\u00e4mienverbilligung als"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "verwirkt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Art. 13"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Einsprache"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here's the document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "table",
+            "content": [
+                "| Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen |",
+                "|-----------------|------------------------------------------------------------------|---------|"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die anspruchsberechtigten Personen k\u00f6nnen innert 30 Tagen seit Erhalt der Verf\u00fcgung bei der zust\u00e4ndigen kantonalen Stelle schriftlich und begr\u00fcndet Einsprache erheben. Die Einwendungen sind zu belegen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die anspruchsberechtigten Personen k\u00f6nnen innert 30 Tagen seit Erhalt der Verf\u00fcgung bei der ~~zust\u00e4ndigen kantonalen Stelle~~**Vollzugsstelle** schriftlich und begr\u00fcndet Einsprache erheben. Die Einwendungen sind zu belegen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kantonale Stelle \u00fcberpr\u00fcft ihre Verf\u00fcgung auf Grund der Einsprache. Sie kann weitere Abkl\u00e4rungen veranlassen und die Einsprecherin oder den Einsprecher m\u00fcndlich anh\u00f6ren. Auf Grund ihrer Beurteilung erl\u00e4sst sie einen begr\u00fcndeten Einspracheentscheid mit Rechtsmittelbelehrung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die ~~kantonale Stelle~~**Vollzugsstelle** \u00fcberpr\u00fcft ihre Verf\u00fcgung auf Grund der Einsprache. Sie kann weitere Abkl\u00e4rungen veranlassen und die Einsprecherin oder den Einsprecher m\u00fcndlich anh\u00f6ren. Auf Grund ihrer Beurteilung erl\u00e4sst sie einen begr\u00fcndeten Einspracheentscheid mit Rechtsmittelbelehrung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 15"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Auskunftspflicht"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Wer Anspruch auf Pr\u00e4mienverbilligung geltend macht, hat alle erforderlichen Ausk\u00fcnfte zu erteilen und Unterlagen vorzulegen sowie eingetretene \u00c4nderungen in der Anspruchsberechtigung sofort der zust\u00e4ndigen kantonalen Stelle zu melden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Wer Anspruch auf Pr\u00e4mienverbilligung geltend macht, hat alle erforderlichen Ausk\u00fcnfte zu erteilen und Unterlagen vorzulegen sowie eingetretene \u00c4nderungen in der Anspruchsberechtigung sofort der ~~zust\u00e4ndigen kantonalen Stelle~~**Vollzugsstelle** zu melden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Versicherer sind gegen\u00fcber der kantonalen Stelle f\u00fcr die Pr\u00e4mienverbilligung zu unentgeltlichen Auskunftserteilung verpflichtet."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Versicherer sind gegen\u00fcber der ~~kantonalen Stelle~~**Vollzugsstelle** f\u00fcr die Pr\u00e4mienverbilligung ~~zu~~**zur** unentgeltlichen Auskunftserteilung verpflichtet."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 15a"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Amts- und Rechtshilfe"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Beh\u00f6rden und Amtsstellen des Kantons und der Gemeinden sowie die Ausgleichskassen erteilen der zust\u00e4ndigen kantonalen Stelle f\u00fcr die Pr\u00e4mienverbilligung gem\u00e4ss Art. 3 dieser Verordnung auf Ersuchen hin kostenlos alle erforderlichen Ausk\u00fcnfte. Sie k\u00f6nnen die kantonale Stelle von sich aus darauf aufmerksam machen, wenn sie vermuten, dass die Pr\u00e4mienverbilligung unrechtm\u00e4ssig ausbezahlt wird. Die gleiche Pflicht zur Amtshilfe haben Organe von K\u00f6rperschaften und Anstalten, soweit sie die Aufgaben der \u00f6ffentlichen Verwaltung wahrnehmen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Beh\u00f6rden und Amtsstellen des Kantons und der Gemeinden sowie die Ausgleichskassen erteilen der ~~zust\u00e4ndigen kantonalen Stelle~~**Vollzugsstelle** f\u00fcr die Pr\u00e4mienverbilligung gem\u00e4ss Art. 3 dieser Verordnung auf Ersuchen hin kostenlos alle erforderlichen Ausk\u00fcnfte. Sie k\u00f6nnen die ~~kantonale Stelle~~**Vollzugsstelle** von sich aus darauf aufmerksam machen, wenn sie vermuten, dass die Pr\u00e4mienverbilligung unrechtm\u00e4ssig ausbezahlt wird. Die gleiche Pflicht zur Amtshilfe haben Organe von K\u00f6rperschaften und Anstalten, soweit sie die Aufgaben der \u00f6ffentlichen Verwaltung wahrnehmen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "6"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuerverwaltung hat der zust\u00e4ndigen kantonalen Stelle f\u00fcr die Pr\u00e4mienverbilligung die notwendigen Daten zug\u00e4nglich zu machen. Sie kann dies durch ein Abrufeverfahren regeln."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuerverwaltung hat der ~~zust\u00e4ndigen kantonalen Stelle f\u00fcr~~ Vollzugsstelle die ~~Pr\u00e4mienverbilligung die~~ notwendigen Daten zug\u00e4nglich zu machen. Sie kann dies durch ein ~~Abrufeverfahren~~ Abrufverfahren regeln."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Im \u00dcbrigen sind die Bestimmungen des kantonalen Datenschutzgesetzes[^GDB 137.1] sinngem\u00e4ss anwendbar."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufgehoben"
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 15b"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Datenaustausch"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Datenaustausch richtet sich nach den Vorgaben des Bundes \u00fcber den Datenaustausch f\u00fcr die Pr\u00e4mienverbilligung, insbesondere nach der Verordnung des EDI \u00fcber den Datenaustausch f\u00fcr die Pr\u00e4mienverbilligung (VDPV-EDI)[^SR 832.102.2]."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Versicherer melden der zust\u00e4ndigen kantonalen Stelle den gesamten Versichertenbestand per 1. Januar bis sp\u00e4testens am 15. Februar jedes Jahres. Die Meldung hat die Personendaten gem\u00e4ss Art. 105g der Verordnung \u00fcber die Krankenversicherung (KVV)[^SR 832.102] zu enthalten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Versicherer melden der ~~zust\u00e4ndigen kantonalen Stelle~~ Vollzugsstelle den gesamten Versichertenbestand per 1. Januar bis sp\u00e4testens am 15. Februar jedes Jahres. Die Meldung hat die Personendaten gem\u00e4ss Art. 105g der Verordnung \u00fcber die Krankenversicherung (KVV)[^SR 832.102] zu enthalten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die zust\u00e4ndige kantonale Stelle meldet den Versicherern den gesamten Verf\u00fcgungsbestand per 31. Dezember jedes Jahres."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die ~~zust\u00e4ndige kantonale Stelle~~ Vollzugsstelle meldet den Versicherern den gesamten Verf\u00fcgungsbestand per 31. Dezember jedes Jahres."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Auf Anfrage der zust\u00e4ndigen kantonalen Stelle hat der Versicherer Auskunft zu erteilen, ob eine bestimmte Person bei ihm KVG-versichert ist oder war. Der Versicherer hat die Personendaten gem\u00e4ss Art. 105g KVV der zust\u00e4ndigen kantonalen Stelle zu melden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here's the document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "table",
+            "content": [
+                "| Geltendes Recht | Vernehmlassungsvorlage des Regierungs-rats vom 10. September 2024 | Notizen |",
+                "|-----------------|-------------------------------------------------------------------|---------|"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Versicherer erstellt die Jahresrechnung gem\u00e4ss Art. 106c Abs. 3 KVV jeweils bis zum 31. M\u00e4rz des darauffolgenden Jahres."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "6.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ausgleichskasse meldet der zust\u00e4ndigen kantonalen Stelle in der ersten Arbeitswoche des Kalenderjahres alle Personen, welche Erg\u00e4nzungsleistungen zur AHV/IV beziehen (Bestandesliste). Am Anfang jeden Monats meldet die Ausgleichskasse alle Zu- und Abg\u00e4nge sowie weitere Mutationen des vergangenen Monats. Die Meldung hat die Personendaten gem\u00e4ss Art. 105g KVV zu enthalten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "6.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ausgleichskasse meldet der ~~zust\u00e4ndigen kantonalen Stelle~~ **Vollzugsstelle** in der ersten Arbeitswoche des Kalenderjahres alle Personen, welche Erg\u00e4nzungsleistungen zur AHV/IV beziehen (Bestandesliste). Am Anfang ~~jeden~~ **jedes** Monats meldet die Ausgleichskasse alle Zu- und Abg\u00e4nge sowie weitere Mutationen des vergangenen Monats. Die Meldung hat die Personendaten gem\u00e4ss Art. 105g KVV zu enthalten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Regierungsrat bestimmt, wann dieser Nachtrag in Kraft tritt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Sarnen, ..."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Im Namen des Kantonsrats:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Ratsp\u00e4sident:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Ratssekret\u00e4r:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "8"
+                    ]
+                }
+            ]
+        }
+    ]
+}

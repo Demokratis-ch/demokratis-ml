@@ -9,7 +9,7 @@
       },
       "type": {
         "type": "string",
-        "enum": ["document", "heading", "content", "list", "list_item", "footnote", "image"],
+        "enum": ["document", "heading", "content", "list", "list_item", "footnote", "image", "table"],
         "description": "Type of the node."
       },
       "content": {
