@@ -212,52 +212,12 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     df["consultation_topics"] = df["consultation_topics"].map(topic_mapper)
 
     # Drop known invalid data
-    df = _drop_known_documents_with_invalid_urls(df)
     missing_start_date = df["consultation_start_date"].isna()
     if len(missing := df[missing_start_date]) > 13:  # noqa: PLR2004
         logger.warning("Dropping %d consultations with missing start date: %r", len(missing), missing)
     df = df[~missing_start_date]
 
     return df
-
-
-def _drop_known_documents_with_invalid_urls(df: pd.DataFrame) -> pd.DataFrame:
-    # This function should not be necessary after https://github.com/Demokratis-ch/demokratis/issues/845 is fixed.
-    weird_urls = ~(
-        df["document_source_url"].str.startswith("https://") | df["document_source_url"].str.startswith("http://")
-    )
-    weird_document_ids = set(df[weird_urls]["document_id"])
-    known_weird_document_ids = {
-        40291,  # '#'
-        40314,  # '#'
-        41369,  # 'resolveuid/...'  (the next 17 are similar)
-        41370,
-        41371,
-        41372,
-        41373,
-        41374,
-        41375,
-        41376,
-        41377,
-        41378,
-        41379,
-        41380,
-        41381,
-        41382,
-        41383,
-        41384,
-        41385,
-        41386,
-        43096,  # 'mailto:...'
-        47531,  # missing 'https://'
-        52904,  # '#'
-    }
-    if unexpected := weird_document_ids - known_weird_document_ids:
-        raise ValueError(
-            "Unexpected document IDs with invalid URLs",
-            df.loc[df["document_id"].isin(unexpected), ["document_id", "document_source_url"]],
-        )
-    return df[~weird_urls]
 
 
 @prefect.task
