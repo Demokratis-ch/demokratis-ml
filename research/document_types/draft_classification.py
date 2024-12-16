@@ -1,6 +1,5 @@
 import logging
 import pathlib
-import sys
 import dotenv
 import os
 import mlflow
@@ -22,24 +21,6 @@ import toml
 from research.lib import data_access, embeddings
 
 REPOSITORY_ROOT = (pathlib.Path().cwd() / ".." / "..").resolve()
-sys.path.append(str(REPOSITORY_ROOT))
-
-dotenv.load_dotenv()
-
-with open('draft_classification.toml', 'r') as f:
-    config = toml.load(f)
-
-os.environ["MLFLOW_TRACKING_URI"] = config["tracking"]["tracking_uri"]
-DATA_FILE_NAME = config["data"]['data_file_name']
-PREPROCESSED_DATA_FILE = REPOSITORY_ROOT / "data" / "dataframes" / DATA_FILE_NAME
-DOCUMENT_SOURCES = config["data"]['document_sources']
-LANGUAGES = config["data"]['languages']
-FROM_YEAR = config["data"]['from_year']
-DOC_TYPES = config["data"]["doc_types"]
-EMBEDDING_MODEL = config["training"]['embedding_model']
-CV_FOLDS = config["training"]['cv_folds']
-TEST_SIZE = config["training"]['test_size']
-RANDOM_STATE = config["training"]['random_state']
 
 def remove_rows_with_missing_text(df: pd.DataFrame) -> pd.DataFrame:
     """ remove rows with missing text """
@@ -48,8 +29,10 @@ def remove_rows_with_missing_text(df: pd.DataFrame) -> pd.DataFrame:
     print(f"Number of dropped empty texts: {empty_count} ({100 * empty_count / len(df_input):.1f}%)")
     return df.loc[~empty_index]
 
-def create_embeddings(column_to_embed: str, cache_directory: pathlib.Path = REPOSITORY_ROOT / "data" / "embeddings-cache"):
-    tokens = df_input[column_to_embed].progress_map(embedding_model.tokenize)
+def create_embeddings(df: pd.DataFrame, column_to_embed: str, cache_directory: pathlib.Path = REPOSITORY_ROOT / "data" / "embeddings-cache"):
+    embedding_model = embeddings.create_embedding_model(EMBEDDING_MODEL)
+    mlflow.log_param("embedding_model.max_input_tokens", embedding_model.max_input_tokens)
+    tokens = df[column_to_embed].progress_map(embedding_model.tokenize)
     with embeddings.use_cache(
             embedding_model,
             tqdm=tqdm,
@@ -59,7 +42,7 @@ def create_embeddings(column_to_embed: str, cache_directory: pathlib.Path = REPO
         print(embeddings_doc_content_plain.shape)
     return embeddings_doc_content_plain
 
-def save_model(model_file_name):
+def save_model(model_file_name, classifier):
     model_file_name.parent.mkdir(parents=True, exist_ok=True)
     with open(model_file_name, "wb") as f:
         pkl.dump(classifier, f)
@@ -67,7 +50,22 @@ def save_model(model_file_name):
 
 if __name__ == '__main__':
 
+    dotenv.load_dotenv()
+    config = toml.load("draft_classification.toml")
+
+    DATA_FILE_NAME = config["data"]['data_file_name']
+    PREPROCESSED_DATA_FILE = REPOSITORY_ROOT / "data" / "dataframes" / DATA_FILE_NAME
+    DOCUMENT_SOURCES = config["data"]['document_sources']
+    LANGUAGES = config["data"]['languages']
+    FROM_YEAR = config["data"]['from_year']
+    DOC_TYPES = config["data"]["doc_types"]
+    EMBEDDING_MODEL = config["training"]['embedding_model']
+    CV_FOLDS = config["training"]['cv_folds']
+    TEST_SIZE = config["training"]['test_size']
+    RANDOM_STATE = config["training"]['random_state']
+
     ### Logging parameters ###
+    mlflow.set_tracking_uri(config["tracking"]["tracking_uri"])
     mlflow.set_experiment(experiment_name=f"Draft Classifier")
     if run := mlflow.active_run():
         logging.warning("Run = %s is already active, closing it.", run.info.run_name)
@@ -101,11 +99,9 @@ if __name__ == '__main__':
     ### Preprocessing ###
     df_input = remove_rows_with_missing_text(df_input)
     # set target variable
-    df_input.loc[:, "is_draft"] = (df_input.loc[:, "document_type"] == "DRAFT").astype(bool)
+    df_input.loc[:, "is_draft"] = (df_input["document_type"] == "DRAFT").astype(bool)
     # create embeddings
-    embedding_model = embeddings.create_embedding_model(EMBEDDING_MODEL)
-    mlflow.log_param("embedding_model.max_input_tokens", embedding_model.max_input_tokens)
-    embeddings_doc_content_plain = create_embeddings(column_to_embed="document_content_plain")
+    embeddings_doc_content_plain = create_embeddings(df=df_input, column_to_embed="document_content_plain")
 
     #### Train-Test Split ####
     X = embeddings_doc_content_plain
@@ -166,4 +162,4 @@ if __name__ == '__main__':
 
     ## save model ##
     model_file = REPOSITORY_ROOT / "models" / "draft_classification.pkl"
-    save_model(model_file_name=model_file)
+    save_model(model_file_name=model_file, classifier=classifier)
