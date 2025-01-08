@@ -72,3 +72,26 @@ def plot_score_against_support(
     plt.ylim(*ylim)
     plt.close(fig)
     return fig
+
+
+def plot_confusion_matrix_heatmap(
+    ground_truth: np.ndarray,
+    predictions: np.ndarray,
+    target_names: list[str],
+) -> matplotlib.figure.Figure:
+    """Plot the confusion matrix as a heatmap."""
+    confusion_matrix = sklearn.metrics.confusion_matrix(ground_truth, predictions, normalize="true")
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.heatmap(
+        confusion_matrix,
+        annot=True,
+        cmap="Blues",
+        xticklabels=target_names,
+        yticklabels=target_names,
+        ax=ax,
+    )
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    plt.title("Confusion matrix")
+    plt.close(fig)
+    return fig
