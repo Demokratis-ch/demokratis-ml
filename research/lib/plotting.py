@@ -78,6 +78,7 @@ def plot_confusion_matrix_heatmap(
     ground_truth: np.ndarray,
     predictions: np.ndarray,
     target_names: list[str],
+    title: str = "",
 ) -> matplotlib.figure.Figure:
     """Plot the confusion matrix as a heatmap."""
     confusion_matrix = sklearn.metrics.confusion_matrix(ground_truth, predictions, normalize="true")
@@ -92,6 +93,6 @@ def plot_confusion_matrix_heatmap(
     )
     plt.xlabel("Predicted")
     plt.ylabel("True")
-    plt.title("Confusion matrix")
+    plt.title("Confusion matrix" + f": {title}" if title else "")
     plt.close(fig)
     return fig
