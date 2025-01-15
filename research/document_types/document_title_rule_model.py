@@ -10,7 +10,6 @@ from demokratis_ml.data import schemata
 
 @pa.check_types
 def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumentSchemaV1]) -> pd.Series:
-    assert documents["document_type"].isna().all()
     df = documents[["political_body", "document_title", "document_content_plain"]].copy()
     df["document_title_clean"] = df["document_title"].map(_clean_document_title)
     df["document_type"] = None
@@ -23,7 +22,6 @@ def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumen
                 if canton_code != "<any>":
                     index &= df["political_body"] == canton_code
                 df.loc[index, "document_type"] = document_type
-                # TODO: logging
                 percentage_labelled = len(df[index]) * 100 / len(df)
                 logging.info(
                     "Labelled %.2f%% by rule: canton=%s, title^=%s => type=%s",
