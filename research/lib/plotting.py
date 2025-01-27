@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from typing import Any
+from typing import Any, Literal
 
 import matplotlib.figure
 import matplotlib.pyplot as plt
@@ -79,9 +79,14 @@ def plot_confusion_matrix_heatmap(
     predictions: np.ndarray,
     target_names: list[str],
     title: str = "",
+    normalize: Literal["true", "pred", "all"] | None = None,
 ) -> matplotlib.figure.Figure:
     """Plot the confusion matrix as a heatmap."""
-    confusion_matrix = sklearn.metrics.confusion_matrix(ground_truth, predictions, normalize="true")
+    confusion_matrix = sklearn.metrics.confusion_matrix(
+        ground_truth,
+        predictions,
+        normalize=normalize,
+    )
     fig, ax = plt.subplots(figsize=(8, 6))
     sns.heatmap(
         confusion_matrix,
