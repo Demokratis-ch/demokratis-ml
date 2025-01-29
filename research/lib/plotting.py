@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from typing import Any
+from typing import Any, Literal
 
 import matplotlib.figure
 import matplotlib.pyplot as plt
@@ -70,5 +70,34 @@ def plot_score_against_support(
             fontsize=8,
         )
     plt.ylim(*ylim)
+    plt.close(fig)
+    return fig
+
+
+def plot_confusion_matrix_heatmap(
+    ground_truth: np.ndarray,
+    predictions: np.ndarray,
+    target_names: list[str],
+    title: str = "",
+    normalize: Literal["true", "pred", "all"] | None = None,
+) -> matplotlib.figure.Figure:
+    """Plot the confusion matrix as a heatmap."""
+    confusion_matrix = sklearn.metrics.confusion_matrix(
+        ground_truth,
+        predictions,
+        normalize=normalize,
+    )
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.heatmap(
+        confusion_matrix,
+        annot=True,
+        cmap="Blues",
+        xticklabels=target_names,
+        yticklabels=target_names,
+        ax=ax,
+    )
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    plt.title("Confusion matrix" + f": {title}" if title else "")
     plt.close(fig)
     return fig

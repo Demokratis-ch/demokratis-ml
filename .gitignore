@@ -11,6 +11,8 @@ research/document_types/mlruns/*
 .vscode/*
 .prefect/*
 
+~$*.xlsx
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
