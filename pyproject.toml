@@ -36,6 +36,7 @@ dev-dependencies = [
 
 [tool.prefect]
 home = "./.prefect"
+server.analytics_enabled = false
 
 [tool.ruff]
 line-length = 120
