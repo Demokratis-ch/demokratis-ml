@@ -1,4 +1,4 @@
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from typing import Any, Literal
 
 import matplotlib.figure
@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn.metrics
+import sklearn.utils.multiclass
 
 
 def plot_and_log(plot_function: Callable, mlflow_file_name: str, **plot_kwargs: Any) -> matplotlib.figure.Figure:
@@ -77,11 +78,13 @@ def plot_score_against_support(
 def plot_confusion_matrix_heatmap(
     ground_truth: np.ndarray,
     predictions: np.ndarray,
-    target_names: list[str],
+    target_names: Sequence[str] | np.ndarray | None = None,
     title: str = "",
     normalize: Literal["true", "pred", "all"] | None = None,
 ) -> matplotlib.figure.Figure:
     """Plot the confusion matrix as a heatmap."""
+    if target_names is None:
+        target_names = sklearn.utils.multiclass.unique_labels(ground_truth, predictions)
     confusion_matrix = sklearn.metrics.confusion_matrix(
         ground_truth,
         predictions,
