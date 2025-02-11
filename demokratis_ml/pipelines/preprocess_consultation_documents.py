@@ -12,7 +12,7 @@ import lingua
 import magic
 import numpy as np
 import pandas as pd
-import pandera as pa
+import pandera
 import prefect
 import prefect.blocks.core
 import prefect.cache_policies
@@ -37,7 +37,7 @@ Before this date, the document type wasn't consistently reviewed and defaulted t
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
 )
-@pa.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
+@pandera.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
 def preprocess_data(publish: bool) -> pd.DataFrame:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
@@ -152,7 +152,8 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
 
 
 @prefect.task
-@pa.check_output(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
+@utils.print_validation_failure_cases()
+@pandera.check_output(schemata.ConsultationDocumentMetadataSchemaV1.to_schema(), lazy=True)
 def load_consultation_document_metadata() -> pd.DataFrame:
     """Load the metadata of all consultation documents from the Demokratis API.
 
@@ -231,7 +232,8 @@ def load_consultation_document_contents() -> pd.Series:
 
 
 @prefect.task
-@pa.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
+@utils.print_validation_failure_cases()
+@pandera.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
 def detect_document_language(df: pd.DataFrame) -> pd.Series:
     """Detect the language of the document from its content.
 
@@ -254,7 +256,8 @@ def detect_document_language(df: pd.DataFrame) -> pd.Series:
 
 
 @prefect.task
-@pa.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
+@utils.print_validation_failure_cases()
+@pandera.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
 def download_documents_and_extract_content(df: pd.DataFrame) -> pd.Series:
     """For each document in the dataframe, download the remote PDF file and extract the plain text.
 

@@ -1,9 +1,14 @@
 """Utilities shared by multiple pipelines."""
 
+import functools
 import hashlib
 import pathlib
+from collections.abc import Callable
+from typing import Any, TypeVar
 
 import pandas as pd
+import pandera.errors
+import prefect.logging
 
 from demokratis_ml.pipelines import blocks
 
@@ -34,3 +39,47 @@ def generate_path_in_document_storage(
         f"{document['document_id']}-{document['document_language']}-{document['document_type']}"
         f"-{url_hash}.{extension}"
     )
+
+
+F = TypeVar("F", bound=Callable[..., Any])
+
+
+def print_validation_failure_cases() -> Callable[[F], F]:
+    """In case the wrapped function raises a SchemaErrors exception, print the failure cases."""
+
+    def decorator(func: F) -> F:
+        @functools.wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            try:
+                return func(*args, **kwargs)
+            except pandera.errors.SchemaErrors as exc:
+                logger = prefect.logging.get_run_logger()
+                df_index = exc.failure_cases["index"]
+                with pd.option_context(
+                    "display.max_rows",
+                    None,
+                    "display.max_columns",
+                    None,
+                    "display.max_colwidth",
+                    100,
+                ):
+                    hr = "=" * 80
+                    logger.error(  # noqa: TRY400
+                        "\n".join(
+                            (
+                                "",
+                                hr,
+                                "Schema errors and failure cases:",
+                                repr(exc.failure_cases),
+                                hr,
+                                "DataFrame rows that failed validation:",
+                                repr(exc.data.loc[df_index]),
+                                hr,
+                            )
+                        )
+                    )
+                raise
+
+        return wrapper
+
+    return decorator
