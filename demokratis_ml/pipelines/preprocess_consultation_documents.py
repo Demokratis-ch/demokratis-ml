@@ -2,7 +2,6 @@
 
 import datetime
 import functools
-import hashlib
 import pathlib
 import re
 import sys
@@ -23,7 +22,7 @@ import prefect.logging
 import prefect.task_runners
 
 from demokratis_ml.data import schemata
-from demokratis_ml.pipelines import blocks, simple_pdf_extraction
+from demokratis_ml.pipelines import blocks, simple_pdf_extraction, utils
 
 CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE = pd.Timestamp("2024-08-20T00:00:00")
 """ For consultations reviewed after this date, the topics are considered to be manually
@@ -133,11 +132,6 @@ def upload_to_huggingface(repository_id: str, file_name: str, data: bytes) -> No
         path_or_fileobj=data,
         repo_type="dataset",
     )
-
-
-def _get_document_storage() -> blocks.ExtendedLocalFileSystem:
-    # TODO: switch between local and S3 storage based on the environment
-    return blocks.ExtendedLocalFileSystem.load("local-document-storage")
 
 
 @prefect.task(
@@ -273,10 +267,14 @@ def download_documents_and_extract_content(df: pd.DataFrame) -> pd.Series:
 
     source_urls = df["document_source_url"].tolist()
     # TODO: some of the documents are not actually PDFs. We shouldn't blindly use the .pdf extension.
-    local_paths_pdf = df.apply(functools.partial(_generate_local_path, extension="pdf"), axis=1).tolist()
-    local_paths_txt = df.apply(functools.partial(_generate_local_path, extension="txt"), axis=1).tolist()
+    local_paths_pdf = df.apply(
+        functools.partial(utils.generate_path_in_document_storage, extension="pdf"), axis=1
+    ).tolist()
+    local_paths_txt = df.apply(
+        functools.partial(utils.generate_path_in_document_storage, extension="txt"), axis=1
+    ).tolist()
 
-    fs = _get_document_storage()
+    fs = utils.get_document_storage()
 
     # Download all missing PDFs and write them to the filesystem.
     # Extract text from all PDFs that exist on the filesystem but don't have extracted text yet.
@@ -318,18 +316,6 @@ def download_documents_and_extract_content(df: pd.DataFrame) -> pd.Series:
     return pd.Series(content, index=df.index)
 
 
-def _generate_local_path(
-    document: pd.Series,
-    extension: str,
-    suffix: str = "",
-) -> pathlib.Path:
-    url_hash = hashlib.sha1(document["document_source_url"].encode()).hexdigest()  # noqa: S324
-    return pathlib.Path(str(document["consultation_id"])) / (
-        f"{document['document_id']}-{document['document_language']}-{document['document_type']}"
-        f"-{url_hash}{suffix}.{extension}"
-    )
-
-
 @prefect.task(
     task_run_name="download_document({document_url})",
 )
@@ -338,7 +324,7 @@ def download_document(document_url: str, local_path: pathlib.Path) -> None:
     assert document_url.startswith(("http:", "https:"))
     response = httpx.get(document_url, timeout=120)
     response.raise_for_status()
-    _get_document_storage().write_path(local_path, response.content)
+    utils.get_document_storage().write_path(local_path, response.content)
     # The URL is in the task name so we don't need to repeat it in the log message.
     prefect.logging.get_run_logger().info("Downloaded %.1fkB to %r", len(response.content) / 1024.0, local_path)
 
@@ -349,7 +335,7 @@ def download_document(document_url: str, local_path: pathlib.Path) -> None:
 def extract_text_from_pdf(local_path_pdf: pathlib.Path, local_path_txt: pathlib.Path) -> None:
     """Extract text from a PDF file and write it to a text file."""
     logger = prefect.logging.get_run_logger()
-    fs = _get_document_storage()
+    fs = utils.get_document_storage()
     if not fs.path_exists(local_path_pdf):
         logger.error("PDF file does not exist, cannot extract")
         return
