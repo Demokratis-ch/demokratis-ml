@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/b3603405136f440bb7f4637d9404e644/artifacts
+end_time: 1734105738647
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: b3603405136f440bb7f4637d9404e644
+run_name: redolent-flea-791
+run_uuid: b3603405136f440bb7f4637d9404e644
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734105720531
+status: 3
+tags: []
+user_id: thiloweber

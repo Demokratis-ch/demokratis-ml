@@ -1,0 +1,1594 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Loi sur le Contr\u00f4le des finances (LCFi)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Avant-projet du 9 avril 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Le Parlement de la R\u00e9publique et Canton du Jura,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "vu l'article 123, alin\u00e9a 5, de la Constitution cantonale[^RS 101],"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "arr\u00eate :"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "SECTION 1 : G\u00e9n\u00e9ralit\u00e9s"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Article premier Objet"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "La pr\u00e9sente loi r\u00e8gle la surveillance des finances cantonales par le Contr\u00f4le des finances, en particulier le statut, l'organisation, les t\u00e2ches et les comp\u00e9tences de celui-ci."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 2 Terminologie"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Les termes utilis\u00e9s dans la pr\u00e9sente loi pour d\u00e9signer des personnes s'appliquent indiff\u00e9remment aux femmes et aux hommes."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 3 Statut"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances est l'organe supr\u00eame de surveillance financi\u00e8re du canton et constitue une unit\u00e9 administrative ind\u00e9pendante."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Il est autonome dans l'accomplissement de ses fonctions, n'est li\u00e9 \u00e0 aucune directive et est soumis uniquement \u00e0 la Constitution et \u00e0 la loi."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Il soutient le Parlement et le Gouvernement dans l'exercice de la surveillance financi\u00e8re qui leur incombe."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Il est responsable devant le Parlement et rend compte de son travail devant la commission de gestion et des finances."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Il est rattach\u00e9 administrativement au D\u00e9partement des finances."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "SECTION 2 : Organisation"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 4 Direction"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances est dirig\u00e9 par le contr\u00f4leur g\u00e9n\u00e9ral des finances. Celui-ci est \u00e9lu par le Parlement pour la l\u00e9gislature et est r\u00e9\u00e9ligible."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le contr\u00f4leur g\u00e9n\u00e9ral des finances est un sp\u00e9cialiste dans le domaine de l'audit."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Il a le statut de magistrat au sens de la l\u00e9gislation applicable au personnel de l'Etat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "En cas d'absence prolong\u00e9e du contr\u00f4leur g\u00e9n\u00e9ral des finances n\u00e9cessitant une suppl\u00e9ance, le Bureau du Parlement d\u00e9signe un suppl\u00e9ant."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Personnel"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 5** Le personnel du Contr\u00f4le des finances est soumis \u00e0 la l\u00e9gislation applicable au personnel de l'Etat."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Audit externe"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 6**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Une fois par l\u00e9gislature, un auditeur externe proc\u00e8de \u00e0 une \u00e9valuation de la qualit\u00e9 des prestations du Contr\u00f4le des finances."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Gouvernement d\u00e9signe l'auditeur externe et lui attribue un mandat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "L'auditeur externe informe la commission de gestion et des finances, le Gouvernement ainsi que le Contr\u00f4le des finances des r\u00e9sultats de ses activit\u00e9s."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Experts externes"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 7** Le Contr\u00f4le des finances peut faire appel \u00e0 des experts externes si l'ex\u00e9cution de ses t\u00e2ches requiert des connaissances particuli\u00e8res."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "SECTION 3 : T\u00e2ches"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Surveillance financi\u00e8re"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "a) Entit\u00e9s soumises au contr\u00f4le"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 8** Sous r\u00e9serve de dispositions l\u00e9gales sp\u00e9ciales, la surveillance financi\u00e8re du Contr\u00f4le des finances s'\u00e9tend :"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "a) \u00e0 l'administration cantonale;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "b) au Secr\u00e9tariat du Parlement, au Gouvernement et aux autorit\u00e9s judiciaires;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "c) aux \u00e9tablissements cantonaux autonomes et non autonomes;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "d) aux personnes, collectivit\u00e9s, \u00e9tablissements et organisations, ind\u00e9pendamment de leur statut juridique, qui se voient confier l'ex\u00e9cution de t\u00e2ches publiques par l'Etat;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "e) aux b\u00e9n\u00e9ficiaires de subventions de l'Etat;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "f) aux entit\u00e9s dans lesquelles l'Etat d\u00e9tient des participations majoritaires."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "b) T\u00e2ches principales"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 9**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dans le cadre de la surveillance financi\u00e8re pr\u00e9vue \u00e0 l'article 8, le Contr\u00f4le des finances a notamment pour t\u00e2ches :"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "a) de proc\u00e9der \u00e0 la r\u00e9vision des comptes annuels de l'Etat;"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "de contr\u00f4ler la comptabilit\u00e9 et la gestion financi\u00e8re des unit\u00e9s administratives de l'administration cantonale;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "de v\u00e9rifier l'existence et la fiabilit\u00e9 des syst\u00e8mes de contr\u00f4le interne;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "d'examiner les proc\u00e9dures internes et la gouvernance des entit\u00e9s soumises au contr\u00f4le sur la base d'une approche fond\u00e9e sur les risques;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "de v\u00e9rifier la fiabilit\u00e9 et la s\u00e9curit\u00e9 des syst\u00e8mes d'information traitant des donn\u00e9es de nature financi\u00e8re et comptable;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "f.",
+                            "type": "list_item",
+                            "content": [
+                                "de contr\u00f4ler les projets et les activit\u00e9s de construction de l'Etat;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "d'examiner les processus de taxations fiscales et de perception;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "h.",
+                            "type": "list_item",
+                            "content": [
+                                "de contribuer au contr\u00f4le p\u00e9riodique de l'opportunit\u00e9 des financements sp\u00e9ciaux, en collaboration avec le D\u00e9partement des finances;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "i.",
+                            "type": "list_item",
+                            "content": [
+                                "d'\u00e9valuer l'efficacit\u00e9 des services d'audit interne des unit\u00e9s administratives de l'administration cantonale et de certains organismes ainsi que de coordonner les activit\u00e9s de contr\u00f4le;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "j.",
+                            "type": "list_item",
+                            "content": [
+                                "de v\u00e9rifier l'\u00e9limination des cr\u00e9ances irr\u00e9couvrables;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "k.",
+                            "type": "list_item",
+                            "content": [
+                                "de contr\u00f4ler les flux financiers des organismes transfrontaliers, y compris les subventions communautaires;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "l.",
+                            "type": "list_item",
+                            "content": [
+                                "de participer \u00e0 l'\u00e9laboration des prescriptions touchant la gestion financi\u00e8re."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances ne peut, en r\u00e8gle g\u00e9n\u00e9rale, \u00eatre charg\u00e9 de missions qui incombent \u00e0 l'administration cantonale."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "c) Etendue du contr\u00f4le"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 10** [1.] Le Contr\u00f4le des finances v\u00e9rifie la r\u00e9gularit\u00e9, la l\u00e9galit\u00e9 et l'efficience \u00e9conomique de la gestion financi\u00e8re."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Il propose toutes mesures qu'il juge utiles. Il attire l'attention sur des d\u00e9penses qui lui paraissent \u00e9vitables ou sur la possibilit\u00e9 de proposer de nouvelles recettes."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "d) Planification"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 11** Le Contr\u00f4le des finances planifie les contr\u00f4les sur la base de son \u00e9valuation des risques."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Mandats sp\u00e9ciaux"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 12** [1.] Les autorit\u00e9s suivantes peuvent attribuer des mandats sp\u00e9ciaux au Contr\u00f4le des finances afin que celui-ci leur apporte son soutien dans l'accomplissement de leur t\u00e2che de surveillance :"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "le Parlement, le Bureau du Parlement, la commission de gestion et des finances ou toute autre commission parlementaire permanente, sp\u00e9ciale ou d'enqu\u00eate;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "le Gouvernement;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "les d\u00e9partements."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances peut refuser les mandats sp\u00e9ciaux qui pourraient compromettre l'ind\u00e9pendance et l'impartialit\u00e9 de ses activit\u00e9s de surveillance financi\u00e8re. Il peut \u00e9galement refuser les mandats sp\u00e9ciaux qui n'entrent pas dans son domaine de comp\u00e9tence ou s'ils emp\u00eachent la r\u00e9alisation de ses t\u00e2ches principales en raison de ressources insuffisantes."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Apr\u00e8s discussion avec le Contr\u00f4le des finances, l'entit\u00e9 mandante \u00e9tablit une lettre de confirmation de mandat, mentionnant au minimum le contexte dans lequel s'inscrit le mandat, l'objet de celui-ci et les questions \u00e0 traiter, le d\u00e9lai pour l'\u00e9mission du rapport et les destinataires du rapport."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Si l'entit\u00e9 mandante envisage a posteriori de remettre le rapport \u00e0 des destinataires qui ne figurent pas dans la lettre de confirmation, elle demande l'autorisation du contr\u00f4leur g\u00e9n\u00e9ral des finances."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Autres activit\u00e9s de contr\u00f4le"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 13**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances peut accepter des mandats d'organe de r\u00e9vision ou effectuer des r\u00e9visions annuelles r\u00e9currentes assimilables \u00e0 des mandats d'organe de r\u00e9vision pour autant qu'un int\u00e9r\u00eat de l'Etat important le justifie. Les dispositions l\u00e9gales d\u00e9signant le Contr\u00f4le des finances comme organe de r\u00e9vision ou de contr\u00f4le sont r\u00e9serv\u00e9es."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Il remplit les mandats de contr\u00f4le attribu\u00e9s par la Conf\u00e9d\u00e9ration."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Il peut accepter d'autres activit\u00e9s de contr\u00f4le occasionnelles pour autant qu'un int\u00e9r\u00eat important de l'Etat le justifie."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Principes de l'accomplissement des t\u00e2ches"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 14** Le Contr\u00f4le des finances exerce son activit\u00e9 selon une approche bas\u00e9e sur les risques, selon les r\u00e8gles qui r\u00e9gissent l'activit\u00e9 administrative et les dispositions de la pr\u00e9sente loi ainsi que dans le respect des principes g\u00e9n\u00e9ralement reconnus en mati\u00e8re d'audit."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "SECTION 4 : Rapports"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Rapport suite \u00e0 un contr\u00f4le de surveillance financi\u00e8re"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "a) Principes"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 15**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Suite \u00e0 un contr\u00f4le men\u00e9 dans le cadre de la surveillance financi\u00e8re, le Contr\u00f4le des finances consigne le r\u00e9sultat de ses examens dans un projet de rapport."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Il permet \u00e0 l'entit\u00e9 contr\u00f4l\u00e9e de se prononcer sur le projet de rapport lors d'un entretien final avec les responsables de cette entit\u00e9. Il leur communique ses intentions de recommandations et d'observations."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Suite \u00e0 l'entretien final, le Contr\u00f4le des finances transmet son rapport \u00e0 l'entit\u00e9 contr\u00f4l\u00e9e et au d\u00e9partement concern\u00e9. L'entit\u00e9 contr\u00f4l\u00e9e doit prendre position par \u00e9crit, dans le d\u00e9lai fix\u00e9 par le Contr\u00f4le des finances, sur les recommandations formul\u00e9es dans le rapport. Les prises de position doivent indiquer les mesures pr\u00e9vues et leur calendrier."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Les prises de position de l'entit\u00e9 contr\u00f4l\u00e9e font partie int\u00e9grante du rapport d\u00e9finitif."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Le rapport d\u00e9finitif est sign\u00e9 par le r\u00e9viseur responsable de l'ex\u00e9cution du contr\u00f4le. Il est vis\u00e9 par le contr\u00f4leur g\u00e9n\u00e9ral des finances qui certifie ainsi en avoir pris connaissance et en approuver la teneur."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "6.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances adresse un exemplaire du rapport d\u00e9finitif au pr\u00e9sident de la commission de gestion et des finances, au pr\u00e9sident du Gouvernement et au chef du D\u00e9partement des finances."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "7.",
+                            "type": "list_item",
+                            "content": [
+                                "Pour les entit\u00e9s soumises au contr\u00f4le au sens de l'article 8, lettres c \u00e0 f, le Contr\u00f4le des finances adresse \u00e9galement son rapport au chef de l'unit\u00e9 administrative responsable de la gestion des fonds contr\u00f4l\u00e9s."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "b) Responsabilit\u00e9s de l'entit\u00e9 contr\u00f4l\u00e9e"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 16**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Il incombe \u00e0 l'entit\u00e9 contr\u00f4l\u00e9e de prendre les mesures visant \u00e0 satisfaire aux recommandations du Contr\u00f4le des finances."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Dans des cas exceptionnels et d\u00fbment justifi\u00e9s, l'entit\u00e9 contr\u00f4l\u00e9e peut d\u00e9cider de ne pas prendre de mesures."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "La d\u00e9cision de ne pas prendre de mesures est soumise \u00e0 l'approbation du Gouvernement dans un d\u00e9lai de 30 jours d\u00e8s la notification du rapport d\u00e9finitif."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Pour les entit\u00e9s soumises au contr\u00f4le au sens de l'article 8, lettres c \u00e0 f, il appartient \u00e0 l'unit\u00e9 administrative responsable de la gestion des fonds contr\u00f4l\u00e9s de soumettre la d\u00e9cision de ne pas prendre de mesures \u00e0 l'approbation du Gouvernement."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "La d\u00e9cision du Gouvernement n'est pas sujette \u00e0 recours."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Rapport de mandat sp\u00e9cial"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Art. 17**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dans le cadre de l'ex\u00e9cution d'un mandat sp\u00e9cial, le Contr\u00f4le des finances consigne dans un rapport \u00e9crit le r\u00e9sultat de ses investigations. Ce rapport est sign\u00e9 par le r\u00e9viseur responsable de l'ex\u00e9cution du mandat sp\u00e9cial. Il est vis\u00e9 par le contr\u00f4leur g\u00e9n\u00e9ral des finances qui certifie ainsi en avoir pris connaissance et en approuver la teneur."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "La proc\u00e9dure de communication et la distribution du rapport de mandat sp\u00e9cial sont d\u00e9finies par l'entit\u00e9 mandante dans la lettre de confirmation de mandat."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 18"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances \u00e9tablit un rapport de r\u00e9vision d\u00e9taill\u00e9 sur les comptes annuels de l'Etat \u00e0 l'intention de la commission de gestion et des finances et du Gouvernement."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Il \u00e9tablit \u00e9galement une attestation succincte \u00e0 l'intention du Parlement. Cette attestation est transmise au Parlement en m\u00eame temps que les comptes annuels de l'Etat."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 19"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Lorsque le Contr\u00f4le des finances d\u00e9couvre ou soup\u00e7onne des irr\u00e9gularit\u00e9s graves, il prend imm\u00e9diatement les mesures conservatoires n\u00e9cessaires et en informe sans tarder le pr\u00e9sident de la commission de gestion et des finances, le pr\u00e9sident du Gouvernement, le chef du d\u00e9partement concern\u00e9 et le chef du D\u00e9partement des finances."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Les mesures conservatoires consistent notamment :"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "a) au blocage des paiements;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "b) \u00e0 la suppression du droit \u00e0 la signature;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "c) \u00e0 la mise en s\u00e9curit\u00e9 des donn\u00e9es et des documents;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "d) \u00e0 la confiscation de cl\u00e9s;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "e) au blocage des acc\u00e8s informatiques."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances signale au Minist\u00e8re public les infractions se poursuivant d'office dont il a connaissance dans le cadre de ses activit\u00e9s."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 20"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Le Contr\u00f4le des finances \u00e9tablit chaque ann\u00e9e un rapport d'activit\u00e9 \u00e0 l'intention du Parlement et du Gouvernement."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 21"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Les documents remis au Contr\u00f4le des finances ou \u00e9manant de celui-ci ne sont pas publics, \u00e0 l'exception du rapport d'activit\u00e9. Ils ne sont pas accessibles en vertu de la l\u00e9gislation en mati\u00e8re de transparence des activit\u00e9s \u00e9tatiques."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Dans des cas particuliers qui rev\u00eatent une importance fondamentale et un int\u00e9r\u00eat public consid\u00e9rable, le contr\u00f4leur g\u00e9n\u00e9ral des finances peut, en toute ind\u00e9pendance, prendre la d\u00e9cision de rendre public un rapport de mani\u00e8re int\u00e9grale ou partielle. Le cas \u00e9ch\u00e9ant, il en informe pr\u00e9alablement l'entit\u00e9 contr\u00f4l\u00e9e."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "SECTION 5 : Collaboration"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Relation avec les autorit\u00e9s et les institutions"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 22"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances traite directement avec le Bureau du Parlement, la commission de gestion et des finances ou toute autre commission permanente, sp\u00e9ciale ou d'enqu\u00eate, le Gouvernement, les d\u00e9partements, la Chancellerie d'Etat, les unit\u00e9s administratives et les autres entit\u00e9s soumises \u00e0 sa surveillance financi\u00e8re."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances a tous pouvoirs d'investigation; il peut intervenir en tout temps."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "En cas de besoin, le Parlement s'adresse au Contr\u00f4le des finances par l'interm\u00e9diaire de la commission de gestion et des finances."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Communication"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 23"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "La Chancellerie d'Etat remet au Contr\u00f4le des finances tous les arr\u00eat\u00e9s et autres actes du Parlement et du Gouvernement ayant des r\u00e9percussions sur les finances cantonales."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Les d\u00e9partements transmettent directement au Contr\u00f4le des finances les arr\u00eat\u00e9s et autres actes ayant des r\u00e9percussions sur les finances cantonales."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Obligation de collaborer et de renseigner"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 24"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Les entit\u00e9s soumises \u00e0 la surveillance financi\u00e8re du Contr\u00f4le des finances sont tenues de l'assister dans l'accomplissement de ses t\u00e2ches et de lui remettre toutes les informations n\u00e9cessaires \u00e0 cette fin ."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Elles ne peuvent invoquer aucune obligation l\u00e9gale de garder le secret."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Protection des donn\u00e9es"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 25"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances peut acc\u00e9der, y compris en ligne, \u00e0 toutes les donn\u00e9es n\u00e9cessaires \u00e0 l'accomplissement des t\u00e2ches mentionn\u00e9es aux articles 9, 12 et 13 de la pr\u00e9sente loi, y compris les donn\u00e9es personnelles, les donn\u00e9es sensibles et les donn\u00e9es soumises au secret fiscal."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances ne peut pas r\u00e9v\u00e9ler des donn\u00e9es dont il a eu connaissance sur la base de l'alin\u00e9a 1 dans son rapport ou dans tout autre document transmis ou accessible \u00e0 des tiers."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Le Contr\u00f4le des finances ne peut conserver ou enregistrer les donn\u00e9es dont il a eu connaissance sur la base de l'alin\u00e9a 1 que jusqu'\u00e0 l'ach\u00e8vement de la proc\u00e9dure de contr\u00f4le. Sont r\u00e9serv\u00e9es les obligations l\u00e9gales de conservation des donn\u00e9es et les obligations de documentation de la profession."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 26"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Les collaborateurs du Contr\u00f4le des finances, qui ont connaissance de faits soumis \u00e0 une obligation l\u00e9gale de garder le secret, sont eux-m\u00eames tenus au secret."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Cette obligation vaut \u00e9galement pour les experts externes auxquels le Contr\u00f4le des finances fait appel en application de l'article 7."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Quiconque a pris connaissance dans des rapports du Contr\u00f4le des finances de faits soumis \u00e0 une obligation l\u00e9gale de garder le secret y est lui-m\u00eame soumis."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "SECTION 6 : Emoluments"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 27"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Les activit\u00e9s de contr\u00f4le pr\u00e9vues \u00e0 l'article 13, alin\u00e9as 1 et 2, sont sujettes \u00e0 \u00e9moluments d\u00e9termin\u00e9s conform\u00e9ment au d\u00e9cret fixant les \u00e9moluments de l'administration cantonale[^Note de bas de page 2]."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "SECTION 7 : Dispositions finales"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 28"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Le d\u00e9cret d'organisation du Gouvernement et de l'administration cantonale du 27 avril 2016[^Note de bas de page 3] est modifi\u00e9 comme il suit :"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Article 36, titre marginal et alin\u00e9a 3 (nouvelle teneur)"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 36 (...)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "L'organisation, les attributions et le fonctionnement du Contr\u00f4le des finances sont fix\u00e9s par la loi sur le Contr\u00f4le des finances."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Articles 37 \u00e0 39 (abrog\u00e9s)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "La loi du 22 septembre 2010 sur le personnel de l'Etat[^Note de bas de page 4] est modifi\u00e9e comme il suit :"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Article 4, alin\u00e9a 1, lettre e (nouvelle teneur)"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 4"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Sont magistrats au sens de la pr\u00e9sente loi :"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(...)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "e) le contr\u00f4leur g\u00e9n\u00e9ral des finances;"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3 Le d\u00e9cret du 24 mars 2010 fixant les \u00e9moluments de l'administration cantonale[^2] est modifi\u00e9 comme il suit :"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Article 12a (nouveau)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Contr\u00f4le des finances Art. 12a Le Contr\u00f4le des finances per\u00e7oit les \u00e9moluments suivants :"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Mandat d'organe de r\u00e9vision ou r\u00e9vision annuelle r\u00e9currente assimilable \u00e0 un mandat d'organe de r\u00e9vision (art. 13, al. 1, et 27 de la loi sur le Contr\u00f4le des finances) 1 000 \u00e0 20 000"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Mandat de contr\u00f4le attribu\u00e9 par la Conf\u00e9d\u00e9ration (art. 13, al. 2, et 27 de la loi sur le Contr\u00f4le des finances) 1 000 \u00e0 70 000"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4 La loi du 18 octobre 2000 sur les finances cantonales[^5] est modifi\u00e9e comme il suit :"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Article 67, alin\u00e9a 2 (nouvelle teneur)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2",
+                            "type": "list_item",
+                            "content": [
+                                "Il exerce la surveillance du contr\u00f4leur g\u00e9n\u00e9ral des finances."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Chapitre IX et articles 70 \u00e0 80 (abrog\u00e9s)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "5 La loi du 28 octobre 2020 portant introduction de la loi f\u00e9d\u00e9rale sur les jeux d'argent[^6] est modifi\u00e9e comme il suit :"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Article 23, 2\u00e8me phrase (nouvelle teneur)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Art. 23 (...). Il proc\u00e8de aux v\u00e9rifications des comptes annuels afin d'en attester leur conformit\u00e9."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "R\u00e9f\u00e9rendum Art. 29 La pr\u00e9sente loi est soumise au r\u00e9f\u00e9rendum facultatif."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Entr\u00e9e en vigueur"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 30"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Le Gouvernement fixe l'entr\u00e9e en vigueur de la pr\u00e9sente loi."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Del\u00e9mont, le"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "AU NOM DU PARLEMENT DE LA"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "REPUBLIQUE ET CANTON DU JURA"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "La pr\u00e9sidente :                Le secr\u00e9taire :"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pauline Godat                  Fabien Kohler"
+                    ]
+                }
+            ]
+        }
+    ]
+}

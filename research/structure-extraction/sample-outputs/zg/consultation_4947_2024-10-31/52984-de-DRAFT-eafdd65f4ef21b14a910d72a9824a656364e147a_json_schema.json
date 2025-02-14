@@ -1,0 +1,254 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Here is the full document content formatted as markdown:"
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Antrag der Volkswirtschaftsdirektion zum Erlass der Verordnung \u00fcber die Beherbergungsabgabe"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Verordnung \u00fcber die Beherbergungsabgabe"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vom [...]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (BGS-Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:               ???.???"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:          \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben:        \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "*Der Regierungsrat,*"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf \u00a7 4a des Gesetzes \u00fcber die Beherbergungsabgabe[^BGS 944.2]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "*beschliesst,*"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass BGS ???.???, Verordnung \u00fcber die Beherbergungsabgabe, wird als neuer Erlass publiziert."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 1          Abgabenh\u00f6he"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Abgabenh\u00f6he betr\u00e4gt 4 Franken."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 2          Mindestabgabe an die kantonale Tourismusorganisation"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Mindestens Fr. 2.95 pro Logiernacht wird der kantonalen Tourismusorganisation gutgeschrieben. Der Rest der Beherbergungsabgabe kann der lokalen Tourismusorganisation gutgeschrieben werden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Keine Fremdaufhebungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Diese Verordnung tritt auf den 1. Januar 2026 in Kraft."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "Ort",
+                            "type": "list_item",
+                            "content": [
+                                ", [Datum]"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Regierungsrat"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Frau Landammann"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Silvia Thalmann-Gut"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die stv. Landschreiberin"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ren\u00e9e Spillmann Siegwart"
+                    ]
+                }
+            ]
+        }
+    ]
+}
