@@ -209,8 +209,12 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     # Drop known invalid data
     missing_start_date = df["consultation_start_date"].isna()
     if len(missing := df[missing_start_date]) > 13:  # noqa: PLR2004
-        logger.warning("Dropping %d consultations with missing start date: %r", len(missing), missing)
+        logger.warning("Dropping %d documents with missing consultation start date: %r", len(missing), missing)
     df = df[~missing_start_date]
+    missing_url = df["document_source_url"] == "#"  # Some OpenParlData documents have this placeholder instead of a URL
+    if len(missing := df[missing_url]) > 0:
+        logger.warning("Dropping %d documents with missing URL: %r", len(missing), missing)
+    df = df[~missing_url]
 
     return df
 
