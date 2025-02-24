@@ -37,6 +37,7 @@ dev-dependencies = [
 [tool.prefect]
 home = "./.prefect"
 server.analytics_enabled = false
+api.url = "http://127.0.0.1:4200/api"
 
 [tool.ruff]
 line-length = 120
