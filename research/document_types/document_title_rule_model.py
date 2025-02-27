@@ -41,6 +41,8 @@ def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumen
 
     logging.info("Labelled %.2f%% of documents", len(df[~df["document_type"].isna()]) * 100 / len(df))
     # (df["document_type"].value_counts(dropna=False) * 100 / len(df)).plot.barh(title="Document types [%]")
+    df["document_type"] = pd.Categorical(df["document_type"], categories=documents["document_type"].cat.categories)
+    assert documents["document_type"].dtype == df["document_type"].dtype
     return df["document_type"]
 
 
