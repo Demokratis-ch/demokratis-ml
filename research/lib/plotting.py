@@ -106,5 +106,6 @@ def plot_confusion_matrix_heatmap(
     if title:
         plot_title += f": {title}"
     plt.title(plot_title)
+    plt.tight_layout()
     plt.close(fig)
     return fig
