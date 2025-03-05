@@ -101,6 +101,10 @@ def plot_confusion_matrix_heatmap(
     )
     plt.xlabel("Predicted")
     plt.ylabel("True")
-    plt.title("Confusion matrix" + f": {title}" if title else "")
+    normalization_description = "not normalized" if normalize is None else f"normalize={normalize}"
+    plot_title = f"Confusion matrix ({normalization_description})"
+    if title:
+        plot_title += f": {title}"
+    plt.title(plot_title)
     plt.close(fig)
     return fig
