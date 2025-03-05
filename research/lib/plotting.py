@@ -1,5 +1,5 @@
-from collections.abc import Callable
-from typing import Any
+from collections.abc import Callable, Sequence
+from typing import Any, Literal
 
 import matplotlib.figure
 import matplotlib.pyplot as plt
@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn.metrics
+import sklearn.utils.multiclass
 
 
 def plot_and_log(plot_function: Callable, mlflow_file_name: str, **plot_kwargs: Any) -> matplotlib.figure.Figure:
@@ -70,5 +71,41 @@ def plot_score_against_support(
             fontsize=8,
         )
     plt.ylim(*ylim)
+    plt.close(fig)
+    return fig
+
+
+def plot_confusion_matrix_heatmap(
+    ground_truth: np.ndarray,
+    predictions: np.ndarray,
+    target_names: Sequence[str] | np.ndarray | None = None,
+    title: str = "",
+    normalize: Literal["true", "pred", "all"] | None = None,
+) -> matplotlib.figure.Figure:
+    """Plot the confusion matrix as a heatmap."""
+    if target_names is None:
+        target_names = sklearn.utils.multiclass.unique_labels(ground_truth, predictions)
+    confusion_matrix = sklearn.metrics.confusion_matrix(
+        ground_truth,
+        predictions,
+        normalize=normalize,
+    )
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.heatmap(
+        confusion_matrix,
+        annot=True,
+        cmap="Blues",
+        xticklabels=target_names,
+        yticklabels=target_names,
+        ax=ax,
+    )
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    normalization_description = "not normalized" if normalize is None else f"normalize={normalize}"
+    plot_title = f"Confusion matrix ({normalization_description})"
+    if title:
+        plot_title += f": {title}"
+    plt.title(plot_title)
+    plt.tight_layout()
     plt.close(fig)
     return fig
