@@ -10,15 +10,18 @@ from demokratis_ml.data import schemata
 
 @pa.check_types
 def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumentSchemaV1]) -> pd.Series:
-    df = documents[["political_body", "document_title", "document_content_plain"]].copy()
+    df = documents[["political_body", "document_title", "document_content_plain", "document_type"]].copy()
     df["document_title_clean"] = df["document_title"].map(_clean_document_title)
-    df["document_type"] = None
+
+    already_labelled = len(df[~df["document_type"].isna()]) * 100 / len(df)
+    logging.info("%.2f%% of documents already have labels", already_labelled)
 
     for canton_code, rules in _DOCUMENT_TITLE_STARTS_WITH_RULES.items():
         for document_type, keywords in rules.items():
             for keyword in keywords:
+                index = df["document_type"].isna()
                 keyword = keyword.lower()  # noqa: PLW2901
-                index = df["document_title_clean"].str.startswith(keyword)
+                index &= df["document_title_clean"].str.startswith(keyword)
                 if canton_code != "<any>":
                     index &= df["political_body"] == canton_code
                 df.loc[index, "document_type"] = document_type
@@ -39,7 +42,10 @@ def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumen
         "document_type",
     ] = "SYNOPTIC_TABLE"
 
-    logging.info("Labelled %.2f%% of documents", len(df[~df["document_type"].isna()]) * 100 / len(df))
+    logging.info(
+        "Labelled %.2f%% of documents",
+        len(df[~df["document_type"].isna()]) * 100 / len(df) - already_labelled,
+    )
     # (df["document_type"].value_counts(dropna=False) * 100 / len(df)).plot.barh(title="Document types [%]")
     df["document_type"] = pd.Categorical(df["document_type"], categories=documents["document_type"].cat.categories)
     assert documents["document_type"].dtype == df["document_type"].dtype
