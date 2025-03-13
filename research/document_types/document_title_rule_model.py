@@ -3,13 +3,12 @@ import re
 
 import pandas as pd
 import pandera as pa
-import pandera.typing
 
 from demokratis_ml.data import schemata
 
 
 @pa.check_types
-def predict(documents: pandera.typing.DataFrame[schemata.FullConsultationDocumentSchemaV1]) -> pd.Series:
+def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
     df = documents[["political_body", "document_title", "document_content_plain", "document_type"]].copy()
     df["document_title_clean"] = df["document_title"].map(_clean_document_title)
 
