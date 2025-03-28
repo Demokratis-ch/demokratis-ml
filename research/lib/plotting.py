@@ -15,6 +15,7 @@ def plot_and_log(plot_function: Callable, mlflow_file_name: str, **plot_kwargs: 
     """Plot and log the figure to MLFlow."""
     fig, ax = plt.subplots()
     plot_function(ax=ax, **plot_kwargs)
+    plt.tight_layout()
     mlflow.log_figure(fig, mlflow_file_name)
     plt.close(fig)
     return fig
