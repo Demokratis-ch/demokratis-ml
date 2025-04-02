@@ -5,7 +5,7 @@ from typing import Any, cast
 import numpy as np
 import pandas as pd
 import pandera as pa
-from pandera.typing import Series
+from pandera.typing import DataFrame, Series
 
 CONSULTATION_TOPICS = {
     "administration",
@@ -172,8 +172,14 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """ Name of the document; may be an actual filename with an extension """
 
 
+ConsultationDocumentMetadataV1 = DataFrame[ConsultationDocumentMetadataSchemaV1]
+
+
 class FullConsultationDocumentSchemaV1(ConsultationDocumentMetadataSchemaV1):
     """Schema for a table that includes both the metadata and the text content of the documents."""
 
     document_content_plain: str
     """ Text content of the document in plain text, typically extracted from a PDF """
+
+
+FullConsultationDocumentV1 = DataFrame[FullConsultationDocumentSchemaV1]

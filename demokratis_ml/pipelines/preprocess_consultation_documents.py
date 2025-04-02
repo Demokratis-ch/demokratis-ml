@@ -9,7 +9,6 @@ import sys
 import httpx
 import huggingface_hub
 import lingua
-import magic
 import numpy as np
 import pandas as pd
 import pandera
@@ -20,6 +19,7 @@ import prefect.filesystems
 import prefect.futures
 import prefect.logging
 import prefect.task_runners
+import pyarrow.parquet
 
 from demokratis_ml.data import schemata
 from demokratis_ml.pipelines import blocks, simple_pdf_extraction, utils
@@ -37,26 +37,37 @@ Before this date, the document type wasn't consistently reviewed and defaulted t
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
 )
-@pandera.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
-def preprocess_data(publish: bool) -> pd.DataFrame:
+@pandera.check_types
+def preprocess_data(publish: bool, bootstrap_extracted_content: bool = True) -> schemata.FullConsultationDocumentV1:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
     - Load metadata and contents of consultation documents.
     - Detect the language of cantonal documents (the Demokratis platform is unreliable at detecting them).
-    - Download Fedlex documents and extract their plain text (not provided by the API).
+    - Optionally bootstrap missing document content by finding a previously preprocessed dataframe and taking
+      document_content_plain from there.
+    - Extract any missing plain text from Fedlex documents (not provided by the API).
     - Store the resulting dataframe in a Parquet file.
 
     Only documents with non-empty content are kept in the final dataframe.
 
     :param publish: If true, upload the resulting dataframe to our remote S3-like storage and our public
         HuggingFace dataset repository.
+    :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
+        document_content_plain from there to fill in missing content for Fedlex documents.
     """
     logger = prefect.logging.get_run_logger()
 
-    # Load raw data
+    if bootstrap_extracted_content:
+        # Fire off the task  in parallel with the API requests that follow.
+        previously_extracted_content_future = find_previously_extracted_content.submit()
+    else:
+        previously_extracted_content_future = None
+
+    # Load raw data from Demokratis API. Takes a few minutes but we do it sequentially to be nice to the API.
     metadata = load_consultation_document_metadata()
     contents = load_consultation_document_contents()
+    stored_files = load_consultation_document_stored_files()
     df = metadata.join(contents, on="document_id")
 
     # Language is unreliable for cantonal documents => detect it.
@@ -72,11 +83,24 @@ def preprocess_data(publish: bool) -> pd.DataFrame:
         "document_type",
     ] = None
 
-    # Download Fedlex documents and extract text
-    fedlex_index = df["document_source"] == "fedlex"
-    assert df.loc[fedlex_index, "document_content_plain"].isna().all(), "Fedlex documents should not have content yet"
-    extracted_content = download_documents_and_extract_content(df.loc[fedlex_index])
-    df.loc[fedlex_index, "document_content_plain"] = extracted_content
+    # Extract text from Fedlex documents
+    missing_content_index = df["document_source"] == "fedlex"
+    assert (
+        df.loc[missing_content_index, "document_content_plain"].isna().all()
+    ), "Fedlex documents should not have content yet"
+    logger.info("Need content for %d Fedlex documents", missing_content_index.sum())
+    if bootstrap_extracted_content:
+        assert previously_extracted_content_future is not None
+        previously_extracted_content = previously_extracted_content_future.result()
+        usable_content = df.loc[missing_content_index].join(
+            previously_extracted_content, on="document_id", rsuffix="_previous"
+        )["document_content_plain_previous"]
+        df.loc[usable_content.index, "document_content_plain"] = usable_content
+        missing_content_index &= df["document_content_plain"].isna()
+        logger.info("After bootstrapping, %d documents still have missing content", missing_content_index.sum())
+
+    extracted_content = extract_document_content(df.loc[missing_content_index], stored_files)
+    df.loc[missing_content_index, "document_content_plain"] = extracted_content
 
     # Drop documents that still don't have any content
     missing_content = df[df["document_content_plain"].isna()]
@@ -236,6 +260,27 @@ def load_consultation_document_contents() -> pd.Series:
 
 
 @prefect.task
+def load_consultation_document_stored_files() -> pd.DataFrame:
+    """Load references to original stored files from the Demokratis API.
+
+    These files are mirrored from the original sources (federal and cantonal websites) and stored
+    in Demokratis object storage.
+
+    Returns a dataframe indexed by stored file ID.
+    """
+    logger = prefect.logging.get_run_logger()
+    raw = demokratis_api_request("stored-files", timeout=180.0)
+    df = pd.DataFrame(raw)
+    df = df.loc[df["type"] == "consultation_document"]
+    logger.info("Loaded %d stored files with fields: %r", len(df), df.columns.tolist())
+    assert {"id", "path", "size", "mime_type", "file_hash", "file_name"} <= set(df.columns), repr(df.columns)
+    df = df.rename(columns={"id": "stored_file_id"})
+    assert df["stored_file_id"].is_unique
+    df = df.set_index("stored_file_id")
+    return df[["path", "size", "mime_type", "file_hash", "file_name"]]
+
+
+@prefect.task
 @utils.print_validation_failure_cases()
 @pandera.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
 def detect_document_language(df: pd.DataFrame) -> pd.Series:
@@ -259,10 +304,35 @@ def detect_document_language(df: pd.DataFrame) -> pd.Series:
     return languages
 
 
+@prefect.task(
+    cache_policy=prefect.cache_policies.TASK_SOURCE,
+    cache_expiration=datetime.timedelta(hours=1),
+)
+def find_previously_extracted_content() -> pd.Series:
+    """Find the latest output of this flow and return "document_content_plain" for all extracted documents.
+
+    Useful as a warm-up cache for the document content extraction task.
+    """
+    logger = prefect.logging.get_run_logger()
+    fs_dataframe_storage = blocks.ExtendedRemoteFileSystem.load("remote-dataframe-storage")
+    paths = [p for p in fs_dataframe_storage.iterdir() if p.name.startswith("consultation-documents-preprocessed-")]
+    logger.debug("Found previously extracted dataframes: %r", paths)
+    if not paths:
+        raise FileNotFoundError("No previously extracted content found")
+    latest_path = max(paths)
+    logger.info("Loading latest extracted content from %r", latest_path)
+    with fs_dataframe_storage.open(latest_path, "rb") as f:
+        parquet_file = pyarrow.parquet.ParquetFile(f)
+        table = parquet_file.read(columns=["document_id", "document_content_plain"])
+        latest_df = table.to_pandas()
+    latest_df = latest_df.dropna()
+    return latest_df.set_index("document_id")["document_content_plain"]
+
+
 @prefect.task
 @utils.print_validation_failure_cases()
-@pandera.check_input(schemata.ConsultationDocumentMetadataSchemaV1.to_schema())
-def download_documents_and_extract_content(df: pd.DataFrame) -> pd.Series:
+@pandera.check_types
+def extract_document_content(df: schemata.ConsultationDocumentMetadataV1, df_stored_files: pd.DataFrame) -> pd.Series:
     """For each document in the dataframe, download the remote PDF file and extract the plain text.
 
     Local filesystem is used as a cache for the downloaded files and extracted text, so only new
@@ -271,105 +341,75 @@ def download_documents_and_extract_content(df: pd.DataFrame) -> pd.Series:
     :return: Series with the extracted texts, using the same index as the input dataframe.
     """
     logger = prefect.logging.get_run_logger()
+    df_merged = df.join(df_stored_files, on="latest_stored_file_id")
 
-    source_urls = df["document_source_url"].tolist()
-    # TODO: some of the documents are not actually PDFs. We shouldn't blindly use the .pdf extension.
-    local_paths_pdf = df.apply(
-        functools.partial(utils.generate_path_in_document_storage, extension="pdf"), axis=1
-    ).tolist()
-    local_paths_txt = df.apply(
+    # Remove missing files
+    missing_files = df_merged["path"].isna()
+    if missing_files_count := int(missing_files.sum()):
+        logger.warning(
+            "Missing stored files for %d documents (%.1f%%)",
+            missing_files_count,
+            100 * missing_files_count / len(df),
+        )
+    df_merged = df_merged[~missing_files]
+
+    # Remove non-PDF files (we can't extract them yet)
+    non_pdf_files = df_merged["mime_type"] != "application/pdf"
+    if non_pdf_files_count := int(non_pdf_files.sum()):
+        logger.warning(
+            "Ignoring %d non-PDF files (%.1f%%)",
+            non_pdf_files_count,
+            100 * non_pdf_files_count / len(df),
+        )
+    df_merged = df_merged[~non_pdf_files]
+
+    # Extract text from all PDFs that exist (have storage paths) but don't have extracted text yet.
+    fs_txt_storage = utils.get_document_storage()
+    stored_paths = df_merged["path"].tolist()
+    local_paths_txt = df_merged.apply(
         functools.partial(utils.generate_path_in_document_storage, extension="txt"), axis=1
     ).tolist()
-
-    fs = utils.get_document_storage()
-
-    # Download all missing PDFs and write them to the filesystem.
-    # Extract text from all PDFs that exist on the filesystem but don't have extracted text yet.
     futures = []
-    download_count = 0
-    extract_count = 0
-    for source_url, local_path_pdf, local_path_txt in zip(source_urls, local_paths_pdf, local_paths_txt, strict=True):
-        # PDF doesn't exist => download & extract
-        if not fs.path_exists(local_path_pdf):
-            download_future = download_document.submit(source_url, local_path_pdf)
-            futures.append(download_future)
-            download_count += 1
-            # Since we're downloading the PDF, we'll assume the text isn't extracted yet.
-            extract_future = extract_text_from_pdf.submit(
-                local_path_pdf,
-                local_path_txt,
-                wait_for=[download_future],
-            )
+    for stored_path, local_path_txt in zip(stored_paths, local_paths_txt, strict=True):
+        if not fs_txt_storage.path_exists(local_path_txt):
+            extract_future = extract_text_from_pdf.submit(stored_path, local_path_txt)
             futures.append(extract_future)
-            extract_count += 1
-        # PDF exists but text isn't extracted yet => extract
-        elif not fs.path_exists(local_path_txt):
-            extract_future = extract_text_from_pdf.submit(local_path_pdf, local_path_txt)
-            futures.append(extract_future)
-            extract_count += 1
 
-    logger.info("Downloading %d PDFs and extracting text from %d PDFs", download_count, extract_count)
+    logger.info("Extracting text from %d PDFs", len(futures))
     awaited_futures = prefect.futures.wait(futures)
     assert not awaited_futures.not_done
 
     # All futures are done, so we can read the extracted content from the filesystem.
-    # TODO this is not very efficient as the vast majority of the documents have already been extracted
-    # before. We should have a file with the already-extracted texts and use it as cache.
     logger.info("Reading extracted text from %d files", len(local_paths_txt))
     content = [
-        fs.read_path(local_path_txt).decode() if fs.path_exists(local_path_txt) else None
+        fs_txt_storage.read_path(local_path_txt).decode() if fs_txt_storage.path_exists(local_path_txt) else None
         for local_path_txt in local_paths_txt
     ]
-    return pd.Series(content, index=df.index)
+    return pd.Series(content, index=df_merged.index)
 
 
 @prefect.task(
-    task_run_name="download_document({document_url})",
+    task_run_name="extract_text_from_pdf({stored_path_pdf})",
 )
-def download_document(document_url: str, local_path: pathlib.Path) -> None:
-    """Download a remote document and write it to a local file."""
-    assert document_url.startswith(("http:", "https:"))
-    response = httpx.get(document_url, timeout=120)
-    response.raise_for_status()
-    utils.get_document_storage().write_path(local_path, response.content)
-    # The URL is in the task name so we don't need to repeat it in the log message.
-    prefect.logging.get_run_logger().info("Downloaded %.1fkB to %r", len(response.content) / 1024.0, local_path)
-
-
-@prefect.task(
-    task_run_name="extract_text_from_pdf({local_path_pdf})",
-)
-def extract_text_from_pdf(local_path_pdf: pathlib.Path, local_path_txt: pathlib.Path) -> None:
+def extract_text_from_pdf(stored_path_pdf: pathlib.Path, local_path_txt: pathlib.Path) -> None:
     """Extract text from a PDF file and write it to a text file."""
     logger = prefect.logging.get_run_logger()
-    fs = utils.get_document_storage()
-    if not fs.path_exists(local_path_pdf):
-        logger.error("PDF file does not exist, cannot extract")
-        return
-
-    file_data = fs.read_path(local_path_pdf)
-
-    # TODO: instead of using the magic library here to find out we've downloaded a non-PDF and gave
-    # it a .pdf extension, we should use the response MIME headers when downloading the file
-    # to apply the correct extension.
-    mime_type = magic.from_buffer(file_data[:2048], mime=True)
-    if mime_type != "application/pdf":
-        logger.error("File is not a PDF, cannot extract; MIME type: %s", mime_type)
-        return
-
+    fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
+    fs_txt_storage = utils.get_document_storage()
     try:
+        file_data = fs_platform_storage.read_path(stored_path_pdf)
         content = simple_pdf_extraction.extract_text_from_pdf(file_data)
-    except simple_pdf_extraction.PDFExtractionError:
-        logger.exception("Error extracting text from PDF %r", local_path_pdf)
+    except (FileNotFoundError, simple_pdf_extraction.PDFExtractionError):
+        logger.exception("Error extracting text from PDF %r", stored_path_pdf)
     else:
         if content:
-            fs.write_path(local_path_txt, content.encode())
+            fs_txt_storage.write_path(local_path_txt, content.encode())
             logger.info("Extracted %.1fkB to %r", len(content), local_path_txt)
         else:
-            logger.warning("Empty content extracted from PDF %r", local_path_pdf)
+            logger.warning("Empty content extracted from PDF %r", stored_path_pdf)
 
 
 if __name__ == "__main__":
     publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
-    df = preprocess_data(publish)
+    df = preprocess_data(publish=publish)
     print(df)
