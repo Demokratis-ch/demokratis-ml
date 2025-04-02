@@ -171,12 +171,29 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     )
     """ Name of the document; may be an actual filename with an extension """
 
+    latest_stored_file_id: pa.Int64 = pa.Field(nullable=True)
+    """ ID of the latest file that was stored in the platform file storage. Points to the latest version
+    of the document. """
+
 
 ConsultationDocumentMetadataV1 = DataFrame[ConsultationDocumentMetadataSchemaV1]
 
 
 class FullConsultationDocumentSchemaV1(ConsultationDocumentMetadataSchemaV1):
-    """Schema for a table that includes both the metadata and the text content of the documents."""
+    """Schema for a table that includes metadata, stored file attributes, and the text content of documents."""
+
+    stored_file_path: str = pa.Field(
+        nullable=True,
+        # Expected format: {year_downloaded}/{consultation_id}/{document_id}/{random_uuid}.{ext}
+        str_matches=r"^\d{4}/\d+/\d+/[A-Za-z0-9]+(\.[a-z0-9]+)?$",
+    )
+    """ Path to the stored file in the platform file storage. This path doesn't include the schema and bucket name. """
+
+    stored_file_mime_type: str = pa.Field(nullable=True)
+    """ MIME type of the stored file """
+
+    stored_file_hash: str = pa.Field(nullable=True)
+    """ SHA1 hash of the stored file's contents """
 
     document_content_plain: str
     """ Text content of the document in plain text, typically extracted from a PDF """
