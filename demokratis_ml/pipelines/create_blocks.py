@@ -24,10 +24,6 @@ hf_credentials = HuggingFaceDatasetUploadCredentials(
 hf_credentials.save("huggingface-dataset-upload-credentials", overwrite=True)
 
 
-local_document_storage = ExtendedLocalFileSystem(basepath="data/consultation-documents")
-local_document_storage.save("local-document-storage", overwrite=True)
-
-
 local_dataframe_storage = ExtendedLocalFileSystem(basepath="data/dataframes")
 local_dataframe_storage.save("local-dataframe-storage", overwrite=True)
 

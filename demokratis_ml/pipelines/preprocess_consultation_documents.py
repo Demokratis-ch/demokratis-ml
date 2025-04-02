@@ -1,7 +1,6 @@
 """Prefect pipeline for preprocessing consultation documents; see the `preprocess_data` flow for details."""
 
 import datetime
-import functools
 import io
 import pathlib
 import re
@@ -385,62 +384,41 @@ def extract_document_content(df: schemata.ConsultationDocumentMetadataV1) -> pd.
             missing_files_count,
             100 * missing_files_count / len(df),
         )
-    df = df[~missing_files]
+    df = df.loc[~missing_files]
 
     # Remove non-PDF files (we can't extract them yet)
     non_pdf_files = df["stored_file_mime_type"] != "application/pdf"
     if non_pdf_files_count := int(non_pdf_files.sum()):
         logger.warning(
-            "Ignoring %d non-PDF files (%.1f%%)",
+            "Ignoring %d non-PDF files (%.1f%%):\n%r",
             non_pdf_files_count,
             100 * non_pdf_files_count / len(df),
+            df.loc[non_pdf_files, "stored_file_mime_type"].value_counts(),
         )
-    df = df[~non_pdf_files]
+    df = df.loc[~non_pdf_files]
 
-    # Extract text from all PDFs that exist (have storage paths) but don't have extracted text yet.
-    fs_txt_storage = utils.get_document_storage()
-    stored_paths = df["stored_file_path"].tolist()
-    local_paths_txt = df.apply(
-        functools.partial(utils.generate_path_in_document_storage, extension="txt"), axis=1
-    ).tolist()
-    futures = []
-    for stored_path, local_path_txt in zip(stored_paths, local_paths_txt, strict=True):
-        if not fs_txt_storage.path_exists(local_path_txt):
-            extract_future = extract_text_from_pdf.submit(stored_path, local_path_txt)
-            futures.append(extract_future)
-
-    logger.info("Extracting text from %d PDFs", len(futures))
-    awaited_futures = prefect.futures.wait(futures)
-    assert not awaited_futures.not_done
-
-    # All futures are done, so we can read the extracted content from the filesystem.
-    logger.info("Reading extracted text from %d files", len(local_paths_txt))
-    content = [
-        fs_txt_storage.read_path(local_path_txt).decode() if fs_txt_storage.path_exists(local_path_txt) else None
-        for local_path_txt in local_paths_txt
-    ]
+    # Extract text from all PDFs that exist
+    logger.info("Extracting text from %d PDFs", len(df))
+    content = extract_text_from_pdf.map(df["stored_file_path"].tolist()).result()
     return pd.Series(content, index=df.index)
 
 
-@prefect.task(
-    task_run_name="extract_text_from_pdf({stored_path_pdf})",
-)
-def extract_text_from_pdf(stored_path_pdf: pathlib.Path, local_path_txt: pathlib.Path) -> None:
-    """Extract text from a PDF file and write it to a text file."""
+@prefect.task(task_run_name="extract_text_from_pdf({stored_path_pdf})")
+def extract_text_from_pdf(stored_path_pdf: pathlib.Path) -> str | None:
+    """Extract text from a PDF file in platform file storage and return it."""
     logger = prefect.logging.get_run_logger()
     fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
-    fs_txt_storage = utils.get_document_storage()
     try:
         file_data = fs_platform_storage.read_path(stored_path_pdf)
-        content = simple_pdf_extraction.extract_text_from_pdf(file_data)
+        text = simple_pdf_extraction.extract_text_from_pdf(file_data)
     except (FileNotFoundError, simple_pdf_extraction.PDFExtractionError):
         logger.exception("Error extracting text from PDF %r", stored_path_pdf)
+        return None
+    if text:
+        logger.info("Extracted %.1fkB", len(text) / 1024)
     else:
-        if content:
-            fs_txt_storage.write_path(local_path_txt, content.encode())
-            logger.info("Extracted %.1fkB to %r", len(content), local_path_txt)
-        else:
-            logger.warning("Empty content extracted from PDF %r", stored_path_pdf)
+        logger.warning("Empty text extracted from PDF %r", stored_path_pdf)
+    return text
 
 
 if __name__ == "__main__":
