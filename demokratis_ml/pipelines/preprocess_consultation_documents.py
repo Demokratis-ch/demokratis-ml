@@ -2,6 +2,7 @@
 
 import datetime
 import io
+import os
 import pathlib
 import re
 import sys
@@ -14,10 +15,8 @@ import numpy as np
 import pandas as pd
 import pandera
 import prefect
-import prefect.blocks.core
 import prefect.cache_policies
 import prefect.filesystems
-import prefect.futures
 import prefect.logging
 import prefect.task_runners
 import pyarrow.parquet
@@ -39,7 +38,11 @@ Before this date, the document type wasn't consistently reviewed and defaulted t
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
 )
 @pandera.check_types
-def preprocess_data(publish: bool, bootstrap_extracted_content: bool = True) -> schemata.FullConsultationDocumentV1:
+def preprocess_data(
+    publish: bool,
+    bootstrap_extracted_content: bool = True,
+    store_dataframes_remotely: bool | None = None,
+) -> schemata.FullConsultationDocumentV1:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
@@ -50,43 +53,53 @@ def preprocess_data(publish: bool, bootstrap_extracted_content: bool = True) -> 
     - Extract any missing plain text from Fedlex documents (not provided by the API).
     - Store the resulting dataframe in a Parquet file.
 
+    The dataframe is either stored remotely in Exoscale object storage (S3-compatible) or on the local filesystem,
+    depending on the ``store_dataframes_remotely`` parameter, or, if it's not set, on the value of the
+    ``STORE_DATAFRAMES_REMOTELY`` environment variable. The remote storage is used if the parameter is set to
+    ``True`` or if the environment variable is set to a truthy value. The local storage is used if the parameter
+    is set to ``False`` or if the environment variable is set to a falsy value.
+
     Only documents with non-empty content are kept in the final dataframe.
 
-    :param publish: If true, upload the resulting dataframe to our remote S3-like storage and our public
-        HuggingFace dataset repository.
+    :param publish: If true, upload the resulting dataframe to our public HuggingFace dataset repository.
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
+    :param store_dataframes_remotely: If not None, use this value to determine whether to store the
+        resulting dataframe remotely or locally. If None, use the value of the ``STORE_DATAFRAMES_REMOTELY``
+        environment variable.
     """
     logger = prefect.logging.get_run_logger()
+
+    # Choose where to store the resulting dataframe
+    if store_dataframes_remotely is None:
+        store_dataframes_remotely = os.environ.get("STORE_DATAFRAMES_REMOTELY", "0").lower() in {"1", "true", "yes"}
+    if store_dataframes_remotely:
+        fs_dataframe_storage = blocks.ExtendedRemoteFileSystem.load(storage_block_name := "remote-dataframe-storage")
+    else:
+        fs_dataframe_storage = blocks.ExtendedLocalFileSystem.load(storage_block_name := "local-dataframe-storage")
+    logger.info("store_dataframes_remotely=%s, using storage=%r", store_dataframes_remotely, storage_block_name)
+
+    # Run the actual preprocessing
     df = create_preprocessed_dataframe(bootstrap_extracted_content=bootstrap_extracted_content)
 
     # Store the dataframe
     logger.info("Serialising dataframe with %d rows to Parquet", len(df))
     data = df.to_parquet(compression="snappy")
-
-    # TODO: switch between local and S3 storage based on the environment
-    fs = blocks.ExtendedLocalFileSystem.load("local-dataframe-storage")
     now = datetime.datetime.now(tz=datetime.UTC)
     path = pathlib.Path(f"consultation-documents-preprocessed-{now:%Y-%m-%d}.parquet")
-    if fs.path_exists(path):
+    if fs_dataframe_storage.path_exists(path):
         logger.warning("Overwriting existing file %r", path)
-    logger.info("Writing %d rows, %.1f MiB to %r", len(df), len(data) / 1024**2, path)
-    fs.write_path(path, data)
+    logger.info("Writing %d rows, %.1f MiB to %s/%s", len(df), len(data) / 1024**2, fs_dataframe_storage.basepath, path)
+    fs_dataframe_storage.write_path(str(path), data)
 
+    # Upload to HuggingFace if requested
     if publish:
-        # Dispatch the HuggingFace upload task and the remote storage upload task in parallel.
-        hf_upload = upload_to_huggingface.submit(
+        upload_to_huggingface(
             repository_id="demokratis/consultation-documents",
             # No need to include the date in the filename, as the HF dataset is a Git repository.
             file_name="consultation-documents-preprocessed.parquet",
             data=data,
         )
-        # Remote storage upload
-        remote_fs = prefect.filesystems.RemoteFileSystem.load("remote-dataframe-storage")
-        logger.info("Uploading to %s/%s", remote_fs.basepath, path)
-        remote_fs.write_path(str(path), data)
-        # Wait for the HuggingFace upload to finish before returning
-        hf_upload.result()
 
     return df
 

@@ -58,3 +58,7 @@ class ExtendedRemoteFileSystem(prefect.filesystems.RemoteFileSystem):
         The resulting object should be used as a context manager so it is properly closed afterwards.
         """
         return cast(IO, self.filesystem.open(self._resolve_path(str(path)), mode))
+
+    def path_exists(self, path: str | pathlib.Path) -> bool:
+        """Check if a path exists."""
+        return self.filesystem.exists(self._resolve_path(str(path)))
