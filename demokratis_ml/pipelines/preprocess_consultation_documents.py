@@ -2,7 +2,6 @@
 
 import datetime
 import io
-import os
 import pathlib
 import re
 import sys
@@ -40,8 +39,8 @@ Before this date, the document type wasn't consistently reviewed and defaulted t
 @pandera.check_types
 def preprocess_data(
     publish: bool,
+    store_dataframes_remotely: bool,
     bootstrap_extracted_content: bool = True,
-    store_dataframes_remotely: bool | None = None,
 ) -> schemata.FullConsultationDocumentV1:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
@@ -54,25 +53,18 @@ def preprocess_data(
     - Store the resulting dataframe in a Parquet file.
 
     The dataframe is either stored remotely in Exoscale object storage (S3-compatible) or on the local filesystem,
-    depending on the ``store_dataframes_remotely`` parameter, or, if it's not set, on the value of the
-    ``STORE_DATAFRAMES_REMOTELY`` environment variable. The remote storage is used if the parameter is set to
-    ``True`` or if the environment variable is set to a truthy value. The local storage is used if the parameter
-    is set to ``False`` or if the environment variable is set to a falsy value.
+    depending on the ``store_dataframes_remotely`` parameter.
 
     Only documents with non-empty content are kept in the final dataframe.
 
     :param publish: If true, upload the resulting dataframe to our public HuggingFace dataset repository.
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
-    :param store_dataframes_remotely: If not None, use this value to determine whether to store the
-        resulting dataframe remotely or locally. If None, use the value of the ``STORE_DATAFRAMES_REMOTELY``
-        environment variable.
+    :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
     """
     logger = prefect.logging.get_run_logger()
 
     # Choose where to store the resulting dataframe
-    if store_dataframes_remotely is None:
-        store_dataframes_remotely = os.environ.get("STORE_DATAFRAMES_REMOTELY", "0").lower() in {"1", "true", "yes"}
     if store_dataframes_remotely:
         fs_dataframe_storage = blocks.ExtendedRemoteFileSystem.load(storage_block_name := "remote-dataframe-storage")
     else:
@@ -436,5 +428,5 @@ def extract_text_from_pdf(stored_path_pdf: pathlib.Path) -> str | None:
 
 if __name__ == "__main__":
     publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
-    df = preprocess_data(publish=publish)
+    df = preprocess_data(publish=publish, store_dataframes_remotely=publish)
     print(df)
