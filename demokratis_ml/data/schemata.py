@@ -1,6 +1,6 @@
 """Pandera schema definitions for the data used in the project."""
 
-from typing import Any, cast
+from typing import Any, TypedDict, cast
 
 import numpy as np
 import pandas as pd
@@ -85,6 +85,16 @@ CANTON_CODES = {
 FEDERAL_CODE = "ch"
 
 
+class ConsultationInternalTag(TypedDict):
+    """Consultation metadata internal to Demokratis.
+
+    Used to track the manual review process of consultations.
+    """
+
+    name: str
+    created_at: pd.Timestamp
+
+
 class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """Schema for a denormalized table of document metadata.
 
@@ -134,10 +144,21 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     - "manual": Topics were assigned by a human reviewer.
     """
 
-    consultation_reviewed_at: pd.Timestamp = pa.Field(nullable=True)
-    """ Timestamp when (if) the consultation was reviewed by Demokratis staff.
-    A review implies that the consultation attributes (such as topics etc.) were checked by a human
-    and are considered correct. """
+    consultation_internal_tags: object
+    """ Consultation metadata internal to Demokratis, mainly used to track the manual review process.
+    The object type is actually ``list[ConsultationInternalTag]`` but Pandera doesn't support this yet."""
+
+    @pa.check("consultation_internal_tags")
+    def _check_consultation_internal_tags(cls, series: Series[object]) -> Series[bool]:  # noqa: N805
+        return cast(
+            Series[bool],
+            series.map(
+                lambda tags: isinstance(tags, list)
+                and all(
+                    tag.keys() == {"name", "created_at"} and isinstance(tag["created_at"], pd.Timestamp) for tag in tags
+                )
+            ),
+        )
 
     organisation_id: int
     """ ID of the organisation that published the consultation; ID is assigned by Demokratis """

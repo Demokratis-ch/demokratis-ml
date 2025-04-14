@@ -1,6 +1,7 @@
 """Prefect pipeline for preprocessing consultation documents; see the `preprocess_data` flow for details."""
 
 import datetime
+import functools
 import io
 import os
 import pathlib
@@ -13,6 +14,7 @@ import huggingface_hub
 import lingua
 import numpy as np
 import pandas as pd
+import pandas.api.typing
 import pandera
 import prefect
 import prefect.cache_policies
@@ -219,17 +221,23 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     raw = demokratis_api_request("documents-metadata")
     df = pd.read_json(io.StringIO(raw), dtype={"latest_stored_file_id": "Int64"})
 
+    # Cast nested datetime strings to actual datetimes
+    df["consultation_internal_tags"] = df["consultation_internal_tags"].map(
+        lambda tags: [{**tag, "created_at": pd.to_datetime(tag["created_at"])} for tag in (tags or [])]
+    )
+
     # Document source is not provided in the API response but we can infer
     # it from the political body, for now.
     index_federal = df["political_body"] == schemata.FEDERAL_CODE
     df.loc[index_federal, "document_source"] = "fedlex"
     df.loc[~index_federal, "document_source"] = "openparldata"
 
-    # Infer consultation_topics_label_source from `document_source` and `consultation_reviewed_at`.
-    column = "consultation_topics_label_source"
-    manual_index = (
-        pd.to_datetime(df["consultation_reviewed_at"]) >= CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE
+    # Infer consultation_topics_label_source from `document_source` and `consultation_internal_tags`.
+    topic_review_times = df["consultation_internal_tags"].map(
+        functools.partial(_find_internal_tag_date, tag_name="topics_reviewed")
     )
+    column = "consultation_topics_label_source"
+    manual_index = topic_review_times >= CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE
     df.loc[manual_index, column] = "manual"
     df.loc[~manual_index & (df["document_source"] == "openparldata"), column] = "openparldata"
     df.loc[~manual_index & (df["document_source"] == "fedlex"), column] = "organisation_rule"
@@ -241,7 +249,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     )
 
     # Cast to the correct types
-    for time_column in ("consultation_start_date", "consultation_end_date", "consultation_reviewed_at"):
+    for time_column in ("consultation_start_date", "consultation_end_date"):
         df[time_column] = pd.to_datetime(df[time_column])
     for category_column in ("political_body", "document_source", "document_type", "document_language"):
         df[category_column] = df[category_column].astype("category")
@@ -273,6 +281,17 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     df = df[~missing_url]
 
     return df
+
+
+def _find_internal_tag_date(
+    internal_tags: list[schemata.ConsultationInternalTag], tag_name: str
+) -> pd.Timestamp | pandas.api.typing.NaTType:
+    """Find the 'created_at' date of a particular internal tag in the list of internal tags."""
+    try:
+        tag_object = next(tag for tag in internal_tags if tag["name"] == tag_name)
+    except StopIteration:
+        return pd.NaT
+    return tag_object["created_at"]
 
 
 @prefect.task
