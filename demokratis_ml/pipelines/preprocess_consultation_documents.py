@@ -2,6 +2,7 @@
 
 import datetime
 import io
+import os
 import pathlib
 import re
 import sys
@@ -34,7 +35,7 @@ Before this date, the document type wasn't consistently reviewed and defaulted t
 
 @prefect.flow(
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
-    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=8),
+    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 2),
 )
 @pandera.check_types
 def preprocess_data(
