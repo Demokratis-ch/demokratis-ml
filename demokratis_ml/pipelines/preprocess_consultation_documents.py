@@ -26,14 +26,6 @@ import pyarrow.parquet
 from demokratis_ml.data import schemata
 from demokratis_ml.pipelines import blocks, simple_pdf_extraction, utils
 
-CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE = pd.Timestamp("2024-08-20T00:00:00")
-""" For consultations reviewed after this date, the topics are considered to be manually
-reviewed and of the highest quality. """
-
-OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE = pd.Timestamp("2024-11-01T00:00:00")
-""" For OpenParlData consultations ingested into the platform after this date, we can trust the document type.
-Before this date, the document type wasn't consistently reviewed and defaulted to VARIOUS_TEXT."""
-
 
 @prefect.flow(
     # Max concurrency must be set, otherwise document extraction blows up on too many open files.
@@ -152,12 +144,6 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
     detected_languages = detect_document_language(df.loc[openparldata_index])
     # TODO: log the % difference between detected_languages and df.loc[openparldata_index, "document_language"]
     df.loc[openparldata_index, "document_language"] = detected_languages
-    # Remove document_type labels that are not guaranteed to be correct.
-    df.loc[
-        openparldata_index
-        & (df["consultation_start_date"] < OPENPARLDATA_DOCUMENT_TYPE_MANUAL_REVIEW_SINCE_START_DATE),
-        "document_type",
-    ] = None
 
     # Extract text from Fedlex documents
     missing_content_index = df["document_source"] == "fedlex"
@@ -220,24 +206,22 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     logger = prefect.logging.get_run_logger()
     raw = demokratis_api_request("documents-metadata")
     df = pd.read_json(io.StringIO(raw), dtype={"latest_stored_file_id": "Int64"})
-
     # Cast nested datetime strings to actual datetimes
     df["consultation_internal_tags"] = df["consultation_internal_tags"].map(
         lambda tags: [{**tag, "created_at": pd.to_datetime(tag["created_at"])} for tag in (tags or [])]
     )
 
-    # Document source is not provided in the API response but we can infer
-    # it from the political body, for now.
+    # === Document source is not provided in the API response but we can infer it from the political body, for now.
     index_federal = df["political_body"] == schemata.FEDERAL_CODE
     df.loc[index_federal, "document_source"] = "fedlex"
     df.loc[~index_federal, "document_source"] = "openparldata"
 
-    # Infer consultation_topics_label_source from `document_source` and `consultation_internal_tags`.
+    # === Infer consultation_topics_label_source from `document_source` and `consultation_internal_tags`.
     topic_review_times = df["consultation_internal_tags"].map(
         functools.partial(_find_internal_tag_date, tag_name="topics_reviewed")
     )
     column = "consultation_topics_label_source"
-    manual_index = topic_review_times >= CONSULTATION_TOPICS_LABEL_SOURCE_MANUAL_REVIEW_SINCE
+    manual_index = ~topic_review_times.isna()
     df.loc[manual_index, column] = "manual"
     df.loc[~manual_index & (df["document_source"] == "openparldata"), column] = "openparldata"
     df.loc[~manual_index & (df["document_source"] == "fedlex"), column] = "organisation_rule"
@@ -248,12 +232,34 @@ def load_consultation_document_metadata() -> pd.DataFrame:
         df.groupby("consultation_id").agg({column: "first"}).value_counts(),
     )
 
-    # Cast to the correct types
+    # === Remove document_type labels that are not guaranteed to be correct.
+    document_type_review_times = df["consultation_internal_tags"].map(
+        functools.partial(_find_internal_tag_date, tag_name="document_types_reviewed")
+    )
+    df.loc[
+        # OpenParlData documents...
+        (df["document_source"] == "openparldata")
+        # ...that haven't been reviewed...
+        & document_type_review_times.isna()
+        # ...and have the type that's automatically assigned to every OpenParlData document by default...
+        & (df["document_type"] == "VARIOUS_TEXT"),
+        # ...should be considered unlabelled:
+        "document_type",
+    ] = None
+    # (In other words: the VARIOUS_TEXT label is only trusted for OpenParlDocuments if the consultation
+    # has been marked with the 'document_types_reviewed' internal tag.)
+    logger.info(
+        "OpenParlData document types:\n%r",
+        df.loc[df["document_source"] == "openparldata", "document_type"].value_counts(dropna=False),
+    )
+
+    # === Cast to the correct types
     for time_column in ("consultation_start_date", "consultation_end_date"):
         df[time_column] = pd.to_datetime(df[time_column])
     for category_column in ("political_body", "document_source", "document_type", "document_language"):
         df[category_column] = df[category_column].astype("category")
-    # Format topics
+
+    # === Format topics
     topic_separator = re.compile(r"\s*,\s*")
 
     def topic_mapper(csv: str | None) -> np.ndarray:
@@ -270,7 +276,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
 
     df["consultation_topics"] = df["consultation_topics"].map(topic_mapper)
 
-    # Drop known invalid data
+    # === Drop known invalid data
     missing_start_date = df["consultation_start_date"].isna()
     if len(missing := df[missing_start_date]) > 13:  # noqa: PLR2004
         logger.warning("Dropping %d documents with missing consultation start date: %r", len(missing), missing)
