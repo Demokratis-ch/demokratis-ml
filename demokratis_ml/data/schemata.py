@@ -148,17 +148,19 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """ Consultation metadata internal to Demokratis, mainly used to track the manual review process.
     The object type is actually ``list[ConsultationInternalTag]`` but Pandera doesn't support this yet."""
 
-    @pa.check("consultation_internal_tags")
-    def _check_consultation_internal_tags(cls, series: Series[object]) -> Series[bool]:  # noqa: N805
-        return cast(
-            Series[bool],
-            series.map(
-                lambda tags: isinstance(tags, list)
-                and all(
-                    tag.keys() == {"name", "created_at"} and isinstance(tag["created_at"], pd.Timestamp) for tag in tags
-                )
-            ),
-        )
+    # It would be great to have this validation but it's very slow - it takes several minutes on the whole dataset.
+    # @pa.check("consultation_internal_tags")
+    # def _check_consultation_internal_tags(cls, series: Series[object]) -> Series[bool]:
+    #     return cast(
+    #         Series[bool],
+    #         series.map(
+    #             lambda tags: isinstance(tags, list)
+    #             and all(
+    #                 tag.keys() == {"name", "created_at"} and isinstance(tag["created_at"], pd.Timestamp)
+    #                 for tag in tags
+    #             )
+    #         ),
+    #     )
 
     organisation_id: int
     """ ID of the organisation that published the consultation; ID is assigned by Demokratis """
