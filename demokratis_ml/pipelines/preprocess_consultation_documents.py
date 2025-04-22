@@ -21,10 +21,11 @@ import prefect.cache_policies
 import prefect.filesystems
 import prefect.logging
 import prefect.task_runners
-import pyarrow.parquet
 
 from demokratis_ml.data import schemata
-from demokratis_ml.pipelines import blocks, simple_pdf_extraction, utils
+from demokratis_ml.pipelines import blocks, pdf_extraction, utils
+
+OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
 
 
 @prefect.flow(
@@ -57,35 +58,22 @@ def preprocess_data(
         document_content_plain from there to fill in missing content for Fedlex documents.
     :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
     """
-    logger = prefect.logging.get_run_logger()
-
     # Choose where to store the resulting dataframe
-    if store_dataframes_remotely:
-        fs_dataframe_storage = blocks.ExtendedRemoteFileSystem.load(storage_block_name := "remote-dataframe-storage")
-    else:
-        fs_dataframe_storage = blocks.ExtendedLocalFileSystem.load(storage_block_name := "local-dataframe-storage")
-    logger.info("store_dataframes_remotely=%s, using storage=%r", store_dataframes_remotely, storage_block_name)
+    fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
 
     # Run the actual preprocessing
     df = create_preprocessed_dataframe(bootstrap_extracted_content=bootstrap_extracted_content)
 
     # Store the dataframe
-    logger.info("Serialising dataframe with %d rows to Parquet", len(df))
-    data = df.to_parquet(compression="snappy")
-    now = datetime.datetime.now(tz=datetime.UTC)
-    path = pathlib.Path(f"consultation-documents-preprocessed-{now:%Y-%m-%d}.parquet")
-    if fs_dataframe_storage.path_exists(path):
-        logger.warning("Overwriting existing file %r", path)
-    logger.info("Writing %d rows, %.1f MiB to %s/%s", len(df), len(data) / 1024**2, fs_dataframe_storage.basepath, path)
-    fs_dataframe_storage.write_path(str(path), data)
+    df_serialized = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
 
     # Upload to HuggingFace if requested
     if publish:
         upload_to_huggingface(
             repository_id="demokratis/consultation-documents",
             # No need to include the date in the filename, as the HF dataset is a Git repository.
-            file_name="consultation-documents-preprocessed.parquet",
-            data=data,
+            file_name=f"{OUTPUT_DATAFRAME_PREFIX}.parquet",
+            data=df_serialized,
         )
 
     return df
@@ -380,16 +368,11 @@ def find_previously_extracted_content() -> pd.Series:
     """
     logger = prefect.logging.get_run_logger()
     fs_dataframe_storage = blocks.ExtendedRemoteFileSystem.load("remote-dataframe-storage")
-    paths = [p for p in fs_dataframe_storage.iterdir() if p.name.startswith("consultation-documents-preprocessed-")]
-    logger.debug("Found previously extracted dataframes: %r", paths)
-    if not paths:
-        raise FileNotFoundError("No previously extracted content found")
-    latest_path = max(paths)
+    latest_path = utils.find_latest_dataframe(OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
     logger.info("Loading latest extracted content from %r", latest_path)
-    with fs_dataframe_storage.open(latest_path, "rb") as f:
-        parquet_file = pyarrow.parquet.ParquetFile(f)
-        table = parquet_file.read(columns=["document_id", "document_content_plain"])
-        latest_df = table.to_pandas()
+    latest_df = utils.read_dataframe(
+        latest_path, columns=["document_id", "document_content_plain"], fs=fs_dataframe_storage
+    )
     latest_df = latest_df.dropna()
     return latest_df.set_index("document_id")["document_content_plain"]
 
@@ -441,8 +424,8 @@ def extract_text_from_pdf(stored_path_pdf: pathlib.Path) -> str | None:
     fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
     try:
         file_data = fs_platform_storage.read_path(stored_path_pdf)
-        text = simple_pdf_extraction.extract_text_from_pdf(file_data)
-    except (FileNotFoundError, simple_pdf_extraction.PDFExtractionError):
+        text = pdf_extraction.extract_text_from_pdf(file_data)
+    except (FileNotFoundError, pdf_extraction.PDFExtractionError):
         logger.exception("Error extracting text from PDF %r", stored_path_pdf)
         return None
     if text:
