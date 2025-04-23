@@ -140,6 +140,8 @@ def extract_document_features(
     task_run_name="extract_pdf_features({stored_file_path} [{document_id},{stored_file_hash}])",
     cache_policy=prefect.cache_policies.TASK_SOURCE + prefect.cache_policies.INPUTS,
     cache_expiration=datetime.timedelta(days=7),
+    retries=3,
+    retry_delay_seconds=[5, 10, 60],
 )
 def extract_pdf_features(
     document_id: int,
@@ -154,8 +156,8 @@ def extract_pdf_features(
     :returns: (document_id, stored_file_hash, features|None in case of an error)
     """
     fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
+    data = fs_platform_storage.read_path(stored_file_path)
     try:
-        data = fs_platform_storage.read_path(stored_file_path)
         features = pdf_extraction.extract_features_from_pdf(data, max_pages_to_process=MAX_PDF_PAGES_TO_PROCESS)
     except (FileNotFoundError, pdf_extraction.PDFExtractionError):
         logger = prefect.logging.get_run_logger()
