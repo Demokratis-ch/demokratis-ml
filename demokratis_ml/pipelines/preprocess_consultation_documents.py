@@ -37,7 +37,7 @@ def preprocess_data(
     publish: bool,
     store_dataframes_remotely: bool,
     bootstrap_extracted_content: bool = True,
-) -> schemata.FullConsultationDocumentV1:
+) -> pathlib.Path:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
@@ -54,9 +54,9 @@ def preprocess_data(
     Only documents with non-empty content are kept in the final dataframe.
 
     :param publish: If true, upload the resulting dataframe to our public HuggingFace dataset repository.
+    :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
-    :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
     """
     # Choose where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
@@ -65,7 +65,7 @@ def preprocess_data(
     df = create_preprocessed_dataframe(bootstrap_extracted_content=bootstrap_extracted_content)
 
     # Store the dataframe
-    df_serialized = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
+    output_path, df_serialized = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
 
     # Upload to HuggingFace if requested
     if publish:
@@ -76,7 +76,7 @@ def preprocess_data(
             data=df_serialized,
         )
 
-    return df
+    return output_path
 
 
 @prefect.task()
@@ -437,5 +437,5 @@ def extract_text_from_pdf(stored_path_pdf: pathlib.Path) -> str | None:
 
 if __name__ == "__main__":
     publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
-    df = preprocess_data(publish=publish, store_dataframes_remotely=publish)
-    print(df)
+    output_path = preprocess_data(publish=publish, store_dataframes_remotely=publish)
+    print(output_path)

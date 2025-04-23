@@ -23,9 +23,9 @@ MAX_PDF_PAGES_TO_PROCESS = 50
 )
 def extract_document_features(
     consultation_documents_file: str,
-    bootstrap_from_previous_output: bool,
     store_dataframes_remotely: bool,
-) -> pd.DataFrame:
+    bootstrap_from_previous_output: bool = True,
+) -> pathlib.Path:
     """
     Extract "visual" document features such as table numbers and aspect ratios.
 
@@ -34,12 +34,12 @@ def extract_document_features(
     :param consultation_documents_file: An output of the :mod:`preprocess_consultation_documents` flow, containing
         the list of documents to process. The file name is relative to the file system used (selected with
         the ``store_dataframes_remotely`` parameter).
+    :param store_dataframes_remotely: If true, read inputs from and store the resulting dataframe in
+        Exoscale object storage.
     :param bootstrap_from_previous_output: If true, the latest existing features dataframe (output of this flow)
         will be found and used as a "cache": the features for the documents in the input file will be computed
         only for the documents that are not already present in the warmup dataframe.
         The resulting dataframe will contain all the documents from the warmup dataframe and the new documents.
-    :param store_dataframes_remotely: If true, read inputs from and store the resulting dataframe in
-        Exoscale object storage.
     """
     logger = prefect.logging.get_run_logger()
 
@@ -115,9 +115,8 @@ def extract_document_features(
         df = df[~missing_index]
 
     # Store the dataframe
-    utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
-
-    return df
+    output_path, _ = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
+    return output_path
 
 
 @prefect.task(
@@ -165,9 +164,9 @@ if __name__ == "__main__":
     import sys
 
     consultation_documents_file = sys.argv[1]
-    df = extract_document_features(
+    output_path = extract_document_features(
         consultation_documents_file=consultation_documents_file,
         store_dataframes_remotely=False,
         bootstrap_from_previous_output=True,
     )
-    print(df)
+    print(output_path)

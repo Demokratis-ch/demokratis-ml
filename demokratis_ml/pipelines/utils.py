@@ -74,10 +74,12 @@ def get_dataframe_storage(store_dataframes_remotely: bool) -> blocks.ExtendedFil
     return fs
 
 
-def store_dataframe(df: pd.DataFrame, name_prefix: str, fs: blocks.ExtendedFileSystemType) -> bytes:
+def store_dataframe(
+    df: pd.DataFrame, name_prefix: str, fs: blocks.ExtendedFileSystemType
+) -> tuple[pathlib.Path, bytes]:
     """Serialise a DataFrame to Parquet and store it in the given file system.
 
-    :returns: The serialised data.
+    :returns: (path to the written file, the serialised data).
     """
     logger = prefect.logging.get_run_logger()
     logger.info("Serialising dataframe with %d rows to Parquet", len(df))
@@ -92,7 +94,7 @@ def store_dataframe(df: pd.DataFrame, name_prefix: str, fs: blocks.ExtendedFileS
     t0 = time.monotonic()
     fs.write_path(str(path), data)
     logger.info("Wrote file in %.1f seconds", time.monotonic() - t0)
-    return data
+    return path, data
 
 
 def find_latest_dataframe(name_prefix: str, fs: blocks.ExtendedFileSystemType) -> pathlib.Path:
