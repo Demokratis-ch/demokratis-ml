@@ -3,6 +3,7 @@
 import datetime
 import os
 import pathlib
+from collections.abc import Iterable
 
 import pandas as pd
 import prefect
@@ -25,6 +26,7 @@ def extract_document_features(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,
     bootstrap_from_previous_output: bool = True,
+    only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
     """
     Extract "visual" document features such as table numbers and aspect ratios.
@@ -40,6 +42,8 @@ def extract_document_features(
         will be found and used as a "cache": the features for the documents in the input file will be computed
         only for the documents that are not already present in the warmup dataframe.
         The resulting dataframe will contain all the documents from the warmup dataframe and the new documents.
+    :param only_languages: If set, only documents in the specified languages will be processed. This is to
+        save time and resources at a stage where we're only developing the models and don't cover all languages yet.
     """
     logger = prefect.logging.get_run_logger()
 
@@ -55,7 +59,7 @@ def extract_document_features(
     # Load the input dataframe (preprocessed documents)
     df_documents = utils.read_dataframe(
         pathlib.Path(consultation_documents_file),
-        columns=["document_id", "stored_file_hash", "stored_file_path", "stored_file_mime_type"],
+        columns=["document_id", "document_language", "stored_file_hash", "stored_file_path", "stored_file_mime_type"],
         fs=fs_dataframe_storage,
     )
     # Drop those where the files are not available
@@ -80,6 +84,19 @@ def extract_document_features(
             df_documents[non_pdf].value_counts("stored_file_mime_type"),
         )
         df_documents = df_documents[~non_pdf]
+
+    # Filter by language
+    if only_languages is not None:
+        original_len = len(df_documents)
+        only_languages = set(only_languages)
+        df_documents = df_documents[df_documents["document_language"].isin(only_languages)]
+        logger.info(
+            "Filtering documents by languages=%r; keeping %d out of %d (%.1f%%)",
+            only_languages,
+            len(df_documents),
+            original_len,
+            len(df_documents) / original_len * 100,
+        )
 
     # Run the extraction
     if bootstrap_from_previous_output:
