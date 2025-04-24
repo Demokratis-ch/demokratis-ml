@@ -1,0 +1,8 @@
+.env
+.git
+.prefect
+.venv/
+data/
+research/
+
+__pycache__

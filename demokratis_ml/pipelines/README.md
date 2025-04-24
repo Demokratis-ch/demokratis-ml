@@ -13,7 +13,7 @@ Note that all commands from this readme are to be executed from the root directo
 Run this to register custom block definitions, and repeat every time they change:
 
 ```
-uv run prefect block register --file demokratis_ml/pipelines/blocks.py
+uv run --env-file=.env prefect block register --file demokratis_ml/pipelines/blocks.py
 ```
 
 Run this to create block documents (configured block instances), and repeat every time they change:
@@ -26,7 +26,7 @@ Note that you will need some environment variables defined to correctly configur
 See the `.env.example` file in the repository root.
 
 
-## Running pipelines
+## Running pipelines locally
 First, ensure that the Prefect server is running. In a local dev environment, this is done by running
 this command in a spare terminal:
 
@@ -40,4 +40,23 @@ Then, run the pipeline you need:
 
 ```
 PYTHONPATH=. uv run demokratis_ml/pipelines/preprocess_consultation_documents.py
+```
+
+## Pipeline deployment
+First, build a Docker image containing all demokratis_ml code:
+
+```
+VERSION=0.1.0
+docker buildx build --platform linux/amd64 . -t vitawasalreadytaken/demokratis-ml:$VERSION
+docker push vitawasalreadytaken/demokratis-ml:$VERSION
+```
+
+Then ensure that whatever orchestrator is used runs a container from this image. This container must have the `PREFECT_API_URL` variable set, and run the script `flow_server.py` which serves all the pipelines (called flows in Prefect). For example, a Docker compose snippet:
+
+```yaml
+  prefect-flow-deployment:
+    image: vitawasalreadytaken/demokratis-ml:0.1.0
+    command: uv run demokratis_ml/pipelines/flow_server.py
+    environment:
+      - PREFECT_API_URL=https://prefect.example.com/api
 ```

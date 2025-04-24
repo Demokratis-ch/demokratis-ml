@@ -33,7 +33,7 @@ def create_synthetic_documents_from_consultations(
                 "consultation_url": "first",
                 "consultation_topics": "first",
                 "consultation_topics_label_source": "first",
-                "consultation_reviewed_at": "first",
+                "consultation_internal_tags": "first",
                 "organisation_id": "first",
                 "organisation_name": "first",
                 "political_body": "first",

@@ -1,11 +1,11 @@
 """Pandera schema definitions for the data used in the project."""
 
-from typing import Any, cast
+from typing import Any, TypedDict, cast
 
 import numpy as np
 import pandas as pd
 import pandera as pa
-from pandera.typing import Series
+from pandera.typing import DataFrame, Series
 
 CONSULTATION_TOPICS = {
     "administration",
@@ -85,6 +85,16 @@ CANTON_CODES = {
 FEDERAL_CODE = "ch"
 
 
+class ConsultationInternalTag(TypedDict):
+    """Consultation metadata internal to Demokratis.
+
+    Used to track the manual review process of consultations.
+    """
+
+    name: str
+    created_at: pd.Timestamp
+
+
 class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """Schema for a denormalized table of document metadata.
 
@@ -134,10 +144,23 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     - "manual": Topics were assigned by a human reviewer.
     """
 
-    consultation_reviewed_at: pd.Timestamp = pa.Field(nullable=True)
-    """ Timestamp when (if) the consultation was reviewed by Demokratis staff.
-    A review implies that the consultation attributes (such as topics etc.) were checked by a human
-    and are considered correct. """
+    consultation_internal_tags: object
+    """ Consultation metadata internal to Demokratis, mainly used to track the manual review process.
+    The object type is actually ``list[ConsultationInternalTag]`` but Pandera doesn't support this yet."""
+
+    # It would be great to have this validation but it's very slow - it takes several minutes on the whole dataset.
+    # @pa.check("consultation_internal_tags")
+    # def _check_consultation_internal_tags(cls, series: Series[object]) -> Series[bool]:
+    #     return cast(
+    #         Series[bool],
+    #         series.map(
+    #             lambda tags: isinstance(tags, list)
+    #             and all(
+    #                 tag.keys() == {"name", "created_at"} and isinstance(tag["created_at"], pd.Timestamp)
+    #                 for tag in tags
+    #             )
+    #         ),
+    #     )
 
     organisation_id: int
     """ ID of the organisation that published the consultation; ID is assigned by Demokratis """
@@ -171,9 +194,32 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     )
     """ Name of the document; may be an actual filename with an extension """
 
+    latest_stored_file_id: pa.Int64 = pa.Field(nullable=True)
+    """ ID of the latest file that was stored in the platform file storage. Points to the latest version
+    of the document. """
+
+
+ConsultationDocumentMetadataV1 = DataFrame[ConsultationDocumentMetadataSchemaV1]
+
 
 class FullConsultationDocumentSchemaV1(ConsultationDocumentMetadataSchemaV1):
-    """Schema for a table that includes both the metadata and the text content of the documents."""
+    """Schema for a table that includes metadata, stored file attributes, and the text content of documents."""
+
+    stored_file_path: str = pa.Field(
+        nullable=True,
+        # Expected format: {year_downloaded}/{consultation_id}/{document_id}/{random_uuid}.{ext}
+        str_matches=r"^\d{4}/\d+/\d+/[A-Za-z0-9]+(\.[a-z0-9]+)?$",
+    )
+    """ Path to the stored file in the platform file storage. This path doesn't include the schema and bucket name. """
+
+    stored_file_mime_type: str = pa.Field(nullable=True)
+    """ MIME type of the stored file """
+
+    stored_file_hash: str = pa.Field(nullable=True)
+    """ SHA1 hash of the stored file's contents """
 
     document_content_plain: str
     """ Text content of the document in plain text, typically extracted from a PDF """
+
+
+FullConsultationDocumentV1 = DataFrame[FullConsultationDocumentSchemaV1]
