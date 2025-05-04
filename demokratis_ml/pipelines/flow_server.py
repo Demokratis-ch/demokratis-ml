@@ -11,7 +11,12 @@ import os
 import prefect
 import prefect.client.schemas.schedules
 
-from demokratis_ml.pipelines import extract_document_features, main_ingestion, preprocess_consultation_documents
+from demokratis_ml.pipelines import (
+    embed_documents,
+    extract_document_features,
+    main_ingestion,
+    preprocess_consultation_documents,
+)
 
 
 def _schedule_from_env(key: str) -> list[prefect.client.schemas.schedules.CronSchedule] | None:
@@ -47,6 +52,13 @@ if __name__ == "__main__":
         },
     )
 
+    embed_documents_deployment = embed_documents.embed_documents.to_deployment(
+        name="embed-documents",
+        parameters={
+            "store_dataframes_remotely": store_dataframes_remotely,
+        },
+    )
+
     extract_document_features_deployment = extract_document_features.extract_document_features.to_deployment(
         name="extract-document-features",
         parameters={
@@ -57,5 +69,6 @@ if __name__ == "__main__":
     prefect.serve(
         main_ingestion_deployment,
         preprocess_consultation_documents_deployment,
+        embed_documents_deployment,
         extract_document_features_deployment,
     )

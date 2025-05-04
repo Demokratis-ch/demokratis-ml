@@ -4,31 +4,32 @@ import os
 
 import prefect.filesystems
 
-from demokratis_ml.pipelines.blocks import (
-    DemokratisAPICredentials,
-    ExtendedLocalFileSystem,
-    ExtendedRemoteFileSystem,
-    HuggingFaceDatasetUploadCredentials,
-)
+from demokratis_ml.pipelines import blocks
 
-demokratis_api_credentials = DemokratisAPICredentials(
+demokratis_api_credentials = blocks.DemokratisAPICredentials(
     username=os.environ["DEMOKRATIS_API_USERNAME"],
     password=os.environ["DEMOKRATIS_API_PASSWORD"],
 )
 demokratis_api_credentials.save("demokratis-api-credentials", overwrite=True)
 
+openai_credentials = blocks.OpenAICredentials(
+    api_key=os.environ["OPENAI_API_KEY"],
+    organization=None,
+)
+openai_credentials.save("openai-credentials", overwrite=True)
 
-hf_credentials = HuggingFaceDatasetUploadCredentials(
+
+hf_credentials = blocks.HuggingFaceDatasetUploadCredentials(
     token=os.environ["HF_TOKEN"],
 )
 hf_credentials.save("huggingface-dataset-upload-credentials", overwrite=True)
 
 
-local_dataframe_storage = ExtendedLocalFileSystem(basepath="data/dataframes")
+local_dataframe_storage = blocks.ExtendedLocalFileSystem(basepath="data/dataframes")
 local_dataframe_storage.save("local-dataframe-storage", overwrite=True)
 
 
-remote_dataframe_storage = ExtendedRemoteFileSystem(
+remote_dataframe_storage = blocks.ExtendedRemoteFileSystem(
     basepath=f"s3://{os.environ['EXOSCALE_SOS_BUCKET_ML']}/dataframes",
     settings={
         "key": os.environ["EXOSCALE_SOS_ACCESS_KEY"],

@@ -6,6 +6,8 @@ Configured block *instances* are created in the file `create_blocks.py`.
 import pathlib
 from typing import IO, cast
 
+import openai
+import prefect.blocks.abstract
 import prefect.blocks.core
 import prefect.filesystems
 import pydantic
@@ -28,6 +30,24 @@ class HuggingFaceDatasetUploadCredentials(prefect.blocks.core.Block):
 
 
 HuggingFaceDatasetUploadCredentials.register_type_and_schema()
+
+
+class OpenAICredentials(prefect.blocks.abstract.CredentialsBlock):
+    """Credentials used to authenticate with OpenAI.
+
+    Lifted from https://github.com/PrefectHQ/prefect-openai/blob/main/prefect_openai/credentials.py
+    which is now unmaintained.
+    """
+
+    api_key: pydantic.SecretStr
+    organization: str | None = None
+
+    def get_client(self) -> openai.OpenAI:
+        """Return an OpenAI client using the credentials in this block."""
+        return openai.OpenAI(api_key=self.api_key.get_secret_value(), organization=self.organization)
+
+
+OpenAICredentials.register_type_and_schema()
 
 
 class ExtendedLocalFileSystem(prefect.filesystems.LocalFileSystem):
