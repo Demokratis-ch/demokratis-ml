@@ -1,0 +1,848 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Gesetz"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00fcber die Steuern des Kantons und der Gemeinden"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Steuergesetz, StG)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom 27. Oktober 2021[^1]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Landrat von Nidwalden,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Art. 32 und 60 der Kantonsverfassung,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "I."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Das Gesetz vom 22. M\u00e4rz 2000 \u00fcber die Steuern des Kantons und der"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gemeinden (Steuergesetz, StG)[^2] wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II. EINKOMMENS- UND VERM\u00d6GENSSTEUERN"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "B. Einkommenssteuer"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "1. Steuerbare Eink\u00fcnfte"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 24 Abs. 2-4 Unbewegliches Verm\u00f6gen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Steuerbar sind die Ertr\u00e4ge aus unbeweglichem Verm\u00f6gen, insbesondere:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "1. alle Eink\u00fcnfte aus Vermietung, Verpachtung, Nutzniessung oder sonstiger Nutzung;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "2. der Mietwert von Grundst\u00fccken oder Grundst\u00fccksteilen, die der steuerpflichtigen Person aufgrund von Eigentum oder eines unentgeltlichen Nutzungsrechts f\u00fcr den Eigengebrauch zur Verf\u00fcgung stehen;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "3. Eink\u00fcnfte aus Baurechtsvertr\u00e4gen;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "4. Eink\u00fcnfte aus der Ausbeutung von Kies, Sand und anderen Bestandteilen des Bodens."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Mietwert gem\u00e4ss Abs. 1 Ziff. 2 entspricht der mittleren Marktmiete und wird vom Kantonalen Steueramt grunds\u00e4tzlich schematisch und formelm\u00e4ssig nach Grundst\u00fcckskategorien in Prozenten des Grundst\u00fcckswertes festgelegt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat legt in einer Verordnung die Prozents\u00e4tze je Grundst\u00fcckskategorie so fest, dass mittlere Marktmieten erreicht wer-"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "den. Er kann bei der Festlegung der Prozents\u00e4tze zus\u00e4tzlich auch eine"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Differenzierung nach Gemeinde vornehmen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr den steuerbaren Eigenmietwert wird der Mietwert gem\u00e4ss Abs. 2"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "um 40 Prozent herabgesetzt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Der gem\u00e4ss Abs. 4 errechnete Eigenmietwert ist angemessen zu reduzieren, wenn die"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "zur Verf\u00fcgung stehenden R\u00e4ume den Eigengebrauch \u00fcbersteigen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "6.",
+                            "type": "list_item",
+                            "content": [
+                                "Wird ein Grundst\u00fcck oder Teile davon zu einem Vorzugsmietzins an eine nahestehen-"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "de Person vermietet, ist als Mietertrag jener Wert steuerbar, der bei Eigennutzung gem\u00e4ss"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Abs. 4 massgebend ist."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "C. Verm\u00f6genssteuer"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "2. Bewertung"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 49 Unbewegliches Verm\u00f6gen"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "1. Grundsatz"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Verkehrswert der Grundst\u00fccke wird vom Kantonalen Steueramt"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "bezogen auf einen Stichtag amtlich gesch\u00e4tzt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat regelt die Bewertung im Rahmen der gesetzlichen"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bewertungsgrunds\u00e4tze in einer Verordnung."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 50, Titel, Abs. 1, 2 und 4 2. Bewertungsgrunds\u00e4tze"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "a) Grundst\u00fccke innerhalb der Bauzone"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Nichtlandwirtschaftlich genutzte \u00fcberbaute Grundst\u00fccke werden"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "grunds\u00e4tzlich schematisch und formelm\u00e4ssig je nach Grundst\u00fcckskate-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gorie zum Real- oder Ertragswert gesch\u00e4tzt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Landwirtschaftlich genutzte Grundst\u00fccke innerhalb der Bauzone wer-"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "den zum landwirtschaftlichen Ertragswert besteuert, wenn das Grund-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "st\u00fcck nicht unmittelbar der \u00dcberbauung zugef\u00fchrt werden soll. Solche"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Grundst\u00fccke m\u00fcssen in der Regel mindestens eine Fl\u00e4che von 2500 m\u00b2"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "aufweisen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Nichtlandwirtschaftlich genutzte un\u00fcberbaute Grundst\u00fccke innerhalb der Bauzone"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "werden zum Realwert gesch\u00e4tzt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Sind am Ende der Steuerperiode oder am Ende der Steuerpflicht"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "wertvermehrende Investitionen in der massgebenden Bewertung noch"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nicht ber\u00fccksichtigt, so sind 80 Prozent dieser Investitionen zur beste-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "henden Bewertung hinzuzurechnen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "VIII. VERFAHRENSRECHT"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "E. Schatzungsverfahren"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 216 Stichtag"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Bewertungen werden vom Kantonalen Steueramt bezogen auf einen Stichtag vorgenommen, wobei der Stichtag f\u00fcr einzelne Grundst\u00fcckskategorien unterschiedlich festgelegt werden kann."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 217 Aufgehoben"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 218 Neuermittlung des Grundst\u00fcckswertes"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Grundst\u00fcckswert wird alle sieben Jahre neu ermittelt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei \u00c4nderung der f\u00fcr die Bewertung massgebenden tats\u00e4chlichen Verh\u00e4ltnisse und bei Wegfall der Voraussetzungen f\u00fcr eine Real- oder Ertragswertschatzung wird der Grundst\u00fcckswert auf den Zeitpunkt der \u00c4nderung neu ermittelt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Erweist sich ein Grundst\u00fcckswert wegen Nichtbeachtung wesentlicher Tatsachen oder infolge unrichtiger Rechtsanwendung als unzutreffend, wird er neu ermittelt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 219 Besondere Mitwirkungspflichten"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "1. Grundeigent\u00fcmerinnen und Grundeigent\u00fcmer sowie Nutzniesserinnen und Nutzniesser"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Grundeigent\u00fcmerinnen und Grundeigent\u00fcmer sowie die Nutzniesserinnen und Nutzniesser sind verpflichtet, die f\u00fcr die Bewertung n\u00f6tigen Ausk\u00fcnfte zu erteilen und die erforderlichen Abkl\u00e4rungen zu dulden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Sie haben \u00c4nderungen der f\u00fcr die Bewertung massgebenden tats\u00e4chlichen Verh\u00e4ltnisse zu melden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 220 2. Nidwaldner Sachversicherung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Nidwaldner Sachversicherung ist verpflichtet, den mit dem Vollzug dieses Gesetzes betrauten Beh\u00f6rden und Instanzen die f\u00fcr die Bewertung oder deren \u00dcberpr\u00fcfung n\u00f6tigen Ausk\u00fcnfte zu erteilen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Sie stellt die Unterlagen zur Ermittlung der Bauwerte zur Verf\u00fcgung und meldet Neubauten und bauliche Ver\u00e4nderungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is the document content formatted as requested:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 220a 3. Grundbuchamt"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Das Grundbuchamt meldet dem Kantonalen Steueramt alle eingetragenen Hand\u00e4nderungen und \u00c4nderungen von Grundst\u00fccksgrenzen sowie die Begr\u00fcndung und Aufhebung von Baurechten, Stockwerkeigentum und selbst\u00e4ndigem Miteigentum."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 222 Geb\u00fchren"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Im amtlichen Bewertungsverfahren werden keine Geb\u00fchren erhoben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr Bewertungen zu nichtsteuerlichen Zwecken wird eine durch den Regierungsrat festzulegende Geb\u00fchr erhoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "X. \u00dcBERGANGS- UND SCHLUSSBESTIMMUNGEN"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 278 Aufgehoben"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 279 Aufgehoben"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 280c \u00dcbergangsbestimmung zur \u00c4nderung vom ...[^[The footnote text is not provided in the image]]"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die G\u00fcterschatzungs- und Mietwerte nach bisherigem Recht bleiben bis zur Bewertung nach neuem Recht bestehen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Diese \u00c4nderung untersteht dem fakultativen Referendum."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat legt den Zeitpunkt des Inkrafttretens fest."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Hergiswil, 27. Oktober 2021               LANDRAT NIDWALDEN"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Landratspr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "*Stefan Bosshard*"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Landratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "*lic. iur. Emanuel Br\u00fcgger*"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Datum der Ver\u00f6ffentlichung: 4. November 2021"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Letzter Tag f\u00fcr die Hinterlegung eines Gegenvorschlages:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3. Januar 2022"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Letzter Tag der Referendumsfrist: 3. Januar 2022"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "_____________________"
+                    ]
+                }
+            ]
+        }
+    ]
+}
