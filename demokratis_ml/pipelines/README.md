@@ -46,16 +46,19 @@ PYTHONPATH=. uv run demokratis_ml/pipelines/preprocess_consultation_documents.py
 First, build a Docker image containing all demokratis_ml code:
 
 ```
+YOUR_DOCKER_NAMESPACE=example-org
 VERSION=0.1.0
-docker buildx build --platform linux/amd64 . -t vitawasalreadytaken/demokratis-ml:$VERSION
-docker push vitawasalreadytaken/demokratis-ml:$VERSION
+docker buildx build --platform linux/amd64 . -t $YOUR_DOCKER_NAMESPACE/demokratis-ml:$VERSION
+docker push $YOUR_DOCKER_NAMESPACE/demokratis-ml:$VERSION
 ```
+
+(You can also use and modify our script for this: [scripts/build_docker_image.sh](../../scripts/build_docker_image.sh).)
 
 Then ensure that whatever orchestrator is used runs a container from this image. This container must have the `PREFECT_API_URL` variable set, and run the script `flow_server.py` which serves all the pipelines (called flows in Prefect). For example, a Docker compose snippet:
 
 ```yaml
   prefect-flow-deployment:
-    image: vitawasalreadytaken/demokratis-ml:0.1.0
+    image: example-org/demokratis-ml:0.1.0
     command: uv run demokratis_ml/pipelines/flow_server.py
     environment:
       - PREFECT_API_URL=https://prefect.example.com/api
