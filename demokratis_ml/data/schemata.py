@@ -51,6 +51,7 @@ DOCUMENT_TYPES = {
     # Invented by Demokratis:
     "LINK",
     "DECISION",
+    "PRESS_RELEASE",
 }
 
 CANTON_CODES = {
