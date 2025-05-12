@@ -10,12 +10,11 @@ from research.lib import data_access
 
 
 @pandera.check_types
-def load_documents(  # noqa: PLR0913
+def load_documents(
     document_file: pathlib.Path,
     external_test_labels_file: pathlib.Path,
     *,
     include_rule_labels: set[str],
-    class_merges: dict[tuple[str, ...], str],
     only_languages: Iterable[str] | None = None,
     starting_year: int | None = None,
 ) -> tuple[schemata.FullConsultationDocumentV1, schemata.FullConsultationDocumentV1]:
@@ -32,7 +31,6 @@ def load_documents(  # noqa: PLR0913
 
     :param include_rule_labels: Originally unlabelled documents that receive these labels from the rule-based model
         will be included in df_input.
-    :param class_merges: :func:`merge_classes` will be applied to both dataframes using this mapping.
     :returns: (df_input, df_external_test_set)
     """
     # Load dataframes
@@ -77,10 +75,6 @@ def load_documents(  # noqa: PLR0913
         set(df_input["document_id"]) & set(df_external_test["document_id"])
     ), "No overlap may exist between df_input and df_external_test"
 
-    # Merge classes
-    df_input.loc[:, "document_type"] = merge_classes(df_input["document_type"], class_merges)
-    df_external_test.loc[:, "document_type"] = merge_classes(df_external_test["document_type"], class_merges)
-
     return df_input, df_external_test
 
 
@@ -90,15 +84,3 @@ def _load_external_test_labels(file: pathlib.Path) -> pd.Series:
     df["ground_truth"] = pd.Categorical(df["ground_truth"], categories=schemata.DOCUMENT_TYPES)
     df = df.dropna()
     return df["ground_truth"]
-
-
-def merge_classes(series: pd.Series, merge_to: dict[tuple[str, ...], str]) -> pd.Series:
-    """Merge classes in a series of document type labels.
-
-    :param merge_to: {(classes, to, drop): replacement_class, ...}
-    """
-    series = series.copy()
-    for old_classes, new_class in merge_to.items():
-        mask = series.isin(old_classes)
-        series.loc[mask] = new_class
-    return series
