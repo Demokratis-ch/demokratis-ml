@@ -6,6 +6,8 @@ import pandera as pa
 
 from demokratis_ml.data import schemata
 
+logger = logging.getLogger("document_title_rule_model")
+
 
 @pa.check_types
 def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
@@ -13,7 +15,7 @@ def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
     df["document_title_clean"] = df["document_title"].map(_clean_document_title)
 
     already_labelled = len(df[~df["document_type"].isna()]) * 100 / len(df)
-    logging.info("%.2f%% of documents already have labels", already_labelled)
+    logger.info("%.2f%% of documents already have labels", already_labelled)
 
     for canton_code, rules in _DOCUMENT_TITLE_STARTS_WITH_RULES.items():
         for document_type, keywords in rules.items():
@@ -25,7 +27,7 @@ def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
                     index &= df["political_body"] == canton_code
                 df.loc[index, "document_type"] = document_type
                 percentage_labelled = len(df[index]) * 100 / len(df)
-                logging.info(
+                logger.info(
                     "Labelled %.2f%% by rule: canton=%s, title^=%s => type=%s",
                     percentage_labelled,
                     canton_code,
@@ -41,7 +43,7 @@ def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
         "document_type",
     ] = "SYNOPTIC_TABLE"
 
-    logging.info(
+    logger.info(
         "Labelled %.2f%% of documents",
         len(df[~df["document_type"].isna()]) * 100 / len(df) - already_labelled,
     )
