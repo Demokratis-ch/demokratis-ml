@@ -34,7 +34,7 @@ def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
             df[list(EXTRA_FEATURE_COLUMNS)].fillna(0),
             df[list(EXTRA_CATEGORICAL_COLUMNS)],
         )
-    )
+    ).astype(np.float32)
     y = df["document_type"]
     assert x.shape[0] == y.shape[0]
     return x, y
