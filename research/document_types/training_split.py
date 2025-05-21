@@ -11,6 +11,7 @@ def train_test_split(
     random_state: int,
     test_size: float,
     include_rule_labels_in_training: set[str],
+    stratify_by_canton: bool,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Split the input dataframe (documents + extra features + embeddings) into a training and test set.
@@ -28,6 +29,9 @@ def train_test_split(
     - "fedlex": documents from Fedlex
     - "rule": documents from OpenParlData with labels assigned by the rule-based model
     - "manual": documents from OpenParlData that were manually labelled by Demokratis staff
+
+    :param stratify_by_canton: If True, the combination of `political_body` and `document_type` is used
+        for stratification. If False, only `document_type` is used.
     """
     logger = logging.getLogger("train_test_split")
 
@@ -57,7 +61,35 @@ def train_test_split(
         test_size=test_size,
         random_state=random_state,
     )
-    train_index, test_index = next(splitter.split(X=df_openparldata_manual, y=df_openparldata_manual["document_type"]))
+
+    if stratify_by_canton:
+        stratification_groups = (
+            df_openparldata_manual["political_body"].astype(str)
+            + ":"
+            + df_openparldata_manual["document_type"].astype(str)
+        )
+        class_counts = stratification_groups.value_counts()
+        minimum_class_size = 2
+        rare_classes = class_counts[class_counts < minimum_class_size].index
+        rare_index = stratification_groups.isin(rare_classes)
+        if not rare_classes.empty:
+            logger.warning(
+                "Discarding %d documents in the following rare classes (fewer than %d samples): %r",
+                len(df_openparldata_manual[rare_index]),
+                minimum_class_size,
+                sorted(rare_classes),
+            )
+        train_index, test_index = next(
+            splitter.split(
+                X=df_openparldata_manual[~rare_index],
+                y=stratification_groups[~rare_index],
+            )
+        )
+    else:
+        train_index, test_index = next(
+            splitter.split(X=df_openparldata_manual, y=df_openparldata_manual["document_type"])
+        )
+
     df_openparldata_manual_train = df_openparldata_manual.iloc[train_index]
     df_openparldata_manual_test = df_openparldata_manual.iloc[test_index]
 
