@@ -75,6 +75,7 @@ def use_cache(
     model: EmbeddingModel,
     cache_directory: pathlib.Path,
     tqdm: Any | None = None,
+    read_only: bool = False,
 ) -> Iterator[Callable[[list[str] | list[list[int]]], np.ndarray]]:
     """
     This context manager provides a function that can be used to get embeddings
@@ -89,11 +90,12 @@ def use_cache(
         with embeddings.use_cache(embedding_model) as get_embeddings:
             my_embeddings = get_embeddings(my_tokens)
     """
-    cache = embeddings_cache.EmbeddingsCache(cache_directory, model.model_name)
+    cache = embeddings_cache.EmbeddingsCache(cache_directory, model.model_name, read_only=read_only)
     yield functools.partial(
         cache.get_embeddings_batch,
         batched_embedding_function=model.embed_batch,
         batch_size=model.batch_size,
         tqdm=tqdm,
     )
-    cache.save()
+    if not read_only:
+        cache.save()

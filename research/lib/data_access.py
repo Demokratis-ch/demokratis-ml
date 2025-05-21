@@ -26,7 +26,7 @@ def download_file_from_exoscale(remote_path: pathlib.Path, local_path: pathlib.P
         aws_secret_access_key=os.environ["EXOSCALE_SOS_SECRET_KEY"],
         endpoint_url=os.environ["EXOSCALE_SOS_ENDPOINT"],
     )
-    bucket_name = os.environ["EXOSCALE_SOS_BUCKET"]
+    bucket_name = os.environ["EXOSCALE_SOS_BUCKET_ML"]
     # remote_path = pathlib.Path("dataframes") / local_path.name
     local_path.parent.mkdir(parents=True, exist_ok=True)
     logger.info("Downloading %s from bucket %s to %s", remote_path, bucket_name, local_path)
@@ -42,7 +42,7 @@ def ensure_dataframe_is_available(local_path: pathlib.Path) -> None:
     download_file_from_exoscale(pathlib.Path("dataframes") / local_path.name, local_path)
 
 
-@pandera.check_output(schemata.FullConsultationDocumentSchemaV1.to_schema())
+@pandera.check_types
 def load_consultation_documents(  # noqa: PLR0913
     input_file: pathlib.Path,
     *,
@@ -51,7 +51,7 @@ def load_consultation_documents(  # noqa: PLR0913
     only_doc_types: Iterable[str] | None = None,
     starting_year: int | None = None,
     mlflow: Any = None,
-) -> pd.DataFrame:
+) -> schemata.FullConsultationDocumentV1:
     """Load and filter consultation documents from a parquet file.
 
     ~~If an MLflow client is provided, the loaded dataset is logged as an input artifact.~~ (MLflow logging
