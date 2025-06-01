@@ -175,39 +175,43 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 ### III. Classifying document types
 
 >[!NOTE]
->Latest work on this problem: [PR!8](https://github.com/Demokratis-ch/demokratis-ml/pull/8).
+>Latest work on this problem: [PR!15](https://github.com/Demokratis-ch/demokratis-ml/pull/15).
 
-Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py#L35).)
-
-![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
+Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py).)
 
 For federal consultations, we automatically get this label from the Fedlex API. However, cantonal documents do not have roles (types) assigned, so we need to train a model.
 
+![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
+
 #### Our datasets
-We labelled a part of the cantonal dataset manually and through weak rules on file names (e.g. label files called 'Adressatenliste.pdf' as `RECIPIENT_LIST`). We also used the entire federal dataset because it comes already labelled.
+We labelled a part of the cantonal dataset manually and through weak rules on file names (e.g. label files called 'Adressatenliste.pdf' as `RECIPIENT_LIST`). We also used the entire federal dataset for training because it comes already labelled.
+
+We merge some of the most underrepresented document types into VARIOUS_TEXT (the "everything else" class) before training and evaluation.
 
 #### Our model
-We embed the documents using OpenAI's `text-embedding-3-large` model and classify those vectors directly with the simple sklearn pipeline of `make_pipeline(StandardScaler(), LogisticRegression())`.
+Our classifier uses three types of features:
+- Document texts embedded with OpenAI's `text-embedding-3-large` model, with reduced dimensions
+- Simple boolean flags extracted by regular expressions on document texts, e.g. "does the text contain a formal greeting like `Sehr\s+geehrte[r]?\s+(?:Frau|Herr|Damen\s+und\s+Herren`?")
+- Some features extracted from the actual PDF documents, e.g. aspect ratio, number of tables, page count,...
+
+We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `LogisticRegression`.
 
 #### Current results
-When we simplify the task by labelling unknown document types as `VARIOUS_TEXT` in the training set, we currently get weighted **precision, recall, and F1 around 0.87**.
+Only manually labelled cantonal documents are used for this evaluation to ensure that we're benchmarking against the most relevant data.
+In production, the model is only ever used to classify _cantonal_ documents.
 
-<details>
-<summary>Click here to see detailed classification report</summary>
-
-| Class           | Precision | Recall | F1-Score | Support |
-|-----------------|-----------|--------|----------|---------|
-| DRAFT           | 0.86      | 0.82   | 0.84     | 360     |
-| FINAL_REPORT    | 0.96      | 0.94   | 0.95     | 160     |
-| LETTER          | 0.97      | 0.97   | 0.97     | 324     |
-| OPINION         | 0.96      | 0.99   | 0.98     | 83      |
-| RECIPIENT_LIST  | 0.97      | 0.97   | 0.97     | 207     |
-| REPORT          | 0.86      | 0.86   | 0.86     | 296     |
-| RESPONSE_FORM   | 0.00      | 0.00   | 0.00     | 3       |
-| SURVEY          | 0.74      | 0.83   | 0.78     | 24      |
-| SYNOPTIC_TABLE  | 0.75      | 0.68   | 0.71     | 66      |
-| VARIOUS_TEXT    | 0.72      | 0.75   | 0.74     | 375     |
-| **Accuracy**    |           |        | 0.87     | 1898    |
-| **Macro Avg**   | 0.78      | 0.78   | 0.78     | 1898    |
-| **Weighted Avg**| 0.87      | 0.87   | 0.87     | 1898    |
-</details>
+| Label           | Precision | Recall | F1-Score | Support |
+|----------------|-----------|--------|----------|---------|
+| DRAFT          | 0.74      | 0.77   | 0.75     | 52      |
+| FINAL_REPORT   | 0.73      | 0.61   | 0.67     | 18      |
+| LETTER         | 0.96      | 1.00   | 0.98     | 72      |
+| OPINION        | 0.33      | 0.33   | 0.33     | 3       |
+| RECIPIENT_LIST | 1.00      | 1.00   | 1.00     | 38      |
+| REPORT         | 0.80      | 0.82   | 0.81     | 85      |
+| SURVEY         | 1.00      | 0.67   | 0.80     | 9       |
+| SYNOPTIC_TABLE | 0.88      | 0.95   | 0.92     | 40      |
+| VARIOUS_TEXT   | 0.72      | 0.65   | 0.69     | 55      |
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Accuracy       |           |        | 0.84     | 372     |
+| Macro Avg      | 0.80      | 0.76   | 0.77     | 372     |
+| Weighted Avg   | 0.84      | 0.84   | 0.84     | 372     |
