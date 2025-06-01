@@ -25,6 +25,14 @@ hf_credentials = blocks.HuggingFaceDatasetUploadCredentials(
 hf_credentials.save("huggingface-dataset-upload-credentials", overwrite=True)
 
 
+mlflow_credentials = blocks.MLflowCredentials(
+    tracking_uri="https://mlflow.ml1.demokratis.ch/",
+    username=os.environ["MLFLOW_TRACKING_USERNAME"],
+    password=os.environ["MLFLOW_TRACKING_PASSWORD"],
+)
+mlflow_credentials.save("mlflow-credentials", overwrite=True)
+
+
 local_dataframe_storage = blocks.ExtendedLocalFileSystem(basepath="data/dataframes")
 local_dataframe_storage.save("local-dataframe-storage", overwrite=True)
 
@@ -54,3 +62,16 @@ platform_file_storage = prefect.filesystems.RemoteFileSystem(
     },
 )
 platform_file_storage.save("platform-file-storage", overwrite=True)
+
+
+remote_model_output_storage = blocks.ExtendedRemoteFileSystem(
+    basepath=f"s3://{os.environ['EXOSCALE_SOS_BUCKET_ML']}/model_outputs",
+    settings={
+        "key": os.environ["EXOSCALE_SOS_ACCESS_KEY"],
+        "secret": os.environ["EXOSCALE_SOS_SECRET_KEY"],
+        "client_kwargs": {
+            "endpoint_url": os.environ["EXOSCALE_SOS_ENDPOINT"],
+        },
+    },
+)
+remote_model_output_storage.save("remote-model-output-storage", overwrite=True)
