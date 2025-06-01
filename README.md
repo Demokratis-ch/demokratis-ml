@@ -181,7 +181,16 @@ Each consultation consists of several documents: usually around 5, but sometimes
 
 For federal consultations, we automatically get this label from the Fedlex API. However, cantonal documents do not have roles (types) assigned, so we need to train a model.
 
-![A chart showing the frequency of document types in the cantonal dataset](docs/example_document_types.png)
+<!--
+ax = (df.value_counts("document_type", dropna=False, normalize=True, ascending=True) * 100).plot.barh(
+    title="Document Types [%]"
+)
+bars = ax.patches
+for bar, label in zip(bars, df.value_counts("document_type", dropna=False, normalize=True, ascending=True).index):
+    if pd.isna(label):
+        bar.set_color("#a55")
+ -->
+![A chart showing the frequency of document types in our dataset](docs/example_document_types.png)
 
 #### Our datasets
 We labelled a part of the cantonal dataset manually and through weak rules on file names (e.g. label files called 'Adressatenliste.pdf' as `RECIPIENT_LIST`). We also used the entire federal dataset for training because it comes already labelled.
