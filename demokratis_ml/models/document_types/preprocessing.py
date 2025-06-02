@@ -7,13 +7,18 @@ import pandas as pd
 from demokratis_ml.data import schemata
 from demokratis_ml.models.document_types import features
 
+MERGE_CLASSES = {
+    ("RESPONSE_FORM",): "SURVEY",
+    ("DECISION", "PRESS_RELEASE"): "VARIOUS_TEXT",
+}
+
 
 def create_input_dataframe(
     df_documents: schemata.FullConsultationDocumentV1,
     *,
     df_extra_features: pd.DataFrame,
     df_embeddings: pd.DataFrame,
-    class_merges: dict[tuple[str, ...], str],
+    class_merges: dict[tuple[str, ...], str] = MERGE_CLASSES,
 ) -> pd.DataFrame:
     """
     Create a model input dataframe (for training or inference) from the documents and their features.
