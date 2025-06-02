@@ -18,18 +18,13 @@ from demokratis_ml.pipelines import blocks, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
-CLASS_MERGES = {  # TODO: store this with the model
-    ("RESPONSE_FORM",): "SURVEY",
-    ("DECISION", "PRESS_RELEASE"): "VARIOUS_TEXT",
-}
-
 
 @prefect.flow()
 def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "document_type_classifier",
-    model_version: int | str = 1,
+    model_version: int | str = 2,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2024, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
@@ -123,7 +118,6 @@ def predict_document_types(  # noqa: PLR0913
         df_documents=df_documents,
         df_extra_features=df_features,
         df_embeddings=df_embeddings,
-        class_merges=CLASS_MERGES,
     )
     logger.info("Input dataframe for the model has %d rows and %d columns", df_input.shape[0], df_input.shape[1])
 
