@@ -242,7 +242,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     )
 
     # === Cast to the correct types
-    for time_column in ("consultation_start_date", "consultation_end_date"):
+    for time_column in ("consultation_start_date", "consultation_end_date", "document_publication_date"):
         df[time_column] = pd.to_datetime(df[time_column])
     for category_column in ("political_body", "document_source", "document_type", "document_language"):
         df[category_column] = df[category_column].astype("category")
@@ -273,6 +273,15 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     if len(missing := df[missing_url]) > 0:
         logger.warning("Dropping %d documents with missing URL: %r", len(missing), missing)
     df = df[~missing_url]
+    # There are a few documents "published" in "1970" (= clearly an invalid timestamp).
+    invalid_publication_date = df["document_publication_date"] < df["consultation_start_date"].min()
+    if len(invalid := df[invalid_publication_date]) > 0:
+        logger.warning(
+            "Erasing %d invalid publication dates:\n%r",
+            len(invalid),
+            invalid[["document_id", "document_source", "document_publication_date"]],
+        )
+        df.loc[invalid_publication_date, "document_publication_date"] = pd.NaT
 
     return df
 

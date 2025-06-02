@@ -184,6 +184,9 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """ URL of the original document on a cantonal or federal website. Beware that this URL may
     no longer be accessible as websites change over time. """
 
+    document_publication_date: pd.Timestamp = pa.Field(nullable=True)
+    """ Date when the document was published or made available to Demokratis. """
+
     document_type: pd.CategoricalDtype = pa.Field(nullable=True, isin=DOCUMENT_TYPES)
     """ The role of this document in the consultation process; may be unknown """
 
