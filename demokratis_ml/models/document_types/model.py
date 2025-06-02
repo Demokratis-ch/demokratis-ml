@@ -20,6 +20,8 @@ EXTRA_FEATURE_COLUMNS = (
     # Removed: train/test distributions don't match well:
     #    "fraction_pages_containing_images",  # float: count_pages_containing_images / count_pages
     #    "fraction_pages_containing_tables",  # float: count_pages_containing_tables / count_pages
+    "days_after_consultation_start",  # int: days since the consultation started
+    # "days_after_consultation_end",  # int: days since the consultation ended (often a negative number)
 )
 
 EXTRA_CATEGORICAL_COLUMNS = ()
