@@ -22,6 +22,7 @@ EXTRA_FEATURE_COLUMNS = (
     #    "fraction_pages_containing_tables",  # float: count_pages_containing_tables / count_pages
     "days_after_consultation_start",  # int: days since the consultation started
     # "days_after_consultation_end",  # int: days since the consultation ended (often a negative number)
+    "consultation_start_timestamp",  # int: timestamp of the consultation start date (in seconds since epoch)
 )
 
 EXTRA_CATEGORICAL_COLUMNS = ()
