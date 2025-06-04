@@ -25,7 +25,7 @@ EXTRA_FEATURE_COLUMNS = (
     "consultation_start_timestamp",  # int: timestamp of the consultation start date (in seconds since epoch)
 )
 
-EXTRA_CATEGORICAL_COLUMNS = ()
+EXTRA_CATEGORICAL_COLUMNS = ("is_federal_consultation",)
 
 
 def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
@@ -70,20 +70,20 @@ def create_classifier(embedding_dimension: int, random_state: int | None = None)
                     ),
                     slice(i_extra_features, i_categorical_features),
                 ),
-                # (
-                #     "categorical_features",
-                #     sklearn.pipeline.make_pipeline(
-                #         OneHotEncoder(
-                #             sparse_output=False,
-                #             categories=[
-                #                 # list(schemata.CANTON_CODES | {schemata.FEDERAL_CODE}),
-                #                 # ["fedlex", "openparldata"],
-                #             ],
-                #         ),
-                #         StandardScaler(),
-                #     ),
-                #     slice(i_categorical_features, None),
-                # ),
+                (
+                    "categorical_features",
+                    sklearn.pipeline.make_pipeline(
+                        # OneHotEncoder(
+                        #     sparse_output=False,
+                        #     categories=[
+                        #         # list(schemata.CANTON_CODES | {schemata.FEDERAL_CODE}),
+                        #         # ["fedlex", "openparldata"],
+                        #     ],
+                        # ),
+                        StandardScaler(),
+                    ),
+                    slice(i_categorical_features, None),
+                ),
             ]
         ),
         LogisticRegression(max_iter=2000),
