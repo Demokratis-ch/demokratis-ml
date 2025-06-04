@@ -12,6 +12,8 @@ MERGE_CLASSES = {
     ("DECISION", "PRESS_RELEASE"): "VARIOUS_TEXT",
 }
 
+logger = logging.getLogger("document_types.preprocessing")
+
 
 def create_input_dataframe(
     df_documents: schemata.FullConsultationDocumentV1,
@@ -50,7 +52,7 @@ def merge_classes(series: pd.Series, merge_to: dict[tuple[str, ...], str]) -> pd
 def _add_embeddings(df_documents: pd.DataFrame, df_embeddings: pd.DataFrame) -> pd.DataFrame:
     previous_shape = df_documents.shape
     df = df_documents.join(df_embeddings, on="document_id", how="inner")
-    logging.info(
+    logger.info(
         "%d rows were lost due to missing embeddings. Remaining rows: %d. %d columns were added.",
         previous_shape[0] - df.shape[0],
         df.shape[0],
@@ -62,5 +64,5 @@ def _add_embeddings(df_documents: pd.DataFrame, df_embeddings: pd.DataFrame) -> 
 def _drop_empty_texts(df: schemata.FullConsultationDocumentV1) -> schemata.FullConsultationDocumentV1:
     empty_index = df["document_content_plain"].str.strip() == ""
     empty_count = empty_index.sum()
-    logging.info("Dropping %d documents (%.1f%%) with empty texts", empty_count, 100 * empty_count / len(df))
+    logger.info("Dropping %d documents (%.1f%%) with empty texts", empty_count, 100 * empty_count / len(df))
     return df.loc[~empty_index]
