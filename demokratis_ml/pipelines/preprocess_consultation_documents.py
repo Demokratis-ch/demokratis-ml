@@ -209,7 +209,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
         functools.partial(_find_internal_tag_date, tag_name="topics_reviewed")
     )
     column = "consultation_topics_label_source"
-    manual_index = ~topic_review_times.isna()
+    manual_index = topic_review_times.notna()
     df.loc[manual_index, column] = "manual"
     df.loc[~manual_index & (df["document_source"] == "openparldata"), column] = "openparldata"
     df.loc[~manual_index & (df["document_source"] == "fedlex"), column] = "organisation_rule"
@@ -220,15 +220,27 @@ def load_consultation_document_metadata() -> pd.DataFrame:
         df.groupby("consultation_id").agg({column: "first"}).value_counts(),
     )
 
-    # === Remove document_type labels that are not guaranteed to be correct.
+    # === Infer document_type_label_source
     document_type_review_times = df["consultation_internal_tags"].map(
         functools.partial(_find_internal_tag_date, tag_name="document_types_reviewed")
     )
+    column = "document_type_label_source"
+    manual_index = document_type_review_times.notna()
+    df.loc[:, column] = pd.NA
+    df.loc[(df["document_source"] == "fedlex"), column] = "fedlex"
+    df.loc[manual_index, column] = "manual"
+    df[column] = pd.Categorical(
+        df[column],
+        categories=schemata.get_allowed_values(
+            schemata.ConsultationDocumentMetadataSchemaV1, "document_type_label_source"
+        ),
+    )
+    # === Remove document_type labels that are not guaranteed to be correct.
     df.loc[
         # OpenParlData documents...
         (df["document_source"] == "openparldata")
         # ...that haven't been reviewed...
-        & document_type_review_times.isna()
+        & ~manual_index
         # ...and have the type that's automatically assigned to every OpenParlData document by default...
         & (df["document_type"] == "VARIOUS_TEXT"),
         # ...should be considered unlabelled:
@@ -240,6 +252,15 @@ def load_consultation_document_metadata() -> pd.DataFrame:
         "OpenParlData document types:\n%r",
         df.loc[df["document_source"] == "openparldata", "document_type"].value_counts(dropna=False),
     )
+    if not (df["document_type"].isna() == df["document_type_label_source"].isna()).all():
+        logger.warning(
+            "Inconsistent document_type and document_type_label_source. This may happen e.g. when labels "
+            "were manually assigned but the 'document_types_reviewed' tag wasn't added:\n%r",
+            df.loc[
+                df["document_type"].isna() != df["document_type_label_source"].isna(),
+                ["document_id", "document_source", "document_type", "document_type_label_source"],
+            ],
+        )
 
     # === Cast to the correct types
     for time_column in ("consultation_start_date", "consultation_end_date", "document_publication_date"):
