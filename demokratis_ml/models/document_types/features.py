@@ -21,8 +21,12 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
     #   df_extra_features.reset_index(level="stored_file_hash", drop=True), on="document_id", how="inner"
     # )
     df = df_docs.join(df_extra_features, on=["document_id", "stored_file_hash"], how="inner")
+
+    # Features derived from PDFs (extra features)
     df["fraction_pages_containing_tables"] = df["count_pages_containing_tables"] / df["count_pages"]
     df["fraction_pages_containing_images"] = df["count_pages_containing_images"] / df["count_pages"]
+
+    # Keyword-like features
     df["contains_synopse_keyword"] = (
         df["document_content_plain"].str.slice(0, 1000).str.contains("synopse", case=False, regex=False)
     )
@@ -45,9 +49,16 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
             regex=True,
         )
     )
+
+    # Time features
     df["days_after_consultation_start"] = (df["document_publication_date"] - df["consultation_start_date"]).dt.days
     df["days_after_consultation_end"] = (df["document_publication_date"] - df["consultation_end_date"]).dt.days
     df["consultation_start_timestamp"] = df["consultation_start_date"].view("int64") // 10**9
+
+    # Categorical features
+    df["is_federal_consultation"] = df["political_body"] == schemata.FEDERAL_CODE
+
+    # Reports
     logger.info(
         "%d rows (%.1f%%) were lost due to missing features. Remaining rows: %d. %d columns were added.",
         previous_shape[0] - df.shape[0],
