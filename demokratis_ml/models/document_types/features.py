@@ -47,6 +47,7 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
     )
     df["days_after_consultation_start"] = (df["document_publication_date"] - df["consultation_start_date"]).dt.days
     df["days_after_consultation_end"] = (df["document_publication_date"] - df["consultation_end_date"]).dt.days
+    df["consultation_start_timestamp"] = df["consultation_start_date"].view("int64") // 10**9
     logger.info(
         "%d rows (%.1f%%) were lost due to missing features. Remaining rows: %d. %d columns were added.",
         previous_shape[0] - df.shape[0],
