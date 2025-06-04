@@ -24,26 +24,18 @@ def train_test_split(
     - The remaining OpenParlData documents are unlabelled and therefore discarded.
 
     The resulting dataframes have the same columns as the input dataframe, but the `document_type` column is
-    guaranteed to be non-null. In addition, the `document_type_label_source` column is added to indicate
-    the source of the label. The possible values are:
-    - "fedlex": documents from Fedlex
-    - "rule": documents from OpenParlData with labels assigned by the rule-based model
-    - "manual": documents from OpenParlData that were manually labelled by Demokratis staff
+    guaranteed to be non-null. In addition, the `document_type_label_source` column is set to "rule"
+    for documents with labels assigned by the rule-based model.
 
     :param stratify_by_canton: If True, the combination of `political_body` and `document_type` is used
         for stratification. If False, only `document_type` is used.
     """
     logger = logging.getLogger("train_test_split")
 
-    df = df.copy()
-    df["document_type_label_source"] = ""
-
     # All Fedlex documents are for training
     df_fedlex = df.loc[df["document_source"] == "fedlex"]
-    df_fedlex.loc[:, "document_type_label_source"] = "fedlex"
 
     df_openparldata = df.loc[df["document_source"] == "openparldata"]
-
     # From the unlabelled OpenParlData, we use some rule-based labels for training
     df_openparldata_unlabelled = df_openparldata.loc[df_openparldata["document_type"].isna()]
     rule_labels = document_title_rule_model.predict(df_openparldata_unlabelled)
@@ -54,8 +46,16 @@ def train_test_split(
 
     # Manually labelled OpenParlData documents will be split into train and test
     df_openparldata_manual = df_openparldata.loc[df_openparldata["document_type"].notna()]
-    df_openparldata_manual.loc[:, "document_type_label_source"] = "manual"
-    logger.info("Number of manually labelled openparldata documents: %d", len(df_openparldata_manual))
+    len_labelled = len(df_openparldata_manual)
+    df_openparldata_manual = df_openparldata_manual.loc[
+        # Be strict: accept only documents that are explicitly tagged as reviewed
+        df_openparldata_manual["document_type_label_source"] == "manual"
+    ]
+    logger.info(
+        "Number of manually labelled openparldata documents: %d, of which %d are explicitly tagged as reviewed",
+        len_labelled,
+        len(df_openparldata_manual),
+    )
     splitter = sklearn.model_selection.StratifiedShuffleSplit(
         n_splits=1,
         test_size=test_size,
