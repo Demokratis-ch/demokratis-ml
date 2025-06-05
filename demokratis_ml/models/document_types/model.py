@@ -1,5 +1,7 @@
 """Model construction for document type classification."""
 
+import logging
+
 import numpy as np
 import pandas as pd
 import sklearn.pipeline
@@ -33,20 +35,45 @@ EXTRA_FEATURE_COLUMNS = (
 
 EXTRA_CATEGORICAL_COLUMNS = ("is_federal_consultation",)
 
+_NULL_REPLACEMENTS = {
+    "count_pages": -1,
+    "count_pages_containing_images": -1,
+    "count_pages_containing_tables": -1,
+    "average_page_aspect_ratio": -1.0,
+    "fraction_pages_containing_tables": -1.0,
+}
+
+logger = logging.getLogger("document_types.model")
+
 
 def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
     """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector."""
     embeddings = np.vstack(df["embedding"])
     x = np.hstack(
-        (
-            embeddings,
-            df[list(EXTRA_FEATURE_COLUMNS)].fillna(0),
+        [embeddings]
+        + [_pick_column(df, column).to_numpy().reshape(-1, 1) for column in EXTRA_FEATURE_COLUMNS]
+        + [
             df[list(EXTRA_CATEGORICAL_COLUMNS)],
-        )
+        ]
     ).astype(np.float32)
     y = df["document_type"]
     assert x.shape[0] == y.shape[0]
     return x, y
+
+
+def _pick_column(df: pd.DataFrame, column: str) -> pd.Series:
+    """Pick a column from the DataFrame, replacing null values with a predefined value."""
+    try:
+        replacement = _NULL_REPLACEMENTS[column]
+    except KeyError:
+        replacement = 0
+        if df[column].isna().any():
+            logger.warning(
+                "Column '%s' contains null values and no replacement value is set, filling with %r.",
+                column,
+                replacement,
+            )
+    return df[column].fillna(replacement)
 
 
 def create_classifier(embedding_dimension: int, random_state: int | None = None) -> sklearn.pipeline.Pipeline:
