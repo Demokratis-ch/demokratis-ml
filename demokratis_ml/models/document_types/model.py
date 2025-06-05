@@ -5,23 +5,29 @@ import pandas as pd
 import sklearn.pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
-from sklearn.ensemble import GradientBoostingClassifier  # noqa: F401
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import (
+    GradientBoostingClassifier,  # noqa: F401
+    RandomForestClassifier,
+)
+from sklearn.linear_model import LogisticRegression  # noqa: F401
 from sklearn.preprocessing import OneHotEncoder, StandardScaler  # noqa: F401
 
 EXTRA_FEATURE_COLUMNS = (
-    "contains_synopse_keyword",  # bool: whether the beginning of the document contains the word "synopse"
-    "contains_salutation",  # bool: whether the beginning of the document contains a formal German letter greetings
-    "contains_table_on_first_page",  # bool: whether the first page contains a table
+    # PDF features
     "count_pages",  # int: number of pages in the document
     "count_pages_containing_images",  # int: number of pages containing images (for documents <= 50 pages)
     "count_pages_containing_tables",  # int: number of pages containing tables (for documents <= 50 pages)
     "average_page_aspect_ratio",  # float: average aspect ratio of pages (width / height) (for documents <= 50 pages)
-    # Removed: train/test distributions don't match well:
-    #    "fraction_pages_containing_images",  # float: count_pages_containing_images / count_pages
-    #    "fraction_pages_containing_tables",  # float: count_pages_containing_tables / count_pages
+    # / Removed: train/test distributions don't match well:
+    # \ "fraction_pages_containing_images",  # float: count_pages_containing_images / count_pages
+    "fraction_pages_containing_tables",  # float: count_pages_containing_tables / count_pages
+    # Keyword-like features
+    "contains_synopse_keyword",  # bool: whether the beginning of the document contains the word "synopse"
+    "contains_salutation",  # bool: whether the beginning of the document contains a formal German letter greetings
+    "contains_table_on_first_page",  # bool: whether the first page contains a table
+    # Time features
     "days_after_consultation_start",  # int: days since the consultation started
-    # "days_after_consultation_end",  # int: days since the consultation ended (often a negative number)
+    "days_after_consultation_end",  # int: days since the consultation ended (often a negative number)
     "consultation_start_timestamp",  # int: timestamp of the consultation start date (in seconds since epoch)
 )
 
@@ -59,7 +65,7 @@ def create_classifier(embedding_dimension: int, random_state: int | None = None)
                     "embeddings",
                     sklearn.pipeline.make_pipeline(
                         StandardScaler(),
-                        PCA(n_components=20, random_state=random_state),
+                        PCA(n_components=40, random_state=random_state),
                     ),
                     slice(i_embeddings, i_extra_features),
                 ),
@@ -86,7 +92,8 @@ def create_classifier(embedding_dimension: int, random_state: int | None = None)
                 ),
             ]
         ),
-        LogisticRegression(max_iter=2000),
+        # LogisticRegression(max_iter=2000),
+        RandomForestClassifier(random_state=random_state),
         # GradientBoostingClassifier(random_state=RANDOM_STATE),
     )
     return pipeline
