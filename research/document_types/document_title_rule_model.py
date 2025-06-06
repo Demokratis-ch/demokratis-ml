@@ -27,7 +27,8 @@ def predict(documents: schemata.FullConsultationDocumentV1) -> pd.Series:
                     index &= df["political_body"] == canton_code
                 df.loc[index, "document_type"] = document_type
                 percentage_labelled = len(df[index]) * 100 / len(df)
-                logger.info(
+                log = logger.warning if df[index].empty else logger.info
+                log(
                     "Labelled %.2f%% by rule: canton=%s, title^=%s => type=%s",
                     percentage_labelled,
                     canton_code,

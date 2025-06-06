@@ -3,6 +3,7 @@ import logging
 import pandas as pd
 import sklearn.model_selection
 
+from demokratis_ml.models.document_types import preprocessing
 from research.document_types import document_title_rule_model
 
 
@@ -39,6 +40,7 @@ def train_test_split(
     # From the unlabelled OpenParlData, we use some rule-based labels for training
     df_openparldata_unlabelled = df_openparldata.loc[df_openparldata["document_type"].isna()]
     rule_labels = document_title_rule_model.predict(df_openparldata_unlabelled)
+    rule_labels = preprocessing.merge_classes(rule_labels, preprocessing.MERGE_CLASSES)
     rule_labels = rule_labels[rule_labels.isin(include_rule_labels_in_training)]
     df_openparldata_rules = df_openparldata.loc[rule_labels.index]
     df_openparldata_rules.loc[rule_labels.index, "document_type"] = rule_labels
