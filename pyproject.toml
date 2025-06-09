@@ -18,7 +18,7 @@ dependencies = [
     "pyarrow>=18.1.0",
     "pymupdf>=1.24.14",
     "python-dotenv>=1.0.1",
-    "scikit-learn>=1.5.2",
+    "scikit-learn>=1.7.0",
     "seaborn>=0.13.2",
     "s3fs[boto3]>=2024.10.0",
     "tiktoken>=0.8.0",
@@ -26,6 +26,7 @@ dependencies = [
     "pdfplumber>=0.11.6",
     "openpyxl>=3.1.5",
     "cleanlab[datalab]>=2.7.0",
+    "pandas>=2.2.3",
 ]
 
 [tool.uv]
