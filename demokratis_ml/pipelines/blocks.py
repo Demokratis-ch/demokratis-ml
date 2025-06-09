@@ -50,6 +50,17 @@ class OpenAICredentials(prefect.blocks.abstract.CredentialsBlock):
 OpenAICredentials.register_type_and_schema()
 
 
+class MLflowCredentials(prefect.blocks.core.Block):
+    """Credentials used for HTTP Basic Auth to MLflow."""
+
+    tracking_uri: str
+    username: str
+    password: pydantic.SecretStr
+
+
+MLflowCredentials.register_type_and_schema()
+
+
 class ExtendedLocalFileSystem(prefect.filesystems.LocalFileSystem):
     """Local filesystem with extra methods."""
 

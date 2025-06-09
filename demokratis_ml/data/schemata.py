@@ -184,8 +184,19 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """ URL of the original document on a cantonal or federal website. Beware that this URL may
     no longer be accessible as websites change over time. """
 
+    document_publication_date: pd.Timestamp = pa.Field(nullable=True)
+    """ Date when the document was published or made available to Demokratis. """
+
     document_type: pd.CategoricalDtype = pa.Field(nullable=True, isin=DOCUMENT_TYPES)
     """ The role of this document in the consultation process; may be unknown """
+
+    document_type_label_source: pd.CategoricalDtype = pa.Field(nullable=True, isin={"fedlex", "rule", "manual"})
+    """ Where did the document type label come from?
+    - "fedlex": The document type was provided by Fedlex (it provides it for all documents).
+    - "rule": The document type was assigned by a rule-based model using the document title.
+    - "manual": The document type was assigned by a human reviewer; this might override the other type sources.
+    - None: The document type is unknown, e.g. because it comes from OpenParlData which doesn't provide types.
+    """
 
     document_language: pd.CategoricalDtype = pa.Field(isin={"de", "fr", "it", "rm"})
     """ Language of the document """
@@ -224,3 +235,14 @@ class FullConsultationDocumentSchemaV1(ConsultationDocumentMetadataSchemaV1):
 
 
 FullConsultationDocumentV1 = DataFrame[FullConsultationDocumentSchemaV1]
+
+
+def get_allowed_values(schema_cls: type[pa.DataFrameModel], field_name: str) -> set[str]:
+    """Get the allowed values for a field in a Pandera schema."""
+    schema = schema_cls.to_schema()
+    column = schema.columns[field_name]
+    for check in column.checks:
+        if check.name == "isin":
+            return check.statistics["allowed_values"]
+    msg = f"Field '{field_name}' in schema '{schema_cls.__name__}' does not have an 'isin' check."
+    raise ValueError(msg)

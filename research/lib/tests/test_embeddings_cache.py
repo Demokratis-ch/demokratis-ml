@@ -9,7 +9,7 @@ from research.lib.embeddings_cache import EmbeddingsCache
 
 @pytest.fixture
 def embeddings_cache(tmp_path, mocker):
-    c = EmbeddingsCache(tmp_path, "test_model")
+    c = EmbeddingsCache(tmp_path, "test_model", read_only=False)
     embedding_fn = mocker.Mock(return_value=np.array([0, 7]))
     c.get_embedding("already embedded", embedding_fn)
     return c
@@ -29,7 +29,7 @@ def test_save_and_load(embeddings_cache, mocker, tmp_path):
     assert embedding_fn.call_count == 1
     embeddings_cache.save()
 
-    another_cache = EmbeddingsCache(tmp_path, "test_model")
+    another_cache = EmbeddingsCache(tmp_path, "test_model", read_only=True)
     another_embedding_fn = mocker.stub()
     another_cache.get_embedding("test", another_embedding_fn)
     assert another_embedding_fn.call_count == 0

@@ -175,7 +175,7 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 ### III. Classifying document types
 
 >[!NOTE]
->Latest work on this problem: [PR!15](https://github.com/Demokratis-ch/demokratis-ml/pull/15).
+>Latest work on this problem: [VM_document_type_classifier.ipynb](research/document_types/VM_document_type_classifier.ipynb).
 
 Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py).)
 
@@ -203,7 +203,7 @@ Our classifier uses three types of features:
 - Simple boolean flags extracted by regular expressions on document texts, e.g. "does the text contain a formal greeting like `Sehr\s+geehrte[r]?\s+(?:Frau|Herr|Damen\s+und\s+Herren`?")
 - Some features extracted from the actual PDF documents, e.g. aspect ratio, number of tables, page count,...
 
-We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `LogisticRegression`.
+We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `RandomForestClassifier`.
 
 #### Current results
 Only manually labelled cantonal documents are used for this evaluation to ensure that we're benchmarking against the most relevant data.
@@ -211,16 +211,16 @@ In production, the model is only ever used to classify _cantonal_ documents.
 
 | Label           | Precision | Recall | F1-Score | Support |
 |----------------|-----------|--------|----------|---------|
-| DRAFT          | 0.74      | 0.77   | 0.75     | 52      |
-| FINAL_REPORT   | 0.73      | 0.61   | 0.67     | 18      |
-| LETTER         | 0.96      | 1.00   | 0.98     | 72      |
-| OPINION        | 0.33      | 0.33   | 0.33     | 3       |
-| RECIPIENT_LIST | 1.00      | 1.00   | 1.00     | 38      |
-| REPORT         | 0.80      | 0.82   | 0.81     | 85      |
-| SURVEY         | 1.00      | 0.67   | 0.80     | 9       |
-| SYNOPTIC_TABLE | 0.88      | 0.95   | 0.92     | 40      |
-| VARIOUS_TEXT   | 0.72      | 0.65   | 0.69     | 55      |
+| DRAFT          | 0.91      | 0.81   | 0.85     | 62      |
+| FINAL_REPORT   | 1.00      | 0.28   | 0.43     | 18      |
+| LETTER         | 0.95      | 1.00   | 0.97     | 92      |
+| OPINION        | nan       | 0.00   | 0.00     | 5       |
+| RECIPIENT_LIST | 1.00      | 1.00   | 1.00     | 42      |
+| REPORT         | 0.71      | 0.94   | 0.81     | 109     |
+| SURVEY         | 1.00      | 0.83   | 0.91     | 12      |
+| SYNOPTIC_TABLE | 0.92      | 0.94   | 0.93     | 50      |
+| VARIOUS_TEXT   | 0.90      | 0.68   | 0.78     | 66      |
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Accuracy       |           |        | 0.84     | 372     |
-| Macro Avg      | 0.80      | 0.76   | 0.77     | 372     |
-| Weighted Avg   | 0.84      | 0.84   | 0.84     | 372     |
+| Accuracy       |           |        | 0.86     | 456     |
+| Macro Avg      | 0.92      | 0.72   | 0.74     | 456     |
+| Weighted Avg   | 0.88      | 0.86   | 0.85     | 456     |

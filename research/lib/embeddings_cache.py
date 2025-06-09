@@ -13,6 +13,10 @@ import numpy as np
 import pyarrow.parquet
 
 
+class ReadOnlyCacheMissError(Exception):
+    """Raised when a read-only cache doesn't contain the required embedding."""
+
+
 class _NoTqdm:
     def __init__(self, *_args: Any, **_kwargs: Any) -> None:
         pass
@@ -31,8 +35,9 @@ class _NoTqdm:
 
 
 class EmbeddingsCache:
-    def __init__(self, root_cache_dir: pathlib.Path, embedding_model_name: str) -> None:
+    def __init__(self, root_cache_dir: pathlib.Path, embedding_model_name: str, read_only: bool) -> None:
         self._file_path = root_cache_dir / f"{embedding_model_name.replace('/', '--')}.parquet"
+        self._read_only = read_only
         if self._file_path.exists():
             t0 = time.monotonic()
             table = pyarrow.parquet.read_table(self._file_path)
@@ -66,11 +71,13 @@ class EmbeddingsCache:
             self.hits += 1
         else:
             self.misses += 1
+            if self._read_only:
+                raise ReadOnlyCacheMissError(text_or_tokens)
             self._cache[cache_key] = embedding_function(text_or_tokens)
         return self._cache[cache_key]
 
     # I don't know how to simplify this function at the moment.
-    def get_embeddings_batch[InputType: (str, list[int])](
+    def get_embeddings_batch[InputType: (str, list[int])](  # noqa: C901
         self,
         inputs: list[InputType],
         batched_embedding_function: Callable[[list[InputType]], np.ndarray],
@@ -118,6 +125,8 @@ class EmbeddingsCache:
                     continue
 
                 # Not cached yet => add to batch
+                if self._read_only:
+                    raise ReadOnlyCacheMissError(input_)
                 batch_indices.append(input_index)
                 batch_inputs.append(input_)
                 self.misses += 1
@@ -133,6 +142,8 @@ class EmbeddingsCache:
         return resulting_embeddings
 
     def save(self) -> None:
+        if self._read_only:
+            raise RuntimeError("Cannot save a read-only cache")
         t0 = time.monotonic()
         table = pyarrow.table({key: pyarrow.array(value) for key, value in self._cache.items()})
         self._file_path.parent.mkdir(parents=True, exist_ok=True)
