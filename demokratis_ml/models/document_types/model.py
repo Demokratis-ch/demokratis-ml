@@ -46,12 +46,12 @@ _NULL_REPLACEMENTS = {
 logger = logging.getLogger("document_types.model")
 
 
-def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
+def create_matrices(df: pd.DataFrame, fill_nulls: bool = False) -> tuple[np.ndarray, pd.Series]:
     """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector."""
     embeddings = np.vstack(df["embedding"])
     x = np.hstack(
         [embeddings]
-        + [_pick_column(df, column).to_numpy().reshape(-1, 1) for column in EXTRA_FEATURE_COLUMNS]
+        + [_pick_column(df, column, fill_nulls) for column in EXTRA_FEATURE_COLUMNS]
         + [
             df[list(EXTRA_CATEGORICAL_COLUMNS)],
         ]
@@ -61,19 +61,22 @@ def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
     return x, y
 
 
-def _pick_column(df: pd.DataFrame, column: str) -> pd.Series:
-    """Pick a column from the DataFrame, replacing null values with a predefined value."""
-    try:
-        replacement = _NULL_REPLACEMENTS[column]
-    except KeyError:
-        replacement = 0
-        if df[column].isna().any():
-            logger.warning(
-                "Column '%s' contains null values and no replacement value is set, filling with %r.",
-                column,
-                replacement,
-            )
-    return df[column].fillna(replacement)
+def _pick_column(df: pd.DataFrame, column: str, fill_nulls: bool) -> np.ndarray:
+    """Pick a column from the DataFrame, optionally replacing null values with a predefined value."""
+    series = df[column]
+    if fill_nulls:
+        try:
+            replacement = _NULL_REPLACEMENTS[column]
+        except KeyError:
+            replacement = 0
+            if df[column].isna().any():
+                logger.warning(
+                    "Column '%s' contains null values and no replacement value is set, filling with %r.",
+                    column,
+                    replacement,
+                )
+        series = series.fillna(replacement)
+    return series.to_numpy().reshape(-1, 1)  # 2D columnar array
 
 
 def create_classifier(embedding_dimension: int, random_state: int | None = None) -> sklearn.pipeline.Pipeline:
