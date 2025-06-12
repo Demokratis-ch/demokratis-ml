@@ -162,13 +162,12 @@ def predict_document_types(  # noqa: PLR0913
 
 
 def serialize_predictions(df_predictions: pd.DataFrame) -> list[dict]:
-    """For each document, return a list of labels sorted by probability (highest first)."""
+    """For each document, return a list of labels sorted by scores (highest first)."""
     return [
         {
             "document_id": idx,
             "output": [
-                {"label": label, "probability": round(prob, 4)}
-                for label, prob in row.sort_values(ascending=False).items()
+                {"label": label, "score": round(proba, 4)} for label, proba in row.sort_values(ascending=False).items()
             ],
         }
         for idx, row in df_predictions.iterrows()
