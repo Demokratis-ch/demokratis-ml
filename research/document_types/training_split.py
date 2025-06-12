@@ -6,6 +6,8 @@ import sklearn.model_selection
 from demokratis_ml.models.document_types import preprocessing
 from research.document_types import document_title_rule_model
 
+logger = logging.getLogger("training_split")
+
 
 def train_test_split(
     df: pd.DataFrame,
@@ -31,8 +33,6 @@ def train_test_split(
     :param stratify_by_canton: If True, the combination of `political_body` and `document_type` is used
         for stratification. If False, only `document_type` is used.
     """
-    logger = logging.getLogger("train_test_split")
-
     # All Fedlex documents are for training
     df_fedlex = df.loc[df["document_source"] == "fedlex"]
 
@@ -58,42 +58,12 @@ def train_test_split(
         len_labelled,
         len(df_openparldata_manual),
     )
-    splitter = sklearn.model_selection.StratifiedShuffleSplit(
-        n_splits=1,
-        test_size=test_size,
+    df_openparldata_manual_train, df_openparldata_manual_test = _split(
+        df_openparldata_manual,
         random_state=random_state,
+        test_size=test_size,
+        stratify_by_canton=stratify_by_canton,
     )
-
-    if stratify_by_canton:
-        stratification_groups = (
-            df_openparldata_manual["political_body"].astype(str)
-            + ":"
-            + df_openparldata_manual["document_type"].astype(str)
-        )
-        class_counts = stratification_groups.value_counts()
-        minimum_class_size = 2
-        rare_classes = class_counts[class_counts < minimum_class_size].index
-        rare_index = stratification_groups.isin(rare_classes)
-        if not rare_classes.empty:
-            logger.warning(
-                "Discarding %d documents in the following rare classes (fewer than %d samples): %r",
-                len(df_openparldata_manual[rare_index]),
-                minimum_class_size,
-                sorted(rare_classes),
-            )
-        train_index, test_index = next(
-            splitter.split(
-                X=df_openparldata_manual[~rare_index],
-                y=stratification_groups[~rare_index],
-            )
-        )
-    else:
-        train_index, test_index = next(
-            splitter.split(X=df_openparldata_manual, y=df_openparldata_manual["document_type"])
-        )
-
-    df_openparldata_manual_train = df_openparldata_manual.iloc[train_index]
-    df_openparldata_manual_test = df_openparldata_manual.iloc[test_index]
 
     # Concatenate all training data
     df_train = pd.concat([df_fedlex, df_openparldata_rules, df_openparldata_manual_train], ignore_index=True)
@@ -116,3 +86,37 @@ def train_test_split(
     assert df_test["document_type"].notna().all(), "Test set must not contain null document types"
 
     return df_train, df_test
+
+
+def _split(
+    df: pd.DataFrame, random_state: int, test_size: float, stratify_by_canton: bool
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    splitter = sklearn.model_selection.StratifiedShuffleSplit(
+        n_splits=1,
+        test_size=test_size,
+        random_state=random_state,
+    )
+
+    if stratify_by_canton:
+        stratification_groups = df["political_body"].astype(str) + ":" + df["document_type"].astype(str)
+        class_counts = stratification_groups.value_counts()
+        minimum_class_size = 2
+        rare_classes = class_counts[class_counts < minimum_class_size].index
+        rare_index = stratification_groups.isin(rare_classes)
+        if not rare_classes.empty:
+            logger.warning(
+                "Discarding %d documents in the following rare classes (fewer than %d samples): %r",
+                len(df[rare_index]),
+                minimum_class_size,
+                sorted(rare_classes),
+            )
+        train_index, test_index = next(
+            splitter.split(
+                X=df[~rare_index],
+                y=stratification_groups[~rare_index],
+            )
+        )
+    else:
+        train_index, test_index = next(splitter.split(X=df, y=df["document_type"]))
+
+    return df.iloc[train_index], df.iloc[test_index]
