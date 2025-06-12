@@ -12,7 +12,7 @@ from sklearn.ensemble import (
     RandomForestClassifier,
 )
 from sklearn.linear_model import LogisticRegression  # noqa: F401
-from sklearn.preprocessing import OneHotEncoder, StandardScaler  # noqa: F401
+from sklearn.preprocessing import StandardScaler  # noqa: F401
 
 EXTRA_FEATURE_COLUMNS = (
     # PDF features
@@ -47,7 +47,11 @@ logger = logging.getLogger("document_types.model")
 
 
 def create_matrices(df: pd.DataFrame, fill_nulls: bool = False) -> tuple[np.ndarray, pd.Series]:
-    """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector."""
+    """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector.
+
+    RandomForestClassifier natively supports nulls since sklearn 1.7, so we don't necessarily need
+    to fill them.
+    """
     embeddings = np.vstack(df["embedding"])
     x = np.hstack(
         [embeddings]
@@ -94,30 +98,25 @@ def create_classifier(embedding_dimension: int, random_state: int | None = None)
                 (
                     "embeddings",
                     sklearn.pipeline.make_pipeline(
-                        StandardScaler(),
+                        # StandardScaler(),
                         PCA(n_components=40, random_state=random_state),
                     ),
                     slice(i_embeddings, i_extra_features),
                 ),
                 (
                     "extra_features",
-                    sklearn.pipeline.make_pipeline(
-                        StandardScaler(),
-                    ),
+                    "passthrough",
+                    # sklearn.pipeline.make_pipeline(
+                    #   StandardScaler(),
+                    # ),
                     slice(i_extra_features, i_categorical_features),
                 ),
                 (
                     "categorical_features",
-                    sklearn.pipeline.make_pipeline(
-                        # OneHotEncoder(
-                        #     sparse_output=False,
-                        #     categories=[
-                        #         # list(schemata.CANTON_CODES | {schemata.FEDERAL_CODE}),
-                        #         # ["fedlex", "openparldata"],
-                        #     ],
-                        # ),
-                        StandardScaler(),
-                    ),
+                    "passthrough",
+                    # sklearn.pipeline.make_pipeline(
+                    #   StandardScaler(),
+                    # ),
                     slice(i_categorical_features, None),
                 ),
             ]
