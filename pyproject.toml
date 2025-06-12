@@ -27,6 +27,7 @@ dependencies = [
     "openpyxl>=3.1.5",
     "cleanlab[datalab]>=2.7.0",
     "pandas>=2.2.3",
+    "datasets>=3.3.2",
 ]
 
 [tool.uv]
