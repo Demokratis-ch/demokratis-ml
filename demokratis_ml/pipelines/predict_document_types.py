@@ -20,6 +20,7 @@ OUTPUT_FORMAT_VERSION = "v0.1"
 
 
 @prefect.flow()
+@utils.slack_status_report()
 def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,

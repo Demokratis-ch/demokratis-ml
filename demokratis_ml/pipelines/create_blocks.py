@@ -3,6 +3,7 @@
 import os
 
 import prefect.filesystems
+import prefect_slack
 
 from demokratis_ml.pipelines import blocks
 
@@ -75,3 +76,7 @@ remote_model_output_storage = blocks.ExtendedRemoteFileSystem(
     },
 )
 remote_model_output_storage.save("remote-model-output-storage", overwrite=True)
+
+
+slack_status = prefect_slack.SlackWebhook(url=os.environ["SLACK_STATUS_WEBHOOK_URL"])
+slack_status.save("slack-status-webhook", overwrite=True)

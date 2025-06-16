@@ -21,6 +21,7 @@ from demokratis_ml.pipelines import blocks, utils
     # We're not running much in parallel here
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=4),
 )
+@utils.slack_status_report()
 def embed_documents(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,

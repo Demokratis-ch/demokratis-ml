@@ -3,10 +3,11 @@
 import prefect
 import prefect.logging
 
-from demokratis_ml.pipelines import embed_documents, extract_document_features, preprocess_consultation_documents
+from demokratis_ml.pipelines import embed_documents, extract_document_features, preprocess_consultation_documents, utils
 
 
 @prefect.flow()
+@utils.slack_status_report()
 def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_from_previous_output: bool) -> None:
     """Compose the main ingestion pipeline.
 

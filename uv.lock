@@ -626,7 +626,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pandera" },
     { name = "pdfplumber" },
-    { name = "prefect" },
+    { name = "prefect", extra = ["slack"] },
     { name = "pyarrow" },
     { name = "pymupdf" },
     { name = "python-dotenv" },
@@ -663,7 +663,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "pandera", specifier = ">=0.20.4" },
     { name = "pdfplumber", specifier = ">=0.11.6" },
-    { name = "prefect", specifier = ">=3.1.1" },
+    { name = "prefect", extras = ["slack"], specifier = ">=3.1.1" },
     { name = "pyarrow", specifier = ">=18.1.0" },
     { name = "pymupdf", specifier = ">=1.24.14" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
@@ -2245,6 +2245,25 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/20/51/d06608c4e1b71fcf91a12aacc618c74e5e8f752b945b350db609945ba8e7/prefect-3.4.5-py3-none-any.whl", hash = "sha256:e95c2f65112d880dcea3b50572bfc087e89f0585475c4bf50652e5b33bdd134e", size = 6017873 },
 ]
 
+[package.optional-dependencies]
+slack = [
+    { name = "prefect-slack" },
+]
+
+[[package]]
+name = "prefect-slack"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "prefect" },
+    { name = "slack-sdk" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8c/58/0506e132aaead9a0c4d6adf3d547d8e1fd1010053b0c0a8ba76db419f0eb/prefect_slack-0.3.1.tar.gz", hash = "sha256:3eaa9dd997c1be96d9601b7a1dbfb57f7e9a40d7208b22b6c5cdc0579be13b21", size = 11710 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/41/12/6b095a290517abd605875be2a746d222a95d0296d44ff81f56fc93a32eac/prefect_slack-0.3.1-py3-none-any.whl", hash = "sha256:84067ef89c9085fd991943747e4943accb3fe586a9401355180bb50dac5dab21", size = 10588 },
+]
+
 [[package]]
 name = "prometheus-client"
 version = "0.22.1"
@@ -3089,6 +3108,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050 },
+]
+
+[[package]]
+name = "slack-sdk"
+version = "3.35.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/32/a5/13077a5696ded22cc955ff6314028b7e6140b1c989b19ca27a6b26590e6e/slack_sdk-3.35.0.tar.gz", hash = "sha256:8183b6cbf26a0c1e2441478cd9c0dc4eef08d60c1394cfdc9a769e309a9b6459", size = 232887 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/8e/eed71dc79a187ba32681f12a104786ab89355bc474082211d92e1fba6bcf/slack_sdk-3.35.0-py2.py3-none-any.whl", hash = "sha256:00933d171fbd8a068b321ebb5f89612cc781d3183d8e3447c85499eca9d865be", size = 293272 },
 ]
 
 [[package]]

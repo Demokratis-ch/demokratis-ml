@@ -33,6 +33,7 @@ OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 2),
 )
 @pandera.check_types
+@utils.slack_status_report()
 def preprocess_data(
     publish: bool,
     store_dataframes_remotely: bool,
