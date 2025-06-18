@@ -28,6 +28,9 @@ dependencies = [
     "cleanlab[datalab]>=2.7.0",
     "pandas>=2.2.3",
     "datasets>=3.3.2",
+    "hyperopt>=0.2.7",
+    # Setuptool added because of https://github.com/hyperopt/hyperopt/issues/939
+    "setuptools>=80.9.0",
 ]
 
 [tool.uv]

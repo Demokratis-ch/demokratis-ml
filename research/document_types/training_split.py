@@ -12,16 +12,17 @@ logger = logging.getLogger("training_split")
 def train_test_split(
     df: pd.DataFrame,
     random_state: int,
-    test_size: float,
+    test_sizes: tuple[float] | tuple[float, float],
     include_rule_labels_in_training: set[str],
     stratify_by_canton: bool,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, tuple[pd.DataFrame] | tuple[pd.DataFrame, pd.DataFrame]]:
     """
-    Split the input dataframe (documents + extra features + embeddings) into a training and test set.
+    Split the input dataframe (documents + extra features + embeddings) into one training and one/two
+    test sets.
 
     All Fedlex documents are used for training. OpenParlData documents are used as follows:
     - Documents that already have labels must have been manually labelled by Demokratis staff; this high-quality
-      data is split into training and test sets according to the `test_size` parameter.
+      data is split into training and test sets according to the `test_sizes` parameter.
     - Some documents with labels assigned by the rule-based model are used for training: only classes
       listed in `include_rule_labels_in_training` are used as those are vetted to be reliable.
     - The remaining OpenParlData documents are unlabelled and therefore discarded.
@@ -61,7 +62,7 @@ def train_test_split(
     df_openparldata_manual_train, df_openparldata_manual_test = _split(
         df_openparldata_manual,
         random_state=random_state,
-        test_size=test_size,
+        test_size=sum(test_sizes),
         stratify_by_canton=stratify_by_canton,
     )
 
@@ -75,17 +76,34 @@ def train_test_split(
         len(df_train),
     )
     # Only some manually labelled OpenParlData documents will be used for testing
-    df_test = df_openparldata_manual_test
-    logger.info("Test set: %d manual labels", len(df_test))
+    if len(test_sizes) == 1:
+        logger.info("Test set 1/1: %d manual labels", len(df_openparldata_manual_test))
+        df_tests = (df_openparldata_manual_test,)
+    elif len(test_sizes) == 2:
+        df_test_1, df_test_2 = _split(
+            df_openparldata_manual_test,
+            random_state=random_state,
+            # Second index: df_test_2
+            test_size=test_sizes[1] / sum(test_sizes),
+            stratify_by_canton=stratify_by_canton,
+        )
+        logger.info("Test set 1/2: %d manual labels, Test set 2/2: %d manual labels", len(df_test_1), len(df_test_2))
+        df_tests = (df_test_1, df_test_2)
+    else:
+        raise ValueError("test_sizes must be a tuple of length 1 or 2")
 
     # Integrity checks
     assert not df_train["document_id"].duplicated().any(), "Train set must not contain duplicates"
-    assert not df_test["document_id"].duplicated().any(), "Test set must not contain duplicates"
-    assert not (set(df_train["document_id"]) & set(df_test["document_id"])), "Train and test sets must not overlap"
     assert df_train["document_type"].notna().all(), "Train set must not contain null document types"
-    assert df_test["document_type"].notna().all(), "Test set must not contain null document types"
 
-    return df_train, df_test
+    for df_test in df_tests:
+        assert not df_test["document_id"].duplicated().any(), "Test set must not contain duplicates"
+        assert not (set(df_train["document_id"]) & set(df_test["document_id"])), "Train and test sets must not overlap"
+        assert df_test["document_type"].notna().all(), "Test set must not contain null document types"
+    if len(df_tests) == 2:
+        assert not (set(df_tests[0]["document_id"]) & set(df_tests[1]["document_id"])), "Test sets must not overlap"
+
+    return df_train, df_tests
 
 
 def _split(
