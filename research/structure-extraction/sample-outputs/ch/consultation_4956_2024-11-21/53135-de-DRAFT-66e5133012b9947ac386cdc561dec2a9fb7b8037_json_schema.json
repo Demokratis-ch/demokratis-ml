@@ -1,0 +1,233 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Bundesgesetz                                                                Vorentwurf"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00fcber die Ausl\u00e4nderinnen und Ausl\u00e4nder und \u00fcber die Inte-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gration"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Ausl\u00e4nder- und Integrationsgesetz)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Kein Verlust des Aufenthaltsrechts bei unverschuldeter Sozialhilfe-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "abh\u00e4ngigkeit)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom ..."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Bundesversammlung der Schweizerischen Eidgenossenschaft,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Einsicht in den Bericht der [Name der Kommission des National- oder"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "St\u00e4nderates] vom [Datum des Entscheids der Kommission][^1]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "und in die Stellungnahme des Bundesrates vom [Datum][^2],"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "I"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Das Bundesgesetz vom 16. Dezember 2005 \u00fcber die Ausl\u00e4nderinnen und Ausl\u00e4nder[^3]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "und \u00fcber die Integration wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 62 Abs. 1bis"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1bis.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei der Pr\u00fcfung eines allf\u00e4lligen Widerrufs nach Absatz 1 Buchstabe e ist zu"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "ber\u00fccksichtigen, ob die betroffene Person durch eigenes Verschulden die Sozialhil-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "feabh\u00e4ngigkeit herbeigef\u00fchrt und ihr Arbeitspotenzial oder andere M\u00f6glichkeiten,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nachhaltig von der Sozialhilfe unabh\u00e4ngig zu werden, unzureichend genutzt hat."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 63 Abs. 1bis"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1bis.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei der Pr\u00fcfung eines allf\u00e4lligen Widerrufs nach Absatz 1 Buchstabe c ist zu"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "ber\u00fccksichtigen, ob die betroffene Person durch eigenes Verschulden die Sozialhil-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "feabh\u00e4ngigkeit herbeigef\u00fchrt und ihr Arbeitspotenzial oder andere M\u00f6glichkeiten,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nachhaltig von der Sozialhilfe unabh\u00e4ngig zu werden, unzureichend genutzt hat."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dieses Gesetz untersteht dem fakultativen Referendum."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Bundesrat bestimmt das Inkrafttreten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
