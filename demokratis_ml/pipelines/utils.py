@@ -4,6 +4,7 @@ import contextlib
 import datetime
 import functools
 import pathlib
+import socket
 import time
 from collections.abc import Callable, Iterator
 from typing import Any, TypeVar
@@ -143,7 +144,7 @@ def slack_status_report() -> Callable[[F], F]:
                 try:
                     yield
                 except Exception as exc:
-                    exception = str(exc)
+                    exception = repr(exc)
                     raise
                 finally:
                     end_time = time.monotonic()
@@ -151,7 +152,10 @@ def slack_status_report() -> Callable[[F], F]:
                     execution_time_repr = f"{execution_time // 60:.0f}m {execution_time % 60:02.1f}s"
 
                     icon = ":large_green_circle:" if exception is None else ":red_circle:"
-                    message = f"{icon} `{func.__module__}.{func.__name__}` executed in {execution_time_repr}"
+                    hostname = socket.gethostname()
+                    message = (
+                        f"{icon} `{func.__module__}.{func.__name__}` executed in {execution_time_repr} on {hostname}"
+                    )
                     if exception is not None:
                         message += f"\n*Exception:* {exception}"
 
