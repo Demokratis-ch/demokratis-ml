@@ -166,6 +166,9 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     organisation_id: int
     """ ID of the organisation that published the consultation; ID is assigned by Demokratis """
 
+    organisation_uuid: str
+    """ Unique ID of the organisation that published the consultation; ID is assigned by Demokratis """
+
     organisation_name: str = pa.Field(str_length={"min_value": 3})
     """ Name of the organisation that published the consultation """
 
@@ -176,6 +179,9 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     # ---------- Document attributes ----------
     document_id: int
     """ ID of the document, assigned by Demokratis """
+
+    document_uuid: str
+    """ Unique ID of the document, assigned by Demokratis """
 
     document_source: pd.CategoricalDtype = pa.Field(isin={"fedlex", "openparldata"})
     """ Where did we get the document metadata from? """
