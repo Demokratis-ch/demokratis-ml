@@ -12,10 +12,10 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,  # noqa: F401
     RandomForestClassifier,
 )
-from sklearn.linear_model import LogisticRegression  # noqa: F401
+from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
-from sklearn.preprocessing import StandardScaler  # noqa: F401
-from sklearn.svm import SVC  # noqa: F401
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 
 EXTRA_FEATURE_COLUMNS = (
     # PDF features
@@ -103,6 +103,7 @@ def create_classifier(
     match clf_params["type"]:
         case "LogisticRegression":
             classifier = LogisticRegression(max_iter=2000, random_state=random_state)
+            scale = True
         case "RandomForest":
             classifier = RandomForestClassifier(
                 random_state=random_state,
@@ -113,15 +114,23 @@ def create_classifier(
                 min_samples_leaf=clf_params["min_samples_leaf"],
                 class_weight=clf_params["class_weight"],
             )
+            scale = False
         case "MLP":
             classifier = MLPClassifier(random_state=random_state, hidden_layer_sizes=clf_params["hidden_layer_sizes"])
+            scale = True
         case "SVC":
+            kernel_params = clf_params["kernel"].copy()
+            kernel_type = kernel_params.pop("type")
             classifier = SVC(
                 random_state=random_state,
                 C=clf_params["C"],
-                kernel=clf_params["kernel"]["type"],
+                gamma=clf_params["gamma"],
+                kernel=kernel_type,
                 class_weight=clf_params["class_weight"],
+                probability=True,
+                **kernel_params,
             )
+            scale = True
         case _:
             raise ValueError("Unknown classifier type", params["classifier"]["type"])
 
@@ -138,28 +147,17 @@ def create_classifier(
                 ),
                 (
                     "extra_features",
-                    # "passthrough",
-                    sklearn.pipeline.make_pipeline(
-                        StandardScaler(),
-                    ),
+                    StandardScaler() if scale else "passthrough",
                     slice(i_extra_features, i_categorical_features),
                 ),
                 (
                     "categorical_features",
-                    # "passthrough",
-                    sklearn.pipeline.make_pipeline(
-                        StandardScaler(),
-                    ),
+                    StandardScaler() if scale else "passthrough",
                     slice(i_categorical_features, None),
                 ),
             ]
         ),
         classifier,
-        # LogisticRegression(max_iter=2000),
-        # RandomForestClassifier(random_state=random_state),
-        # GradientBoostingClassifier(random_state=RANDOM_STATE),
-        # MLPClassifier(random_state=random_state, hidden_layer_sizes=params["hidden_layer_sizes"]),
-        # SVC(random_state=random_state),
     )
     return pipeline
 
