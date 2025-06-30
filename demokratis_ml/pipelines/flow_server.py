@@ -15,6 +15,7 @@ from demokratis_ml.pipelines import (
     embed_documents,
     extract_document_features,
     main_ingestion,
+    predict_document_types,
     preprocess_consultation_documents,
 )
 
@@ -54,16 +55,17 @@ if __name__ == "__main__":
 
     embed_documents_deployment = embed_documents.embed_documents.to_deployment(
         name="embed-documents",
-        parameters={
-            "store_dataframes_remotely": store_dataframes_remotely,
-        },
+        parameters={"store_dataframes_remotely": store_dataframes_remotely},
     )
 
     extract_document_features_deployment = extract_document_features.extract_document_features.to_deployment(
         name="extract-document-features",
-        parameters={
-            "store_dataframes_remotely": store_dataframes_remotely,
-        },
+        parameters={"store_dataframes_remotely": store_dataframes_remotely},
+    )
+
+    predict_document_types_deployment = predict_document_types.predict_document_types.to_deployment(
+        name="predict-document-types",
+        parameters={"store_dataframes_remotely": store_dataframes_remotely},
     )
 
     prefect.serve(
@@ -71,4 +73,5 @@ if __name__ == "__main__":
         preprocess_consultation_documents_deployment,
         embed_documents_deployment,
         extract_document_features_deployment,
+        predict_document_types_deployment,
     )

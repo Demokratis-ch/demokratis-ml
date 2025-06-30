@@ -1,9 +1,17 @@
 """A composition of ingestion flows; see the :func:`main_ingestion` flow for details."""
 
+import datetime
+
 import prefect
 import prefect.logging
 
-from demokratis_ml.pipelines import embed_documents, extract_document_features, preprocess_consultation_documents, utils
+from demokratis_ml.pipelines import (
+    embed_documents,
+    extract_document_features,
+    predict_document_types,
+    preprocess_consultation_documents,
+    utils,
+)
 
 
 @prefect.flow()
@@ -11,9 +19,10 @@ from demokratis_ml.pipelines import embed_documents, extract_document_features, 
 def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_from_previous_output: bool) -> None:
     """Compose the main ingestion pipeline.
 
-    preprocess_consultation_documents.preprocess_data
-      |-> extract_document_features.extract_document_features
-      |-> embed_documents.embed_documents
+    - preprocess_consultation_documents.preprocess_data
+        |-> extract_document_features.extract_document_features
+        |-> embed_documents.embed_documents
+    - predict_document_types.predict_document_types
     """
     logger = prefect.logging.get_run_logger()
     consultation_documents_file = preprocess_consultation_documents.preprocess_data(
@@ -37,3 +46,10 @@ def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_fro
         bootstrap_from_previous_output=bootstrap_from_previous_output,
     )
     logger.info("embed_documents() -> %r", embeddings_file)
+
+    data_files_version = datetime.datetime.now(tz=datetime.UTC).date()
+    model_output_file = predict_document_types.predict_document_types(
+        data_files_version=data_files_version,
+        store_dataframes_remotely=store_dataframes_remotely,
+    )
+    logger.info("predict_document_types(%s) -> %r", data_files_version, model_output_file)
