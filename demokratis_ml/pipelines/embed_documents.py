@@ -109,12 +109,15 @@ def embed_documents(
         len(df_documents_to_process),
         len(df_bootstrap),
     )
-    embedding_model = demokratis_ml.data.embeddings.create_embedding_model(
-        embedding_model_name,
-        client=blocks.OpenAICredentials.load("openai-credentials").get_client(),
-    )
-    embeddings = embed_texts(df_documents_to_process["document_content_plain"].tolist(), embedding_model)
-    logger.info("Newly computed embeddings shape: %s", embeddings.shape)
+    if df_documents_to_process.empty:
+        embeddings = []
+    else:
+        embedding_model = demokratis_ml.data.embeddings.create_embedding_model(
+            embedding_model_name,
+            client=blocks.OpenAICredentials.load("openai-credentials").get_client(),
+        )
+        embeddings = embed_texts(df_documents_to_process["document_content_plain"].tolist(), embedding_model)
+        logger.info("Newly computed embeddings shape: %s", embeddings.shape)
 
     df = pd.DataFrame({"embedding": list(embeddings)}, index=df_documents_to_process["document_id"])
     df = pd.concat([df_bootstrap, df], axis=0)
