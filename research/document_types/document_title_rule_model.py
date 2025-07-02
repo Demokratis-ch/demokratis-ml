@@ -2,7 +2,7 @@ import logging
 import re
 
 import pandas as pd
-import pandera as pa
+import pandera.pandas as pa
 
 from demokratis_ml.data import schemata
 
