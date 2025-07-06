@@ -109,7 +109,7 @@ TODO - explain this data source
 |-|-|-|-|-|
 | [I. Classifying consultation topics](#i-classifying-consultation-topics)           | ✅    | ✅ | ✅ | ❌
 | [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ✅ | ❌ | ❌
-| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ❌
+| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ✅
 
 _*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
@@ -174,9 +174,6 @@ The services typically used for extracting PDFs – AWS Textract, Azure Document
 
 ### III. Classifying document types
 
->[!NOTE]
->Latest work on this problem: [VM_document_type_classifier.ipynb](research/document_types/VM_document_type_classifier.ipynb).
-
 Each consultation consists of several documents: usually around 5, but sometimes as much as 20 or more. For each document, we're interested in what role it plays in the consultation: is it the actual draft of the proposed change? Is it an accompanying letter or report? (You can see the full list of document types in [demokratis_ml/data/schemata.py:DOCUMENT_TYPES](demokratis_ml/data/schemata.py).)
 
 For federal consultations, we automatically get this label from the Fedlex API. However, cantonal documents do not have roles (types) assigned, so we need to train a model.
@@ -199,11 +196,11 @@ We merge some of the most underrepresented document types into VARIOUS_TEXT (the
 
 #### Our model
 Our classifier uses three types of features:
-- Document texts embedded with OpenAI's `text-embedding-3-large` model, with reduced dimensions
+- Document texts embedded with OpenAI's `text-embedding-3-large` model, with dimensions reduced by PCA
 - Simple boolean flags extracted by regular expressions on document texts, e.g. "does the text contain a formal greeting like `Sehr\s+geehrte[r]?\s+(?:Frau|Herr|Damen\s+und\s+Herren`?")
 - Some features extracted from the actual PDF documents, e.g. aspect ratio, number of tables, page count,...
 
-We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `RandomForestClassifier`.
+We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `SVC`.
 
 #### Current results
 Only manually labelled cantonal documents are used for this evaluation to ensure that we're benchmarking against the most relevant data.
@@ -211,16 +208,21 @@ In production, the model is only ever used to classify _cantonal_ documents.
 
 | Label           | Precision | Recall | F1-Score | Support |
 |----------------|-----------|--------|----------|---------|
-| DRAFT          | 0.91      | 0.81   | 0.85     | 62      |
-| FINAL_REPORT   | 1.00      | 0.28   | 0.43     | 18      |
-| LETTER         | 0.95      | 1.00   | 0.97     | 92      |
-| OPINION        | nan       | 0.00   | 0.00     | 5       |
-| RECIPIENT_LIST | 1.00      | 1.00   | 1.00     | 42      |
-| REPORT         | 0.71      | 0.94   | 0.81     | 109     |
-| SURVEY         | 1.00      | 0.83   | 0.91     | 12      |
-| SYNOPTIC_TABLE | 0.92      | 0.94   | 0.93     | 50      |
-| VARIOUS_TEXT   | 0.90      | 0.68   | 0.78     | 66      |
+| DRAFT          | 0.88      | 0.90   | 0.89     | 58      |
+| FINAL_REPORT   | 0.89      | 0.53   | 0.67     | 15      |
+| LETTER         | 0.99      | 1.00   | 0.99     | 79      |
+| OPINION        | 0.57      | 1.00   | 0.73     | 4       |
+| RECIPIENT_LIST | 1.00      | 1.00   | 1.00     | 37      |
+| REPORT         | 0.81      | 0.93   | 0.86     | 95      |
+| SURVEY         | 1.00      | 0.91   | 0.95     | 11      |
+| SYNOPTIC_TABLE | 0.93      | 0.91   | 0.92     | 46      |
+| VARIOUS_TEXT   | 0.89      | 0.72   | 0.80     | 58      |
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Accuracy       |           |        | 0.86     | 456     |
-| Macro Avg      | 0.92      | 0.72   | 0.74     | 456     |
-| Weighted Avg   | 0.88      | 0.86   | 0.85     | 456     |
+| Accuracy       |           |        | 0.90     | 403     |
+| Macro Avg      | 0.88      | 0.88   | 0.87     | 403     |
+| Weighted Avg   | 0.90      | 0.90   | 0.90     | 403     |
+
+#### Code
+- Model code: [demokratis_ml/models/document_type_classifier/](./demokratis_ml/models/document_types/)
+- Research & training: [research/document_types/VM_document_type_classifier.ipynb](./research/document_types/VM_document_type_classifier.ipynb)
+- Production deployment: [demokratis_ml/pipelines/predict_document_types.py](./demokratis_ml/pipelines/predict_document_types.py)

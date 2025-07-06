@@ -4,7 +4,7 @@ from typing import Any, TypedDict, cast
 
 import numpy as np
 import pandas as pd
-import pandera as pa
+import pandera.pandas as pa
 from pandera.typing import DataFrame, Series
 
 CONSULTATION_TOPICS = {
@@ -104,8 +104,8 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     """
 
     # ---------- Consultation attributes ----------
-    consultation_id: int
-    """ ID of the consultation, assigned by Demokratis """
+    consultation_identifier: str
+    """ String ID of the consultation, assigned by Demokratis """
 
     consultation_start_date: pd.Timestamp
 
@@ -163,8 +163,8 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     #         ),
     #     )
 
-    organisation_id: int
-    """ ID of the organisation that published the consultation; ID is assigned by Demokratis """
+    organisation_uuid: str
+    """ Unique ID of the organisation that published the consultation; ID is assigned by Demokratis """
 
     organisation_name: str = pa.Field(str_length={"min_value": 3})
     """ Name of the organisation that published the consultation """
@@ -174,8 +174,8 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     government. Federal consultations have the code "ch". """
 
     # ---------- Document attributes ----------
-    document_id: int
-    """ ID of the document, assigned by Demokratis """
+    document_uuid: str
+    """ Unique ID of the document, assigned by Demokratis """
 
     document_source: pd.CategoricalDtype = pa.Field(isin={"fedlex", "openparldata"})
     """ Where did we get the document metadata from? """
@@ -206,8 +206,8 @@ class ConsultationDocumentMetadataSchemaV1(pa.DataFrameModel):
     )
     """ Name of the document; may be an actual filename with an extension """
 
-    latest_stored_file_id: pa.Int64 = pa.Field(nullable=True)
-    """ ID of the latest file that was stored in the platform file storage. Points to the latest version
+    latest_stored_file_uuid: str = pa.Field(nullable=True)
+    """ UUID of the latest file that was stored in the platform file storage. Points to the latest version
     of the document. """
 
 

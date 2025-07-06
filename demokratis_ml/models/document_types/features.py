@@ -18,9 +18,9 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
     # This makes no difference: we're not losing documents because of the hashes not matching.
     # We're losing them because the PDF extraction failed for quite a lot of documents.
     # df = df_docs.join(
-    #   df_extra_features.reset_index(level="stored_file_hash", drop=True), on="document_id", how="inner"
+    #   df_extra_features.reset_index(level="stored_file_hash", drop=True), on="document_uuid", how="inner"
     # )
-    df = df_docs.join(df_extra_features, on=["document_id", "stored_file_hash"], how="inner")
+    df = df_docs.join(df_extra_features, on=["document_uuid", "stored_file_hash"], how="inner")
 
     # Features derived from PDFs (extra features)
     df["fraction_pages_containing_tables"] = df["count_pages_containing_tables"] / df["count_pages"]
@@ -67,13 +67,13 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
         df.shape[1] - previous_shape[1],
     )
     if previous_shape[0] > df.shape[0]:
-        lost_docs = df_docs.loc[~df_docs["document_id"].isin(df["document_id"])].copy()
+        lost_docs = df_docs.loc[~df_docs["document_uuid"].isin(df["document_uuid"])].copy()
         lost_docs["year"] = lost_docs["consultation_start_date"].dt.year
         lost_docs["document_type"] = lost_docs["document_type"].astype(str).fillna("None")
         lost_body_year = lost_docs.pivot_table(
             index="political_body",
             columns="year",
-            values="document_id",
+            values="document_uuid",
             aggfunc="count",
             margins=True,
             margins_name="Total",
@@ -82,7 +82,7 @@ def add_features(df_docs: schemata.FullConsultationDocumentV1, df_extra_features
         lost_body_type = lost_docs.pivot_table(
             index="political_body",
             columns="document_type",
-            values="document_id",
+            values="document_uuid",
             aggfunc="count",
             margins=True,
             margins_name="Total",

@@ -33,6 +33,7 @@ OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 2),
 )
 @pandera.check_types
+@utils.slack_status_report()
 def preprocess_data(
     publish: bool,
     store_dataframes_remotely: bool,
@@ -123,8 +124,10 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
     metadata = load_consultation_document_metadata()
     contents = load_consultation_document_contents()
     stored_files = load_consultation_document_stored_files()
-    df = metadata.join(contents, on="document_id")
-    df = df.join(stored_files, on="latest_stored_file_id")
+    df = metadata.join(contents, on="document_uuid")
+    assert not df["document_content_plain"].isna().all(), "At least some documents should have content"
+    df = df.join(stored_files, on="latest_stored_file_uuid")
+    assert not df["stored_file_path"].isna().all(), "At least some documents should have stored files"
 
     # Language is unreliable for cantonal documents => detect it.
     # This assumes that we do have the content of cantonal documents retrieved from the API.
@@ -143,7 +146,7 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
         assert previously_extracted_content_future is not None
         previously_extracted_content = previously_extracted_content_future.result()
         usable_content = df.loc[missing_content_index].join(
-            previously_extracted_content, on="document_id", rsuffix="_previous"
+            previously_extracted_content, on="document_uuid", rsuffix="_previous"
         )["document_content_plain_previous"]
         df.loc[usable_content.index, "document_content_plain"] = usable_content
         missing_content_index &= df["document_content_plain"].isna()
@@ -193,7 +196,12 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     """
     logger = prefect.logging.get_run_logger()
     raw = demokratis_api_request("documents-metadata")
-    df = pd.read_json(io.StringIO(raw), dtype={"latest_stored_file_id": "Int64"})
+    df = pd.read_json(io.StringIO(raw))
+
+    # TODO - uncomment this once the migration to UUIDs is complete.
+    # # Drop legacy columns to ensure we're not relying on them any more.
+    # df = df.drop(columns=["document_id", "organisation_id", "latest_stored_file_id"])
+
     # Cast nested datetime strings to actual datetimes
     df["consultation_internal_tags"] = df["consultation_internal_tags"].map(
         lambda tags: [{**tag, "created_at": pd.to_datetime(tag["created_at"])} for tag in (tags or [])]
@@ -217,7 +225,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     logger.info("Topics label source (documents):\n%r", df[column].value_counts())
     logger.info(
         "Topics label source (consultations):\n%r",
-        df.groupby("consultation_id").agg({column: "first"}).value_counts(),
+        df.groupby("consultation_identifier").agg({column: "first"}).value_counts(),
     )
 
     # === Infer document_type_label_source
@@ -258,7 +266,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
             "were manually assigned but the 'document_types_reviewed' tag wasn't added:\n%r",
             df.loc[
                 df["document_type"].isna() != df["document_type_label_source"].isna(),
-                ["document_id", "document_source", "document_type", "document_type_label_source"],
+                ["document_uuid", "document_source", "document_type", "document_type_label_source"],
             ],
         )
 
@@ -300,7 +308,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:
         logger.warning(
             "Erasing %d invalid publication dates:\n%r",
             len(invalid),
-            invalid[["document_id", "document_source", "document_publication_date"]],
+            invalid[["document_uuid", "document_source", "document_publication_date"]],
         )
         df.loc[invalid_publication_date, "document_publication_date"] = pd.NaT
 
@@ -322,15 +330,17 @@ def _find_internal_tag_date(
 def load_consultation_document_contents() -> pd.Series:
     """Load the content of consultation documents from the Demokratis API.
 
-    Returns a series indexed by document ID.
+    Returns a series indexed by document UUID.
     Not all documents are available (typically only those from openparldata).
     """
+    logger = prefect.logging.get_run_logger()
     raw = demokratis_api_request("documents-content", timeout=180.0)
     df = pd.read_json(io.StringIO(raw))
-    assert df.columns.tolist() == ["document_id", "document_content"]
-    assert df["document_id"].is_unique
+    logger.info("Loaded %d documents with fields: %r", len(df), df.columns.tolist())
+    df = df[["document_uuid", "document_content"]]
+    assert df["document_uuid"].is_unique
     df = df.rename(columns={"document_content": "document_content_plain"})
-    series = df.set_index("document_id")["document_content_plain"]
+    series = df.set_index("document_uuid")["document_content_plain"]
     return series
 
 
@@ -341,24 +351,24 @@ def load_consultation_document_stored_files() -> pd.DataFrame:
     These files are mirrored from the original sources (federal and cantonal websites) and stored
     in Demokratis object storage.
 
-    Returns a dataframe indexed by stored file ID.
+    Returns a dataframe indexed by stored file UUID.
     """
     logger = prefect.logging.get_run_logger()
     raw = demokratis_api_request("stored-files", timeout=180.0)
     df = pd.read_json(io.StringIO(raw))
     df = df.loc[df["type"] == "consultation_document"]
     logger.info("Loaded %d stored files with fields: %r", len(df), df.columns.tolist())
-    assert {"id", "path", "size", "mime_type", "file_hash", "file_name"} <= set(df.columns), repr(df.columns)
+    assert {"uuid", "path", "size", "mime_type", "file_hash", "file_name"} <= set(df.columns), repr(df.columns)
     df = df.rename(
         columns={
-            "id": "stored_file_id",
+            "uuid": "stored_file_uuid",
             "path": "stored_file_path",
             "mime_type": "stored_file_mime_type",
             "file_hash": "stored_file_hash",
         }
     )
-    assert df["stored_file_id"].is_unique
-    df = df.set_index("stored_file_id")
+    assert df["stored_file_uuid"].is_unique
+    df = df.set_index("stored_file_uuid")
     # These columns will be joined to the metadata dataframe to create a full dataframe (together with doc contents).
     return df[["stored_file_path", "stored_file_mime_type", "stored_file_hash"]]
 
@@ -401,10 +411,10 @@ def find_previously_extracted_content() -> pd.Series:
     latest_path = utils.find_latest_dataframe(OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
     logger.info("Loading latest extracted content from %r", latest_path)
     latest_df = utils.read_dataframe(
-        latest_path, columns=["document_id", "document_content_plain"], fs=fs_dataframe_storage
+        latest_path, columns=["document_uuid", "document_content_plain"], fs=fs_dataframe_storage
     )
     latest_df = latest_df.dropna()
-    return latest_df.set_index("document_id")["document_content_plain"]
+    return latest_df.set_index("document_uuid")["document_content_plain"]
 
 
 @prefect.task

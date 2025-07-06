@@ -1,15 +1,18 @@
 """Utilities shared by multiple pipelines."""
 
+import contextlib
 import datetime
 import functools
 import pathlib
+import socket
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from typing import Any, TypeVar
 
 import pandas as pd
 import pandera.errors
 import prefect.logging
+import prefect_slack
 import pyarrow.parquet
 
 from demokratis_ml.pipelines import blocks
@@ -114,3 +117,59 @@ def read_dataframe(path: pathlib.Path, columns: list[str] | None, fs: blocks.Ext
         parquet_file = pyarrow.parquet.ParquetFile(f)
         table = parquet_file.read(columns=columns)
         return table.to_pandas()
+
+
+def slack_status_report() -> Callable[[F], F]:
+    """Context manager decorator that reports flow execution time to Slack.
+
+    This decorator wraps the function in a context manager that:
+    1. Records the start time
+    2. Executes the function
+    3. Records the end time
+    4. Sends a Slack message with the function name and execution time
+
+    Requires the "slack-status-webhook" block to be configured in Prefect.
+    """
+
+    def decorator(func: F) -> F:
+        @functools.wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            @contextlib.contextmanager
+            def execution_timer() -> Iterator[None]:
+                logger = prefect.logging.get_run_logger()
+                webhook_client = prefect_slack.SlackWebhook.load("slack-status-webhook").get_client(sync_client=True)
+
+                start_time = time.monotonic()
+                exception = None
+                try:
+                    yield
+                except Exception as exc:
+                    exception = repr(exc)
+                    raise
+                finally:
+                    end_time = time.monotonic()
+                    execution_time = end_time - start_time
+                    execution_time_repr = f"{execution_time // 60:.0f}m {execution_time % 60:02.1f}s"
+
+                    icon = ":large_green_circle:" if exception is None else ":red_circle:"
+                    hostname = socket.gethostname()
+                    message = (
+                        f"{icon} `{func.__module__}.{func.__name__}` executed in {execution_time_repr} on {hostname}"
+                    )
+                    if exception is not None:
+                        message += f"\n*Exception:* {exception}"
+
+                    response = webhook_client.send(text=message)
+                    if response.status_code != 200:  # noqa: PLR2004
+                        logger.error(
+                            "Failed to send Slack notification. Status code: %d, Response: %s",
+                            response.status_code,
+                            response.text,
+                        )
+
+            with execution_timer():
+                return func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator

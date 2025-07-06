@@ -20,11 +20,12 @@ OUTPUT_FORMAT_VERSION = "v0.1"
 
 
 @prefect.flow()
+@utils.slack_status_report()
 def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "document_type_classifier",
-    model_version: int | str = 2,
+    model_version: int | str = 4,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2024, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
@@ -122,10 +123,10 @@ def predict_document_types(  # noqa: PLR0913
     logger.info("Input dataframe for the model has %d rows and %d columns", df_input.shape[0], df_input.shape[1])
 
     # Generate predictions
-    x, _ = demokratis_ml.models.document_types.model.create_matrices(df_input)
+    x, _ = demokratis_ml.models.document_types.model.create_matrices(df_input, fill_nulls=True)
     logger.info("Input feature matrix has shape %s", x.shape)
     y_proba = classifier.predict_proba(x)
-    df_predictions = pd.DataFrame(y_proba, columns=classifier.classes_, index=df_input["document_id"])
+    df_predictions = pd.DataFrame(y_proba, columns=classifier.classes_, index=df_input["document_uuid"])
 
     # Format the output
     generated_at = datetime.datetime.now(tz=datetime.UTC)
@@ -136,6 +137,9 @@ def predict_document_types(  # noqa: PLR0913
             "name": model_name,
             "version": model_version,
             "uri": model_uri,
+        },
+        "features": {
+            "embedding_model": embedding_model_name,
         },
         "input_files": {
             "version": data_files_version.isoformat(),
@@ -157,18 +161,19 @@ def predict_document_types(  # noqa: PLR0913
         "Storing predictions to %s/%s (%d bytes)", fs_model_output_storage.basepath, output_path, len(output_bytes)
     )
     fs_model_output_storage.write_path(str(output_path), output_bytes)
+    logger.info("Writing the same data to latest.json")
+    fs_model_output_storage.write_path(str(output_path.with_name("latest.json")), output_bytes)
     # pathlib.Path("test.json").write_bytes(output_bytes)  # Debugging output only
     return output_path
 
 
 def serialize_predictions(df_predictions: pd.DataFrame) -> list[dict]:
-    """For each document, return a list of labels sorted by probability (highest first)."""
+    """For each document, return a list of labels sorted by scores (highest first)."""
     return [
         {
-            "document_id": idx,
+            "document_uuid": idx,
             "output": [
-                {"label": label, "probability": round(prob, 4)}
-                for label, prob in row.sort_values(ascending=False).items()
+                {"label": label, "score": round(proba, 4)} for label, proba in row.sort_values(ascending=False).items()
             ],
         }
         for idx, row in df_predictions.iterrows()
