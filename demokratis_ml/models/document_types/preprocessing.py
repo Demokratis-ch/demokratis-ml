@@ -51,7 +51,7 @@ def merge_classes(series: pd.Series, merge_to: dict[tuple[str, ...], str]) -> pd
 
 def _add_embeddings(df_documents: pd.DataFrame, df_embeddings: pd.DataFrame) -> pd.DataFrame:
     previous_shape = df_documents.shape
-    df = df_documents.join(df_embeddings, on="document_id", how="inner")
+    df = df_documents.join(df_embeddings, on="document_uuid", how="inner")
     logger.info(
         "%d rows were lost due to missing embeddings. Remaining rows: %d. %d columns were added.",
         previous_shape[0] - df.shape[0],

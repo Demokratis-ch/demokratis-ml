@@ -23,7 +23,7 @@ def create_synthetic_documents_from_consultations(
     """
     assert len(df_docs["document_language"].unique()) == 1
     df_consultations = (
-        df_docs.groupby("consultation_id")
+        df_docs.groupby("consultation_identifier")
         .agg(
             {
                 "consultation_start_date": "first",
@@ -34,10 +34,10 @@ def create_synthetic_documents_from_consultations(
                 "consultation_topics": "first",
                 "consultation_topics_label_source": "first",
                 "consultation_internal_tags": "first",
-                "organisation_id": "first",
+                "organisation_uuid": "first",
                 "organisation_name": "first",
                 "political_body": "first",
-                "document_id": lambda _: -1,
+                "document_uuid": lambda _: -1,
                 "document_source": "first",
                 "document_source_url": "first",
                 # document_type
@@ -117,7 +117,7 @@ def drop_underrepresented_topics(
         raise ValueError(
             "The following topics are not present in the input data", always_drop_topics - set(topic_columns)
         )
-    consultations_per_topic = df_input.groupby("consultation_id").agg({c: "first" for c in topic_columns}).sum()
+    consultations_per_topic = df_input.groupby("consultation_identifier").agg({c: "first" for c in topic_columns}).sum()
     to_drop = consultations_per_topic[
         (consultations_per_topic < min_consultations_in_class)
         | (consultations_per_topic.index.isin(always_drop_topics))
@@ -137,7 +137,7 @@ def drop_underrepresented_topics(
 
 
 def group_document_labels_by_consultation(
-    consultation_ids: pd.Series,
+    consultation_identifiers: pd.Series,
     label_names: list[str] | tuple[str, ...] | pd.Index,
     doc_labels: np.ndarray | pd.DataFrame,
     threshold: float = 0.333,
@@ -154,15 +154,15 @@ def group_document_labels_by_consultation(
         doc_labels = doc_labels.to_numpy()
     # The code would run but it'd produce nonsense if a Pandas dataframe was passed instead.
     assert isinstance(doc_labels, np.ndarray)
-    assert consultation_ids.size == doc_labels.shape[0]
+    assert consultation_identifiers.size == doc_labels.shape[0]
     assert len(label_names) == doc_labels.shape[1]
     assert 0 < threshold <= 1
 
     df_docs = pd.DataFrame(doc_labels, columns=label_names)
-    df_docs["consultation_id"] = consultation_ids.reset_index(drop=True)
+    df_docs["consultation_identifier"] = consultation_identifiers.reset_index(drop=True)
 
     def vote(doc_labels: pd.Series) -> pd.Series:
         return (doc_labels.sum() > doc_labels.size * threshold).astype(int)
 
-    df_consultation_labels = df_docs.groupby("consultation_id").agg(vote)
+    df_consultation_labels = df_docs.groupby("consultation_identifier").agg(vote)
     return df_consultation_labels

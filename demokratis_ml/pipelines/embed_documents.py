@@ -30,7 +30,7 @@ def embed_documents(
     only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
     """
-    Embed document contents (document_content_plain) and store the embeddings in a dataframe indexed by document_id.
+    Embed document contents (document_content_plain) and store the embeddings in a dataframe indexed by document_uuid.
 
     The beginnings of the documents are used for embedding, with content exceeding the maximum input length truncated.
 
@@ -68,7 +68,7 @@ def embed_documents(
     # Load the input dataframe (preprocessed documents)
     df_documents = utils.read_dataframe(
         pathlib.Path(consultation_documents_file),
-        columns=["document_id", "document_language", "document_content_plain"],
+        columns=["document_uuid", "document_language", "document_content_plain"],
         fs=fs_dataframe_storage,
     )
     # Filter by language
@@ -101,7 +101,7 @@ def embed_documents(
     else:
         df_bootstrap = pd.DataFrame()
 
-    docs_index = df_documents["document_id"]
+    docs_index = df_documents["document_uuid"]
     df_documents_to_process = df_documents[~docs_index.isin(df_bootstrap.index)]
     # df_documents_to_process = df_documents_to_process.head(100)
     logger.info(
@@ -119,9 +119,9 @@ def embed_documents(
         embeddings = embed_texts(df_documents_to_process["document_content_plain"].tolist(), embedding_model)
         logger.info("Newly computed embeddings shape: %s", embeddings.shape)
 
-    df = pd.DataFrame({"embedding": list(embeddings)}, index=df_documents_to_process["document_id"])
+    df = pd.DataFrame({"embedding": list(embeddings)}, index=df_documents_to_process["document_uuid"])
     df = pd.concat([df_bootstrap, df], axis=0)
-    df.index.name = "document_id"
+    df.index.name = "document_uuid"
     assert not df.index.duplicated().any(), "DataFrame index contains duplicates"
 
     # Store the dataframe
@@ -180,6 +180,6 @@ if __name__ == "__main__":
     output_path = embed_documents(
         consultation_documents_file=consultation_documents_file,
         store_dataframes_remotely=False,
-        bootstrap_from_previous_output=False,
+        bootstrap_from_previous_output=True,
     )
     print(output_path)

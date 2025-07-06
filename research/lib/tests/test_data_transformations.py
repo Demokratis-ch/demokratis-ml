@@ -17,9 +17,9 @@ def documents() -> pd.DataFrame:
             [300, 0, 1, 0],
             [300, 1, 1, 0],
         ],
-        columns=["consultation_id", "A", "B", "C"],
+        columns=["consultation_identifier", "A", "B", "C"],
     )
-    return df.set_index("consultation_id")
+    return df.set_index("consultation_identifier")
 
 
 @pytest.mark.parametrize("threshold", [0.333, 0.5])
@@ -43,12 +43,12 @@ def test_group_document_labels_by_consultation(
         raise ValueError("Unexpected threshold value", threshold)
     expected_df = pd.DataFrame(
         expected_labels,
-        index=pd.Index([100, 200, 300], name="consultation_id"),
+        index=pd.Index([100, 200, 300], name="consultation_identifier"),
         columns=["A", "B", "C"],
     )
 
     df_consultation_labels = data_transformations.group_document_labels_by_consultation(
-        consultation_ids=documents.index.to_series(),
+        consultation_identifiers=documents.index.to_series(),
         label_names=documents.columns,
         doc_labels=documents.values,
         threshold=threshold,

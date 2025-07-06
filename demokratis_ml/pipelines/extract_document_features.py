@@ -60,7 +60,7 @@ def extract_document_features(
     # Load the input dataframe (preprocessed documents)
     df_documents = utils.read_dataframe(
         pathlib.Path(consultation_documents_file),
-        columns=["document_id", "document_language", "stored_file_hash", "stored_file_path", "stored_file_mime_type"],
+        columns=["document_uuid", "document_language", "stored_file_hash", "stored_file_path", "stored_file_mime_type"],
         fs=fs_dataframe_storage,
     )
     # Drop those where the files are not available
@@ -106,7 +106,7 @@ def extract_document_features(
     else:
         df_bootstrap = pd.DataFrame()
 
-    docs_index = pd.MultiIndex.from_frame(df_documents[["document_id", "stored_file_hash"]])
+    docs_index = pd.MultiIndex.from_frame(df_documents[["document_uuid", "stored_file_hash"]])
     df_documents_to_process = df_documents[~docs_index.isin(df_bootstrap.index)]
     logger.info(
         "Processing %d documents (%d are already in the bootstrap dataframe)",
@@ -114,17 +114,20 @@ def extract_document_features(
         len(df_bootstrap),
     )
     futures = extract_pdf_features.map(
-        document_id=df_documents_to_process["document_id"],
+        document_uuid=df_documents_to_process["document_uuid"],
         stored_file_hash=df_documents_to_process["stored_file_hash"],
         stored_file_path=df_documents_to_process["stored_file_path"],
     )
     pdf_features = futures.result()
     df = pd.DataFrame.from_dict(
-        {(document_id, stored_file_hash): (features or {}) for document_id, stored_file_hash, features in pdf_features},
+        {
+            (document_uuid, stored_file_hash): (features or {})
+            for document_uuid, stored_file_hash, features in pdf_features
+        },
         orient="index",
     )
     df = pd.concat([df_bootstrap, df], axis=0)
-    df.index.names = ["document_id", "stored_file_hash"]
+    df.index.names = ["document_uuid", "stored_file_hash"]
     assert not df.index.duplicated().any(), "DataFrame index contains duplicates"
 
     missing_index = df["count_pages"].isna()
@@ -138,23 +141,23 @@ def extract_document_features(
 
 
 @prefect.task(
-    task_run_name="extract_pdf_features({stored_file_path} [{document_id},{stored_file_hash}])",
+    task_run_name="extract_pdf_features({stored_file_path} [{document_uuid},{stored_file_hash}])",
     cache_policy=prefect.cache_policies.TASK_SOURCE + prefect.cache_policies.INPUTS,
     cache_expiration=datetime.timedelta(days=7),
     retries=3,
     retry_delay_seconds=[5, 10, 60],
 )
 def extract_pdf_features(
-    document_id: int,
+    document_uuid: int,
     stored_file_hash: str,
     stored_file_path: str,
 ) -> tuple[int, str, pdf_extraction.BasicPDFFeatures | pdf_extraction.ExtendedPDFFeatures | None]:
     """
     Retrieve a PDF file from platform file storage and extract features from it.
 
-    document_id and stored_file_hash are returned as "primary keys" identifying the output.
+    document_uuid and stored_file_hash are returned as "primary keys" identifying the output.
 
-    :returns: (document_id, stored_file_hash, features|None in case of an error)
+    :returns: (document_uuid, stored_file_hash, features|None in case of an error)
     """
     fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
     data = fs_platform_storage.read_path(stored_file_path)
@@ -164,7 +167,7 @@ def extract_pdf_features(
         logger = prefect.logging.get_run_logger()
         logger.exception("Error extracting text from PDF %r", stored_file_path)
         features = None
-    return document_id, stored_file_hash, features
+    return document_uuid, stored_file_hash, features
 
 
 @prefect.task(

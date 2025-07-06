@@ -79,7 +79,7 @@ def train_test_split(
     if len(test_sizes) == 1:
         logger.info("Test set 1/1: %d manual labels", len(df_openparldata_manual_test))
         df_tests = (df_openparldata_manual_test,)
-    elif len(test_sizes) == 2:
+    elif len(test_sizes) == 2:  # noqa: PLR2004
         df_test_1, df_test_2 = _split(
             df_openparldata_manual_test,
             random_state=random_state,
@@ -93,15 +93,17 @@ def train_test_split(
         raise ValueError("test_sizes must be a tuple of length 1 or 2")
 
     # Integrity checks
-    assert not df_train["document_id"].duplicated().any(), "Train set must not contain duplicates"
+    assert not df_train["document_uuid"].duplicated().any(), "Train set must not contain duplicates"
     assert df_train["document_type"].notna().all(), "Train set must not contain null document types"
 
     for df_test in df_tests:
-        assert not df_test["document_id"].duplicated().any(), "Test set must not contain duplicates"
-        assert not (set(df_train["document_id"]) & set(df_test["document_id"])), "Train and test sets must not overlap"
+        assert not df_test["document_uuid"].duplicated().any(), "Test set must not contain duplicates"
+        assert not (
+            set(df_train["document_uuid"]) & set(df_test["document_uuid"])
+        ), "Train and test sets must not overlap"
         assert df_test["document_type"].notna().all(), "Test set must not contain null document types"
-    if len(df_tests) == 2:
-        assert not (set(df_tests[0]["document_id"]) & set(df_tests[1]["document_id"])), "Test sets must not overlap"
+    if len(df_tests) == 2:  # noqa: PLR2004
+        assert not (set(df_tests[0]["document_uuid"]) & set(df_tests[1]["document_uuid"])), "Test sets must not overlap"
 
     return df_train, df_tests
 
