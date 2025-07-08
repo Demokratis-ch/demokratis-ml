@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from research.lib import data_transformations
+from research.consultation_topics import data_transformations
 
 
 @pytest.fixture
