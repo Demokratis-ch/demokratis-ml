@@ -116,7 +116,20 @@ def create_classifier(
             )
             scale = False
         case "MLP":
-            classifier = MLPClassifier(random_state=random_state, hidden_layer_sizes=clf_params["hidden_layer_sizes"])
+            # classifier = MLPClassifier(random_state=random_state, hidden_layer_sizes=clf_params["hidden_layer_sizes"])
+            hidden_layer_sizes = (clf_params["layer_1"], clf_params["layer_2"], clf_params["layer_3"])
+            hidden_layer_sizes = hidden_layer_sizes[: clf_params["n_layers"]]
+            classifier = MLPClassifier(
+                hidden_layer_sizes=hidden_layer_sizes,
+                activation=clf_params["activation"],
+                solver=clf_params["solver"],
+                learning_rate_init=clf_params["learning_rate_init"],
+                alpha=clf_params["alpha"],
+                batch_size=clf_params["batch_size"],
+                max_iter=300,
+                # early_stopping=True,
+                random_state=random_state,
+            )
             scale = True
         case "SVC":
             kernel_params = clf_params["kernel"].copy()
