@@ -43,7 +43,10 @@ def create_input_dataframe(
         [df_from_documents[_INPUT_COLUMNS], df_from_attributes],
         axis=0,
     )
+    return encode_topics(df)
 
+
+def encode_topics(df: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     topic_binarizer = sklearn.preprocessing.MultiLabelBinarizer()
     one_hot_labels = pd.DataFrame(
         topic_binarizer.fit_transform(df["consultation_topics"]),
@@ -51,8 +54,8 @@ def create_input_dataframe(
         index=df.index,
     )
     topic_columns = one_hot_labels.columns
-    df_input = pd.concat([df, one_hot_labels], axis=1)
-    return df_input, topic_columns.tolist()
+    df_encoded = pd.concat([df, one_hot_labels], axis=1)
+    return df_encoded, topic_columns.tolist()
 
 
 def _create_input_from_attribute_embeddings(
