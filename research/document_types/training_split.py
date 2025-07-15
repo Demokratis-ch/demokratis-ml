@@ -98,9 +98,9 @@ def train_test_split(
 
     for df_test in df_tests:
         assert not df_test["document_uuid"].duplicated().any(), "Test set must not contain duplicates"
-        assert not (
-            set(df_train["document_uuid"]) & set(df_test["document_uuid"])
-        ), "Train and test sets must not overlap"
+        assert not (set(df_train["document_uuid"]) & set(df_test["document_uuid"])), (
+            "Train and test sets must not overlap"
+        )
         assert df_test["document_type"].notna().all(), "Test set must not contain null document types"
     if len(df_tests) == 2:  # noqa: PLR2004
         assert not (set(df_tests[0]["document_uuid"]) & set(df_tests[1]["document_uuid"])), "Test sets must not overlap"
