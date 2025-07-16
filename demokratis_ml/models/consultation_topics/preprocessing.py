@@ -67,6 +67,7 @@ def _create_input_from_attribute_embeddings(
     )
     df = df_attribute_embeddings.reset_index(level="attribute_name").join(df_consultation_data, how="left")
     df = df.reset_index().rename(columns={"attribute_name": "document_type"})
+    # df = df[df["document_type"] != "organisation_name"]  # Exclude some attributes?
     df["document_uuid"] = ""
     df = df[df["consultation_topics"].notna()]
     return df[_INPUT_COLUMNS]
