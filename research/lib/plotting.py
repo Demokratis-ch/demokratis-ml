@@ -65,10 +65,11 @@ def plot_score_against_support(
 
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x="support", y=score_metric, data=report, ax=ax)
+    x_annotation_offset = 0.007 * (report["support"].max() - report["support"].min())
     for i, txt in enumerate(report.index):
         ax.annotate(
             txt.replace("topic_", ""),
-            (report["support"].iloc[i], report[score_metric].iloc[i]),
+            (report["support"].iloc[i] + x_annotation_offset, report[score_metric].iloc[i]),
             fontsize=8,
         )
     plt.ylim(*ylim)

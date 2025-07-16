@@ -47,15 +47,16 @@ def create_input_dataframe(
 
 
 def encode_topics(df: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
+    """Encode the consultation topics as multi-hot columns."""
     topic_binarizer = sklearn.preprocessing.MultiLabelBinarizer()
     one_hot_labels = pd.DataFrame(
         topic_binarizer.fit_transform(df["consultation_topics"]),
         columns=[f"topic_{c}" for c in topic_binarizer.classes_],
         index=df.index,
     )
-    topic_columns = one_hot_labels.columns
+    topic_columns = one_hot_labels.columns.tolist()
     df_encoded = pd.concat([df, one_hot_labels], axis=1)
-    return df_encoded, topic_columns.tolist()
+    return df_encoded, topic_columns
 
 
 def _create_input_from_attribute_embeddings(
@@ -114,7 +115,7 @@ def drop_underrepresented_topics(
         (consultations_per_topic < min_consultations_in_class)
         | (consultations_per_topic.index.isin(always_drop_topics))
     ]
-    print("Dropping these underrepresented classes:\n", to_drop)
+    print("Dropping these underrepresented classes:", to_drop, sep="\n")
     df_input = df_input.drop(columns=to_drop.index)
     topic_columns = [c for c in topic_columns if c not in to_drop.index]
     # Drop rows that no longer have any labels

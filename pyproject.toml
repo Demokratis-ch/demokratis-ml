@@ -81,6 +81,7 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "research/*" = [
     "D",  # pydocstyle
+    "PLR2004",  # magic value comparisons
 ]
 "test_*.py" = [
     "ANN",  # annotations
