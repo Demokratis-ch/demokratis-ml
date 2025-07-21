@@ -73,6 +73,8 @@ def plot_score_against_support(
             fontsize=8,
         )
     plt.ylim(*ylim)
+    for y in (0.5, 0.6, 0.7, 0.8, 0.9):
+        ax.axhline(y, color="gray", linestyle="--", linewidth=0.5, alpha=0.7)
     plt.close(fig)
     return fig
 
