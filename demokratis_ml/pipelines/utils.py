@@ -11,7 +11,9 @@ from typing import Any, TypeVar
 
 import pandas as pd
 import pandera.errors
+import prefect.context
 import prefect.logging
+import prefect.settings
 import prefect_slack
 import pyarrow.parquet
 
@@ -138,7 +140,8 @@ def slack_status_report() -> Callable[[F], F]:
             def execution_timer() -> Iterator[None]:
                 logger = prefect.logging.get_run_logger()
                 webhook_client = prefect_slack.SlackWebhook.load("slack-status-webhook").get_client(sync_client=True)
-
+                context = prefect.context.FlowRunContext.get()
+                run_url = f"{prefect.settings.PREFECT_UI_URL}/runs/flow-run/{context.flow_run.id}"
                 start_time = time.monotonic()
                 exception = None
                 try:
@@ -155,6 +158,7 @@ def slack_status_report() -> Callable[[F], F]:
                     hostname = socket.gethostname()
                     message = (
                         f"{icon} `{func.__module__}.{func.__name__}` executed in {execution_time_repr} on {hostname}"
+                        f"\n{run_url}"
                     )
                     if exception is not None:
                         message += f"\n*Exception:* {exception}"
