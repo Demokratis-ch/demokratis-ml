@@ -1,5 +1,8 @@
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
+ARG DOCKER_IMAGE_TAG
+ENV DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG}
+
 RUN useradd --create-home appuser
 RUN mkdir /app && chown appuser:appuser /app
 WORKDIR /app

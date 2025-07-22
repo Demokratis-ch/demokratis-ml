@@ -12,5 +12,5 @@ if [ -z "$VERSION" ]; then
     exit 1
 fi
 
-docker buildx build --platform linux/amd64 . -t $DOCKER_ORG/demokratis-ml:$VERSION
+docker buildx build --platform linux/amd64 . -t $DOCKER_ORG/demokratis-ml:$VERSION --build-arg DOCKER_IMAGE_TAG=$VERSION
 docker push $DOCKER_ORG/demokratis-ml:$VERSION

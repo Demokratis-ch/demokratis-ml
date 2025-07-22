@@ -142,6 +142,7 @@ def slack_status_report() -> Callable[[F], F]:
                 webhook_client = prefect_slack.SlackWebhook.load("slack-status-webhook").get_client(sync_client=True)
                 context = prefect.context.FlowRunContext.get()
                 run_url = f"{prefect.settings.PREFECT_UI_URL}/runs/flow-run/{context.flow_run.id}"
+                version = context.flow_run.deployment_version or ""
                 start_time = time.monotonic()
                 exception = None
                 try:
@@ -157,7 +158,8 @@ def slack_status_report() -> Callable[[F], F]:
                     icon = ":large_green_circle:" if exception is None else ":red_circle:"
                     hostname = socket.gethostname()
                     message = (
-                        f"{icon} `{func.__module__}.{func.__name__}` executed in {execution_time_repr} on {hostname}"
+                        f"{icon} `{func.__module__}.{func.__name__}` {version} executed in {execution_time_repr}"
+                        f" on {hostname}"
                         f"\n{run_url}"
                     )
                     if exception is not None:

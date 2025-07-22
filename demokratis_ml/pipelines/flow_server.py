@@ -34,6 +34,7 @@ def _schedule_from_env(key: str) -> list[prefect.client.schemas.schedules.CronSc
 
 if __name__ == "__main__":
     store_dataframes_remotely = os.environ.get("STORE_DATAFRAMES_REMOTELY", "0").lower() in {"1", "true", "yes"}
+    deployment_version = os.environ.get("DOCKER_IMAGE_TAG")
 
     main_ingestion_deployment = main_ingestion.main_ingestion.to_deployment(
         name="main-ingestion",
@@ -43,6 +44,7 @@ if __name__ == "__main__":
             "bootstrap_from_previous_output": True,
         },
         schedules=_schedule_from_env("CRON_MAIN_INGESTION"),
+        version=deployment_version,
     )
 
     preprocess_consultation_documents_deployment = preprocess_consultation_documents.preprocess_data.to_deployment(
@@ -51,21 +53,25 @@ if __name__ == "__main__":
             "publish": False,
             "store_dataframes_remotely": store_dataframes_remotely,
         },
+        version=deployment_version,
     )
 
     embed_documents_deployment = embed_documents.embed_documents.to_deployment(
         name="embed-documents",
         parameters={"store_dataframes_remotely": store_dataframes_remotely},
+        version=deployment_version,
     )
 
     extract_document_features_deployment = extract_document_features.extract_document_features.to_deployment(
         name="extract-document-features",
         parameters={"store_dataframes_remotely": store_dataframes_remotely},
+        version=deployment_version,
     )
 
     predict_document_types_deployment = predict_document_types.predict_document_types.to_deployment(
         name="predict-document-types",
         parameters={"store_dataframes_remotely": store_dataframes_remotely},
+        version=deployment_version,
     )
 
     prefect.serve(
