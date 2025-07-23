@@ -11,6 +11,7 @@ Our pipelines are:
 3. [embed_documents.py](./embed_documents.py) creates and stores embeddings of document texts.
 4. [predict_document_types.py](./predict_document_types.py) runs batch inference for document type classification (our ML problem III).
    This depends on the outputs of pipelines 1-3. The outputs (predictions) are stored in a JSON file in object storage.
+5. [publish_data.py](./publish_data.py) uploads our datasets (outputs of pipelines 1-3) to Hugging Face so that all our data is transparently published.
 
 Note that all commands from this readme are to be executed from the root directory of the repository.
 
