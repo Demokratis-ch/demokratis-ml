@@ -165,13 +165,18 @@ def slack_status_report() -> Callable[[F], F]:
                     if exception is not None:
                         message += f"\n*Exception:* {exception}"
 
-                    response = webhook_client.send(text=message)
-                    if response.status_code != 200:  # noqa: PLR2004
-                        logger.error(
-                            "Failed to send Slack notification. Status code: %d, Response: %s",
-                            response.status_code,
-                            response.text,
-                        )
+                    try:
+                        response = webhook_client.send(text=message)
+                    except Exception:
+                        logger.exception("Failed to send Slack notification '%s'", message)
+                    else:
+                        if response.status_code != 200:  # noqa: PLR2004
+                            logger.error(
+                                "Failed to send Slack notification '%s'. Status code: %d, response: %s",
+                                message,
+                                response.status_code,
+                                response.text,
+                            )
 
             with execution_timer():
                 return func(*args, **kwargs)
