@@ -14,7 +14,7 @@ import prefect.task_runners
 import prefect.tasks
 
 import demokratis_ml.data.embeddings
-from demokratis_ml.pipelines import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, utils
 
 
 @prefect.flow(

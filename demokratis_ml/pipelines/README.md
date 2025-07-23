@@ -4,8 +4,13 @@ We use [Prefect](https://www.prefect.io/) to orchestrate our data pipelines.
 
 Our pipelines are:
 
-- [preprocess_consultation_documents.py](./preprocess_consultation_documents.py) downloads consultation documents from the Demokratis API
+1. [preprocess_consultation_documents.py](./preprocess_consultation_documents.py) downloads consultation documents from the Demokratis API
   and turns them into a dataset conforming to [FullConsultationDocumentSchemaV1](../data/schemata.py).
+2. [extract_document_features.py](./extract_document_features.py) extracts "visual" document features such as table counts and aspect ratios
+  and stores them in a dataframe.
+3. [embed_documents.py](./embed_documents.py) creates and stores embeddings of document texts.
+4. [predict_document_types.py](./predict_document_types.py) runs batch inference for document type classification (our ML problem III).
+   This depends on the outputs of pipelines 1-3. The outputs (predictions) are stored in a JSON file in object storage.
 
 Note that all commands from this readme are to be executed from the root directory of the repository.
 
@@ -13,13 +18,13 @@ Note that all commands from this readme are to be executed from the root directo
 Run this to register custom block definitions, and repeat every time they change:
 
 ```
-uv run --env-file=.env prefect block register --file demokratis_ml/pipelines/blocks.py
+uv run --env-file=.env prefect block register --file demokratis_ml/pipelines/lib/blocks.py
 ```
 
 Run this to create block documents (configured block instances), and repeat every time they change:
 
 ```
-PYTHONPATH=. uv run --env-file=.env demokratis_ml/pipelines/create_blocks.py
+PYTHONPATH=. uv run --env-file=.env demokratis_ml/pipelines/scripts/create_blocks.py
 ```
 
 Note that you will need some environment variables defined to correctly configure some secrets.
@@ -48,7 +53,7 @@ First, build a Docker image containing all demokratis_ml code:
 ```
 YOUR_DOCKER_NAMESPACE=example-org
 VERSION=0.1.0
-docker buildx build --platform linux/amd64 . -t $YOUR_DOCKER_NAMESPACE/demokratis-ml:$VERSION
+docker buildx build --platform linux/amd64 . -t $YOUR_DOCKER_NAMESPACE/demokratis-ml:$VERSION --build-arg DOCKER_IMAGE_TAG=$VERSION
 docker push $YOUR_DOCKER_NAMESPACE/demokratis-ml:$VERSION
 ```
 

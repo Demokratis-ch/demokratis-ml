@@ -10,8 +10,8 @@ from demokratis_ml.pipelines import (
     extract_document_features,
     predict_document_types,
     preprocess_consultation_documents,
-    utils,
 )
+from demokratis_ml.pipelines.lib import utils
 
 
 @prefect.flow()

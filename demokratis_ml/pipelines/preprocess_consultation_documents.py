@@ -23,7 +23,7 @@ import prefect.logging
 import prefect.task_runners
 
 from demokratis_ml.data import schemata
-from demokratis_ml.pipelines import blocks, pdf_extraction, utils
+from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
 

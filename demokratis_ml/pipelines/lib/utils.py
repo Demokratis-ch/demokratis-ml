@@ -17,7 +17,7 @@ import prefect.settings
 import prefect_slack
 import pyarrow.parquet
 
-from demokratis_ml.pipelines import blocks
+from demokratis_ml.pipelines.lib import blocks
 
 F = TypeVar("F", bound=Callable[..., Any])
 

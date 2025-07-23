@@ -5,7 +5,7 @@ import os
 import prefect.filesystems
 import prefect_slack
 
-from demokratis_ml.pipelines import blocks
+from demokratis_ml.pipelines.lib import blocks
 
 demokratis_api_credentials = blocks.DemokratisAPICredentials(
     username=os.environ["DEMOKRATIS_API_USERNAME"],

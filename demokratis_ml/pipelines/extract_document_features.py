@@ -12,7 +12,7 @@ import prefect.filesystems
 import prefect.logging
 import prefect.task_runners
 
-from demokratis_ml.pipelines import blocks, pdf_extraction, utils
+from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-features"
 MAX_PDF_PAGES_TO_PROCESS = 50
@@ -30,7 +30,7 @@ def extract_document_features(
     only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
     """
-    Extract "visual" document features such as table numbers and aspect ratios.
+    Extract "visual" document features such as table counts and aspect ratios.
 
     Only PDF documents are supported. For the full list of features, see :class:`pdf_extraction.ExtendedPDFFeatures`.
 

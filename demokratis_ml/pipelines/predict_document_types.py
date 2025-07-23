@@ -14,7 +14,7 @@ import prefect.logging
 
 import demokratis_ml.models.document_types.model
 import demokratis_ml.models.document_types.preprocessing
-from demokratis_ml.pipelines import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
