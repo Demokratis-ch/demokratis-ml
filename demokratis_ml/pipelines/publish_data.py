@@ -46,7 +46,7 @@ def upload_to_huggingface(
 ) -> None:
     """Upload a file to our Hugging Face dataset repository."""
     logger = prefect.logging.get_run_logger()
-    logger.info("Reading file %s from %r", source_file, fs)
+    logger.info("Reading file %s from %s", source_file, fs.__class__.__name__)
     data = fs.read_path(str(source_file))
     assert isinstance(data, bytes)
     logger.info(
