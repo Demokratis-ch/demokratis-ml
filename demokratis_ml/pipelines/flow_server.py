@@ -7,6 +7,7 @@
 - If the ``CRON_MAIN_INGESTION_PUBLISH`` environment variable is also set, it is used to schedule the
   ``main-ingestion`` flow with the `publish` parameter set to True. This tells the flow to upload the data
   to Hugging Face.
+- Any cron schedules are in the timezone specified by the ``TZ`` environment variable, defaulting to UTC.
 """
 
 import contextlib
@@ -29,12 +30,12 @@ def _get_main_ingestion_schedules() -> Iterator[prefect.schedules.Schedule]:
     with contextlib.suppress(KeyError):
         yield prefect.schedules.Schedule(
             cron=os.environ["CRON_MAIN_INGESTION_STANDARD"],
-            timezone="Europe/Zurich",
+            timezone=os.environ.get("TZ", "UTC"),
         )
     with contextlib.suppress(KeyError):
         yield prefect.schedules.Schedule(
             cron=os.environ["CRON_MAIN_INGESTION_PUBLISH"],
-            timezone="Europe/Zurich",
+            timezone=os.environ.get("TZ", "UTC"),
             parameters={
                 "publish": True,
             },
