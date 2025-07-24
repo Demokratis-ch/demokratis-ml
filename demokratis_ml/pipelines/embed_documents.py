@@ -28,7 +28,7 @@ def get_output_dataframe_prefix(embedding_model_name: str = DEFAULT_EMBEDDING_MO
     # We're not running much in parallel here
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=4),
 )
-@utils.slack_status_report()
+@utils.slack_status_report(":1234:")
 def embed_documents(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,

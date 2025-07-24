@@ -121,7 +121,7 @@ def read_dataframe(path: pathlib.Path, columns: list[str] | None, fs: blocks.Ext
         return table.to_pandas()
 
 
-def slack_status_report() -> Callable[[F], F]:
+def slack_status_report(icon: str = "") -> Callable[[F], F]:
     """Context manager decorator that reports flow execution time to Slack.
 
     This decorator wraps the function in a context manager that:
@@ -155,11 +155,11 @@ def slack_status_report() -> Callable[[F], F]:
                     execution_time = end_time - start_time
                     execution_time_repr = f"{execution_time // 60:.0f}m {execution_time % 60:02.1f}s"
 
-                    icon = ":large_green_circle:" if exception is None else ":red_circle:"
+                    status_icon = ":large_green_circle:" if exception is None else ":red_circle:"
                     hostname = socket.gethostname()
                     message = (
-                        f"{icon} `{func.__module__}.{func.__name__}` {version} executed in {execution_time_repr}"
-                        f" on {hostname}"
+                        f"{status_icon} {icon} `{func.__module__}.{func.__name__}` {version}"
+                        f" executed in {execution_time_repr} on {hostname}"
                         f"\n{run_url}"
                     )
                     if exception is not None:
