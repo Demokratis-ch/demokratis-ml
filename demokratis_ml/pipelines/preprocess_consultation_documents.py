@@ -142,6 +142,8 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
     task_run_name="demokratis_api_request({version}/{endpoint})",
     cache_policy=prefect.cache_policies.TASK_SOURCE + prefect.cache_policies.INPUTS,
     cache_expiration=datetime.timedelta(hours=1),
+    retries=3,
+    retry_delay_seconds=[10, 60, 120],
 )
 def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float = 180.0) -> str:
     """Make an authenticated request to the Demokratis API and return the JSON response."""
