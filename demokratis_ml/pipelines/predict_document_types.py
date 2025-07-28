@@ -14,13 +14,13 @@ import prefect.logging
 
 import demokratis_ml.models.document_types.model
 import demokratis_ml.models.document_types.preprocessing
-from demokratis_ml.pipelines import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
 
 @prefect.flow()
-@utils.slack_status_report()
+@utils.slack_status_report(":page_with_curl:")
 def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,

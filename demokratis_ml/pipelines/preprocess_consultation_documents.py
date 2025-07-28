@@ -6,11 +6,9 @@ import io
 import os
 import pathlib
 import re
-import sys
 from typing import cast
 
 import httpx
-import huggingface_hub
 import lingua
 import numpy as np
 import pandas as pd
@@ -23,7 +21,7 @@ import prefect.logging
 import prefect.task_runners
 
 from demokratis_ml.data import schemata
-from demokratis_ml.pipelines import blocks, pdf_extraction, utils
+from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
 
@@ -33,9 +31,8 @@ OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 2),
 )
 @pandera.check_types
-@utils.slack_status_report()
+@utils.slack_status_report(":floppy_disk:")
 def preprocess_data(
-    publish: bool,
     store_dataframes_remotely: bool,
     bootstrap_extracted_content: bool = True,
 ) -> pathlib.Path:
@@ -54,45 +51,17 @@ def preprocess_data(
 
     Only documents with non-empty content are kept in the final dataframe.
 
-    :param publish: If true, upload the resulting dataframe to our public HuggingFace dataset repository.
     :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
     """
     # Choose where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
-
     # Run the actual preprocessing
     df = create_preprocessed_dataframe(bootstrap_extracted_content=bootstrap_extracted_content)
-
     # Store the dataframe
-    output_path, df_serialized = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
-
-    # Upload to HuggingFace if requested
-    if publish:
-        upload_to_huggingface(
-            repository_id="demokratis/consultation-documents",
-            # No need to include the date in the filename, as the HF dataset is a Git repository.
-            file_name=f"{OUTPUT_DATAFRAME_PREFIX}.parquet",
-            data=df_serialized,
-        )
-
+    output_path, _ = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
     return output_path
-
-
-@prefect.task()
-def upload_to_huggingface(repository_id: str, file_name: str, data: bytes) -> None:
-    """Upload our resulting preprocessed dataframe to our HuggingFace dataset repository."""
-    logger = prefect.logging.get_run_logger()
-    logger.info("Uploading to HuggingFace repository %s, file %s", repository_id, file_name)
-    hf_token = blocks.HuggingFaceDatasetUploadCredentials.load("huggingface-dataset-upload-credentials").token
-    hf_api = huggingface_hub.HfApi(token=hf_token.get_secret_value())
-    hf_api.upload_file(
-        repo_id=repository_id,
-        path_in_repo=file_name,
-        path_or_fileobj=data,
-        repo_type="dataset",
-    )
 
 
 @prefect.task
@@ -476,6 +445,5 @@ def extract_text_from_pdf(stored_path_pdf: pathlib.Path) -> str | None:
 
 
 if __name__ == "__main__":
-    publish = len(sys.argv) > 1 and sys.argv[1] == "--publish"
-    output_path = preprocess_data(publish=publish, store_dataframes_remotely=publish)
+    output_path = preprocess_data(store_dataframes_remotely=False)
     print(output_path)

@@ -14,18 +14,25 @@ import prefect.task_runners
 import prefect.tasks
 
 import demokratis_ml.data.embeddings
-from demokratis_ml.pipelines import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, utils
+
+DEFAULT_EMBEDDING_MODEL_NAME = "openai/text-embedding-3-large"
+
+
+def get_output_dataframe_prefix(embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME) -> str:
+    """Generate a prefix for the output dataframe; the embedding model name is a part of it."""
+    return f"consultation-documents-embeddings-beginnings-{embedding_model_name.replace('/', '-')}"
 
 
 @prefect.flow(
     # We're not running much in parallel here
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=4),
 )
-@utils.slack_status_report()
+@utils.slack_status_report(":1234:")
 def embed_documents(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,
-    embedding_model_name: str = "openai/text-embedding-3-large",
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
     bootstrap_from_previous_output: bool = True,
     only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
@@ -52,7 +59,7 @@ def embed_documents(
         save time and resources at a stage where we're only developing the models and don't cover all languages yet.
     """
     logger = prefect.logging.get_run_logger()
-    output_dataframe_prefix = f"consultation-documents-embeddings-beginnings-{embedding_model_name.replace('/', '-')}"
+    output_dataframe_prefix = get_output_dataframe_prefix(embedding_model_name)
 
     # Choose where to load source dataframes from and where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)

@@ -12,7 +12,7 @@ import prefect.filesystems
 import prefect.logging
 import prefect.task_runners
 
-from demokratis_ml.pipelines import blocks, pdf_extraction, utils
+from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-features"
 MAX_PDF_PAGES_TO_PROCESS = 50
@@ -22,7 +22,7 @@ MAX_PDF_PAGES_TO_PROCESS = 50
     # It seems the extraction isn't CPU-bound so we can use a high number of threads per core.
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 20),
 )
-@utils.slack_status_report()
+@utils.slack_status_report(":triangular_ruler:")
 def extract_document_features(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,
@@ -30,7 +30,7 @@ def extract_document_features(
     only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
     """
-    Extract "visual" document features such as table numbers and aspect ratios.
+    Extract "visual" document features such as table counts and aspect ratios.
 
     Only PDF documents are supported. For the full list of features, see :class:`pdf_extraction.ExtendedPDFFeatures`.
 
