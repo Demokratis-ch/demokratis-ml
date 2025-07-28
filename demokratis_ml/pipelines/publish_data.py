@@ -12,7 +12,7 @@ from demokratis_ml.pipelines.lib import blocks, utils
 @prefect.flow(
     task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=4),
 )
-@utils.slack_status_report()
+@utils.slack_status_report(":mega:")
 def publish_data(use_remote_storage: bool, files: dict[pathlib.Path, str]) -> None:
     """
     Publish our datasets to Hugging Face.

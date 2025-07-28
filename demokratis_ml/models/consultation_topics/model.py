@@ -44,3 +44,15 @@ def get_pca_step(pipeline: sklearn.pipeline.Pipeline) -> PCA | None:
         return pipeline.named_steps["pca"]
     except (KeyError, AttributeError):
         return None
+
+
+def get_predicted_label_probabilities(pred_probs_list: list[np.ndarray]) -> np.ndarray:
+    """Extract the positive class probabilities from the list of predicted probabilities.
+
+    The argument is expected to be the output of `MultiOutputClassifier.predict_proba`.
+    """
+    # Extract the positive class probabilities
+    positive_probs = [proba[:, 1] for proba in pred_probs_list]
+    # Stack into a (n_samples, n_classes) array
+    pred_probs = np.column_stack(positive_probs)
+    return pred_probs

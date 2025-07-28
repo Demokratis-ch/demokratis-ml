@@ -46,12 +46,17 @@ def create_input_dataframe(
     )
 
     for attribute in ("consultation_title", "consultation_description", "organisation_name"):
+        len_before = len(df)
         df = df.join(
             _get_embeddings_by_attribute(df_consultation_embeddings, attribute),
             on="consultation_identifier",
+            how="inner",
         )
+        if lost_rows := len_before - len(df):
+            logger.warning("Lost %d rows while joining %s embeddings", lost_rows, attribute)
 
-    assert df.notna().any().any()
+    nulls_per_column = df.isna().any()
+    assert not nulls_per_column.any(), repr(nulls_per_column)
     return encode_topics(df)
 
 

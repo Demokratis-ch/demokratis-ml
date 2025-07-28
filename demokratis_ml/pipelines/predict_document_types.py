@@ -1,20 +1,16 @@
 """Prefect pipeline for inference via the document_type_classifier model; see the `predict_document_types` flow."""
 
 import datetime
-import json
-import os
 import pathlib
 from collections.abc import Iterable
 
-import mlflow
-import mlflow.sklearn
 import pandas as pd
 import prefect
 import prefect.logging
 
 import demokratis_ml.models.document_types.model
 import demokratis_ml.models.document_types.preprocessing
-from demokratis_ml.pipelines.lib import blocks, utils
+from demokratis_ml.pipelines.lib import inference, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
@@ -38,13 +34,11 @@ def predict_document_types(  # noqa: PLR0913
     Model name and version are passed as parameters and the model is loaded from MLflow. Note however that
     we quietly assume that the trained model is compatible with the input data format which is implemented
     in `demokratis_ml.models.document_types.*` modules. This code is not stored in MLflow!
-    In addition, the `CLASS_MERGES` constant is duplicated in this file and in the model training code.
 
     The output is encoded as JSON and stored in the "remote-model-output-storage" file system.
 
     :param data_files_version: Version (date) of the data files to use. The date is a part of the file names.
-    :param store_dataframes_remotely: If true, read inputs from and store the resulting dataframe in
-        Exoscale object storage.
+    :param store_dataframes_remotely: If true, read inputs from Exoscale object storage.
     :param embedding_model_name: Used to determine which embedding dataframe to load.
     :param only_consultations_since: Only process documents from consultations that started on or after this date.
         This is to avoid processing old and likely irrelevant documents.
@@ -55,25 +49,7 @@ def predict_document_types(  # noqa: PLR0913
     if only_languages is not None:
         only_languages = set(only_languages)
 
-    # Connect to MLflow
-    mlflow_credentials = blocks.MLflowCredentials.load("mlflow-credentials")
-    mlflow.set_tracking_uri(mlflow_credentials.tracking_uri)
-    # Horrible, but seems to be the only way apart from creating a config file:
-    # https://github.com/mlflow/mlflow/discussions/12881
-    os.environ["MLFLOW_TRACKING_USERNAME"] = mlflow_credentials.username
-    os.environ["MLFLOW_TRACKING_PASSWORD"] = mlflow_credentials.password.get_secret_value()
-    logger.info("Using MLflow tracking URI %s and user %s", mlflow.get_tracking_uri(), mlflow_credentials.username)
-
-    # Load the model
-    model_uri = (
-        f"models:/{model_name}/{model_version}"
-        if isinstance(model_version, int)
-        else f"models:/{model_name}{model_version}"  # model alias, e.g. "document_type_classifier@production"
-    )
-    logger.info("Loading document type classifier model %s", model_uri)
-    classifier = mlflow.sklearn.load_model(model_uri=model_uri)
-    logger.info("Loaded classifier: %s", classifier)
-    assert classifier is not None, "Failed to load the document type classifier model"
+    classifier, model_uri = inference.load_model(model_name, model_version)
 
     # Choose where to load source dataframes from and where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
@@ -133,6 +109,7 @@ def predict_document_types(  # noqa: PLR0913
     assert OUTPUT_FORMAT_VERSION == "v0.1", "The code below produces this version"
     output = {
         "generated_at": generated_at.isoformat(),
+        "output_format_version": OUTPUT_FORMAT_VERSION,
         "model": {
             "name": model_name,
             "version": model_version,
@@ -154,16 +131,7 @@ def predict_document_types(  # noqa: PLR0913
         "outputs": serialize_predictions(df_predictions),
     }
 
-    fs_model_output_storage = blocks.ExtendedRemoteFileSystem.load("remote-model-output-storage")
-    output_path = pathlib.Path(model_name) / f"{generated_at.isoformat()}_{OUTPUT_FORMAT_VERSION}.json"
-    output_bytes = json.dumps(output, indent=2).encode("utf-8")
-    logger.info(
-        "Storing predictions to %s/%s (%d bytes)", fs_model_output_storage.basepath, output_path, len(output_bytes)
-    )
-    fs_model_output_storage.write_path(str(output_path), output_bytes)
-    logger.info("Writing the same data to latest.json")
-    fs_model_output_storage.write_path(str(output_path.with_name("latest.json")), output_bytes)
-    # pathlib.Path("test.json").write_bytes(output_bytes)  # Debugging output only
+    output_path = inference.write_outputs(output)
     return output_path
 
 
