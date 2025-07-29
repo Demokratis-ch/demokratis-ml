@@ -1,20 +1,16 @@
 """Prefect pipeline for embedding document texts; see the `embed_documents` flow for details."""
 
-import datetime
-import itertools
 import pathlib
 from collections.abc import Iterable
 
-import numpy as np
 import pandas as pd
 import prefect
 import prefect.cache_policies
 import prefect.logging
 import prefect.task_runners
-import prefect.tasks
 
 import demokratis_ml.data.embeddings
-from demokratis_ml.pipelines.lib import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, embeddings, utils
 
 DEFAULT_EMBEDDING_MODEL_NAME = "openai/text-embedding-3-large"
 
@@ -108,8 +104,7 @@ def embed_documents(
     else:
         df_bootstrap = pd.DataFrame()
 
-    docs_index = df_documents["document_uuid"]
-    df_documents_to_process = df_documents[~docs_index.isin(df_bootstrap.index)]
+    df_documents_to_process = df_documents[~df_documents["document_uuid"].isin(df_bootstrap.index)]
     # df_documents_to_process = df_documents_to_process.head(100)
     logger.info(
         "Processing %d documents (%d are already in the bootstrap dataframe)",
@@ -117,16 +112,18 @@ def embed_documents(
         len(df_bootstrap),
     )
     if df_documents_to_process.empty:
-        embeddings = []
+        text_embeddings = []
     else:
         embedding_model = demokratis_ml.data.embeddings.create_embedding_model(
             embedding_model_name,
             client=blocks.OpenAICredentials.load("openai-credentials").get_client(),
         )
-        embeddings = embed_texts(df_documents_to_process["document_content_plain"].tolist(), embedding_model)
-        logger.info("Newly computed embeddings shape: %s", embeddings.shape)
+        text_embeddings = embeddings.embed_texts(
+            df_documents_to_process["document_content_plain"].tolist(), embedding_model
+        )
+        logger.info("Newly computed embeddings shape: %s", text_embeddings.shape)
 
-    df = pd.DataFrame({"embedding": list(embeddings)}, index=df_documents_to_process["document_uuid"])
+    df = pd.DataFrame({"embedding": list(text_embeddings)}, index=df_documents_to_process["document_uuid"])
     df = pd.concat([df_bootstrap, df], axis=0)
     df.index.name = "document_uuid"
     assert not df.index.duplicated().any(), "DataFrame index contains duplicates"
@@ -136,39 +133,7 @@ def embed_documents(
     return output_path
 
 
-@prefect.task(
-    # This is needed because otherwise Prefect will try to calculate a cache key from `embedding_model`,
-    # which is not hashable.
-    cache_policy=prefect.cache_policies.NONE,
-)
-def embed_texts(texts: list[str], embedding_model: demokratis_ml.data.embeddings.EmbeddingModel) -> np.ndarray:
-    """Split the provided texts into batches, embed them, and return all embeddings as a single array."""
-    futures = embed_batch.map(
-        texts=itertools.batched(texts, embedding_model.max_batch_size),
-        embedding_model=prefect.unmapped(embedding_model),
-    )
-    return np.vstack(futures.result())
-
-
-@prefect.task(
-    # Custom function is used so that we can correctly use the unhashable embedding_model parameter
-    cache_key_fn=lambda context, parameters: prefect.tasks.task_input_hash(
-        context, {"texts": parameters["texts"], "embedding_model_name": parameters["embedding_model"].model_name}
-    ),
-    cache_expiration=datetime.timedelta(days=7),
-    retries=3,
-    retry_delay_seconds=[10, 60, 60],
-)
-def embed_batch(texts: Iterable[str], embedding_model: demokratis_ml.data.embeddings.EmbeddingModel) -> np.ndarray:
-    """Single batch embedding, wrapped in a task so that it can be retried if the API call fails."""
-    tokens = list(map(embedding_model.tokenize, texts))
-    return embedding_model.embed_batch(tokens)
-
-
-@prefect.task(
-    cache_policy=prefect.cache_policies.TASK_SOURCE,
-    cache_expiration=datetime.timedelta(hours=1),
-)
+@prefect.task()
 def find_latest_output_dataframe(
     fs_dataframe_storage: blocks.ExtendedFileSystemType, output_dataframe_prefix: str
 ) -> pd.DataFrame:

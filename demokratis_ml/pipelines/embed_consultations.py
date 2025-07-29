@@ -1,11 +1,8 @@
 """Prefect pipeline for embedding consultation attributes; see the `embed_consultations` flow for details."""
 
-import datetime
-import itertools
 import pathlib
 from collections.abc import Iterable
 
-import numpy as np
 import pandas as pd
 import prefect
 import prefect.cache_policies
@@ -14,7 +11,14 @@ import prefect.task_runners
 import prefect.tasks
 
 import demokratis_ml.data.embeddings
-from demokratis_ml.pipelines import blocks, utils
+from demokratis_ml.pipelines.lib import blocks, embeddings, utils
+
+DEFAULT_EMBEDDING_MODEL_NAME = "openai/text-embedding-3-large"
+
+
+def get_output_dataframe_prefix(embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME) -> str:
+    """Generate a prefix for the output dataframe; the embedding model name is a part of it."""
+    return f"consultation-attributes-embeddings-beginnings-{embedding_model_name.replace('/', '-')}"
 
 
 @prefect.flow(
@@ -26,7 +30,7 @@ def embed_consultations(  # noqa: PLR0913
     consultation_documents_file: str,
     store_dataframes_remotely: bool,
     embed_attributes: tuple[str, ...] = ("consultation_title", "consultation_description", "organisation_name"),
-    embedding_model_name: str = "openai/text-embedding-3-large",
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
     bootstrap_from_previous_output: bool = True,
     only_languages: Iterable[str] | None = ("de",),
 ) -> pathlib.Path:
@@ -57,7 +61,7 @@ def embed_consultations(  # noqa: PLR0913
         Filtering is done by the `document_language` column, before documents are grouped by consultation.
     """  # noqa: E501
     logger = prefect.logging.get_run_logger()
-    output_dataframe_prefix = f"consultation-attributes-embeddings-beginnings-{embedding_model_name.replace('/', '-')}"
+    output_dataframe_prefix = get_output_dataframe_prefix(embedding_model_name)
 
     # Choose where to load source dataframes from and where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
@@ -130,17 +134,17 @@ def embed_consultations(  # noqa: PLR0913
         len(df_bootstrap),
     )
     if df_attributes_to_process.empty:
-        embeddings = []
+        text_embeddings = []
     else:
         embedding_model = demokratis_ml.data.embeddings.create_embedding_model(
             embedding_model_name,
             client=blocks.OpenAICredentials.load("openai-credentials").get_client(),
         )
-        embeddings = embed_texts(df_attributes_to_process["attribute_value"].tolist(), embedding_model)
-        logger.info("Newly computed embeddings shape: %s", embeddings.shape)
+        text_embeddings = embeddings.embed_texts(df_attributes_to_process["attribute_value"].tolist(), embedding_model)
+        logger.info("Newly computed embeddings shape: %s", text_embeddings.shape)
 
     df = pd.DataFrame(
-        {"text": df_attributes_to_process["attribute_value"], "embedding": list(embeddings)},
+        {"text": df_attributes_to_process["attribute_value"], "embedding": list(text_embeddings)},
         index=df_attributes_to_process.index,
     )
     df = pd.concat([df_bootstrap, df], axis=0)
@@ -151,39 +155,7 @@ def embed_consultations(  # noqa: PLR0913
     return output_path
 
 
-@prefect.task(
-    # This is needed because otherwise Prefect will try to calculate a cache key from `embedding_model`,
-    # which is not hashable.
-    cache_policy=prefect.cache_policies.NONE,
-)
-def embed_texts(texts: list[str], embedding_model: demokratis_ml.data.embeddings.EmbeddingModel) -> np.ndarray:
-    """Split the provided texts into batches, embed them, and return all embeddings as a single array."""
-    futures = embed_batch.map(
-        texts=itertools.batched(texts, embedding_model.max_batch_size),
-        embedding_model=prefect.unmapped(embedding_model),
-    )
-    return np.vstack(futures.result())
-
-
-@prefect.task(
-    # Custom function is used so that we can correctly use the unhashable embedding_model parameter
-    cache_key_fn=lambda context, parameters: prefect.tasks.task_input_hash(
-        context, {"texts": parameters["texts"], "embedding_model_name": parameters["embedding_model"].model_name}
-    ),
-    cache_expiration=datetime.timedelta(days=7),
-    retries=3,
-    retry_delay_seconds=[10, 60, 60],
-)
-def embed_batch(texts: Iterable[str], embedding_model: demokratis_ml.data.embeddings.EmbeddingModel) -> np.ndarray:
-    """Single batch embedding, wrapped in a task so that it can be retried if the API call fails."""
-    tokens = list(map(embedding_model.tokenize, texts))
-    return embedding_model.embed_batch(tokens)
-
-
-@prefect.task(
-    cache_policy=prefect.cache_policies.TASK_SOURCE,
-    cache_expiration=datetime.timedelta(hours=1),
-)
+@prefect.task()
 def find_latest_output_dataframe(
     fs_dataframe_storage: blocks.ExtendedFileSystemType, output_dataframe_prefix: str
 ) -> pd.DataFrame:
