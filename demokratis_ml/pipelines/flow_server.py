@@ -18,9 +18,11 @@ import prefect
 import prefect.schedules
 
 from demokratis_ml.pipelines import (
+    embed_consultations,
     embed_documents,
     extract_document_features,
     main_ingestion,
+    predict_consultation_topics,
     predict_document_types,
     preprocess_consultation_documents,
 )
@@ -74,6 +76,12 @@ if __name__ == "__main__":
         version=deployment_version,
     )
 
+    embed_consultations_deployment = embed_consultations.embed_consultations.to_deployment(
+        name="embed-consultations",
+        parameters={"store_dataframes_remotely": store_dataframes_remotely},
+        version=deployment_version,
+    )
+
     extract_document_features_deployment = extract_document_features.extract_document_features.to_deployment(
         name="extract-document-features",
         parameters={"store_dataframes_remotely": store_dataframes_remotely},
@@ -86,10 +94,18 @@ if __name__ == "__main__":
         version=deployment_version,
     )
 
+    predict_consultation_topics_deployment = predict_consultation_topics.predict_consultation_topics.to_deployment(
+        name="predict-consultation-topics",
+        parameters={"store_dataframes_remotely": store_dataframes_remotely},
+        version=deployment_version,
+    )
+
     prefect.serve(
         main_ingestion_deployment,
         preprocess_consultation_documents_deployment,
+        embed_consultations_deployment,
         embed_documents_deployment,
         extract_document_features_deployment,
         predict_document_types_deployment,
+        predict_consultation_topics_deployment,
     )
