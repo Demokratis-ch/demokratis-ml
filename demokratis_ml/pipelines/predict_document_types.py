@@ -49,7 +49,7 @@ def predict_document_types(  # noqa: PLR0913
     if only_languages is not None:
         only_languages = set(only_languages)
 
-    classifier, model_uri = inference.load_model(model_name, model_version)
+    classifier, model_uri, model_metadata = inference.load_model(model_name, model_version)
 
     # Choose where to load source dataframes from and where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
@@ -114,6 +114,7 @@ def predict_document_types(  # noqa: PLR0913
             "name": model_name,
             "version": model_version,
             "uri": model_uri,
+            "metadata": model_metadata,
         },
         "features": {
             "embedding_model": embedding_model_name,

@@ -15,6 +15,11 @@ def create_input_dataframe(
     df_documents: schemata.FullConsultationDocumentV1,
     df_document_embeddings: pd.DataFrame,
     df_consultation_embeddings: pd.DataFrame,
+    use_attributes: tuple[str, ...] = (
+        "consultation_title",
+        # "consultation_description",  # Not used by default because many consultations don't have it
+        "organisation_name",
+    ),
 ) -> tuple[pd.DataFrame, list[str]]:
     """Create a model input dataframe (for training or inference) from consultation documents and embeddings.
 
@@ -45,7 +50,7 @@ def create_input_dataframe(
         }
     )
 
-    for attribute in ("consultation_title", "consultation_description", "organisation_name"):
+    for attribute in use_attributes:
         len_before = len(df)
         df = df.join(
             _get_embeddings_by_attribute(df_consultation_embeddings, attribute),
@@ -55,7 +60,8 @@ def create_input_dataframe(
         if lost_rows := len_before - len(df):
             logger.warning("Lost %d rows while joining %s embeddings", lost_rows, attribute)
 
-    nulls_per_column = df.isna().any()
+    non_nullable_columns = list(set(df.columns) - {"consultation_end_date"})
+    nulls_per_column = df[non_nullable_columns].isna().any()
     assert not nulls_per_column.any(), repr(nulls_per_column)
     return encode_topics(df)
 

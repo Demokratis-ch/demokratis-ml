@@ -8,13 +8,17 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.preprocessing import StandardScaler
 
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.svm import SVC
+
 
 def create_matrices(df: pd.DataFrame, topic_columns: list[str]) -> tuple[np.ndarray, pd.DataFrame]:
     """Convert a dataframe (the result of preprocessing) into a feature matrix and a target matrix."""
     x = np.hstack(
         [
+            # Keep these in sync with preprocessing.py:create_input_dataframe
             np.vstack(df["embedding_consultation_title"]),
-            np.vstack(df["embedding_consultation_description"]),
+            # np.vstack(df["embedding_consultation_description"]),
             np.vstack(df["embedding_documents"]),
             np.vstack(df["embedding_organisation_name"]),
         ]
@@ -34,6 +38,8 @@ def create_classifier(random_state: int) -> sklearn.pipeline.Pipeline:
         PCA(n_components=400, random_state=random_state),
         MultiOutputClassifier(
             LogisticRegression(max_iter=1000),
+            # RandomForestClassifier(random_state=random_state, class_weight="balanced"),
+            # SVC(random_state=random_state),
         ),
     )
 

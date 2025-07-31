@@ -68,7 +68,7 @@ def plot_score_against_support(
     x_annotation_offset = 0.007 * (report["support"].max() - report["support"].min())
     for i, txt in enumerate(report.index):
         ax.annotate(
-            txt.replace("topic_", ""),
+            txt,
             (report["support"].iloc[i] + x_annotation_offset, report[score_metric].iloc[i]),
             fontsize=8,
         )

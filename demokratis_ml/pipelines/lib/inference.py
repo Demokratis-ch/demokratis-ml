@@ -6,6 +6,7 @@ import pathlib
 from typing import Any
 
 import mlflow
+import mlflow.models
 import mlflow.sklearn
 import prefect.logging
 import sklearn.pipeline
@@ -13,8 +14,8 @@ import sklearn.pipeline
 from demokratis_ml.pipelines.lib import blocks
 
 
-def load_model(model_name: str, model_version: int | str) -> tuple[sklearn.pipeline.Pipeline, str]:
-    """Load a model from MLflow and return it along with its MLflow URI."""
+def load_model(model_name: str, model_version: int | str) -> tuple[sklearn.pipeline.Pipeline, str, dict[str, Any]]:
+    """Load a model from MLflow and return it along with its MLflow URI and metadata."""
     logger = prefect.logging.get_run_logger()
 
     # Connect to MLflow
@@ -34,9 +35,11 @@ def load_model(model_name: str, model_version: int | str) -> tuple[sklearn.pipel
     )
     logger.info("Loading model from %s", model_uri)
     model = mlflow.sklearn.load_model(model_uri=model_uri)
-    logger.info("Loaded model: %s", model)
     assert model is not None, "Model must be defined"
-    return model, model_uri
+    model_info = mlflow.models.get_model_info(model_uri)
+    metadata = model_info.metadata or {}
+    logger.info("Loaded model: %s, metadata: %s", model, metadata)
+    return model, model_uri, metadata
 
 
 def write_outputs(data: dict[str, Any]) -> pathlib.Path:

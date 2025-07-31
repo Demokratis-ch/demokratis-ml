@@ -21,7 +21,7 @@ def predict_consultation_topics(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "consultation_topic_classifier",
-    model_version: int | str = 1,
+    model_version: int | str = 4,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2019, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
@@ -47,7 +47,7 @@ def predict_consultation_topics(  # noqa: PLR0913
     if only_languages is not None:
         only_languages = set(only_languages)
 
-    classifier, model_uri = inference.load_model(model_name, model_version)
+    classifier, model_uri, model_metadata = inference.load_model(model_name, model_version)
 
     # Choose where to load source dataframes from and where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
@@ -107,19 +107,7 @@ def predict_consultation_topics(  # noqa: PLR0913
     pred_probs = demokratis_ml.models.consultation_topics.model.get_predicted_label_probabilities(
         classifier.predict_proba(x)
     )
-    topic_columns = [  # TODO: store with the model
-        "topic_agriculture",
-        "topic_education",
-        "topic_energy",
-        "topic_health",
-        "topic_insurance",
-        "topic_migration",
-        "topic_political_system",
-        "topic_sports",
-        "topic_transportation",
-    ]
-    supported_topics = [t.replace("topic_", "") for t in topic_columns]
-    df_predictions = pd.DataFrame(pred_probs, columns=supported_topics, index=df_input.index)
+    df_predictions = pd.DataFrame(pred_probs, columns=model_metadata["supported_topics"], index=df_input.index)
     logger.info("Outuput dataframe shape: %s", df_predictions.shape)
 
     # Format the output
@@ -132,9 +120,7 @@ def predict_consultation_topics(  # noqa: PLR0913
             "name": model_name,
             "version": model_version,
             "uri": model_uri,
-            "metadata": {
-                "supported_topics": supported_topics,
-            },
+            "metadata": model_metadata,
         },
         "features": {
             "embedding_model": embedding_model_name,
