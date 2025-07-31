@@ -105,60 +105,87 @@ TODO - explain this data source
 
 ### Current status
 
-| Problem | Public dataset? | Initial research | Proof of concept model | Deployed in production |
-|-|-|-|-|-|
-| [I. Classifying consultation topics](#i-classifying-consultation-topics)           | ✅    | ✅ | ✅ | ❌
-| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | 🟠(*) | ✅ | ❌ | ❌
-| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ✅
+| Problem | Public dataset? | Initial research | Proof of concept model | Deployed in production | Languages supported | Notes |
+|-|-|-|-|-|-|-|
+| [I. Classifying consultation topics](#i-classifying-consultation-topics)           | ✅    | ✅ | ✅ | ✅ | de | Only 9 out of 26 topics supported.
+| [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | ✅(*) | ✅ | ❌ | ❌ |
+| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ✅ | de | 10 out of 13 types supported. Not enough samples to train for the remaining 3.
 
 _*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
 ### I. Classifying consultation topics
 
->[!NOTE]
->Latest work on this problem: [research/consultation_topics/VM_document_topic_classifier.ipynb](research/consultation_topics/VM_document_topic_classifier.ipynb).
-
 We need to classify each new consultation into one or more topics (such as *agriculture, energy, health, ...*) so that users can easily filter and browse consultations in their area of interest. We also support email notifications, where users can subscribe to receive new consultations on their selected topics by email.
 
-#### Our datasets
-To label our dataset, we used a combination of weak pattern-matching rules, manual labelling, and [Open Parl Data](https://opendata.ch/projects/openparldata/). You can see the full list of our topics in [demokratis_ml/data/schemata.py:CONSULTATION_TOPICS](demokratis_ml/data/schemata.py#L10).
+#### Our dataset
+Our dataset – consultations & topics in an M:N relationship – is labelled manually. We also experimented with weak pattern-matching rules and topics coming from [Open Parl Data](https://opendata.ch/projects/openparldata/), but these label sources proved too inconsistent with our own labelling guidelines.
+You can see the full list of our topics in [demokratis_ml/data/schemata.py:CONSULTATION_TOPICS](./demokratis_ml/data/schemata.py).
 
-#### Our models
-To increase the breadth of input for the models, we first classify individual *documents*, even though all documents of a given consultation obviously fall into the same topics. To then predict the topics of the consultation itself, we let the document outputs "vote" on the final set of topics. This approach has proven to be effective because we are giving the model more data to learn from, as opposed to classifying consultations directly – in which case we have to pick a limited number of documents, drastically concatenate them etc.
+#### Our model
+For each consultation, we create a vector by concatenating the embedding of the consultation title, the embedding of the publishing organisation name, and the average of the embeddings of several documents pertaining to the consultation. We select these documents by type (see [Problem III](#iii-classifying-document-types)). We would ideally include an embedding of the consultation's description as well, but we're currently missing descriptions for a large number of consultations.
 
-We disregard documents of type `RECIPIENT_LIST` and `SYNOPTIC_TABLE` because we have not found their signals useful. There might be more room for improvement in document selection. This, however, also depends on our problem #3, [classifying document types (below)](#iii-classifying-document-types).
+We found that OpenAI embeddings work better than [jina-embeddings-v2-base-de](https://huggingface.co/jinaai/jina-embeddings-v2-base-de), which in turn works better than general-purpose sentence transformer models.
 
-We currently have **two models** with good results:
+The model itself is a simple linear pipeline because our small training set size (less than 2,000 labelled consultations) is not supportive of more complex models.
 
-1. A "traditional" approach: we embed the documents using OpenAI's `text-embedding-3-large` model and classify those vectors directly with the simple sklearn pipeline of
-    ```
-    make_pipeline(
-        StandardScaler(),
-        MultiOutputClassifier(LogisticRegression()),
-    )
-    ```
-    We found that OpenAI embeddings work better than [jina-embeddings-v2-base-de](https://huggingface.co/jinaai/jina-embeddings-v2-base-de), which in turn works better than general-purpose sentence transformer models.
-2. Fine-tuning a domain-specific language model from the [🤗 joelniklaus/legallms](https://huggingface.co/collections/joelniklaus/legallms-65303ccfc2f20ed637f17cb6) collection, usually [joelniklaus/legal-swiss-roberta-large](https://huggingface.co/joelniklaus/legal-swiss-roberta-large). These pre-trained models were introduced in the paper [MultiLegalPile: A 689GB Multilingual Legal Corpus](https://arxiv.org/abs/2306.02069).
+```mermaid
+graph LR
+
+subgraph features
+  i1[/consultation_title/] --> e1[text-embedding-3-large]
+  i2[/organisation_name/] --> e2[text-embedding-3-large]
+  i3[/document 1/] --> e3[text-embedding-3-large]
+  i4[/document 2/] --> e4[text-embedding-3-large]
+  i5[/document .../] --> e5[text-embedding-3-large]
+  e3 --> mean
+  e4 --> mean
+  e5 --> mean
+end
+
+subgraph input matrix construction
+  e1 ---> hstack["hstack<br>[title | org | documents]<br>[title | org | documents]<br>..."]
+  e2 ---> hstack
+  mean --> hstack
+end
+
+subgraph model
+  hstack --> StandardScaler
+  StandardScaler --> PCA
+  PCA --> LogisticRegression
+
+end
+```
+
+#### Potential for improvement
+We experimented with fine-tuning a domain-specific language model from the [🤗 joelniklaus/legallms](https://huggingface.co/collections/joelniklaus/legallms-65303ccfc2f20ed637f17cb6) collection, training it directly for multi-label classification. These pre-trained models were introduced in the paper [MultiLegalPile: A 689GB Multilingual Legal Corpus](https://arxiv.org/abs/2306.02069). This approach showed some promise and we would like to try it again: see [!22](https://github.com/Demokratis-ch/demokratis-ml/issues/22).
+
 
 #### Current results
-In general:
-* The LegalLM model performs better than the "traditional" sklearn classifier. (Compute requirements are several orders of magnitude higher, though.)
-* Cantonal consultations are more difficult to classify than the federal ones. Merging the two datasets helps.
+To get a model usable in production, we've restricted it to just 9 topics for which it performs well. We expect to increase topic coverage as we label more training data.
 
-Current sample-weighted F1 scores:
+| Label             | Precision | Recall | F1-Score | Support |
+|------------------|-----------|--------|----------|---------|
+| agriculture       | 1.00      | 0.82   | 0.90     | 11      |
+| education         | 1.00      | 0.91   | 0.95     | 11      |
+| energy            | 1.00      | 0.92   | 0.96     | 12      |
+| health            | 0.79      | 0.90   | 0.84     | 21      |
+| insurance         | 0.83      | 0.83   | 0.83     | 12      |
+| migration         | 1.00      | 0.70   | 0.82     | 10      |
+| political_system  | 1.00      | 0.60   | 0.75     | 5       |
+| sports            | 1.00      | 1.00   | 1.00     | 4       |
+| transportation    | 1.00      | 0.85   | 0.92     | 13      |
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Micro Avg         | 0.92      | 0.85   | 0.88     | 99      |
+| Macro Avg         | 0.96      | 0.84   | 0.89     | 99      |
+| Weighted Avg      | 0.94      | 0.85   | 0.88     | 99      |
+| Samples Avg       | 0.94      | 0.86   | 0.86     | 99      |
 
-| Model | Cantonal consultations | Federal consultations | Cantonal+federal |
-|-|-|-|-|
-| `text-embedding-3-large + LogisticRegression` | 0.73 | 0.85 | 0.78 |
-| `joelniklaus/legal-swiss-roberta-large` | ? | 0.92 | 0.82 |
 
-<details>
-<summary>Click here to see an example classification report</summary>
+#### Code
+- Model code: [demokratis_ml/models/consultation_topics/](./demokratis_ml/models/consultation_topics/)
+- Research & training: [research/consultation_topics/VM_consultation_topic_classifier.ipynb](./research/consultation_topics/VM_consultation_topic_classifier.ipynb)
+- Production deployment: [demokratis_ml/pipelines/predict_consultation_topics.py](./demokratis_ml/pipelines/predict_consultation_topics.py)
 
-"Traditional" model, cantonal+federal consultations.
-
-![Colour-coded classification report](docs/example_topics_classification.png)
-</details>
 
 ### II. Extracting structure from documents
 
@@ -223,6 +250,6 @@ In production, the model is only ever used to classify _cantonal_ documents.
 | Weighted Avg   | 0.90      | 0.90   | 0.90     | 403     |
 
 #### Code
-- Model code: [demokratis_ml/models/document_type_classifier/](./demokratis_ml/models/document_types/)
+- Model code: [demokratis_ml/models/document_types/](./demokratis_ml/models/document_types/)
 - Research & training: [research/document_types/VM_document_type_classifier.ipynb](./research/document_types/VM_document_type_classifier.ipynb)
 - Production deployment: [demokratis_ml/pipelines/predict_document_types.py](./demokratis_ml/pipelines/predict_document_types.py)
