@@ -157,7 +157,7 @@ end
 ```
 
 #### Potential for improvement
-We experimented with fine-tuning a domain-specific language model from the [🤗 joelniklaus/legallms](https://huggingface.co/collections/joelniklaus/legallms-65303ccfc2f20ed637f17cb6) collection, training it directly for multi-label classification. These pre-trained models were introduced in the paper [MultiLegalPile: A 689GB Multilingual Legal Corpus](https://arxiv.org/abs/2306.02069). This approach showed some promise and we would like to try it again: see [!22](https://github.com/Demokratis-ch/demokratis-ml/issues/22).
+We experimented with fine-tuning a domain-specific language model from the [🤗 joelniklaus/legallms](https://huggingface.co/collections/joelniklaus/legallms-65303ccfc2f20ed637f17cb6) collection, training it directly for multi-label classification. These pre-trained models were introduced in the paper [MultiLegalPile: A 689GB Multilingual Legal Corpus](https://arxiv.org/abs/2306.02069). This approach showed some promise and we would like to try it again: see [#22](https://github.com/Demokratis-ch/demokratis-ml/issues/22).
 
 
 #### Current results
