@@ -9,9 +9,12 @@ Our pipelines are:
 2. [extract_document_features.py](./extract_document_features.py) extracts "visual" document features such as table counts and aspect ratios
   and stores them in a dataframe.
 3. [embed_documents.py](./embed_documents.py) creates and stores embeddings of document texts.
-4. [predict_document_types.py](./predict_document_types.py) runs batch inference for document type classification (our ML problem III).
+4. [embed_consultations.py](./embed_consultations.py) creates and stores embeddings of consultation attributes, such as title or description.
+5. [predict_document_types.py](./predict_document_types.py) runs batch inference for document type classification (our ML problem III).
    This depends on the outputs of pipelines 1-3. The outputs (predictions) are stored in a JSON file in object storage.
-5. [publish_data.py](./publish_data.py) uploads our datasets (outputs of pipelines 1-3) to Hugging Face so that all our data is transparently published.
+6. [predict_consultation_topics.py](./predict_consultation_topics.py) runs batch inference for consultation topic classification (our ML problem I).
+   This depends on the outputs of pipelines 1, 3, and 4. The outputs (predictions) are stored in a JSON file in object storage.
+7. [publish_data.py](./publish_data.py) uploads our datasets (outputs of pipelines 1-4) to Hugging Face so that all our data is transparently published.
 
 Note that all commands from this readme are to be executed from the root directory of the repository.
 

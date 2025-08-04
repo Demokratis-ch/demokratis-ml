@@ -107,9 +107,9 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
 
     # Extract text from Fedlex documents
     missing_content_index = df["document_source"] == "fedlex"
-    assert (
-        df.loc[missing_content_index, "document_content_plain"].isna().all()
-    ), "Fedlex documents should not have content yet"
+    assert df.loc[missing_content_index, "document_content_plain"].isna().all(), (
+        "Fedlex documents should not have content yet"
+    )
     logger.info("Need content for %d Fedlex documents", missing_content_index.sum())
     if bootstrap_extracted_content:
         assert previously_extracted_content_future is not None
@@ -135,7 +135,7 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
         )
         df = df[~df["document_content_plain"].isna()]
 
-    return cast(schemata.FullConsultationDocumentV1, df)  # Pandera validation makes this cast safe
+    return cast("schemata.FullConsultationDocumentV1", df)  # Pandera validation makes this cast safe
 
 
 @prefect.task(

@@ -170,10 +170,7 @@ def extract_pdf_features(
     return document_uuid, stored_file_hash, features
 
 
-@prefect.task(
-    cache_policy=prefect.cache_policies.TASK_SOURCE,
-    cache_expiration=datetime.timedelta(hours=1),
-)
+@prefect.task()
 def find_latest_output_dataframe(fs_dataframe_storage: blocks.ExtendedFileSystemType) -> pd.DataFrame:
     """Find the latest output of this flow and return the dataframe to be used as a bootstrap cache."""
     logger = prefect.logging.get_run_logger()

@@ -31,6 +31,7 @@ dependencies = [
     "hyperopt>=0.2.7",
     # Setuptool added because of https://github.com/hyperopt/hyperopt/issues/939
     "setuptools>=80.9.0",
+    "nltk>=3.9.1",
 ]
 
 [tool.uv]
@@ -75,14 +76,19 @@ ignore = [
     "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
     "INP001",  # `implicit-namespace-package`; nonsense for some directories
     "ANN401",  # `any-type`; sometimes it's better than trying to describe the type accurately
+    "TC006",  # runtime-cast-value; let's see if we really need to add the noisy quotes that often...
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "research/*" = [
     "D",  # pydocstyle
+    "PLR2004",  # magic value comparisons
 ]
 "test_*.py" = [
     "ANN",  # annotations
     "D",  # pydocstyle
     "PLR2004",  # magic value comparisons
+]
+"*.ipynb" = [
+    "LOG015",  # call on root logger
 ]

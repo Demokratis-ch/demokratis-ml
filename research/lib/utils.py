@@ -1,8 +1,12 @@
 import logging
 import os
 import pprint
+from typing import Any
 
 import mlflow
+import numpy as np
+import pandas as pd
+import sklearn.metrics
 
 
 def set_up_logging_and_mlflow(experiment_name: str) -> None:
@@ -31,3 +35,15 @@ def log_metrics(**metrics: float) -> None:
     rounded_metrics = {k: round(v, 4) for k, v in sorted(metrics.items())}
     pprint.pprint(rounded_metrics)  # noqa: T203
     mlflow.log_metrics(rounded_metrics)
+
+
+def log_classification_report(
+    prefix: str,
+    y_true: np.ndarray | pd.DataFrame,
+    y_pred: np.ndarray | pd.DataFrame,
+    **report_kwargs: Any,
+) -> None:
+    report = sklearn.metrics.classification_report(y_true, y_pred, zero_division=np.nan, **report_kwargs)
+    assert isinstance(report, str)
+    mlflow.log_text(report, report_name := f"{prefix}_classification_report.txt")
+    print(report_name, "", report, sep="\n")

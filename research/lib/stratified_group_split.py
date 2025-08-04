@@ -11,8 +11,8 @@ from iterstrat.ml_stratifiers import (
 from sklearn.preprocessing import OrdinalEncoder
 
 __all__ = [
-    "MultilabelStratifiedGroupShuffleSplit",
     "MultilabelStratifiedGroupKFold",
+    "MultilabelStratifiedGroupShuffleSplit",
     "SplitResult",
     "one_simple_split",
 ]
@@ -149,7 +149,7 @@ def _create_per_group_indices_and_labels(
     aggregated = df.groupby("group_index").agg(
         {
             "sample_index": tuple,
-            **{y_column: group_label_aggregator for y_column in y.columns},
+            **dict.fromkeys(y.columns, group_label_aggregator),
         }
     )
     per_group_sample_indices = aggregated["sample_index"].to_dict()
