@@ -17,7 +17,7 @@ from demokratis_ml.pipelines import (
 from demokratis_ml.pipelines.lib import utils
 
 
-@prefect.flow()
+@prefect.flow(retries=1)
 @utils.slack_status_report()
 def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_from_previous_output: bool) -> None:
     """Compose the main ingestion pipeline.
