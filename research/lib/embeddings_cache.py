@@ -12,6 +12,8 @@ from typing import Any
 import numpy as np
 import pyarrow.parquet
 
+logger = logging.getLogger("embeddings_cache")
+
 
 class ReadOnlyCacheMissError(Exception):
     """Raised when a read-only cache doesn't contain the required embedding."""
@@ -43,7 +45,7 @@ class EmbeddingsCache:
             table = pyarrow.parquet.read_table(self._file_path)
             self._cache = {key: table[key].to_numpy() for key in table.column_names}
             read_time = time.monotonic() - t0
-            logging.info(
+            logger.info(
                 "Loaded %d embeddings in %.1fs from cache at %s",
                 len(self._cache),
                 read_time,
@@ -51,7 +53,7 @@ class EmbeddingsCache:
             )
         else:
             self._cache = {}
-            logging.warning("No cache found at %s", self._file_path)
+            logger.warning("No cache found at %s", self._file_path)
         self.hits = 0
         self.misses = 0
 
@@ -149,4 +151,4 @@ class EmbeddingsCache:
         self._file_path.parent.mkdir(parents=True, exist_ok=True)
         pyarrow.parquet.write_table(table, self._file_path, compression="snappy")
         write_time = time.monotonic() - t0
-        logging.info("Saved %d embeddings in %.1fs to cache at %s", len(self._cache), write_time, self._file_path)
+        logger.info("Saved %d embeddings in %.1fs to cache at %s", len(self._cache), write_time, self._file_path)

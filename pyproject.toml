@@ -76,6 +76,7 @@ ignore = [
     "ISC001",  # `single-line-implicit-string-concatenation`; conflicts with the formatter
     "INP001",  # `implicit-namespace-package`; nonsense for some directories
     "ANN401",  # `any-type`; sometimes it's better than trying to describe the type accurately
+    "TC006",  # runtime-cast-value; let's see if we really need to add the noisy quotes that often...
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -87,4 +88,7 @@ ignore = [
     "ANN",  # annotations
     "D",  # pydocstyle
     "PLR2004",  # magic value comparisons
+]
+"*.ipynb" = [
+    "LOG015",  # call on root logger
 ]
