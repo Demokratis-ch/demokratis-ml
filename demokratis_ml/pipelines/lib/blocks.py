@@ -93,13 +93,16 @@ class ExtendedRemoteFileSystem(prefect.filesystems.RemoteFileSystem):
 
     _block_type_name = "Extended Remote File System"
 
+    def _get_clean_basepath(self) -> pathlib.Path:
+        assert self.basepath.startswith("s3://")
+        return pathlib.Path(self.basepath[len("s3://") :])
+
     def iterdir(self, path: str | pathlib.Path = "") -> list[pathlib.Path]:
         """Iterate over the contents of a directory.
 
         Paths are relative to ``self.basepath``.
         """
-        assert self.basepath.startswith("s3://")
-        base = pathlib.Path(self.basepath[len("s3://") :])
+        base = self._get_clean_basepath()
         path = self._resolve_path(str(path))
         return [pathlib.Path(p).relative_to(base) for p in self.filesystem.ls(path, detail=False)]
 
@@ -113,6 +116,23 @@ class ExtendedRemoteFileSystem(prefect.filesystems.RemoteFileSystem):
     def path_exists(self, path: str | pathlib.Path) -> bool:
         """Check if a path exists."""
         return self.filesystem.exists(self._resolve_path(str(path)))
+
+    def glob(self, pattern: str) -> list[pathlib.Path]:
+        """Return a list of paths matching a glob pattern.
+
+        Paths are relative to ``self.basepath``.
+        """
+        base = self._get_clean_basepath()
+        path = self._resolve_path(str(pattern))
+        return [pathlib.Path(p).relative_to(base) for p in self.filesystem.glob(path)]
+
+    def rm(self, path: str | pathlib.Path) -> None:
+        """Remove a file or directory."""
+        self.filesystem.rm(self._resolve_path(str(path)))
+
+    def info(self, path: str | pathlib.Path) -> dict:
+        """Return information about a path."""
+        return self.filesystem.info(self._resolve_path(str(path)))
 
 
 ExtendedFileSystemType = ExtendedRemoteFileSystem | ExtendedLocalFileSystem

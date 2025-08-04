@@ -7,10 +7,13 @@
 - If the ``CRON_MAIN_INGESTION_PUBLISH`` environment variable is also set, it is used to schedule the
   ``main-ingestion`` flow with the `publish` parameter set to True. This tells the flow to upload the data
   to Hugging Face.
+- The ``CRON_EXPIRE_EXOSCALE_SOS_OBJECTS`` environment variable, if set, is used to schedule the
+  ``expire_exoscale_sos_objects`` flow.
 - Any cron schedules are in the timezone specified by the ``TZ`` environment variable, defaulting to UTC.
 """
 
 import contextlib
+import dataclasses
 import os
 from collections.abc import Iterator
 
@@ -20,6 +23,7 @@ import prefect.schedules
 from demokratis_ml.pipelines import (
     embed_consultations,
     embed_documents,
+    expire_exoscale_sos_objects,
     extract_document_features,
     main_ingestion,
     predict_consultation_topics,
@@ -28,27 +32,33 @@ from demokratis_ml.pipelines import (
 )
 
 
+def _get_schedule_from_env_var(env_var_name: str) -> prefect.schedules.Schedule:
+    return prefect.schedules.Schedule(
+        cron=os.environ[env_var_name],
+        timezone=os.environ.get("TZ", "UTC"),
+    )
+
+
 def _get_main_ingestion_schedules() -> Iterator[prefect.schedules.Schedule]:
     with contextlib.suppress(KeyError):
-        yield prefect.schedules.Schedule(
-            cron=os.environ["CRON_MAIN_INGESTION_STANDARD"],
-            timezone=os.environ.get("TZ", "UTC"),
-        )
+        yield _get_schedule_from_env_var("CRON_MAIN_INGESTION_STANDARD")
     with contextlib.suppress(KeyError):
-        yield prefect.schedules.Schedule(
-            cron=os.environ["CRON_MAIN_INGESTION_PUBLISH"],
-            timezone=os.environ.get("TZ", "UTC"),
-            parameters={
-                "publish": True,
-            },
-        )
+        schedule = _get_schedule_from_env_var("CRON_MAIN_INGESTION_PUBLISH")
+        yield dataclasses.replace(schedule, parameters={"publish": True})
+
+
+def _get_expire_exoscale_sos_objects_schedule() -> Iterator[prefect.schedules.Schedule]:
+    with contextlib.suppress(KeyError):
+        yield _get_schedule_from_env_var("CRON_EXPIRE_EXOSCALE_SOS_OBJECTS")
 
 
 if __name__ == "__main__":
     store_dataframes_remotely = os.environ.get("STORE_DATAFRAMES_REMOTELY", "0").lower() in {"1", "true", "yes"}
     deployment_version = os.environ.get("DOCKER_IMAGE_TAG")
-    schedules = list(_get_main_ingestion_schedules())
-    print("main-ingestion schedules:", schedules)
+    main_ingestion_schedules = list(_get_main_ingestion_schedules())
+    expire_exoscale_sos_objects_schedule = list(_get_expire_exoscale_sos_objects_schedule())
+    print("main-ingestion schedules:", main_ingestion_schedules)
+    print("expire-exoscale-sos-objects schedule:", expire_exoscale_sos_objects_schedule)
 
     main_ingestion_deployment = main_ingestion.main_ingestion.to_deployment(
         name="main-ingestion",
@@ -57,7 +67,7 @@ if __name__ == "__main__":
             "store_dataframes_remotely": store_dataframes_remotely,
             "bootstrap_from_previous_output": True,
         },
-        schedules=schedules,
+        schedules=main_ingestion_schedules,
         version=deployment_version,
     )
 
@@ -100,6 +110,18 @@ if __name__ == "__main__":
         version=deployment_version,
     )
 
+    expire_exoscale_sos_objects_deployment = expire_exoscale_sos_objects.expire_exoscale_sos_objects.to_deployment(
+        name="expire-exoscale-sos-objects",
+        parameters={
+            "storage_block_name": "remote-dataframe-storage",
+            "path_glob": "*.parquet",
+            "max_age_days": 60,
+            "dry_run": False,
+        },
+        schedules=expire_exoscale_sos_objects_schedule,
+        version=deployment_version,
+    )
+
     prefect.serve(
         main_ingestion_deployment,
         preprocess_consultation_documents_deployment,
@@ -108,4 +130,5 @@ if __name__ == "__main__":
         extract_document_features_deployment,
         predict_document_types_deployment,
         predict_consultation_topics_deployment,
+        expire_exoscale_sos_objects_deployment,
     )
