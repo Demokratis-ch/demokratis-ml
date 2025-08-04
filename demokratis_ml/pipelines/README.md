@@ -15,6 +15,8 @@ Our pipelines are:
 6. [predict_consultation_topics.py](./predict_consultation_topics.py) runs batch inference for consultation topic classification (our ML problem I).
    This depends on the outputs of pipelines 1, 3, and 4. The outputs (predictions) are stored in a JSON file in object storage.
 7. [publish_data.py](./publish_data.py) uploads our datasets (outputs of pipelines 1-4) to Hugging Face so that all our data is transparently published.
+8. [expire_exoscale_sos_objects.py](./expire_exoscale_sos_objects.py) deletes older Parquet files from Exoscale's Simple Object Storage. We have to implement this
+   ourselves because Exoscale doesn't support object expiration natively.
 
 Note that all commands from this readme are to be executed from the root directory of the repository.
 
