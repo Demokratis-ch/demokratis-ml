@@ -21,7 +21,7 @@ def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "document_type_classifier",
-    model_version: int | str = 4,
+    model_version: int | str = 5,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2019, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
@@ -99,7 +99,7 @@ def predict_document_types(  # noqa: PLR0913
     logger.info("Input dataframe for the model has %d rows and %d columns", df_input.shape[0], df_input.shape[1])
 
     # Generate predictions
-    x, _ = demokratis_ml.models.document_types.model.create_matrices(df_input, fill_nulls=True)
+    x, _ = demokratis_ml.models.document_types.model.create_matrices(df_input)
     logger.info("Input feature matrix has shape %s", x.shape)
     y_proba = classifier.predict_proba(x)
     df_predictions = pd.DataFrame(y_proba, columns=classifier.classes_, index=df_input["document_uuid"])

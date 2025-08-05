@@ -109,8 +109,7 @@ TODO - explain this data source
 |-|-|-|-|-|-|-|
 | [I. Classifying consultation topics](#i-classifying-consultation-topics)           | ✅    | ✅ | ✅ | ✅ | de | Only 9 out of 26 topics supported.
 | [II. Extracting structure from documents](#ii-extracting-structure-from-documents) | ✅(*) | ✅ | ❌ | ❌ |
-| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ✅ | de | 10 out of 13 types supported. Not enough samples to train for the remaining 3.
-
+| [III. Classifying document types](#iii-classifying-document-types)                 | ✅    | ✅ | ✅ | ✅ | de | 10 out of 13 types supported; not enough samples to train for the remaining 3. Documents from cantons BL, GE, NE, SZ, VD, VS are not supported due to data quality issues.
 _*) We haven't published our copies of the source PDFs, but our [public dataset](#our-data-is-public) does include links to the original files hosted by cantons and the federal government._
 
 ### I. Classifying consultation topics
@@ -220,6 +219,8 @@ for bar, label in zip(bars, df.value_counts("document_type", dropna=False, norma
 We labelled a part of the cantonal dataset manually and through weak rules on file names (e.g. label files called 'Adressatenliste.pdf' as `RECIPIENT_LIST`). We also used the entire federal dataset for training because it comes already labelled.
 
 We merge some of the most underrepresented document types into VARIOUS_TEXT (the "everything else" class) before training and evaluation.
+
+Documents from cantons BL, GE, NE, SZ, VD, VS are not used for training and evaluation because we are experiencing many data quality issues, and subsequently bad model performance, for these cantons.
 
 #### Our model
 Our classifier uses three types of features:

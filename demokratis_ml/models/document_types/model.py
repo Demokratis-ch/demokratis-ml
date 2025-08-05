@@ -12,6 +12,7 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,  # noqa: F401
     RandomForestClassifier,
 )
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
@@ -38,52 +39,24 @@ EXTRA_FEATURE_COLUMNS = (
 
 EXTRA_CATEGORICAL_COLUMNS = ("is_federal_consultation",)
 
-_NULL_REPLACEMENTS = {
-    "count_pages": -1,
-    "count_pages_containing_images": -1,
-    "count_pages_containing_tables": -1,
-    "average_page_aspect_ratio": -1.0,
-    "fraction_pages_containing_tables": -1.0,
-}
+_NULL_REPLACEMENT = -1.0
 
 logger = logging.getLogger("document_types.model")
 
 
-def create_matrices(df: pd.DataFrame, fill_nulls: bool = False) -> tuple[np.ndarray, pd.Series]:
-    """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector.
-
-    RandomForestClassifier natively supports nulls since sklearn 1.7, so we don't necessarily need
-    to fill them.
-    """
+def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
+    """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector."""
     embeddings = np.vstack(df["embedding"])
     x = np.hstack(
-        [embeddings]
-        + [_pick_column(df, column, fill_nulls) for column in EXTRA_FEATURE_COLUMNS]
-        + [
+        [
+            embeddings,
+            df[list(EXTRA_FEATURE_COLUMNS)],
             df[list(EXTRA_CATEGORICAL_COLUMNS)],
         ]
     ).astype(np.float32)
     y = df["document_type"]
     assert x.shape[0] == y.shape[0]
     return x, y
-
-
-def _pick_column(df: pd.DataFrame, column: str, fill_nulls: bool) -> np.ndarray:
-    """Pick a column from the DataFrame, optionally replacing null values with a predefined value."""
-    series = df[column]
-    if fill_nulls:
-        try:
-            replacement = _NULL_REPLACEMENTS[column]
-        except KeyError:
-            replacement = 0
-            if df[column].isna().any():
-                logger.warning(
-                    "Column '%s' contains null values and no replacement value is set, filling with %r.",
-                    column,
-                    replacement,
-                )
-        series = series.fillna(replacement)
-    return series.to_numpy().reshape(-1, 1)  # 2D columnar array
 
 
 def create_classifier(
@@ -99,12 +72,17 @@ def create_classifier(
     i_extra_features = i_embeddings + embedding_dimension
     i_categorical_features = i_extra_features + len(EXTRA_FEATURE_COLUMNS)
 
+    imputer = SimpleImputer(strategy="constant", fill_value=_NULL_REPLACEMENT)
+
     clf_params = params["classifier"]
     match clf_params["type"]:
         case "LogisticRegression":
             classifier = LogisticRegression(max_iter=2000, random_state=random_state)
             scale = True
         case "RandomForest":
+            # RandomForestClassifier natively supports nulls since sklearn 1.7, so we don't necessarily
+            # need to fill them.
+            imputer = "passthrough"
             classifier = RandomForestClassifier(
                 random_state=random_state,
                 n_estimators=clf_params["n_estimators"],
@@ -148,6 +126,7 @@ def create_classifier(
             raise ValueError("Unknown classifier type", params["classifier"]["type"])
 
     pipeline = sklearn.pipeline.make_pipeline(
+        imputer,
         ColumnTransformer(
             [
                 (
