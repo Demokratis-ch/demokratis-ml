@@ -1,6 +1,5 @@
 data/consultation-documents/*
 data/dataframes/*.parquet
-data/embeddings-cache/*.parquet
 
 research/consultation_topics/mlruns.db
 research/consultation_topics/mlruns/*
