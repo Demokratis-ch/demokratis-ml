@@ -3,6 +3,7 @@
 import contextlib
 import datetime
 import functools
+import os
 import pathlib
 import socket
 import time
@@ -153,10 +154,10 @@ def slack_status_report(icon: str = "") -> Callable[[F], F]:
                 finally:
                     end_time = time.monotonic()
                     execution_time = end_time - start_time
-                    execution_time_repr = f"{execution_time // 60:.0f}m {execution_time % 60:02.1f}s"
+                    execution_time_repr = f"{execution_time // 60:02.0f}:{execution_time % 60:02.0f}"
 
                     status_icon = ":large_green_circle:" if exception is None else ":red_circle:"
-                    hostname = socket.gethostname()
+                    hostname = os.environ.get("WORKER_NAME", socket.gethostname())
                     message = (
                         f"{status_icon} {icon} `{func.__module__}.{func.__name__}` {version}"
                         f" executed in {execution_time_repr} on {hostname}"
