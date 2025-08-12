@@ -4,10 +4,11 @@ import datetime
 
 import prefect
 
-from demokratis_ml.pipelines.lib import blocks
+from demokratis_ml.pipelines.lib import blocks, utils
 
 
 @prefect.flow
+@utils.slack_status_report(":broom:")
 def expire_exoscale_sos_objects(
     storage_block_name: str,
     path_glob: str,
