@@ -19,8 +19,8 @@ MAX_PDF_PAGES_TO_PROCESS = 50
 
 
 @prefect.flow(
-    # It seems the extraction isn't CPU-bound so we can use a high number of threads per core.
-    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 20),
+    # It seems the extraction isn't CPU-bound so we can use a very high number of threads per core.
+    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=(os.cpu_count() or 1) * 25),
 )
 @utils.slack_status_report(":triangular_ruler:")
 def extract_document_features(
