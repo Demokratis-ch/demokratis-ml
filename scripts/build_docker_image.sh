@@ -6,6 +6,7 @@ set -o pipefail
 
 DOCKER_ORG=vitawasalreadytaken
 VERSION=${1:-""}
+GIT_TAG_ARG=${2:-""}
 
 if [ -z "$VERSION" ]; then
     echo "Usage: $0 <version>"
@@ -14,3 +15,9 @@ fi
 
 docker buildx build --platform linux/amd64 . -t $DOCKER_ORG/demokratis-ml:$VERSION --build-arg DOCKER_IMAGE_TAG=$VERSION
 docker push $DOCKER_ORG/demokratis-ml:$VERSION
+
+if [ "x$GIT_TAG_ARG" = "x--tag" ]; then
+    TAG="version/$VERSION"
+    echo -e "\nCreating git tag: $TAG"
+    git tag "$TAG"
+fi
