@@ -21,8 +21,8 @@ def get_output_dataframe_prefix(embedding_model_name: str = DEFAULT_EMBEDDING_MO
 
 
 @prefect.flow(
-    # We're not running much in parallel here
-    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=4),
+    # Limit concurrency because the embedding API is throttling us anyway.
+    task_runner=prefect.task_runners.ThreadPoolTaskRunner(max_workers=1),
 )
 @utils.slack_status_report(":1234:")
 def embed_documents(
@@ -30,7 +30,7 @@ def embed_documents(
     store_dataframes_remotely: bool,
     embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
     bootstrap_from_previous_output: bool = True,
-    only_languages: Iterable[str] | None = ("de",),
+    only_languages: Iterable[str] | None = None,
 ) -> pathlib.Path:
     """
     Embed document contents (document_content_plain) and store the embeddings in a dataframe indexed by document_uuid.

@@ -33,7 +33,7 @@ def embed_texts(texts: list[str], embedding_model: demokratis_ml.data.embeddings
     ),
     cache_expiration=datetime.timedelta(days=7),
     retries=3,
-    retry_delay_seconds=[10, 60, 60],
+    retry_delay_seconds=[10, 63, 127],
 )
 def embed_batch(texts: Iterable[str], embedding_model: demokratis_ml.data.embeddings.EmbeddingModel) -> np.ndarray:
     """Single batch embedding, wrapped in a task so that it can be retried if the API call fails."""

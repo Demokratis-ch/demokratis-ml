@@ -27,7 +27,7 @@ def extract_document_features(
     consultation_documents_file: str,
     store_dataframes_remotely: bool,
     bootstrap_from_previous_output: bool = True,
-    only_languages: Iterable[str] | None = ("de",),
+    only_languages: Iterable[str] | None = None,
 ) -> pathlib.Path:
     """
     Extract "visual" document features such as table counts and aspect ratios.
