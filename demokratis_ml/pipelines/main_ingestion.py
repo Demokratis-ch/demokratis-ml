@@ -68,6 +68,19 @@ def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_fro
     logger.info("embed_consultations() -> %r", consultation_embeddings_file)
 
     #
+    # ================= Publishing the data =================
+    #
+    if publish:
+        files = {
+            consultation_documents_file: f"{preprocess_consultation_documents.OUTPUT_DATAFRAME_PREFIX}.parquet",
+            features_file: f"{extract_document_features.OUTPUT_DATAFRAME_PREFIX}.parquet",
+            document_embeddings_file: f"{embed_documents.get_output_dataframe_prefix(document_embedding_model_name)}.parquet",  # noqa: E501
+            consultation_embeddings_file: f"{embed_consultations.get_output_dataframe_prefix(consultation_embedding_model_name)}.parquet",  # noqa: E501
+        }
+        publish_data.publish_data(use_remote_storage=store_dataframes_remotely, files=files)
+        logger.info("publish_data(%r)", files)
+
+    #
     # ================= Inference =================
     #
     data_files_version = datetime.datetime.now(tz=datetime.UTC).date()
@@ -85,16 +98,6 @@ def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_fro
         embedding_model_name=consultation_embedding_model_name,
     )
     logger.info("predict_consultation_topics(%s) -> %r", data_files_version, model_output_file)
-
-    if publish:
-        files = {
-            consultation_documents_file: f"{preprocess_consultation_documents.OUTPUT_DATAFRAME_PREFIX}.parquet",
-            features_file: f"{extract_document_features.OUTPUT_DATAFRAME_PREFIX}.parquet",
-            document_embeddings_file: f"{embed_documents.get_output_dataframe_prefix(document_embedding_model_name)}.parquet",  # noqa: E501
-            consultation_embeddings_file: f"{embed_consultations.get_output_dataframe_prefix(consultation_embedding_model_name)}.parquet",  # noqa: E501
-        }
-        publish_data.publish_data(use_remote_storage=store_dataframes_remotely, files=files)
-        logger.info("publish_data(%r)", files)
 
 
 if __name__ == "__main__":
