@@ -47,6 +47,7 @@ def create_input_dataframe(
             # "embedding_documents": lambda embeddings: np.stack(embeddings).max(axis=0),  # max-pooling
             "embedding_documents": "mean",
             "document_content_plain": "\n\f".join,
+            # "document_language": list,  # We're not using this yet
         }
     )
 
@@ -63,10 +64,16 @@ def create_input_dataframe(
     non_nullable_columns = list(set(df.columns) - {"consultation_end_date"})
     nulls_per_column = df[non_nullable_columns].isna().any()
     assert not nulls_per_column.any(), repr(nulls_per_column)
+    assert df.index.is_unique, (
+        "Consultation identifiers must be unique; duplication may have been caused by multiple languages?"
+    )
     return encode_topics(df)
 
 
 def _get_embeddings_by_attribute(df: pd.DataFrame, attribute_name: str) -> pd.Series:
+    # TODO: what about languages? Should we average embeddings across languages in this function?
+    # This function only works now because the dataframes coming into `create_input_dataframe` are already
+    # filtered down to a single language.
     idx = df.index.get_level_values("attribute_name") == attribute_name
     series = df[idx].reset_index(["attribute_language", "attribute_name"], drop=True)["embedding"]
     series.name = f"embedding_{attribute_name}"

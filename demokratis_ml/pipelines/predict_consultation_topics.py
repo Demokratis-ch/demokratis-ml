@@ -93,6 +93,10 @@ def predict_consultation_topics(  # noqa: PLR0913
     df_consultation_embeddings = utils.read_dataframe(
         pathlib.Path(consultation_embeddings_dataframe_name), columns=None, fs=fs_dataframe_storage
     )
+    if only_languages is not None:
+        df_consultation_embeddings = df_consultation_embeddings[
+            df_consultation_embeddings.index.get_level_values("attribute_language").isin(only_languages)
+        ]
 
     # Can't trust unfiltered_topic_columns because the topic dropping doesn't happen here
     df_input, unfiltered_topic_columns = demokratis_ml.models.consultation_topics.preprocessing.create_input_dataframe(
