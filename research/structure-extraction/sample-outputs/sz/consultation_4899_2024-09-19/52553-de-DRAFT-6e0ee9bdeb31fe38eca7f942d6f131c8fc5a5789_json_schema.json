@@ -1,0 +1,2870 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vernehmlassungsvorlage"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Steuergesetz[^1]"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(\u00c4nderung vom ...)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat des Kantons Schwyz,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Einsicht in Bericht und Vorlage des Regierungsrates,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "I."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Das Steuergesetz vom 9. Februar 2000[^2] wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 5 Abs. 2 Bst. b bis g sowie h (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "(Nat\u00fcrliche Personen ohne steuerrechtlichen Wohnsitz oder Aufenthalt in der Schweiz sind ausserdem steuerpflichtig, wenn sie:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "b) eine unselbstst\u00e4ndige Erwerbst\u00e4tigkeit f\u00fcr einen Arbeitgeber mit Sitz, tats\u00e4chlicher Verwaltung oder Betriebsst\u00e4tte im Kanton aus\u00fcben und der Schweiz nach dem anwendbaren internationalen Abkommen im Steuerbereich mit dem jeweiligen Nachbarstaat ein Besteuerungsrecht betreffend die im Ausland ausge\u00fcbte Erwerbst\u00e4tigkeit einger\u00e4umt wird;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bisherige Bst. b bis f werden zu Bst. c und g."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "h) f\u00fcr Arbeit im internationalen Verkehr an Bord eines Schiffes oder eines Luftfahrzeuges oder bei einem Transport auf der Strasse Lohn oder andere Verg\u00fctungen von einem Arbeitgeber mit Sitz, tats\u00e4chlicher Verwaltung oder Betriebsst\u00e4tte im Kanton erhalten; davon ausgenommen bleibt die Besteuerung von Seeleuten f\u00fcr die Erwerbst\u00e4tigkeit an Bord eines von einem solchen Arbeitgeber unter Schweizer Flagge betriebenen Seeschiffs."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 7 Abs. 1"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuerausscheidung f\u00fcr Gesch\u00e4ftsbetriebe, Betriebsst\u00e4tten und Grundst\u00fccke erfolgt im Verh\u00e4ltnis zu anderen Kantonen und zum Ausland sowie zwischen einzelnen Bezirken, Gemeinden und Kirchgemeinden nach den Grunds\u00e4tzen des Bundesrechts \u00fcber das Verbot der interkantonalen Doppelbesteuerung. Vorbehalten bleiben die Abs. 2 bis 5."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 8 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Steuerpflichtige ohne steuerrechtlichen Wohnsitz oder Aufenthalt in der Schweiz entrichten die Steuern f\u00fcr Gesch\u00e4ftsbetriebe, Betriebsst\u00e4tten und Grundst\u00fccke im Kanton mindestens zu dem Steuersatz, der dem im Kanton erzielten Einkommen entspricht."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 19 Abs. 4"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "4 Weiter sind als Einkommen steuerbar:"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "Gewinne auf Grundst\u00fccken des Gesch\u00e4ftsverm\u00f6gens in dem Umfang, in dem Abschreibungen zugelassen worden sind;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "geltend gemachte Teilver\u00e4usserungsverluste nach \u00a7 119 Abs. 2, wenn sie bei der Grundst\u00fcckgewinnsteuer steuermindernd ber\u00fccksichtigt worden sind."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 21a Abs. 1"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die R\u00fcckzahlung von Einlagen, Aufgeldern und Zusch\u00fcssen (Reserven aus Kapitaleinlagen), die von den Inhabern der Beteiligungsrechte nach dem 31. Dezember 1996 geleistet worden sind, wird gleich behandelt wie die R\u00fcckzahlung von Grund- oder Stammkapital. Dies gilt f\u00fcr Einlagen und Aufgelder, die w\u00e4hrend eines Kapitalbands nach Art. 653s ff. des Obligationenrechts (OR) geleistet werden, nur soweit sie die R\u00fcckzahlungen von Reserven im Rahmen dieses Kapitalbands \u00fcbersteigen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 23 Abs. 4"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Leibrentenversicherungen sowie Leibrenten- und Verpfr\u00fcndungsvertr\u00e4ge sind im Umfang ihres Ertragsanteils steuerbar. Dieser bestimmt sich wie folgt:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "a.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Bei garantierten Leistungen aus Leibrentenversicherungen, die dem Bundesgesetz \u00fcber den Versicherungsvertrag vom 2. April 1908 (VVG)[^3] unterstehen, ist der im Zeitpunkt des Vertragsschlusses auf der Grundlage von Art. 36 Abs. 1 des Bundesgesetzes betreffend die Aufsicht \u00fcber Versicherungsunternehmen vom 17. Dezember 2004 (VAG)[^4] bestimmte maximale technische Zinssatz (m) w\u00e4hrend der gesamten Vertragsdauer massgebend:"
+                                            ],
+                                            "children": [
+                                                {
+                                                    "label": "",
+                                                    "type": "list",
+                                                    "children": [
+                                                        {
+                                                            "label": "1.",
+                                                            "type": "list_item",
+                                                            "content": [
+                                                                "Ist dieser Zinssatz gr\u00f6sser als null, berechnet sich der Ertragsanteil, auf den n\u00e4chstliegenden ganzen Prozentwert auf- oder abgerundet, wie folgt:",
+                                                                "Ertragsanteil = [1 - ((1+m)^22 - 1) / (22 * m * (1+m)^23)] * 100 %"
+                                                            ],
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "label": "2.",
+                                                            "type": "list_item",
+                                                            "content": [
+                                                                "Ist dieser Zinssatz negativ oder null, betr\u00e4gt der Ertragsanteil null Prozent."
+                                                            ],
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "b.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Bei \u00dcberschussleistungen aus Leibrentenversicherungen, die dem VVG unterstehen, entspricht der Ertragsanteil 70 Prozent dieser Leistungen."
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "c.",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Bei Leistungen aus ausl\u00e4ndischen Leibrentenversicherungen, aus Leibrenten- und aus Verpfr\u00fcndungsvertr\u00e4gen ist die H\u00f6he der um 0.5 Prozentpunkte erh\u00f6hten annualisierten Rendite zehnj\u00e4hriger Bundesobligationen (r) w\u00e4hrend des betreffenden Steuerjahres und der neun vorangegangenen Jahre massgebend:"
+                                            ],
+                                            "children": [
+                                                {
+                                                    "label": "",
+                                                    "type": "list",
+                                                    "children": [
+                                                        {
+                                                            "label": "1.",
+                                                            "type": "list_item",
+                                                            "content": [
+                                                                "Ist diese Rendite gr\u00f6sser als null, berechnet sich der Ertragsanteil, auf den n\u00e4chstliegenden ganzen Prozentwert auf- oder abgerundet, wie folgt:",
+                                                                "Ertragsanteil = [1 - ((1+r)^22 - 1) / (22 * r * (1+r)^23)] * 100 %"
+                                                            ],
+                                                            "children": []
+                                                        },
+                                                        {
+                                                            "label": "2.",
+                                                            "type": "list_item",
+                                                            "content": [
+                                                                "Ist diese Rendite negativ oder null, so betr\u00e4gt der Ertragsanteil null Prozent."
+                                                            ],
+                                                            "children": []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "2"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vernehmlassungsvorlage"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 25 Bst. e bis k sowie l (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Der Einkommenssteuer sind nicht unterworfen:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "die Leistungen in Erf\u00fcllung familienrechtlicher Verpflichtungen, ausgenommen die Unterhaltsbeitr\u00e4ge gem\u00e4ss \u00a7 24 Bst. e;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "f.",
+                            "type": "list_item",
+                            "content": [
+                                "der Sold der Milizfeuerwehrleute bis zu dem f\u00fcr die direkte Bundessteuer massgebenden Betrag f\u00fcr Dienstleistungen im Zusammenhang mit der Erf\u00fcllung der Kernaufgaben der Feuerwehr (\u00dcbungen, Pikettdienste, Kurse, Inspektionen und Ernstfalleins\u00e4tze zur Rettung, Brandbek\u00e4mpfung, allgemeinen Schadenwehr, Elementarschadenbew\u00e4ltigung und dergleichen); ausgenommen sind Pauschalzulagen f\u00fcr Kader, Funktionszulagen sowie Entsch\u00e4digungen f\u00fcr administrative Arbeiten und f\u00fcr Dienstleistungen, welche die Feuerwehr freiwillig erbringt;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "der Sold f\u00fcr Milit\u00e4r- und Schutzdienst sowie das Taschengeld f\u00fcr Zivildienst;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bisherige Bst. g bis j werden zu Bst. h bis k."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "l.",
+                            "type": "list_item",
+                            "content": [
+                                "die Eink\u00fcnfte aufgrund des Bundesgesetzes \u00fcber \u00dcberbr\u00fcckungsleistungen f\u00fcr \u00e4ltere Arbeitslose vom 19. Juni 2020 (\u00dcLG)[^5]."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 29 Abs. 2 Bst. g (neu), Abs. 6 und 7 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "(Dazu geh\u00f6ren insbesondere:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "gewinnabsch\u00f6pfende Sanktionen, soweit sie keinen Strafzweck haben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "6.",
+                            "type": "list_item",
+                            "content": [
+                                "Nicht abziehbar sind insbesondere:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "Zahlungen von Bestechungsgeldern im Sinne des schweizerischen Strafrechts;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufwendungen zur Erm\u00f6glichung von Straftaten oder als Gegenleistung f\u00fcr die Begehung von Straftaten;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "Bussen und Geldstrafen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "finanzielle Verwaltungssanktionen, soweit sie einen Strafzweck haben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "7.",
+                            "type": "list_item",
+                            "content": [
+                                "Sind Sanktionen nach Abs. 6 Bst. c und d von einer ausl\u00e4ndischen Straf- oder Verwaltungsbeh\u00f6rde verh\u00e4ngt worden, sind sie abziehbar, wenn:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die Sanktion gegen den schweizerischen Ordre public verst\u00f6sst oder"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "die steuerpflichtige Person glaubhaft darlegt, dass sie alles Zumutbare unternommen hat, um sich rechtskonform zu verhalten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 33 Abs. 1 Bst. b und g, Abs. 3 Bst. e und g"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Von den Eink\u00fcnften werden abgezogen:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "die dauernden Lasten sowie der Ertragsanteil der Leistungen aus Leibrenten- und Verpfr\u00fcndungsvertr\u00e4gen nach \u00a7 23 Abs. 4 Bst. c;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "die Einlagen, Pr\u00e4mien und Beitr\u00e4ge f\u00fcr die Lebens-, die Kranken- und die nicht unter Bst. f fallende Unfallversicherung sowie die Zinsen von Sparkapitalien der Steuerpflichtigen und der von ihnen unterhaltenen Personen, bis zum Gesamtbetrage vom 10 400 Franken f\u00fcr in ungetrennter Ehe lebende Steuerpflichtige und von 5200 Franken f\u00fcr die \u00fcbrigen Steuerpflichtigen. F\u00fcr Steuerpflichtige, die weder Beitr\u00e4ge an die berufliche Vorsorge noch an die gebundene Selbstvorsorge leisten, erh\u00f6hen sich diese Ans\u00e4tze um die H\u00e4lfte."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Zudem erh\u00f6hen sich diese Abz\u00fcge um 600 Franken f\u00fcr jedes Kind, f\u00fcr welches die Steuerpflichtigen einen Abzug gem\u00e4ss \u00a7 35 Abs. 1 geltend machen k\u00f6nnen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3 (Weiter werden abgezogen:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "die nachgewiesenen Kosten f\u00fcr die Drittbetreuung jedes Kindes, welches das 14. Altersjahr noch nicht vollendet hat und mit der steuerpflichtigen Person, die f\u00fcr seinen Unterhalt sorgt, im gleichen Haushalt lebt, soweit diese Kosten in direktem kausalem Zusammenhang mit der Erwerbst\u00e4tigkeit, Ausbildung oder Erwerbsunf\u00e4higkeit der steuerpflichtigen Person stehen, jedoch h\u00f6chstens 10 000 Franken;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "die Kosten der berufsorientierten Aus- und Weiterbildung, einschliesslich der Umschulungskosten, bis zum Gesamtbetrag von 16 000 Franken, sofern",
+                                "1. ein erster Abschluss auf der Sekundarstufe II vorliegt, oder",
+                                "2. das 20. Altersjahr vollendet ist und es sich nicht um die Ausbildungskosten bis zum ersten Abschluss auf der Sekundarstufe II handelt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00a7 35 Abs. 1 Bst. a bis e und Abs. 1a Bst. a bis c"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1 (Vom Reineinkommen werden f\u00fcr die Steuerberechnung abgezogen:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "10 400 Franken bei den in ungetrennter Ehe lebenden Ehepaaren;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "5200 Franken bei den \u00fcbrigen Steuerpflichtigen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "11 000 Franken f\u00fcr jedes minderj\u00e4hrige Kind unter der elterlichen Sorge oder Obhut der Steuerpflichtigen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "13 000 Franken f\u00fcr jedes vollj\u00e4hrige Kind bis zur Vollendung des 28. Altersjahres, das in Aus- oder Weiterbildung steht und dessen Unterhalt die Steuerpflichtigen zur Hauptsache bestreiten;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "8800 Franken zus\u00e4tzlich f\u00fcr eine alleinerziehende Person, solange ein Kind noch nicht vollj\u00e4hrig ist;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1a (Alle Steuerpflichtigen haben Anspruch auf einen Entlastungsabzug vom Reineinkommen. Er betr\u00e4gt 30 Prozent der massgebenden Bemessungsgrundlage, die sich wie folgt berechnet:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "f\u00fcr in ungetrennter Ehe lebende Ehepaare aus der Differenz zwischen 80 000 Franken und dem Reineinkommen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "f\u00fcr die \u00fcbrigen Steuerpflichtigen aus der Differenz zwischen 40 000 Franken und dem Reineinkommen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "f\u00fcr jedes Kind, f\u00fcr welches ein Abzug gem\u00e4ss Abs. 1 Bst. c oder d geltend gemacht werden kann, erh\u00f6ht sie sich um 30 000 Franken;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00a7 36 Abs. 1 und 3"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1 (Die Einkommenssteuer betr\u00e4gt:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "0.25 Prozent f\u00fcr die ersten 1 500 Franken"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "0.50 Prozent f\u00fcr die weiteren 1 300 Franken"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "0.75 Prozent f\u00fcr die weiteren 1 100 Franken"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.00 Prozent f\u00fcr die weiteren 1 000 Franken"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.25 Prozent f\u00fcr die weiteren 1 000 Franken"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vernehmlassungsvorlage"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "1.50 Prozent f\u00fcr die weiteren 1 100 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "1.75 Prozent f\u00fcr die weiteren 1 300 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "2.00 Prozent f\u00fcr die weiteren 1 800 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "2.25 Prozent f\u00fcr die weiteren 2 400 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "2.50 Prozent f\u00fcr die weiteren 3 600 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "2.75 Prozent f\u00fcr die weiteren 5 900 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "3.00 Prozent f\u00fcr die weiteren 8 200 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "3.25 Prozent f\u00fcr die weiteren 10 500 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "3.50 Prozent f\u00fcr die weiteren 11 600 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "3.65 Prozent f\u00fcr die weiteren 9 300 Franken"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "3.90 Prozent f\u00fcr die weiteren 197 200 Franken"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "F\u00fcr steuerbare Einkommen \u00fcber 258 800 Franken betr\u00e4gt die einfache Steuer f\u00fcr das ganze Einkommen 3.65 Prozent."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bisheriger Abs. 4 wird zu Abs. 3."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 36a"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00a7 36 gilt auch f\u00fcr die Kantonssteuer. Hinzu kommt eine zus\u00e4tzliche Tarifstufe von 7 Prozent f\u00fcr die weiteren 174 700 Franken. F\u00fcr steuerbare Einkommen \u00fcber 433 500 Franken betr\u00e4gt die einfache Steuer f\u00fcr das ganze Einkommen 5 Prozent."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 38 Abs. 1"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Kapitalleistungen gem\u00e4ss \u00a7 23 sowie Zahlungen bei Tod und f\u00fcr bleibende k\u00f6rperliche oder gesundheitliche Nachteile werden gesondert zu dem Steuersatz besteuert, der sich erg\u00e4be, wenn an Stelle der einmaligen eine j\u00e4hrliche Leistung von 1/25 der Kapitalleistung ausgerichtet w\u00fcrde. Die einfache Steuer betr\u00e4gt maximal 1.8 Prozent."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 39"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gewinne aus Geldspielen gem\u00e4ss \u00a7 25 Bst. i und j, die nicht steuerfrei sind, werden gesondert mit einer Einkommenssteuer von 15 Prozent besteuert."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 49 Abs. 1 und 2 sowie Abs. 3 und 4 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat gleicht die Folgen der kalten Progression aus durch eine Anpassung der Tarifstufen bei der Einkommenssteuer (\u00a7 36 f.), der in Frankenbetr\u00e4gen festgelegten Abz\u00fcge, Freibetr\u00e4ge und Freigrenzen (\u00a7\u00a7 25, 28, 33 und 35) und des Mindestbetrags bei der Besteuerung nach dem Aufwand (\u00a7 15a Abs. 1 Bst. a) an den Landesindex der Konsumentenpreise."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Ausgleich erfolgt alle drei Jahre auf den Beginn einer neuen Steuerperiode. Der Regierungsrat legt die Anpassungen mindestens sechs Monate vor Beginn dieser Steuerperiode in einer Verordnung fest."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kalte Progression wird in vollem Umfang ausgeglichen. F\u00fcr die H\u00f6he des Ausgleichs ist der Indexstand per Ende M\u00e4rz des jeweiligen Vorjahres massgebend"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Basis Dezember 2005 = 100). Die Betr\u00e4ge sind auf 100 Franken auf- oder abzurunden."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei negativem Teuerungsverlauf ist eine Anpassung ausgeschlossen. Der auf eine negative Teuerung folgende Ausgleich erfolgt auf der Grundlage des letzten Ausgleichs."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 54 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Den \u00fcbrigen juristischen Personen gleichgestellt sind die kollektiven Kapitalanlagen mit direktem Grundbesitz nach Art. 58 oder 118a des Bundesgesetzes \u00fcber die kollektiven Kapitalanlagen vom 23. Juni 2006 (KAG)[^6]. Die Investmentgesellschaften mit festem Kapital nach Art. 110 KAG werden wie Kapitalgesellschaften besteuert."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 64 Abs. 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Weiter sind als Reingewinn steuerbar:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "Gewinne auf Grundst\u00fccken in dem Umfang, in dem Abschreibungen zugelassen worden sind;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "geltend gemachte Teilver\u00e4usserungsverluste nach \u00a7 119 Abs. 2, wenn sie bei der Grundst\u00fcckgewinnsteuer steuermindernd ber\u00fccksichtigt worden sind."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 65 Abs. 1 Bst. h (neu), Abs. 2 und 3 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Zum gesch\u00e4ftsm\u00e4ssig begr\u00fcndeten Aufwand geh\u00f6ren auch:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "h.",
+                            "type": "list_item",
+                            "content": [
+                                "gewinnabsch\u00f6pfende Sanktionen, soweit sie keinen Strafzweck haben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Nicht zum gesch\u00e4ftsm\u00e4ssig begr\u00fcndeten Aufwand geh\u00f6ren insbesondere:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "Zahlungen von Bestechungsgeldern im Sinne des schweizerischen Strafrechts;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufwendungen zur Erm\u00f6glichung von Straftaten oder als Gegenleistung f\u00fcr die Begehung von Straftaten;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "Bussen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "finanzielle Verwaltungssanktionen, soweit sie einen Strafzweck haben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Sind Sanktionen nach Abs. 2 Bst. c und d von einer ausl\u00e4ndischen Straf- oder Verwaltungsbeh\u00f6rde verh\u00e4ngt worden, so sind sie abziehbar, wenn:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die Sanktion gegen den schweizerischen Ordre public verst\u00f6sst; oder"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "die steuerpflichtige Person glaubhaft darlegt, dass sie alles Zumutbare unternommen hat, um sich rechtskonform zu verhalten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 72 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Gewinne, die auf ein Jahr berechnet 20 000 Franken nicht erreichen, werden nicht besteuert."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 74 Abs. 7 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "^6",
+                            "type": "list_item",
+                            "content": [
+                                ""
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vernehmlassungsvorlage"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "7.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei Konzernobergesellschaften von systemrelevanten Banken nach Art. 7 Abs. 1 des Bankengesetzes \u00fcber die Banken und Sparkassen vom 8. November 1934 (BankG)[^SR 952.0] werden f\u00fcr die Berechnung des Nettoertrags nach Abs. 2 der Finanzierungsaufwand und die Forderung in der Bilanz aus konzernintern weitergegebenen Mitteln nicht ber\u00fccksichtigt, wenn diese Mittel aus Fremdkapitalinstrumenten nach Art. 11 Abs. 4 oder 30b Abs. 6 oder 7 Bst. b BankG stammen, die von der Eidgen\u00f6ssischen Finanzmarktaufsicht (FINMA) im Hinblick auf die Erf\u00fcllung regulatorischer Erfordernisse genehmigt wurden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 85 Abs. 2 und 3 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Lautet der Gesch\u00e4ftsabschluss auf eine ausl\u00e4ndische W\u00e4hrung, so ist der steuerbare Reingewinn in Franken umzurechnen. Massgebend ist der durchschnittliche Devisenkurs (Verkauf) der Steuerperiode."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Abs. 2 wird zu Abs. 3"
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 86 Abs. 2 und 3 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Lautet der Gesch\u00e4ftsabschluss auf eine ausl\u00e4ndische W\u00e4hrung, so ist das steuerbare Eigenkapital in Franken umzurechnen. Massgebend ist der Devisenkurs (Verkauf) am Ende der Steuerperiode."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Abs. 2 wird zu Abs. 3."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 89 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 93b Abs. 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Erfolgt keine nachtr\u00e4gliche ordentliche Veranlagung auf Antrag, tritt die Quellensteuer an die Stelle der im ordentlichen Verfahren zu veranlagenden Steuern des Bundes, des Kantons, des Bezirks, der Gemeinde und der Kirchgemeinde auf dem Erwerbseinkommen. Es werden keine zus\u00e4tzlichen Abz\u00fcge gew\u00e4hrt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 94 Abs. 1 Bst. a und b sowie c (neu), Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Einem Steuerabzug an der Quelle nach \u00a7\u00a7 87 bis 90 unterliegen:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "a) im Ausland wohnhafte Arbeitnehmer f\u00fcr ihre Eink\u00fcnfte aus unselbstst\u00e4ndiger Erwerbst\u00e4tigkeit und die an deren Stelle tretenden Ersatzeink\u00fcnfte, wenn sie f\u00fcr kurze Dauer, als Grenzg\u00e4nger oder Wochenaufenthalter oder als leitende Angestellte f\u00fcr einen Arbeitgeber mit Wohnsitz, Sitz, tats\u00e4chlicher Verwaltung oder Betriebsst\u00e4tte im Kanton erwerbst\u00e4tig sind;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "b) in einem Nachbarstaat wohnhafte Arbeitnehmer f\u00fcr ihr im Ausland erzieltes Einkommen aus unselbstst\u00e4ndiger Erwerbst\u00e4tigkeit f\u00fcr einen Arbeitgeber mit Sitz, tats\u00e4chlicher Verwaltung oder Betriebsst\u00e4tte im Kanton, sofern der Schweiz nach dem anwendbaren internationalen Abkommen im Steuerbereich"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "mit dem jeweiligen Nachbarstaat ein Besteuerungsrecht betreffend die im Ausland ausge\u00fcbte Erwerbst\u00e4tigkeit einger\u00e4umt wird;"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "c) im Ausland wohnhafte Arbeitnehmer, die f\u00fcr Arbeit im internationalen Verkehr an Bord eines Schiffes oder eines Luftfahrzeuges oder bei einem Transport auf der Strasse Lohn oder andere Verg\u00fctungen von einem Arbeitgeber mit Wohnsitz, Sitz, tats\u00e4chlicher Verwaltung oder Betriebsst\u00e4tte im Kanton erhalten."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Davon ausgenommen sind Einkommen:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "die der Besteuerung im vereinfachten Abrechnungsverfahren nach \u00a7 39a unterstehen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "von Seeleuten f\u00fcr die Erwerbst\u00e4tigkeit an Bord eines von einem Arbeitgeber unter Schweizer Flagge betriebenen Seeschiffes."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 100 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Erfolgt keine nachtr\u00e4gliche ordentliche Veranlagung, tritt die Quellensteuer an die Stelle der im ordentlichen Verfahren zu veranlagenden Steuern des Bundes, des Kantons, des Bezirks, der Gemeinde und der Kirchgemeinde auf dem Erwerbseinkommen. Es werden keine zus\u00e4tzlichen Abz\u00fcge gew\u00e4hrt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 101 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr Kapitalleistungen betr\u00e4gt die Bezugsprovision 1 Prozent des gesamten Quellensteuerbetrags, jedoch h\u00f6chstens 50 Franken pro Kapitalleistung f\u00fcr die Quellensteuer von Bund, Kanton, Bezirk, Gemeinde und Kirchgemeinde."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 108 Abs. 1 und 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Die Besteuerung wird auf Begehren der steuerpflichtigen Person aufgeschoben:)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "bei vollst\u00e4ndiger oder teilweiser Ver\u00e4usserung eines zum betriebsnotwendigen Anlageverm\u00f6gen im Sinne von \u00a7\u00a7 30 Abs. 3 oder 68 Abs. 3 geh\u00f6renden Grundst\u00fccks, soweit der Ver\u00e4usserungserl\u00f6s innert zwei Jahren vor oder nach der Ver\u00e4usserung zum Erwerb eines neuen oder zur Verbesserung eines eigenen Ersatzgrundst\u00fccks in der Schweiz verwendet wird;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "bei vollst\u00e4ndiger oder teilweiser Ver\u00e4usserung eines land- oder forstwirtschaftlichen Grundst\u00fccks, soweit der Ver\u00e4usserungserl\u00f6s innert zwei Jahren vor oder nach der Ver\u00e4usserung zum Erwerb eines selbstbewirtschafteten Ersatzgrundst\u00fccks oder zur Verbesserung der eigenen, selbstbewirtschafteten land- oder forstwirtschaftlichen Grundst\u00fccke in der Schweiz verwendet wird;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "bei der Ersatzbeschaffung von Beteiligungen im Sinne von \u00a7 68 Abs. 1a. Die Frist gem\u00e4ss Bst. a gilt sinngem\u00e4ss."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Abs. 2 wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 109 Abs. 1"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "8"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Vernehmlassungsvorlage"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Besteuerung wird auf Begehren der steuerpflichtigen Person aufgeschoben bei Ver\u00e4usserung einer dauernd und ausschliesslich selbstgenutzten Wohnliegenschaft, soweit der Ver\u00e4usserungserl\u00f6s innert vier Jahren vor oder nach der Ver\u00e4usserung zum Erwerb oder Bau einer gleichgenutzten Ersatzliegenschaft in der Schweiz verwendet wird."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 110"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 128a (neu) 2. Elektronisches Verfahren"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Eingaben der steuerpflichtigen Person an die Steuerbeh\u00f6rden k\u00f6nnen elektronisch eingereicht werden, auch wenn in diesem Gesetz eine andere Form vorgesehen ist. Wird die pers\u00f6nliche Unterzeichnung gesetzlich vorgeschrieben, hat die steuerpflichtige Person ihre Angaben elektronisch zu best\u00e4tigen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuerbeh\u00f6rden k\u00f6nnen der steuerpflichtigen Person mit deren Einverst\u00e4ndnis Dokumente in elektronischer Form zustellen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat regelt die Sicherstellung von Authentizit\u00e4t und Integrit\u00e4t der \u00fcbermittelten Daten und weitere Einzelheiten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 128b (neu) 3. Elektronische Steuerakten"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kantonale Steuerverwaltung kann s\u00e4mtliche von den steuerpflichtigen Personen oder Dritten eingereichten Akten elektronisch erfassen und aufbewahren."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Sind die Authentizit\u00e4t und Integrit\u00e4t der elektronisch erfassten und aufbewahrten Akten gew\u00e4hrleistet, haben sie die gleiche Beweiskraft wie in Papierform eingereichte Akten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "In Papierform eingereichte Akten k\u00f6nnen nach der elektronischen Erfassung vernichtet werden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 129 \u00dcberschrift"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4. Amtspflichten"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "a) Ausstand"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 130 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Eine Auskunft, einschliesslich der \u00d6ffnung von Akten, ist zul\u00e4ssig, wenn hierf\u00fcr eine ausdr\u00fcckliche gesetzliche Grundlage im Recht des Bundes oder des Kantons gegeben ist. Vorbehalten bleiben Ausk\u00fcnfte an Beh\u00f6rden nach \u00a7 131a."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 131 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "\u00a7 131a (neu) d) Amtshilfe an andere Beh\u00f6rden"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuerbeh\u00f6rden erteilen den Verwaltungsbeh\u00f6rden, Strafuntersuchungsbeh\u00f6rden und Gerichten die zur Erf\u00fcllung ihrer gesetzlichen Aufgaben ben\u00f6tigten Ausk\u00fcnfte."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Auskunftserteilung setzt eine gesetzliche Grundlage im Recht des Bundes oder des Kantons voraus. Sie ist ohne eine solche Grundlage nur zul\u00e4ssig, soweit sie im \u00f6ffentlichen Interesse geboten ist. \u00dcber entsprechende Begehren entscheidet das Finanzdepartement generell oder im Einzelfall."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 132 \u00dcberschrift, Abs. 1 und 3"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "e) Amtshilfe anderer Beh\u00f6rden"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Verwaltungsbeh\u00f6rden, Strafuntersuchungsbeh\u00f6rden und Gerichte haben den Steuerbeh\u00f6rden ungeachtet einer allf\u00e4lligen Geheimhaltungspflicht auf Verlangen kostenlos Auskunft zu erteilen, Einsicht in die Akten zu gew\u00e4hren und die Daten weiter zu geben, die f\u00fcr die Durchf\u00fchrung dieses Gesetzes von Bedeutung sein k\u00f6nnen. Die Beh\u00f6rden und Gerichte haben von sich aus den Steuerbeh\u00f6rden Mitteilung zu machen, wenn nach Wahrnehmung in ihrer amtlichen T\u00e4tigkeit eine unvollst\u00e4ndige Versteuerung wahrscheinlich ist."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Abs. 3 wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 132a (neu)"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "f) Form der Amtshilfe"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Akten und Daten werden den Steuerbeh\u00f6rden und den anderen Beh\u00f6rden einzeln, auf Listen oder auf elektronischem Weg \u00fcbermittelt. Sie k\u00f6nnen auch mittels eines Abrufverfahrens zug\u00e4nglich gemacht werden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat regelt die Voraussetzungen des Abrufverfahrens f\u00fcr die Amtshilfe nach \u00a7\u00a7 131 f."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 133 \u00dcberschrift"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "5. Verfahrensrechtliche Stellung verheirateter Personen"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 134 \u00dcberschrift, Abs. 3 bis 5 (neu)"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "6. Akteneinsicht"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Akteneinsicht kann auch auf elektronischem Weg gew\u00e4hrt werden, wenn die steuerpflichtige Person damit einverstanden ist."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bisherige Abs. 3 und 4 werden zu Abs. 4 und 5."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 135 \u00dcberschrift"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "7. Feststellung des Sachverhalts"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 136 \u00dcberschrift, Abs. 3"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "8. Vertretung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "10"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vernehmlassungsvorlage"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtige Person kann unter Verwendung des amtlichen Vollmachtformulars die Zustellung der Verfahrensakten mit Ausnahme der Steuererkl\u00e4rung und Steuerrechnung (einfache Vollmacht) oder die Zustellung aller Verfahrensakten (umfassende Vollmacht) an einen Vertreter verlangen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 137 \u00dcberschrift"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "9. Er\u00f6ffnung von Verf\u00fcgungen und Entscheiden"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 138 \u00dcberschrift"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "10. Fristen"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 139 \u00dcberschrift"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "11. Verj\u00e4hrung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "a) Veranlagungsverj\u00e4hrung"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 141 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Sie kann insbesondere Sachverst\u00e4ndige beiziehen, Augenscheine durchf\u00fchren, Gesch\u00e4ftsb\u00fccher und Belege an Ort und Stelle einsehen und Zeugen einvernehmen. Die sich daraus ergebenden Kosten k\u00f6nnen ganz oder teilweise der steuerpflichtigen Person oder jeder andern zur Auskunft verpflichteten Person auferlegt werden, die diese Kosten durch eine schuldhafte Verletzung von Verfahrenspflichten notwendig gemacht hat."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 142 \u00dcberschrift, Abs. 1 bis 6 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "b) Verfahrenspflichten der steuerpflichtigen Personen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "aa) Steuererkl\u00e4rung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen haben j\u00e4hrlich eine Steuererkl\u00e4rung f\u00fcr die vorangegangene Steuerperiode einzureichen. Vorbehalten bleibt die vorzeitige Abgabe der Steuererkl\u00e4rung bei Beendigung der Steuerpflicht nach Massgabe der Verordnung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen werden \u00f6ffentlich oder pers\u00f6nlich aufgefordert, die Steuererkl\u00e4rung einzureichen. Das Ausbleiben einer pers\u00f6nlichen Aufforderung entbindet nicht von der Einreichungspflicht."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen m\u00fcssen die amtliche Steuererkl\u00e4rung wahrheitsgem\u00e4ss und vollst\u00e4ndig ausf\u00fcllen, pers\u00f6nlich unterzeichnen und samt den vorgeschriebenen Beilagen fristgem\u00e4ss der kantonalen Steuerverwaltung einreichen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Steuererkl\u00e4rung samt Beilagen kann auch elektronisch \u00fcber den hierzu zur Verf\u00fcgung gestellten Kanal eingereicht werden. Anstelle der pers\u00f6nlichen Unterzeichnung hat die steuerpflichtige Person elektronisch zu best\u00e4tigen, dass ihre Angaben wahrheitsgem\u00e4ss und vollst\u00e4ndig sind."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Steuerpflichtige Personen, welche die Steuererkl\u00e4rung nicht oder mangelhaft ausgef\u00fcllt einreichen, werden aufgefordert, das Vers\u00e4umte innert angemessener Frist nachzuholen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bisheriger Abs. 5 wird zu Abs. 6."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "11"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 143 \u00dcberschrift und Abs. 3 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "bb) Beilagen zur Steuererkl\u00e4rung und Meldung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kantonale Steuerverwaltung erstattet dem Handelsregister des Kantons Schwyz Meldung, wenn eine juristische Person innert drei Monaten nach Ablauf der entsprechenden Frist keine Jahresrechnung gem\u00e4ss Abs. 2 einreicht."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 145 Abs. 1 Bst. b, d und e sowie f (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Gegen\u00fcber der steuerpflichtigen Person sind zur Ausstellung schriftlicher Bescheinigungen verpflichtet:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "der bisherige Arbeitgeber \u00fcber die unselbstst\u00e4ndige Erwerbst\u00e4tigkeit bei einem unterj\u00e4hrigen Austritt des Arbeitnehmers nach \u00a7 94 Abs. 1 Bst. a und b, soweit die Angaben f\u00fcr die Umsetzung des anwendbaren internationalen Abkommens im Steuerbereich erforderlich sind und sofern der Arbeitnehmer die Bescheinigung verlangt; diese ist im Zeitpunkt der Beendigung des Arbeitsverh\u00e4ltnisses auszustellen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "Versicherungseinrichtungen \u00fcber den R\u00fcckkaufswert von Versicherungen und \u00fcber die aus dem Versicherungsverh\u00e4ltnis ausbezahlten oder geschuldeten Leistungen; bei Leibrentenversicherungen, die dem VVG unterstehen, m\u00fcssen sie zus\u00e4tzlich das Abschlussjahr, die H\u00f6he der garantierten Leibrente, den gesamten steuerbaren Ertragsanteil nach \u00a7 23 Abs. 4 sowie die \u00dcberschussleistungen und den Ertragsanteil aus diesen Leistungen nach \u00a7 23 Abs. 4 Bst. b ausweisen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "Treuh\u00e4nder, Verm\u00f6gensverwalter, Pfandgl\u00e4ubiger, Beauftragte und andere Personen, die Verm\u00f6gen der steuerpflichtigen Person in Besitz oder in Verwaltung haben oder hatten, \u00fcber dieses Verm\u00f6gen und seine Ertr\u00e4gnisse;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Bst. e wird zu Bst. f."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 146"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gesellschafter, Miteigent\u00fcmer und Gesamteigent\u00fcmer m\u00fcssen auf Verlangen den Steuerbeh\u00f6rden \u00fcber ihr Rechtsverh\u00e4ltnis zu steuerpflichtigen Personen Auskunft erteilen, insbesondere \u00fcber deren Anteile, Anspr\u00fcche und Bez\u00fcge."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 147 Abs. 1 Bst. c und d sowie e, f und g (neu), Abs. 2 und 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Den Veranlagungsbeh\u00f6rden m\u00fcssen f\u00fcr jede Steuerperiode eine Bescheinigung einreichen:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "Arbeitslosenkassen \u00fcber ausgerichtete Leistungen an die versicherten Personen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Bst. c wird zu Bst. d."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Bst. d wird zu Bst. f."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "kollektive Kapitalanlagen mit direktem Grundbesitz \u00fcber alle Verh\u00e4ltnisse, die f\u00fcr die Besteuerung des direkten Grundbesitzes und dessen Ertr\u00e4ge massgeblich sind;"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "12"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vernehmlassungsvorlage"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "g) die Arbeitgeber \u00fcber die Lohndaten zu Arbeitnehmern nach \u00a7 94 Abs. 1 Bst. a und b, f\u00fcr die ein internationales Abkommen im Steuerbereich den automatischen Austausch von Informationen \u00fcber diese Daten vorsieht."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Den steuerpflichtigen Personen ist ein Doppel der Bescheinigung zuzustellen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Abs. 3 wird aufgehoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 148 (neu) 2. Steuerregister"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kantonale Steuerverwaltung f\u00fchrt ein Verzeichnis der im Kanton beschr\u00e4nkt oder unbeschr\u00e4nkt steuerpflichtigen nat\u00fcrlichen und juristischen Personen sowie der im Kanton befindlichen Grundst\u00fccke."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Gemeinden, die Notariate und Grundbuch\u00e4mter melden der kantonalen Steuerverwaltung die zur Registerf\u00fchrung notwendigen Daten. Sofern erforderlich, machen die Notariate und Grundbuch\u00e4mter der kantonalen Steuerverwaltung die Daten mittels Abrufverfahren zug\u00e4nglich."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Gemeinden \u00fcberpr\u00fcfen das Steuerregister auf seine Vollst\u00e4ndigkeit."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Das Steuerregister ist nicht \u00f6ffentlich."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 156 Abs. 1 und 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen und die Schuldner der steuerbaren Leistung m\u00fcssen den zust\u00e4ndigen Steuerbeh\u00f6rden auf Verlangen \u00fcber die f\u00fcr die Erhebung der Quellensteuer massgebenden Verh\u00e4ltnisse m\u00fcndlich oder schriftlich Auskunft erteilen. \u00a7\u00a7 141 bis 147 gelten sinngem\u00e4ss."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die gleiche Auskunftspflicht obliegt den steuerpflichtigen Personen gegen\u00fcber den Schuldnern der steuerbaren Leistung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 157 Abs. 1 und 2 sowie 3 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Schuldner der steuerbaren Leistung kann von der Veranlagungsbeh\u00f6rde bis am 31. M\u00e4rz des auf die F\u00e4lligkeit der Leistung folgenden Steuerjahres eine Verf\u00fcgung \u00fcber Bestand und Umfang der Steuerpflicht verlangen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtige Person kann eine solche Verf\u00fcgung verlangen, wenn sie:",
+                                "a) mit dem Quellensteuerabzug gem\u00e4ss Bescheinigung nach \u00a7 92 Abs. 1 Bst. b oder \u00a7 101 Abs. 1 nicht einverstanden ist oder",
+                                "b) diese vom Arbeitgeber nicht erhalten hat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Abs. 2 wird zu Abs. 3."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 158 Abs. 1 und 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Hat der Schuldner der steuerbaren Leistung den Steuerabzug nicht oder ungen\u00fcgend vorgenommen, verpflichtet ihn die Veranlagungsbeh\u00f6rde zur Nachzahlung. Der R\u00fcckgriff des Schuldners auf die steuerpflichtige Person bleibt vorbehalten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Hat der Schuldner der steuerbaren Leistung einen zu hohen Steuerabzug vorgenommen, muss er der steuerpflichtigen Person die Differenz zur\u00fcckzahlen. Zu viel abgelieferte Quellensteuern werden der steuerpflichtigen Person zur\u00fcckbezahlt"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "13"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "oder den zust\u00e4ndigen Steuerbezugsbeh\u00f6rden zur Verrechnung mit Steuerschulden"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00fcberwiesen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 161 \u00dcberschrift, Abs. 1 und 2"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "3. Erhebung der Grundst\u00fcckgewinnsteuer"
+            ],
+            "children": []
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "a) Verfahrenspflichten der steuerpflichtigen Personen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen haben der Veranlagungsbeh\u00f6rde innert 30 Tagen nach der Ver\u00e4usserung eine Steuererkl\u00e4rung einzureichen. Diese Frist ist erstreckbar."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtigen Personen haben alle Ausk\u00fcnfte zu erteilen und Unterlagen einzureichen, die f\u00fcr die Veranlagung und Berechnung der Steuer erforderlich sind."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 169 Abs. 1 Bst. d (neu) und Abs. 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Eine rechtskr\u00e4ftige Verf\u00fcgung oder ein rechtskr\u00e4ftiger Entscheid kann auf Antrag oder von Amtes wegen zu Gunsten der steuerpflichtigen Person revidiert werden:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "d) wenn der Kanton sein Besteuerungsrecht aufgrund von interkantonalem oder internationalem Doppelbesteuerungsrecht einschr\u00e4nken muss."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Abs. 3 wird aufgehoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 173 Abs. 1 Bst. a"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "(Die kantonale Steuerverwaltung nimmt auf Antrag der steuerpflichtigen Person eine Anpassung einer rechtskr\u00e4ftigen Grundst\u00fcckgewinnsteuerveranlagung vor:)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "a) bei nachtr\u00e4glicher Ersatzbeschaffung im Sinne von \u00a7\u00a7 108 oder 109, wenn der Antrag sp\u00e4testens innert 90 Tagen nach Erwerb oder Beginn der Bebauung bzw. Verbesserung des Ersatzgrundst\u00fccks eingereicht wird."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 183 Abs. 1 bis 3 sowie 4 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr die Inventaraufnahme und Siegelung sind die Inventarbeh\u00f6rden jenes Bezirkes zust\u00e4ndig, in dem die verstorbene Person ihren letzten steuerrechtlichen Wohnsitz oder Aufenthalt gehabt oder steuerbare Werte besessen hat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die kantonale Steuerverwaltung kann an der Inventaraufnahme teilnehmen. Sie erl\u00e4sst die notwendigen Weisungen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Inventarbeh\u00f6rde kann ein zivilrechtlich veranlasstes Inventar \u00fcbernehmen und n\u00f6tigenfalls erg\u00e4nzen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisheriger Abs. 3 wird zu Abs. 4."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 186 Abs. 2 und 3 sowie 4 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "14"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vernehmlassungsvorlage"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Zu wenig bezahlte Betr\u00e4ge werden nachgefordert. Zu viel gezahlte Betr\u00e4ge werden zur\u00fcckerstattet, soweit nicht eine Verrechnung erfolgt. Die Verj\u00e4hrungsfristen f\u00fcr R\u00fcckerstattungen gem\u00e4ss \u00a7 191 Abs. 2 StG gelten sinngem\u00e4ss."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Bisherige Abs. 2 und 3 werden zu Abs. 3 und 4."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 187 Abs. 2 und 3"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr versp\u00e4tete Zahlungen werden Verzugszinsen erhoben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Abs. 3 wird aufgehoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 191 (neu) f) R\u00fcckforderung bezahlter Steuern"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die steuerpflichtige Person kann einen von ihr bezahlten Steuerbetrag samt Zins zur\u00fcckfordern, wenn sie irrt\u00fcmlicherweise eine ganz oder teilweise nicht geschuldete Steuer bezahlt hat."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die R\u00fcckforderung muss innert f\u00fcnf Jahren nach Ablauf des Kalenderjahres, in dem die Zahlung geleistet worden ist, bei der Steuerbezugsbeh\u00f6rde geltend gemacht werden. Weist diese den Antrag ab, so stehen der steuerpflichtigen Person die gleichen Rechtsmittel zu wie gegen eine Veranlagungsverf\u00fcgung. Der R\u00fcckforderungsanspruch erlischt in jedem Fall zehn Jahre nach Ablauf des Zahlungsjahres."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Steuerr\u00fcckerstattungen k\u00f6nnen auch durch Verrechnung erfolgen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 207 Abs. 2"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Das Unterschreiben der Steuererkl\u00e4rung oder deren elektronische Einreichung begr\u00fcnden f\u00fcr sich allein bez\u00fcglich der Faktoren des andern Ehegatten keine Mitwirkung im Sinne von \u00a7 204 Abs. 1."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 229 Abs. 1"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Das Verfahren richtet sich nach dem Justizgesetz und der Schweizerischen Strafprozessordnung (StPO). Die kantonale Steuerverwaltung kann im Strafverfahren gest\u00fctzt auf Art. 104 Abs. 2 StPO volle Parteirechte aus\u00fcben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 250j (neu) 15. Teilrevision betreffend Nachf\u00fchrung von Bundesrecht, Entlastungsmassnahmen und Ausgleich der kalten Progression"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die ge\u00e4nderten Bestimmungen finden erstmals auf die im Kalenderjahr 2026 zu Ende gehende Steuerperiode Anwendung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr die \u00c4nderungen bei der Grundst\u00fcckgewinnsteuer gilt das \u00dcbergangsrecht von \u00a7 246 analog mit Stichtag 31. Dezember 2025."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "\u00a7 38 Abs. 1 findet Anwendung auf alle Kapitalleistungen, die nach dem 31. Dezember 2025 f\u00e4llig werden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "\u00a7\u00a7 186 Abs. 2 und 191 finden Anwendung auf alle nach dem 31. Dezember 2025 bezahlten Steuern."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "15"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Ausgleich der kalten Progression erfolgt erstmals auf den 1. Januar 2029 nach neuem Recht. Ausgeglichen wird die Indexver\u00e4nderung ab 1. Januar 2026."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dieser Beschluss unterliegt dem Referendum gem\u00e4ss \u00a7\u00a7 34 oder 35 der Kantonsverfassung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Er wird im Amtsblatt ver\u00f6ffentlicht und nach Inkrafttreten in die Gesetzsammlung aufgenommen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Er tritt am 1. Januar 2026 in Kraft, mit Ausnahme von \u00a7\u00a7 21a Abs. 6, 23 Abs. 4, 25 Bst. l, 29 Abs. 2 Bst. g, Abs. 6 und 7, 33 Abs. 1 Bst. b, 54 Abs. 2, 65 Abs. 1 Bst. h, Abs. 2 und 3, 74 Abs. 7, 85 Abs. 2 und 3, 86 Abs. 2 und 3, 145 Abs. 1 Bst. c, deren Inkrafttreten sich nach Bundesrecht richtet."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Regierungsrat wird mit dem Vollzug beauftragt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

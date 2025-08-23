@@ -1,0 +1,423 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II. Nachtrag zur Verordnung \u00fcber die Durchf\u00fchrung der Grundst\u00fcck-sch\u00e4tzung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Entwurf des Finanzdepartementes vom 29. Oktober 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Regierung des Kantons St.Gallen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "erl\u00e4sst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass \u00abVerordnung \u00fcber die Durchf\u00fchrung der Grundst\u00fccksch\u00e4tzung vom 5. Dezember 2000\u00bb[^sGS 814.11.] wird wie folgt ge\u00e4ndert:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gliederungstitel nach Art. 6. III. ~~Verfahren~~**Durchf\u00fchrung**"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 8     Sch\u00e4tzungswerte und -regeln"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "a) im Allgemeinen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei der Grundst\u00fccksch\u00e4tzung werden ermittelt:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "a)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "als Steuerwerte der Miet- und Verkehrswert des Grundst\u00fccks, bei landwirtschaftlichen Grundst\u00fccken zus\u00e4tzlich der landwirtschaftliche Ertragswert;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "b)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "als Geb\u00e4udeversicherungswerte der Neuwert, Zeitwert und Verkehrswert des Geb\u00e4udes;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "c)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "..."
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "d)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "die Belastungsgrenze nach dem Bundesgesetz \u00fcber das b\u00e4uerliche Bodenrecht vom 4. Oktober 1991.[^SR 211.412.11.]"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ermittlung des Verkehrswerts von Grundst\u00fccken richtet sich nach Art. 9bis ff. dieser Verordnung. Erg\u00e4nzend gelten die allgemein anerkannten, von den massgeblichen Berufsorganisationen empfohlenen Sch\u00e4tzungsregeln.[^Vgl. Schweizerische Vereinigung kantonaler Grundst\u00fcckbewertungsexperten (Hrsg.), Das Schweizerische Sch\u00e4tzerhandbuch.]"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ermittlung des landwirtschaftlichen Ertragswerts von Grundst\u00fccken richtet sich nach dem Anhang zur eidgen\u00f6ssischen Verordnung \u00fcber das b\u00e4uerliche Bodenrecht vom 4. Oktober 1993.[^SR 211.412.110.]"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ermittlung der Geb\u00e4udeversicherungswerte richtet sich nach Art. 14 ff. des Gesetzes \u00fcber die Geb\u00e4udeversicherung vom 26. Dezember 1960.[^sGS 873.1.]"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "5.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Fachdienst f\u00fcr Grundst\u00fccksch\u00e4tzung erl\u00e4sst erg\u00e4nzende Richtlinien und Weisungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Art. 9 wird aufgehoben."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 9bis (neu)        b) Verkehrswert des Grundst\u00fccks"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Verkehrswert nach Art. 57 Abs. 1 des Steuergesetzes vom 9. April 1998[^sGS 811.1.] wird ermittelt:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "a)    bei \u00fcberbauten Grundst\u00fccken:",
+                                "1.    aufgrund des Sach- oder des Ertragswerts nach Massgabe der Bedeutung dieser Werte;",
+                                "2.    aufgrund von Vergleichswerten;",
+                                "3.    aufgrund der Punktierung des Sachwerts."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "b)    bei un\u00fcberbauten Grundst\u00fccken:",
+                                "1.    aufgrund von Vergleichswerten;",
+                                "2.    aufgrund der Differenz zwischen dem Ertragswert einer realisierbaren und zonenkonformen Bebauung und den zu dessen Realisierung notwendigen, mutmasslichen Investitionen (Residualwertmethode)."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Landwert von \u00fcberbauten Grundst\u00fccken wird ermittelt:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "a)    aufgrund von Vergleichswerten;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "b)    aufgrund der Lageklassenmethode."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 9ter (neu)        c) Sachwert"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Sachwert ergibt sich aus dem Landwert, dem Zeitwert s\u00e4mtlicher Bauten und Anlagen, den Baunebenkosten und den Kosten f\u00fcr Umgebungsarbeiten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 9quater (neu)     d) Ertragswert"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Ertragswert entspricht dem kapitalisierten Mietwert nach Art. 34 Abs. 2 des Steuergesetzes vom 9. April 1998[^sGS 811.1.]."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Kapitalisierungssatz setzt sich zusammen aus dem Basiszinssatz f\u00fcr die Kapitalkosten und einem Zuschlag in Prozenten f\u00fcr die Bewirtschaftungskosten und die R\u00fcckstellungen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Basiszinssatz wird je Kalenderjahr festgelegt. Er entspricht dem hypothekarischen Referenzzinssatz des Bundesamtes f\u00fcr Wohnungswesen am Ende des Vorjahres zuz\u00fcglich 0,5 Prozent bei Wohnbauten und 1,0 Prozent bei Gewerbebauten."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Zuschlag f\u00fcr die Bewirtschaftungskosten und die R\u00fcckstellungen wird objektbezogen festgelegt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 9quinquies (neu) e) Neubeurteilung nach baulichen Wertvermehrungen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Eine wesentliche Ver\u00e4nderung der wertbestimmenden Eigenschaften eines Objekts nach Art. 6 Abs. 1 Bst. c des Gesetzes \u00fcber die Durchf\u00fchrung der Grundst\u00fccksch\u00e4tzung vom 9. November 2000[^sGS 841.1.] liegt vor, wenn die baulichen Wertvermehrungen wenigstens Fr. 80 000.\u2013 betragen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei Baukosten von wenigstens Fr. 120 000.\u2013 erfolgt eine Besichtigung des Objekts."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 9sexies (neu)      f) Inhalt der Sch\u00e4tzungsverf\u00fcgung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Mit den Steuerwerten nach Art. 8 Abs. 1 Bst. a dieser Verordnung werden die detaillierten Berechnungsgrundlagen zug\u00e4nglich gemacht."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "keine \u00c4nderung anderer Erlasse",
+                            "type": "list_item",
+                            "content": [
+                                ""
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "keine Aufhebung anderer Erlasse",
+                            "type": "list_item",
+                            "content": [
+                                ""
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieser Nachtrag wird ab 1. Januar 2026 angewendet."
+                    ]
+                }
+            ]
+        }
+    ]
+}
