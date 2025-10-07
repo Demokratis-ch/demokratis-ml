@@ -223,10 +223,12 @@ We merge some of the most underrepresented document types into VARIOUS_TEXT (the
 
 Documents from cantons BL, GE, NE, SZ, VD, VS are not used for training and evaluation because we are experiencing many data quality issues, and subsequently bad model performance, for these cantons.
 
+We're only working with German-language documents in training, evaluation, and inference. This is a temporary limitation that we'd like to remove: see issue !26.
+
 #### Our model
 Our classifier uses three types of features:
 - Document texts embedded with OpenAI's `text-embedding-3-large` model, with dimensions reduced by PCA
-- Simple boolean flags extracted by regular expressions on document texts, e.g. "does the text contain a formal greeting like `Sehr\s+geehrte[r]?\s+(?:Frau|Herr|Damen\s+und\s+Herren`?")
+- Simple boolean flags extracted by regular expressions on document texts, e.g. "does the text contain a formal greeting like `Sehr\s+geehrte[r]?\s+(?:Frau|Herr|Damen\s+und\s+Herren)`?")
 - Some features extracted from the actual PDF documents, e.g. aspect ratio, number of tables, page count,...
 
 We then classify these input vectors with a simple scikit-learn pipeline using `StandardScaler` and `SVC`.
