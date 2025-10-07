@@ -15,7 +15,7 @@ import prefect.task_runners
 from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-features"
-MAX_PDF_PAGES_TO_PROCESS = 50
+MAX_PDF_PAGES_TO_PROCESS = 100
 
 
 @prefect.flow(
@@ -60,7 +60,14 @@ def extract_document_features(
     # Load the input dataframe (preprocessed documents)
     df_documents = utils.read_dataframe(
         pathlib.Path(consultation_documents_file),
-        columns=["document_uuid", "document_language", "stored_file_hash", "stored_file_path", "stored_file_mime_type"],
+        columns=[
+            "document_uuid",
+            "document_type",
+            "document_language",
+            "stored_file_hash",
+            "stored_file_path",
+            "stored_file_mime_type",
+        ],
         fs=fs_dataframe_storage,
     )
     # Drop those where the files are not available
@@ -107,7 +114,10 @@ def extract_document_features(
         df_bootstrap = pd.DataFrame()
 
     docs_index = pd.MultiIndex.from_frame(df_documents[["document_uuid", "stored_file_hash"]])
-    df_documents_to_process = df_documents[~docs_index.isin(df_bootstrap.index)]
+    df_documents_to_process = df_documents[
+        ~docs_index.isin(df_bootstrap.index)
+        # | ((df_documents["document_type"] == "OPINION") & (df_documents["document_language"] == "de"))
+    ]
     logger.info(
         "Processing %d documents (%d are already in the bootstrap dataframe)",
         len(df_documents_to_process),
@@ -126,7 +136,13 @@ def extract_document_features(
         },
         orient="index",
     )
-    df = pd.concat([df_bootstrap, df], axis=0)
+    df = pd.concat(
+        [
+            df_bootstrap[~df_bootstrap.index.isin(df.index)],  # Keep rows not recomputed
+            df,
+        ],
+        axis=0,
+    )
     df.index.names = ["document_uuid", "stored_file_hash"]
     assert not df.index.duplicated().any(), "DataFrame index contains duplicates"
 
@@ -134,6 +150,14 @@ def extract_document_features(
     if missing_index.any():
         logger.warning("Missing data for %d documents", missing_index.sum())
         df = df[~missing_index]
+
+    basic_features_only = df["count_tables"].isna().sum()
+    logger.info(
+        "Extracted only basic features for %d/%d documents (%.1f%%)",
+        basic_features_only,
+        len(df),
+        basic_features_only / len(df) * 100,
+    )
 
     # Store the dataframe
     output_path, _ = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
@@ -161,10 +185,11 @@ def extract_pdf_features(
     """
     fs_platform_storage = prefect.filesystems.RemoteFileSystem.load("platform-file-storage")
     data = fs_platform_storage.read_path(stored_file_path)
+    logger = prefect.logging.get_run_logger()
+    logger.info("Extracting features from PDF %r, size=%.1f kB", stored_file_path, len(data) / 1024)
     try:
         features = pdf_extraction.extract_features_from_pdf(data, max_pages_to_process=MAX_PDF_PAGES_TO_PROCESS)
     except (FileNotFoundError, pdf_extraction.PDFExtractionError):
-        logger = prefect.logging.get_run_logger()
         logger.exception("Error extracting text from PDF %r", stored_file_path)
         features = None
     return document_uuid, stored_file_hash, features

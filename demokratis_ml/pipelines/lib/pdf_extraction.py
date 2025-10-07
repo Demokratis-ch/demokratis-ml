@@ -1,12 +1,15 @@
 """Utility code for extracting text and other features from PDF files."""
 
 import io
+import logging
 from typing import TypedDict
 
 import pdfplumber
 import pymupdf
 
 PAGE_SEPARATOR = "\n\f"
+
+logger = logging.getLogger(__name__)
 
 
 class PDFExtractionError(Exception):
@@ -50,10 +53,15 @@ def extract_text_from_pdf(pdf_data: bytes) -> str:
     return raw_text
 
 
-def extract_features_from_pdf(pdf_data: bytes, max_pages_to_process: int) -> BasicPDFFeatures | ExtendedPDFFeatures:
+def extract_features_from_pdf(
+    pdf_data: bytes,
+    max_pages_to_process: int,
+    max_bytes_to_process: int = 30 * 1024**2,
+) -> BasicPDFFeatures | ExtendedPDFFeatures:
     """Extract features from a PDF file.
 
-    :param max_pages_to_process: If the PDF is longer than this, only :class:`BasicPDFFeatures` will be returned.
+    :param max_pages_to_process: If the PDF is longer than this, or `max_bytes_to_process`,
+        only :class:`BasicPDFFeatures` will be returned.
         For shorter PDFs we extract the full set of :class:`ExtendedPDFFeatures`.
     """
     try:
@@ -63,15 +71,20 @@ def extract_features_from_pdf(pdf_data: bytes, max_pages_to_process: int) -> Bas
                 "contains_table_on_first_page": bool(pdf.pages[0].find_tables()),
                 "count_pages": len(pdf.pages),
             }
-            if basic_features["count_pages"] > max_pages_to_process:
+            if basic_features["count_pages"] > max_pages_to_process or len(pdf_data) > max_bytes_to_process:
+                logger.warning(
+                    "PDF too large to extract extended features: %d pages, %d bytes",
+                    basic_features["count_pages"],
+                    len(pdf_data),
+                )
                 return basic_features
 
-            tables = [page.find_tables() for page in pdf.pages]
+            table_counts = [len(page.find_tables()) for page in pdf.pages]
 
             extended_features: ExtendedPDFFeatures = {
                 **basic_features,
-                "count_tables": sum(len(ts) for ts in tables),
-                "count_pages_containing_tables": sum(bool(ts) for ts in tables),
+                "count_tables": sum(tc for tc in table_counts),
+                "count_pages_containing_tables": sum(bool(tc) for tc in table_counts),
                 "count_images": sum(len(page.images) for page in pdf.pages),
                 "count_pages_containing_images": sum(bool(page.images) for page in pdf.pages),
                 "average_page_aspect_ratio": (
