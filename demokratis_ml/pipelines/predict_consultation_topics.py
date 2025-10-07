@@ -4,13 +4,14 @@ import datetime
 import pathlib
 from collections.abc import Iterable, Iterator
 
+import duckdb
 import pandas as pd
 import prefect
 import prefect.logging
 
 import demokratis_ml.models.consultation_topics.model
 import demokratis_ml.models.consultation_topics.preprocessing
-from demokratis_ml.pipelines.lib import inference, utils
+from demokratis_ml.pipelines.lib import blocks, inference, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
@@ -49,8 +50,8 @@ def predict_consultation_topics(  # noqa: PLR0913
 
     classifier, model_uri, model_metadata = inference.load_model(model_name, model_version)
 
-    # Choose where to load source dataframes from and where to store the resulting dataframe
-    fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
+    db = blocks.DuckDB.load("remote-storage-duckdb")
+    db_conn = db.get_connection()
 
     # TODO: these file name templates should be shared between flows
     documents_dataframe_name = f"consultation-documents-preprocessed-{data_files_version}.parquet"
@@ -63,47 +64,49 @@ def predict_consultation_topics(  # noqa: PLR0913
         consultation_embeddings_dataframe_name,
     )
     # Load preprocessed documents
-    df_documents = utils.read_dataframe(
-        pathlib.Path(documents_dataframe_name),
-        columns=None,
-        fs=fs_dataframe_storage,
+    rel_documents = (
+        db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name))
+        # Exclude the full text content to save memory; it's not needed for prediction because we have embeddings
+        .select(duckdb.StarExpression(exclude=["document_content_plain"]))
+        # Only generate predictions for consultations which don't have manual review tag yet.
+        .filter(duckdb.ColumnExpression("consultation_topics_label_source") != duckdb.ConstantExpression("manual"))
+        # Filter by age
+        .filter(duckdb.ColumnExpression("consultation_start_date") >= only_consultations_since)
     )
-    # Only generate predictions for consultations which don't have manual review tag yet.
-    # TODO: move this filter to the loading stage
-    df_documents = df_documents[df_documents["consultation_topics_label_source"] != "manual"]
-    # Filter by languages
-    # TODO: move this filter to the loading stage
     if only_languages is not None:
-        df_documents = df_documents[df_documents["document_language"].isin(only_languages)]
-    # Filter by age
-    # TODO: move this filter to the loading stage
-    df_documents = df_documents[df_documents["consultation_start_date"] >= pd.Timestamp(only_consultations_since)]
+        # Filter by languages
+        rel_documents = rel_documents.filter(
+            duckdb.ColumnExpression("document_language").isin(*map(duckdb.ConstantExpression, only_languages))
+        )
+
+    rel_document_embeddings = db_conn.from_parquet(
+        db.dataframe_path(store_dataframes_remotely, document_embeddings_dataframe_name)
+    )
+
+    rel_consultation_embeddings = db_conn.from_parquet(
+        db.dataframe_path(store_dataframes_remotely, consultation_embeddings_dataframe_name)
+    )
+    if only_languages is not None:
+        rel_consultation_embeddings = rel_consultation_embeddings.filter(
+            duckdb.ColumnExpression("attribute_language").isin(*map(duckdb.ConstantExpression, only_languages))
+        )
+
+    # Can't trust unfiltered_topic_columns because the topic dropping doesn't happen here
+    df_input, unfiltered_topic_columns = (
+        demokratis_ml.models.consultation_topics.preprocessing.create_input_dataframe_from_tables(
+            rel_documents=rel_documents,
+            rel_document_embeddings=rel_document_embeddings,
+            rel_consultation_embeddings=rel_consultation_embeddings,
+        )
+    )
 
     logger.info(
-        "Loaded %d documents for %d consultations. Filters: only_languages=%r, only_consultations_since=%s",
-        len(df_documents),
-        df_documents["consultation_identifier"].nunique(),
+        "Loaded %d consultations. Filters: only_languages=%r, only_consultations_since=%s",
+        len(df_input),
         only_languages,
         only_consultations_since,
     )
 
-    df_document_embeddings = utils.read_dataframe(
-        pathlib.Path(document_embeddings_dataframe_name), columns=None, fs=fs_dataframe_storage
-    )
-    df_consultation_embeddings = utils.read_dataframe(
-        pathlib.Path(consultation_embeddings_dataframe_name), columns=None, fs=fs_dataframe_storage
-    )
-    if only_languages is not None:
-        df_consultation_embeddings = df_consultation_embeddings[
-            df_consultation_embeddings.index.get_level_values("attribute_language").isin(only_languages)
-        ]
-
-    # Can't trust unfiltered_topic_columns because the topic dropping doesn't happen here
-    df_input, unfiltered_topic_columns = demokratis_ml.models.consultation_topics.preprocessing.create_input_dataframe(
-        df_documents=df_documents,
-        df_document_embeddings=df_document_embeddings,
-        df_consultation_embeddings=df_consultation_embeddings,
-    )
     logger.info("Input dataframe shape: %s", df_input.shape)
     # Generate predictions
     x, _ = demokratis_ml.models.consultation_topics.model.create_matrices(df_input, unfiltered_topic_columns)

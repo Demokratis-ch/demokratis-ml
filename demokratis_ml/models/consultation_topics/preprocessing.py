@@ -3,12 +3,84 @@
 import logging
 from collections.abc import Iterable
 
+import duckdb
 import pandas as pd
 import sklearn.preprocessing
 
 from demokratis_ml.data import schemata
 
 logger = logging.getLogger("document_types.preprocessing")
+
+
+def create_input_dataframe_from_tables(
+    rel_documents: duckdb.DuckDBPyRelation,
+    rel_document_embeddings: duckdb.DuckDBPyRelation,
+    rel_consultation_embeddings: duckdb.DuckDBPyRelation,
+    use_attributes: tuple[str, ...] = (
+        "consultation_title",
+        # "consultation_description",  # Not used by default because many consultations don't have it
+        "organisation_name",
+    ),
+) -> tuple[pd.DataFrame, list[str]]:
+    """Create a model input dataframe (for training or inference) from the documents and their embeddings.
+
+    Each row corresponds to a consultation, with embeddings of its documents and attributes.
+    """
+    # Join documents with their embeddings via DuckDB to avoid loading large dataframes into memory
+    df_docs_embeddings = (
+        rel_documents.join(rel_document_embeddings, condition="document_uuid", how="inner")
+        .df()
+        .rename(columns={"embedding": "embedding_documents"})
+    )
+    # Filter consultation embeddings to avoid loading unnecessary attributes
+    df_consultation_embeddings = (
+        rel_consultation_embeddings.filter(
+            duckdb.ColumnExpression("attribute_name").isin(*map(duckdb.ConstantExpression, use_attributes))
+        )
+        .df()
+        .set_index(["consultation_identifier", "attribute_language", "attribute_name"])
+    )
+
+    # Grouping by consultation, and joining attribute embeddings happens in Pandas because it's easier to express there
+    df = df_docs_embeddings.groupby("consultation_identifier").agg(
+        {
+            **dict.fromkeys(
+                [
+                    "consultation_start_date",
+                    "consultation_end_date",
+                    "consultation_title",
+                    "consultation_description",
+                    "consultation_url",
+                    "consultation_topics",
+                    "organisation_uuid",
+                    "organisation_name",
+                    "political_body",
+                ],
+                "first",
+            ),
+            # "embedding_documents": lambda embeddings: np.stack(embeddings).max(axis=0),  # max-pooling
+            "embedding_documents": "mean",
+            # "document_content_plain": "\n\f".join,  # Not used by the model
+            # "document_language": list,  # We're not using this yet
+        }
+    )
+    for attribute in use_attributes:
+        len_before = len(df)
+        df = df.join(
+            _get_embeddings_by_attribute(df_consultation_embeddings, attribute),
+            on="consultation_identifier",
+            how="inner",
+        )
+        if lost_rows := len_before - len(df):
+            logger.warning("Lost %d rows while joining %s embeddings", lost_rows, attribute)
+
+    non_nullable_columns = list(set(df.columns) - {"consultation_end_date"})
+    nulls_per_column = df[non_nullable_columns].isna().any()
+    assert not nulls_per_column.any(), repr(nulls_per_column)
+    assert df.index.is_unique, (
+        "Consultation identifiers must be unique; duplication may have been caused by multiple languages?"
+    )
+    return encode_topics(df)
 
 
 def create_input_dataframe(
@@ -22,6 +94,8 @@ def create_input_dataframe(
     ),
 ) -> tuple[pd.DataFrame, list[str]]:
     """Create a model input dataframe (for training or inference) from consultation documents and embeddings.
+
+    TODO: replace this with create_input_dataframe_from_tables once we use DuckDB in research notebooks too.
 
     Each row corresponds to a consultation, with embeddings of its documents and attributes.
     """

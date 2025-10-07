@@ -4,13 +4,14 @@ import datetime
 import pathlib
 from collections.abc import Iterable
 
+import duckdb
 import pandas as pd
 import prefect
 import prefect.logging
 
 import demokratis_ml.models.document_types.model
 import demokratis_ml.models.document_types.preprocessing
-from demokratis_ml.pipelines.lib import inference, utils
+from demokratis_ml.pipelines.lib import blocks, inference, utils
 
 OUTPUT_FORMAT_VERSION = "v0.1"
 
@@ -51,8 +52,8 @@ def predict_document_types(  # noqa: PLR0913
 
     classifier, model_uri, model_metadata = inference.load_model(model_name, model_version)
 
-    # Choose where to load source dataframes from and where to store the resulting dataframe
-    fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
+    db = blocks.DuckDB.load("remote-storage-duckdb")
+    db_conn = db.get_connection()
 
     # TODO: these file name templates should be shared between flows
     documents_dataframe_name = f"consultation-documents-preprocessed-{data_files_version}.parquet"
@@ -65,38 +66,33 @@ def predict_document_types(  # noqa: PLR0913
         features_dataframe_name,
     )
     # Load preprocessed documents
-    df_documents = utils.read_dataframe(
-        pathlib.Path(documents_dataframe_name),
-        columns=None,
-        fs=fs_dataframe_storage,
+
+    rel_documents = (
+        db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name))
+        # Only generate predictions for documents which don't have document_type yet
+        .filter(duckdb.ColumnExpression("document_type").isnull())  # noqa: PD003
+        # Filter by age
+        .filter(duckdb.ColumnExpression("consultation_start_date") >= only_consultations_since)
     )
-    # Only generate predictions for documents which don't have document_type yet
-    # TODO: move this filter to the loading stage
-    df_documents = df_documents[df_documents["document_type"].isna()]
-    # Filter by languages
-    # TODO: move this filter to the loading stage
     if only_languages is not None:
-        df_documents = df_documents[df_documents["document_language"].isin(only_languages)]
-    # Filter by age
-    # TODO: move this filter to the loading stage
-    df_documents = df_documents[df_documents["consultation_start_date"] >= pd.Timestamp(only_consultations_since)]
+        # Filter by languages
+        rel_documents = rel_documents.filter(
+            duckdb.ColumnExpression("document_language").isin(*map(duckdb.ConstantExpression, only_languages))
+        )
+
+    df_input = demokratis_ml.models.document_types.preprocessing.create_input_dataframe_from_tables(
+        rel_documents=rel_documents,
+        rel_extra_features=db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, features_dataframe_name)),
+        rel_embeddings=db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, embeddings_dataframe_name)),
+    )
 
     logger.info(
         "Loaded %d documents to predict document types for. Filters: only_languages=%r, only_consultations_since=%s",
-        len(df_documents),
+        len(df_input),
         only_languages,
         only_consultations_since,
     )
-
-    df_embeddings = utils.read_dataframe(pathlib.Path(embeddings_dataframe_name), columns=None, fs=fs_dataframe_storage)
-    df_features = utils.read_dataframe(pathlib.Path(features_dataframe_name), columns=None, fs=fs_dataframe_storage)
-
-    df_input = demokratis_ml.models.document_types.preprocessing.create_input_dataframe(
-        df_documents=df_documents,
-        df_extra_features=df_features,
-        df_embeddings=df_embeddings,
-    )
-    logger.info("Input dataframe for the model has %d rows and %d columns", df_input.shape[0], df_input.shape[1])
+    logger.info("Input dataframe for the model has shape %s", df_input.shape)
 
     # Generate predictions
     x, _ = demokratis_ml.models.document_types.model.create_matrices(df_input)

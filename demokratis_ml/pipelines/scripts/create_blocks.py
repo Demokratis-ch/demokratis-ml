@@ -51,6 +51,15 @@ remote_dataframe_storage = blocks.ExtendedRemoteFileSystem(
 remote_dataframe_storage.save("remote-dataframe-storage", overwrite=True)
 
 
+remote_storage_duckdb = blocks.DuckDB(
+    s3_endpoint=os.environ["EXOSCALE_SOS_ENDPOINT"].replace("https://", ""),
+    s3_access_key_id=os.environ["EXOSCALE_SOS_ACCESS_KEY"],
+    s3_secret_access_key=os.environ["EXOSCALE_SOS_SECRET_KEY"],
+    bucket=os.environ["EXOSCALE_SOS_BUCKET_ML"],
+)
+remote_storage_duckdb.save("remote-storage-duckdb", overwrite=True)
+
+
 # The web platform stores mirrored documents in here:
 platform_file_storage = prefect.filesystems.RemoteFileSystem(
     basepath=f"s3://{os.environ['EXOSCALE_SOS_BUCKET_PLATFORM_FILE_STORAGE']}/",

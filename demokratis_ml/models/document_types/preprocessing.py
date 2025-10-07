@@ -2,6 +2,7 @@
 
 import logging
 
+import duckdb
 import pandas as pd
 
 from demokratis_ml.data import schemata
@@ -15,6 +16,23 @@ MERGE_CLASSES = {
 logger = logging.getLogger("document_types.preprocessing")
 
 
+def create_input_dataframe_from_tables(
+    rel_documents: duckdb.DuckDBPyRelation,
+    rel_extra_features: duckdb.DuckDBPyRelation,
+    rel_embeddings: duckdb.DuckDBPyRelation,
+    class_merges: dict[tuple[str, ...], str] = MERGE_CLASSES,
+) -> pd.DataFrame:
+    """Create a model input dataframe (for training or inference) from the documents and their features."""
+    rel_joined = rel_documents.join(rel_extra_features, condition="document_uuid", how="inner").join(
+        rel_embeddings, condition="document_uuid", how="inner"
+    )
+    df = rel_joined.to_df()
+    df = _drop_empty_texts(df)
+    df = features.add_features(df)
+    df.loc[:, "document_type"] = merge_classes(df["document_type"], class_merges)
+    return df
+
+
 def create_input_dataframe(
     df_documents: schemata.FullConsultationDocumentV1,
     *,
@@ -25,13 +43,21 @@ def create_input_dataframe(
     """
     Create a model input dataframe (for training or inference) from the documents and their features.
 
+    TODO: replace this with create_input_dataframe_from_tables once we use DuckDB in research notebooks too.
+
     :param df_documents: The "main" dataframe containing the consultation documents.
     :param df_extra_features: The dataframe containing additional features extracted from PDFs.
     :param df_embeddings: The dataframe containing the embeddings of the documents.
     :param class_merges: :func:`merge_classes` will be applied to both dataframes using this mapping.
     """
     df_documents = _drop_empty_texts(df_documents)
-    df = features.add_features(df_documents, df_extra_features)
+    # This makes no difference: we're not losing documents because of the hashes not matching.
+    # We're losing them because the PDF extraction failed for quite a lot of documents.
+    # df = df_docs.join(
+    #   df_extra_features.reset_index(level="stored_file_hash", drop=True), on="document_uuid", how="inner"
+    # )
+    df = df_documents.join(df_extra_features, on=["document_uuid", "stored_file_hash"], how="inner")
+    df = features.add_features(df)
     df = _add_embeddings(df, df_embeddings)
     df.loc[:, "document_type"] = merge_classes(df["document_type"], class_merges)
     return df

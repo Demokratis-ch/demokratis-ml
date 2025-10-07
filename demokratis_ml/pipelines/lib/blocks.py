@@ -6,6 +6,7 @@ Configured block *instances* are created in the file `create_blocks.py`.
 import pathlib
 from typing import IO, cast
 
+import duckdb
 import openai
 import prefect.blocks.abstract
 import prefect.blocks.core
@@ -59,6 +60,42 @@ class MLflowCredentials(prefect.blocks.core.Block):
 
 
 MLflowCredentials.register_type_and_schema()
+
+
+class DuckDB(prefect.blocks.core.Block):
+    """A configured DuckDB instance with S3-compatible storage support."""
+
+    s3_endpoint: str
+    s3_access_key_id: pydantic.SecretStr
+    s3_secret_access_key: pydantic.SecretStr
+    bucket: str
+    database_path: str = ":memory:"
+    read_only: bool = False
+
+    def get_connection(self) -> duckdb.DuckDBPyConnection:
+        """Return a configured DuckDB connection with S3 settings."""
+        conn = duckdb.connect(database=self.database_path, read_only=self.read_only)
+        conn.execute(
+            """
+            CREATE OR REPLACE SECRET secret (
+                TYPE s3,
+                PROVIDER config,
+                KEY_ID ?,
+                SECRET ?,
+                ENDPOINT ?
+            )""",
+            [self.s3_access_key_id.get_secret_value(), self.s3_secret_access_key.get_secret_value(), self.s3_endpoint],
+        )
+        conn.install_extension("httpfs")
+        conn.load_extension("httpfs")
+        return conn
+
+    def dataframe_path(self, is_remote: bool, file_name: str) -> str:
+        """Generate the full path to a dataframe file, either local or remote."""
+        return f"s3://{self.bucket}/dataframes/{file_name}" if is_remote else f"data/dataframes/{file_name}"
+
+
+DuckDB.register_type_and_schema()
 
 
 class ExtendedLocalFileSystem(prefect.filesystems.LocalFileSystem):
