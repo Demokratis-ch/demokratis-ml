@@ -46,6 +46,8 @@ logger = logging.getLogger("document_types.model")
 
 def create_matrices(df: pd.DataFrame) -> tuple[np.ndarray, pd.Series]:
     """Convert a dataframe (the result of preprocessing) into a feature matrix and a target vector."""
+    if df.empty:
+        return np.empty((0, 0)), pd.Series(dtype=object)
     embeddings = np.vstack(df["embedding"])
     x = np.hstack(
         [
