@@ -92,12 +92,10 @@ def predict_consultation_topics(  # noqa: PLR0913
         )
 
     # Can't trust unfiltered_topic_columns because the topic dropping doesn't happen here
-    df_input, unfiltered_topic_columns = (
-        demokratis_ml.models.consultation_topics.preprocessing.create_input_dataframe_from_tables(
-            rel_documents=rel_documents,
-            rel_document_embeddings=rel_document_embeddings,
-            rel_consultation_embeddings=rel_consultation_embeddings,
-        )
+    df_input, unfiltered_topic_columns = demokratis_ml.models.consultation_topics.preprocessing.create_input_dataframe(
+        rel_documents=rel_documents,
+        rel_document_embeddings=rel_document_embeddings,
+        rel_consultation_embeddings=rel_consultation_embeddings,
     )
 
     logger.info(

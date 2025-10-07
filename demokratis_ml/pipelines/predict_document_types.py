@@ -80,7 +80,7 @@ def predict_document_types(  # noqa: PLR0913
             duckdb.ColumnExpression("document_language").isin(*map(duckdb.ConstantExpression, only_languages))
         )
 
-    df_input = demokratis_ml.models.document_types.preprocessing.create_input_dataframe_from_tables(
+    df_input = demokratis_ml.models.document_types.preprocessing.create_input_dataframe(
         rel_documents=rel_documents,
         rel_extra_features=db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, features_dataframe_name)),
         rel_embeddings=db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, embeddings_dataframe_name)),
