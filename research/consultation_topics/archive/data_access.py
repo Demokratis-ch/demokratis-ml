@@ -38,8 +38,6 @@ def load_consultation_documents(  # noqa: PLR0913
 
     filters_composed = functools.reduce(operator.and_, filters) if filters else None
     df = pd.read_parquet(input_file, filters=filters_composed)
-    # Drop legacy columns to ensure we're not relying on them any more.
-    df = df.drop(columns=["document_id", "organisation_id", "latest_stored_file_id"])
 
     # Log to MLflow - this is disabled because it takes 40+ seconds :/
     # if mlflow is not None:

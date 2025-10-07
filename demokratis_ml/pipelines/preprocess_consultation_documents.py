@@ -160,7 +160,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
 @prefect.task
 @utils.print_validation_failure_cases()
 @pandera.check_output(schemata.ConsultationDocumentMetadataSchemaV1.to_schema(), lazy=True)
-def load_consultation_document_metadata() -> pd.DataFrame:
+def load_consultation_document_metadata() -> pd.DataFrame:  # noqa: PLR0915
     """Load the metadata of all consultation documents from the Demokratis API.
 
     Make sure the dataframe types match the schema and drop a few known invalid rows.
@@ -169,9 +169,8 @@ def load_consultation_document_metadata() -> pd.DataFrame:
     raw = demokratis_api_request("documents-metadata")
     df = pd.read_json(io.StringIO(raw))
 
-    # TODO - uncomment this once the migration to UUIDs is complete.
-    # # Drop legacy columns to ensure we're not relying on them any more.
-    # df = df.drop(columns=["document_id", "organisation_id", "latest_stored_file_id"])
+    # Drop legacy columns to ensure we're not relying on them any more.
+    df = df.drop(columns=["document_id", "organisation_id", "latest_stored_file_id"])
 
     # Cast nested datetime strings to actual datetimes
     df["consultation_internal_tags"] = df["consultation_internal_tags"].map(
