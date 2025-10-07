@@ -1,3 +1,6 @@
+[tool.setuptools]
+py-modules = []
+
 [project]
 name = "demokratis-ml"
 version = "0.1.0"
