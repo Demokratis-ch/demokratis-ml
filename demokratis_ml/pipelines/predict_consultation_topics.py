@@ -23,7 +23,7 @@ def predict_consultation_topics(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "consultation_topic_classifier",
-    model_version: int | str = 4,
+    model_version: int | str = 6,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2019, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
@@ -94,6 +94,7 @@ def predict_consultation_topics(  # noqa: PLR0913
         rel_documents=rel_documents,
         rel_document_embeddings=rel_document_embeddings,
         rel_consultation_embeddings=rel_consultation_embeddings,
+        use_document_types=model_metadata["use_document_types"],
     )
 
     logger.info(

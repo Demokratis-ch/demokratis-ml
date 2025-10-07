@@ -16,6 +16,7 @@ def create_input_dataframe(
     rel_documents: duckdb.DuckDBPyRelation,
     rel_document_embeddings: duckdb.DuckDBPyRelation,
     rel_consultation_embeddings: duckdb.DuckDBPyRelation,
+    use_document_types: Iterable[str],
     use_attributes: tuple[str, ...] = (
         "consultation_title",
         # "consultation_description",  # Not used by default because many consultations don't have it
@@ -28,7 +29,8 @@ def create_input_dataframe(
     """
     # Join documents with their embeddings via DuckDB to avoid loading large dataframes into memory
     df_docs_embeddings = (
-        rel_documents.join(rel_document_embeddings, condition="document_uuid", how="inner")
+        rel_documents.filter(loading.isin("document_type", use_document_types))
+        .join(rel_document_embeddings, condition="document_uuid", how="inner")
         .df()
         .rename(columns={"embedding": "embedding_documents"})
     )
