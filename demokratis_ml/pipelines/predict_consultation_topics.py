@@ -9,6 +9,7 @@ import pandas as pd
 import prefect
 import prefect.logging
 
+import demokratis_ml.data.loading
 import demokratis_ml.models.consultation_topics.model
 import demokratis_ml.models.consultation_topics.preprocessing
 from demokratis_ml.pipelines.lib import blocks, inference, utils
@@ -65,19 +66,16 @@ def predict_consultation_topics(  # noqa: PLR0913
     )
     # Load preprocessed documents
     rel_documents = (
-        db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name))
+        demokratis_ml.data.loading.filter_documents(
+            db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name)),
+            only_languages=only_languages,
+            only_consultations_since=only_consultations_since,
+        )
         # Exclude the full text content to save memory; it's not needed for prediction because we have embeddings
         .select(duckdb.StarExpression(exclude=["document_content_plain"]))
         # Only generate predictions for consultations which don't have manual review tag yet.
         .filter(duckdb.ColumnExpression("consultation_topics_label_source") != duckdb.ConstantExpression("manual"))
-        # Filter by age
-        .filter(duckdb.ColumnExpression("consultation_start_date") >= only_consultations_since)
     )
-    if only_languages is not None:
-        # Filter by languages
-        rel_documents = rel_documents.filter(
-            duckdb.ColumnExpression("document_language").isin(*map(duckdb.ConstantExpression, only_languages))
-        )
 
     rel_document_embeddings = db_conn.from_parquet(
         db.dataframe_path(store_dataframes_remotely, document_embeddings_dataframe_name)
@@ -88,7 +86,7 @@ def predict_consultation_topics(  # noqa: PLR0913
     )
     if only_languages is not None:
         rel_consultation_embeddings = rel_consultation_embeddings.filter(
-            duckdb.ColumnExpression("attribute_language").isin(*map(duckdb.ConstantExpression, only_languages))
+            demokratis_ml.data.loading.isin("attribute_language", only_languages)
         )
 
     # Can't trust unfiltered_topic_columns because the topic dropping doesn't happen here

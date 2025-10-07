@@ -9,6 +9,7 @@ import pandas as pd
 import prefect
 import prefect.logging
 
+import demokratis_ml.data.loading
 import demokratis_ml.models.document_types.model
 import demokratis_ml.models.document_types.preprocessing
 from demokratis_ml.pipelines.lib import blocks, inference, utils
@@ -66,19 +67,15 @@ def predict_document_types(  # noqa: PLR0913
         features_dataframe_name,
     )
     # Load preprocessed documents
-
     rel_documents = (
-        db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name))
+        demokratis_ml.data.loading.filter_documents(
+            db_conn.from_parquet(db.dataframe_path(store_dataframes_remotely, documents_dataframe_name)),
+            only_consultations_since=only_consultations_since,
+            only_languages=only_languages,
+        )
         # Only generate predictions for documents which don't have document_type yet
         .filter(duckdb.ColumnExpression("document_type").isnull())  # noqa: PD003
-        # Filter by age
-        .filter(duckdb.ColumnExpression("consultation_start_date") >= only_consultations_since)
     )
-    if only_languages is not None:
-        # Filter by languages
-        rel_documents = rel_documents.filter(
-            duckdb.ColumnExpression("document_language").isin(*map(duckdb.ConstantExpression, only_languages))
-        )
 
     df_input = demokratis_ml.models.document_types.preprocessing.create_input_dataframe(
         rel_documents=rel_documents,

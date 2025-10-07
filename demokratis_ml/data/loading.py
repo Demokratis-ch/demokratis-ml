@@ -13,17 +13,17 @@ from demokratis_ml.data import schemata
 def filter_documents(
     rel_documents: duckdb.DuckDBPyRelation,
     only_languages: Iterable[str] | None = None,
-    only_consultations_since_year: int | None = None,
+    only_consultations_since: datetime.date | None = None,
     only_document_types: Iterable[str] | None = None,
 ) -> duckdb.DuckDBPyRelation:
     """Filter the documents relation according to the specified criteria."""
     if only_languages is not None:
         # Filter by languages
         rel_documents = rel_documents.filter(isin("document_language", only_languages))
-    if only_consultations_since_year is not None:
+    if only_consultations_since is not None:
         # Filter by consultation date
         rel_documents = rel_documents.filter(
-            duckdb.ColumnExpression("consultation_start_date") >= datetime.date(only_consultations_since_year, 1, 1)
+            duckdb.ColumnExpression("consultation_start_date") >= only_consultations_since
         )
     if only_document_types is not None:
         # Filter by document types
