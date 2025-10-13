@@ -1,5 +1,6 @@
 """Helpers for flows that perform inference using trained models."""
 
+import datetime
 import json
 import os
 import pathlib
@@ -9,9 +10,31 @@ import mlflow
 import mlflow.models
 import mlflow.sklearn
 import prefect.logging
+import pydantic
 import sklearn.pipeline
 
 from demokratis_ml.pipelines.lib import blocks
+
+
+class ModelInfo(pydantic.BaseModel):
+    """Information about the model used for inference."""
+
+    name: str
+    version: int | str
+    uri: str
+    metadata: dict[str, Any]
+
+
+class InferenceOutputV01(pydantic.BaseModel):
+    """Complete output format for inference pipelines."""
+
+    generated_at: datetime.datetime = pydantic.Field(default_factory=lambda: datetime.datetime.now(tz=datetime.UTC))
+    output_format_version: str = "v0.1"
+    model: ModelInfo
+    features: dict[str, str]
+    input_files: dict[str, Any]
+    input_filters: dict[str, Any]
+    outputs: list[dict[str, Any]]
 
 
 def load_model(model_name: str, model_version: int | str) -> tuple[sklearn.pipeline.Pipeline, str, dict[str, Any]]:
@@ -42,18 +65,25 @@ def load_model(model_name: str, model_version: int | str) -> tuple[sklearn.pipel
     return model, model_uri, metadata
 
 
-def write_outputs(data: dict[str, Any]) -> pathlib.Path:
+def write_outputs(data: InferenceOutputV01) -> pathlib.Path:
     """Write the output data (predictions) to a JSON file in the remote storage.
 
     The path and the file name are inferred from the metadata contained in the output.
     """
     logger = prefect.logging.get_run_logger()
     fs_model_output_storage = blocks.ExtendedRemoteFileSystem.load("remote-model-output-storage")
-    output_path = pathlib.Path(data["model"]["name"]) / f"{data['generated_at']}_{data['output_format_version']}.json"
-    output_bytes = json.dumps(data, indent=2).encode("utf-8")
+    output_path = pathlib.Path(data.model.name) / f"{data.generated_at.isoformat()}_{data.output_format_version}.json"
+    output_bytes = json.dumps(data.model_dump(), indent=2, default=_datetime_encoder).encode("utf-8")
     logger.info("Storing output to %s/%s (%d bytes)", fs_model_output_storage.basepath, output_path, len(output_bytes))
     fs_model_output_storage.write_path(str(output_path), output_bytes)
     logger.info("Writing the same data to latest.json")
     fs_model_output_storage.write_path(str(output_path.with_name("latest.json")), output_bytes)
     # pathlib.Path("test.json").write_bytes(output_bytes)  # Debugging output only
     return output_path
+
+
+def _datetime_encoder(obj: Any) -> str:
+    if isinstance(obj, (datetime.datetime, datetime.date)):
+        return obj.isoformat()
+    msg = f"Object of type {type(obj)} is not JSON serializable"
+    raise TypeError(msg)

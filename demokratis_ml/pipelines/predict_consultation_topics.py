@@ -14,8 +14,6 @@ import demokratis_ml.models.consultation_topics.model
 import demokratis_ml.models.consultation_topics.preprocessing
 from demokratis_ml.pipelines.lib import blocks, inference, utils
 
-OUTPUT_FORMAT_VERSION = "v0.1"
-
 
 @prefect.flow()
 @utils.slack_status_report(":speech_balloon:")
@@ -115,33 +113,28 @@ def predict_consultation_topics(  # noqa: PLR0913
     logger.info("Outuput dataframe shape: %s", df_predictions.shape)
 
     # Format the output
-    generated_at = datetime.datetime.now(tz=datetime.UTC)
-    assert OUTPUT_FORMAT_VERSION == "v0.1", "The code below produces this version"
-    output = {
-        "generated_at": generated_at.isoformat(),
-        "output_format_version": OUTPUT_FORMAT_VERSION,
-        "model": {
-            "name": model_name,
-            "version": model_version,
-            "uri": model_uri,
-            "metadata": model_metadata,
-        },
-        "features": {
+    output = inference.InferenceOutputV01(
+        model=inference.ModelInfo(
+            name=model_name,
+            version=model_version,
+            uri=model_uri,
+            metadata=model_metadata,
+        ),
+        features={
             "embedding_model": embedding_model_name,
         },
-        "input_files": {
-            "version": data_files_version.isoformat(),
+        input_files={
+            "version": data_files_version,
             "documents_dataframe_name": documents_dataframe_name,
             "document_embeddings_dataframe_name": document_embeddings_dataframe_name,
             "consultation_embeddings_dataframe_name": consultation_embeddings_dataframe_name,
         },
-        "input_filters": {
-            "only_consultations_since": only_consultations_since.isoformat(),
+        input_filters={
+            "only_consultations_since": only_consultations_since,
             "only_languages": list(only_languages) if only_languages is not None else None,
         },
-        "outputs": list(serialize_predictions(df_predictions)),
-    }
-
+        outputs=list(serialize_predictions(df_predictions)),
+    )
     output_path = inference.write_outputs(output)
     return output_path
 
