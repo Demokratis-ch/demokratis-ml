@@ -189,14 +189,11 @@ To get a model usable in production, we've restricted it to just 9 topics for wh
 
 ### II. Extracting structure from documents
 
->[!NOTE]
->Latest work on this problem: [PR!4](https://github.com/Demokratis-ch/demokratis-ml/pull/4) is trying to use LlamaParse to convert PDFs to Markdown.
-
 An important goal of Demokratis is to make it easy for people and organisations to provide feedback (statements, Stellungnahmen) on consultations. To facilitate writing comments or suggesting edits on long complex legal documents, we need to break them apart into sections, paragraphs, lists, footnotes etc. Since all the consultation documents we can currently access are PDFs, it is surprisingly hard to extract machine-readable structure from them!
 
-We are still researching the possible solutions to this problem. For shorter documents, the most workable solution seems to be to prompt GPT-4o to analyse a whole uploaded PDF file and emit the extracted structure in JSON. It may be possible to make this work for longer documents too with careful chunking. In initial tests, GPT-4o performed better at this task than Gemini 1.5 Pro. [See our starting prompt for GPT-4o here](./research/structure-extraction/README.md) along with sample input and output.
+We are still researching the possible solutions to this problem. [PR!4](https://github.com/Demokratis-ch/demokratis-ml/pull/4) is trying to use LlamaParse to convert PDFs to Markdown. We are also testing the open-source projects [surya](https://github.com/VikParuchuri/surya) and [docling](https://www.docling.ai/).
 
-The services typically used for extracting PDFs – AWS Textract, Azure Document AI, Adobe Document Services – all do not seem to be reliable at detecting PDF layouts. In particular, they do not consistently differentiate between headers, paragraphs, lists, or even footnotes. The open-source project [surya](https://github.com/VikParuchuri/surya) performs similarly as these cloud services and can easily be run locally. Another option we have not tried yet is using a LayoutLM model.
+The services typically used for extracting PDFs – AWS Textract, Azure Document AI, Adobe Document Services – all do not seem to be reliable at detecting PDF layouts. In particular, they do not consistently differentiate between headers, paragraphs, lists, or even footnotes.
 
 
 ### III. Classifying document types
