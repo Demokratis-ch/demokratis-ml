@@ -6,6 +6,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import sklearn.pipeline
+import xgboost
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
 from sklearn.ensemble import (
@@ -17,6 +18,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
+
+from demokratis_ml.models import target_encoder
 
 EXTRA_FEATURE_COLUMNS = (
     # PDF features
@@ -93,6 +96,15 @@ def create_classifier(
                 min_samples_split=clf_params["min_samples_split"],
                 min_samples_leaf=clf_params["min_samples_leaf"],
                 class_weight=clf_params["class_weight"],
+            )
+            scale = False
+        case "XGBoost":
+            imputer = "passthrough"  # XGBoost natively supports nulls
+            classifier = target_encoder.TargetEncoderClassifier(
+                xgboost.XGBClassifier(
+                    random_state=random_state,
+                    # TODO: allow hyperparameterization
+                )
             )
             scale = False
         case "MLP":
