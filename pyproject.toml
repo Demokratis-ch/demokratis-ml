@@ -45,6 +45,7 @@ dev = [
     "ipykernel>=6.29.5",
     "ipdb>=0.13.13",
     "memray>=1.18.0",
+    "docling>=2.62.0",
 ]
 
 [tool.prefect]
