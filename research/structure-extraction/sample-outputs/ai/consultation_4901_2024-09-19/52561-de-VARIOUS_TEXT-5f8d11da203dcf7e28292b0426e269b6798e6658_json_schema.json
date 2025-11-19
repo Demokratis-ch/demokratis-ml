@@ -1,0 +1,583 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Kanton Appenzell Innerrhoden E172.700"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Fassung Vernehmlassungsverfahren"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Revision des Gesetzes \u00fcber den Fristenlauf"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom [Datum]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (GS Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:               \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:          172.700 | 173.400"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben:        \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Landsgemeinde Appenzell I.Rh.,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Art. 20 Abs. 1 der Kantonsverfassung vom 24. Wintermonat 1872,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "I."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung Gesetz \u00fcber den Fristenlauf (FriG) vom 24. April 1966:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 1 Abs. 1 (ge\u00e4ndert)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dieses Gesetz gilt f\u00fcr alle Verfahren vor den Beh\u00f6rden im Kanton, soweit nicht \u00fcbergeordnetes Recht mit abweichenden Regelungen anzuwenden ist."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 2 Abs. 1 (ge\u00e4ndert), Abs. 2 (aufgehoben), Abs. 3 (aufgehoben)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Fristbeginn** (\u00dcberschrift ge\u00e4ndert)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr die Festlegung des Fristbeginns z\u00e4hlt der Tag, an welchem sich die fristausl\u00f6sende Tatsache verwirklicht, nicht. Erst der folgende Tag z\u00e4hlt als erster Tag der Frist."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufgehoben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufgehoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "E172.700 Kanton Appenzell Innerrhoden"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 2a (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Fristausl\u00f6sung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Frist f\u00fcr eine Mitteilung wird ausgel\u00f6st:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a.",
+                            "type": "list_item",
+                            "content": [
+                                "mit der Kenntnisnahme der Mitteilung durch die adressierte Person, unter Vorbehalt von gesetzlichen Formvorschriften;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Mitteilungen, die pers\u00f6nlich ausgeh\u00e4ndigt werden, mit der Annahme und bei einer Annahmeverweigerung mit dem Festhalten der Weigerung;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Mitteilungen mit eingeschriebener Post oder mit Gerichtsurkunde mit der Leistung der Unterschrift f\u00fcr die Annahme;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Mitteilungen mit eingeschriebener Post oder mit Gerichtsurkunde, die nicht angenommen werden, mit Ablauf einer Frist von sieben Tagen nach dem ersten Zustellungsversuch, sofern die adressierte Person mit einer Zustellung rechnen musste;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Mitteilungen durch einen Postdienst mit Trackingsystem mit dem Eingang in der Machtsph\u00e4re der adressierten Person, sofern diese mit einer Zustellung rechnen musste;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "f.",
+                            "type": "list_item",
+                            "content": [
+                                "bei Mitteilungen durch eine \u00f6ffentliche Publikation mit der Ver\u00f6ffentlichung im betreffenden Medium;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "g.",
+                            "type": "list_item",
+                            "content": [
+                                "bei elektronischer Mitteilung mit dem Tag, an welchem das erste Dokument einer Sendung heruntergeladen wird, oder, sofern mit einer Zustellung gerechnet werden musste, nach Ablauf von sieben Tagen seit der Bereitstellung auf einer Plattform."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei Mitteilungen nach Abs. 1 lit. e, die an einem Samstag, Sonntag oder staatlich anerkannten Feiertag vorgenommen werden, gilt als fristausl\u00f6sender Tag der n\u00e4chstfolgende Werktag."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 2b (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Fristende"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Frist endet an ihrem letzten Tag."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Berechnet sich eine Frist nach Monaten, endet sie im letzten Monat an dem Tag, der dieselbe Zahl tr\u00e4gt wie der Tag, an welchem die Frist zu laufen begann. Fehlt der entsprechende Tag, so endet die Frist am letzten Tag des Monats."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr Jahresfristen gilt die Regelung nach Abs. 2 sinngem\u00e4ss."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Ist der letzte Tag der Frist ein Samstag, ein Sonntag oder ein staatlich anerkannter Feiertag, l\u00e4uft sie am n\u00e4chstfolgenden Werktag ab."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Kanton Appenzell Innerrhoden E172.700"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 2c (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Fristeinhaltung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Schriftliche Eingaben m\u00fcssen sp\u00e4testens am letzten Tag der Frist bei der zust\u00e4ndigen Stelle eingereicht oder zu deren Handen bis 24 Uhr des letzten Tages der Schweizerischen Post oder einer schweizerischen diplomatischen oder konsularischen Vertretung \u00fcbergeben werden."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Bei elektronischer Einreichung ist f\u00fcr die Fristwahrung der Zeitpunkt massgebend, in dem die Quittung ausgestellt wird, die best\u00e4tigt, dass alle Schritte abgeschlossen sind, die auf der Seite der Partei f\u00fcr die \u00dcbermittlung notwendig sind."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 2d (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Zahlungsfrist"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Frist f\u00fcr eine Zahlung ist eingehalten, wenn der Betrag sp\u00e4testens am letzten Tag der Frist"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a)",
+                            "type": "list_item",
+                            "content": [
+                                "bei der daf\u00fcr bezeichneten zust\u00e4ndigen Stelle bar geleistet ist;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b)",
+                            "type": "list_item",
+                            "content": [
+                                "der Schweizerischen Post \u00fcbergeben ist oder"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c)",
+                            "type": "list_item",
+                            "content": [
+                                "einem Post- oder Bankkonto in der Schweiz belastet ist."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Art. 3a (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Elektronische \u00dcbermittlung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Grosse Rat regelt das Verfahren und die Bedingungen f\u00fcr die elektronische \u00dcbermittlung von Mitteilungen und Eingaben, insbesondere:"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "a)",
+                            "type": "list_item",
+                            "content": [
+                                "die Art und Weise der \u00dcbermittlung;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "b)",
+                            "type": "list_item",
+                            "content": [
+                                "das Format der Eingaben und Beilagen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "c)",
+                            "type": "list_item",
+                            "content": [
+                                "die Festlegung der Anforderungen f\u00fcr die elektronische Quittung;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "d)",
+                            "type": "list_item",
+                            "content": [
+                                "den genauen Zeitpunkt der elektronische Zustellung;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "e)",
+                            "type": "list_item",
+                            "content": [
+                                "die F\u00e4lle, in denen bei technischen Problemen die Nachreichung physischer Dokumente verlangt werden kann oder das Nachsenden solcher Dokumente m\u00f6glich ist."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Er kann Abweichungen f\u00fcr die Zustellung von E-Rechnungen oder f\u00fcr die Abwicklung der elektronischen \u00dcbermittlung ausserhalb von Plattformen festlegen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "E172.700                                              Kanton Appenzell Innerrhoden"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung Verwaltungsgerichtsgesetz (VerwGG) vom 25. April 2010:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Art. 58 Abs. 2 (aufgehoben)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Aufgehoben."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieser Beschluss tritt am 1. Mai 2025 in Kraft."
+                    ]
+                }
+            ]
+        }
+    ]
+}

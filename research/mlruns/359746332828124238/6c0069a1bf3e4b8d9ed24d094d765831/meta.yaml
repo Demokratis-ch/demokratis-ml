@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/359746332828124238/6c0069a1bf3e4b8d9ed24d094d765831/artifacts
+end_time: 1732281238791
+entry_point_name: ''
+experiment_id: '359746332828124238'
+lifecycle_stage: active
+run_id: 6c0069a1bf3e4b8d9ed24d094d765831
+run_name: nervous-ox-622
+run_uuid: 6c0069a1bf3e4b8d9ed24d094d765831
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732281202064
+status: 3
+tags: []
+user_id: thiloweber

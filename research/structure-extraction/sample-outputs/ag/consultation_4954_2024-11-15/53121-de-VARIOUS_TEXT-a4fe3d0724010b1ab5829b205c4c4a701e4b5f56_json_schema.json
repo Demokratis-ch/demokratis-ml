@@ -1,0 +1,229 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Synopse Beilage zum Anh\u00f6rungsbericht"
+            ],
+            "children": []
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Steuerrabatt bei \u00dcbersch\u00fcssen und guter Finanzlage; Steuergesetz (StG); \u00c4nderung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (SAR Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:             \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:        651.100"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben: \u2013"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "",
+            "type": "table",
+            "content": [
+                "| Geltendes Recht | Entwurf des Regierungsrats vom 14.10.2024 | Abweichende Antr\u00e4ge der Kommission X vom ... | Stellungnahme des Regierungsrats | Ergebnis der 1. Beratung vom ... |",
+                "|-----------------|-------------------------------------------|----------------------------------------------|----------------------------------|----------------------------------|",
+                "| | Steuergesetz (StG) | | | |",
+                "| | Der Grosse Rat des Kantons Aargau | | | |",
+                "| | beschliesst: | | | |",
+                "| | I. | | | |",
+                "| | Der Erlass SAR 651.100 (Steuergesetz [StG] vom 15. Dezember 1998) (Stand 1. Juli 2024) wird wie folgt ge\u00e4ndert: | | | |",
+                "| | \u00a7 2a IIa. Steuerrabatt | | | |",
+                "| | [1.] Der Grosse Rat kann mit der Genehmigung des Jahresberichts mit Jahresrechnung bei guter Finanzlage aus einem Ertrags\u00fcberschuss der Finanzierungsrechnung einen Steuerrabatt in ganzen Steuerfussprozentpunkten auf die ordentliche Kantonssteuer des \u00fcbern\u00e4chsten Jahres gew\u00e4hren. | | | |"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Entwurf des Regierungsrats vom 14.10.2024"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Aus dem Ertrags\u00fcberschuss, der f\u00fcr den Steuerrabatt verwendet werden soll, wird eine Steuerrabatt-Reserve ge\u00e4ufnet. Sie ist mit der Bildung der R\u00fcckstellung f\u00fcr den Steuerrabatt im Folgejahr vollst\u00e4ndig aufzul\u00f6sen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr eine gute Finanzlage gem\u00e4ss Absatz 1 m\u00fcssen unter Ber\u00fccksichtigung des gew\u00e4hrten Steuerrabatts folgende Voraussetzungen erf\u00fcllt sein:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "a)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "keine Nettoverschuldung (Nettoschuld I),"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "b)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "keine offenen Fehlbetr\u00e4ge der Finanzierungsrechnung,"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "c)",
+                                            "type": "list_item",
+                                            "content": [
+                                                "angemessener Bestand der Ausgleichsreserve gem\u00e4ss Absatz 4."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Bestand der Ausgleichsreserve gilt als angemessen, wenn er mindestens 3 % des Gesamtertrags der Finanzierungsrechnung des jeweils aktuellen Aufgaben- und Finanzplans erreicht."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Entwurf des Regierungsrats vom 14.10.2024"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Keine Fremdaufhebungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die \u00c4nderung unter Ziff. I. tritt am 1. Januar 2026 in Kraft. Sie untersteht nach den Voraussetzungen der Kantonsverfassung der nachtr\u00e4glichen Volksabstimmung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aarau,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident des Grossen Rats"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Protokollf\u00fchrerin"
+                    ]
+                }
+            ]
+        }
+    ]
+}

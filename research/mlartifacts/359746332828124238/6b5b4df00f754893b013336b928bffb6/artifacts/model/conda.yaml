@@ -1,0 +1,29 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.12.7
+- pip<=24.3.1
+- pip:
+  - mlflow==2.17.2
+  - brotli==1.1.0
+  - click==8.1.7
+  - cloudpickle==3.1.0
+  - colorama==0.4.6
+  - greenlet==3.1.1
+  - h2==4.1.0
+  - llama-index-core==0.11.23
+  - llama-index-readers-file==0.3.0
+  - llama-parse==0.5.14
+  - numpy==1.26.4
+  - packaging==24.2
+  - pandas==2.2.3
+  - psutil==6.1.0
+  - pygments==2.18.0
+  - pyyaml==6.0.2
+  - requests==2.32.3
+  - scikit-learn==1.5.2
+  - scipy==1.14.1
+  - sqlalchemy==2.0.36
+  - tornado==6.4.1
+  - zstandard==0.23.0
+name: mlflow-env

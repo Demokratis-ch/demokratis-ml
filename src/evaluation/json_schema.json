@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "DocNode",
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "description": "Label of the node, e.g. '1.2' or '1bis' or 'a)' etc. May be empty."
+      },
+      "type": {
+        "type": "string",
+        "enum": ["document", "heading", "content", "list", "list_item", "footnote", "image", "table"],
+        "description": "Type of the node."
+      },
+      "content": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Array of content strings. Usually only one string, but may be more in case of multiple paragraphs."
+      },
+      "children": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        },
+        "description": "Array of nested nodes."
+      },
+      "indent_level": {
+        "type": "integer",
+        "description": "Indentation level of the node. 0 is the leftmost."
+      }
+    },
+    "required": ["label", "type"],
+    "additionalProperties": false
+  }

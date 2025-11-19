@@ -1,0 +1,162 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "Here is the full document content formatted as markdown:"
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Landratsbeschluss \u00fcber einen Objektkredit f\u00fcr die Erneuerung der Immobilienbewertung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "vom 27. Oktober 2021[^A 2021, 1960]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Landrat von Nidwalden,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Art. 52a und Art. 61 Ziff. 4 der Kantonsverfassung,"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "1."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr die Erneuerung der Immobilienbewertung gem\u00e4ss dem Bericht des Regierungsrates vom 24. August 2021 wird ein Objektkredit von Fr. 1'500'000.- bewilligt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Objektkredit ist befristet bis Ende 2024."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "2."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Dieser Beschluss untersteht dem fakultativen Referendum."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Er tritt gem\u00e4ss Art. 24 des Wahl- und Abstimmungsgesetzes (WAG)[^NG 132.2] in Kraft."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Hergiswil, 27. Oktober 2021              LANDRAT NIDWALDEN"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Landratspr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Stefan Bosshard"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Landratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "lic. iur. Emanuel Br\u00fcgger"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Datum der Ver\u00f6ffentlichung: 4. November 2021"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Letzter Tag der Referendumsfrist: 3. Januar 2022"
+                    ]
+                }
+            ]
+        }
+    ]
+}

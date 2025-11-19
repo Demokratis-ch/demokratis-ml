@@ -1,0 +1,2940 @@
+{
+    "label": "",
+    "type": "document",
+    "content": [],
+    "children": [
+        {
+            "label": "",
+            "type": "content",
+            "content": [
+                "RG xxx/2024"
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Stellvertretung im Kantonsrat bei Mutterschaft: 1. \u00c4nderung der Kantonsverfassung; 2. \u00c4nderung des Kantonsratsgesetzes; 3. \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrats"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bericht und Antrag der Ratsleitung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "an den Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "vom . . . ."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Zust\u00e4ndige Stelle:**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratsleitung; Sprecher: Roberto Conti, I. Vizepr\u00e4sident des Kantonsrats"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Vorberatende Kommission:**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is the full document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Inhaltsverzeichnis"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Kurzfassung ..................................................................................................................................3"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1. Ausgangslage.....................................................................................................................5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1 Handlungsbedarf ...............................................................................................................5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.1 Erheblich erkl\u00e4rter Auftrag A 182/2022 von Sarah Schreiber (Die Mitte, Lostorf)............5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.2 Vernehmlassung \u00abTeilnahme am Parlamentsbetrieb w\u00e4hrend dem"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Mutterschaftsurlaub\u00bb (SGB 135/2022) ...............................................................................5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.3 Zusammenhang der beiden Gesch\u00e4fte A182/2022 und SGB 135/2022..............................5"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.4 \u00c4nderung von Art. 16d Abs. 3 EOG...................................................................................6"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.5 Entwicklung in den Kantonen...........................................................................................6"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.1.6 Weitere h\u00e4ngige Vorst\u00f6sse zur Stellvertretung im Kanton Solothurn .............................6"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.2 Zielsetzungen der Vorlage ................................................................................................6"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3 Grundz\u00fcge der Vorlage.....................................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.1 Stellvertretung nur im Falle der Mutterschaft ..................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.2 Dauer der Abwesenheit.....................................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.3 Freiwilligkeit der Vertretung.............................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.4 Bestimmung der Vertretung..............................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.5 Verfahren zur Einsetzung der Stellvertretung ..................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.3.6 Stellung der vertretenden Person und der vertretenen Person ........................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.4 Vernehmlassungsverfahren ...............................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1.5 Erw\u00e4gungen, Alternativen ................................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "2. Verh\u00e4ltnis zur Planung ......................................................................................................7"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3. Auswirkungen....................................................................................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3.1 Personelle und finanzielle Konsequenzen ........................................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3.2 Vollzugsmassnahmen ........................................................................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3.3 Folgen f\u00fcr die Einwohnergemeinden................................................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "3.4 Nachhaltigkeit ...................................................................................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4. Erl\u00e4uterungen zu einzelnen Bestimmungen der Vorlage.................................................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4.1 \u00c4nderung der Verfassung des Kantons Solothurn (Beschlussesentwurf 1) ......................8"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4.2 \u00c4nderung des Kantonsratsgesetzes (Beschlussesentwurf 2) .............................................9"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "4.3 \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "(Beschlussesentwurf 3).....................................................................................................12"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "5. Rechtliches .......................................................................................................................13"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "6. Antrag..............................................................................................................................13"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Beilagen"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Beschlussesentwurf 1 / Synopse 1 (\u00c4nderung der Verfassung des Kantons Solothurn [KV])"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Beschlussesentwurf 2 / Synopse 2 (\u00c4nderung des Kantonsratsgesetzes)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Beschlussesentwurf 3 / Synopse 3 (\u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von So-"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "lothurn)"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Kurzfassung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Mit der Vorlage wird der am 10 Mai 2023 erheblich erkl\u00e4rte Auftrag Sarah Schreiber (Die Mitte, Lostorf) \u00abStellvertretungsregelung im Kantonsrat f\u00fcr Frauen nach der Geburt eines Kindes\u00bb (A 182/2022) umgesetzt. Die Mitglieder des Kantonsrats erhalten die M\u00f6glichkeit, sich bei Mutterschaft w\u00e4hrend eines Zeitraums von drei bis zw\u00f6lf Monaten vertreten zu lassen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "The image appears to be a blank white page with only the text \"VERNEHMLASSUNGSENTWURF\" (which translates to \"Consultation Draft\" in English) written diagonally across it in very light gray letters. This suggests it may be a placeholder or cover page for a draft document that is intended for review or consultation. The text is oriented from the bottom left to the top right of the image and takes up a significant portion of the page, though it's quite faint against the white background."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Sehr geehrte Damen und Herren"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Wir unterbreiten Ihnen nachfolgend Bericht und Antrag zur \u00c4nderung der Verfassung des Kantons Solothurn (KV), zur \u00c4nderung des Kantonsratsgesetzes sowie zur \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "1. Ausgangslage"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "1.1 Handlungsbedarf"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.1 Erheblich erkl\u00e4rter Auftrag A 182/2022 von Sarah Schreiber (Die Mitte, Lostorf)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Am 10. Mai 2023 erkl\u00e4rte der Kantonsrat den von Sarah Schreiber (Die Mitte, Lostorf) am 14. September 2022 eingereichten und von 30 Ratsmitgliedern unterzeichneten Auftrag \u00abStellvertretungsregelung im Kantonsrat f\u00fcr Frauen nach der Geburt eines Kindes\u00bb mit 48:38 Stimmen bei 8 Enthaltungen erheblich mit folgendem Wortlaut:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "*Der Regierungsrat bzw. die Ratsleitung wird beauftragt, die gesetzlichen Grundlagen f\u00fcr ein Stellvertretungssystem im Kantonsrat f\u00fcr Frauen vor und nach der Geburt eines Kindes unter Ber\u00fccksichtigung folgender Eckpunkte vorzuschlagen:*"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Eine Stellvertretung setzt eine Abwesenheit von mindestens 3 Monaten voraus und ist auf eine Maximaldauer von 12 Monaten beschr\u00e4nkt;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Als Stellvertreter bzw. als Stellvertreterin gilt die erste nicht gew\u00e4hlte Person auf der Wahlliste der Kantonsratswahlen;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Der Stellvertreter bzw. die Stellvertreterin wird \u2013 umgehend nach Meldung des Abwesenheitsfalls und ausserhalb der Session \u2013 von dem Kantonsratspr\u00e4sidenten bzw. der Kantonsratspr\u00e4sidentin vereidigt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.2 Vernehmlassung \u00abTeilnahme am Parlamentsbetrieb w\u00e4hrend dem Mutterschaftsurlaub\u00bb (SGB 135/2022)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Am 8. November 2022 verabschiedete der Kantonsrat mit 75:17 Stimmen bei 0 Enthaltungen eine Vernehmlassung an die Staatspolitische Kommission des St\u00e4nderats zu den Standesinitiativen \u00abTeilnahme am Parlamentsbetrieb w\u00e4hrend dem Mutterschaftsurlaub\u00bb (SGB 135/2022). In der Vernehmlassung ersucht der Kantonsrat die Bundesbeh\u00f6rden, das Bundesrecht dahingehend anzupassen, dass die Teilnahme an einer Parlamentssitzung nicht zum Verlust des Anspruchs auf die Mutterschaftsentsch\u00e4digung f\u00fchrt. Die Stellungnahme steht in Zusammenhang mit einem auch f\u00fcr den Kanton Solothurn massgebenden bundesgerichtlichen Leitentscheid[^1]."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.3 Zusammenhang der beiden Gesch\u00e4fte A182/2022 und SGB 135/2022"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Gem\u00e4ss dem Begr\u00fcndungstext ist der Auftrag von Sarah Schreiber (A 182/2022) als Erg\u00e4nzung zur \u00c4nderung des Bundesgerichts zu sehen, bei welcher sich der Kanton Solothurn vernehmen liess. Der Vorstoss sollte bewirken, dass Kantonsratsmitglieder nach einer dereinstigen \u00c4nderung des Bundesrechts nicht unter Druck sind, w\u00e4hrend der Mutterschaft an Kantonsratssitzungen teilzunehmen. Vielmehr sollen Kantonsr\u00e4tinnen eine Wahlm\u00f6glichkeit erhalten, selbst zu entscheiden, ob sie w\u00e4hrend dem Mutterschaftsurlaub selber an den Parlamentssitzungen teilnehmen oder sich vertreten lassen wollen, ohne dass durch diesen Entscheid die betreffende Fraktion aufgrund einer Abwesenheit einen Nachteil erleidet."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.4 \u00c4nderung von Art. 16d Abs. 3 EOG"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Am 29. September 2023 haben der National- und St\u00e4nderat eine \u00c4nderung von Art. 16d Abs. 3 des Bundesgesetzes \u00fcber den Erwerbsersatz vom 25. September 1952[^SR 934.1] beschlossen. Demnach endet der Anspruch auf Mutterschaftsentsch\u00e4digung k\u00fcnftig nicht mehr, wenn die Mutter als Ratsmitglied an Rats- und Kommissionssitzungen von Parlamenten auf Bundes-, Kantons- oder Gemeindeebene teilnimmt. Diese Regelung gilt jedoch nur, sofern das kantonale Recht keine Vertretungsm\u00f6glichkeit vorsieht. Der Zeitpunkt des Inkrafttretens hat der Bundesrat noch nicht festgelegt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Anpassung des Bundesrechts steht damit in direktem Zusammenhang mit dieser Vorlage: Wird im Kantonalen Recht, wie mit der hier unterbreiteten Vorlage beantragt, eine Vertretungsm\u00f6glichkeit geschaffen, verliert ein Parlamentsmitglied, das w\u00e4hrend dem Mutterschaftsurlaub an Parlamentssitzungen teilnehmen will, den Anspruch auf eine Mutterschaftsentscheidung."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.5 Entwicklung in den Kantonen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Am 25. September 2023 wurde von den Stimmberechtigten des Kantons Aargau eine Verfassungs\u00e4nderung angenommen, welche eine Vertretungsm\u00f6glichkeit f\u00fcr Parlamentsmitglieder erlaubt. Im Vergleich zur hier unterbreiteten Vorlage ist die Stellvertretungsm\u00f6glichkeit nicht ausschliesslich auf den Fall der Mutterschaft begrenzt. Die Regelung im Kanton Aargau erm\u00f6glicht zus\u00e4tzlich eine Vertretung im Fall von weiteren Abwesenheitsgr\u00fcnden, so etwa im Falle einer Krankheit oder eines Unfalls[^\u00a7 76 der Verfassung des Kantons Aargau (SAR 110.000); \u00a7 7a des Gesetzes \u00fcber die Organisation des Grossen Rates und den Verkehr zwischen dem Grossen Rat, dem Regierungsrat und dem Obergericht vom 19.06.1990 (GVG; SAR 152.200)]."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.1.6 Weitere Vorst\u00f6sse zur Stellvertretung im Kanton Solothurn"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Am 9. Mai 2023 wurde der von 20 Ratsmitgliedern unterzeichnete fraktions\u00fcbergreifende Auftrag \u00abPragmatische Stellvertretungsregelungen f\u00fcr Kommissionen\u00bb (A 111/2023) eingereicht. Der Vorstoss verlangt, dass eine Stellvertretung in Kommissionssitzungen durch andere Ratsmitglieder jederzeit, ohne Zustimmung der Ratsleitung und auch f\u00fcr kurze Absenzen m\u00f6glich ist. Die Ratsleitung beantragt in der Stellungnahme vom 20. Dezember 2023, den Vorstoss nicht erheblich zu erkl\u00e4ren. Der Vorstoss wurde am 7. Mai 2024 vom Kantonsrat nicht erheblich erkl\u00e4rt."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Weiter wurde am 17. Mai 2023 der von 22 Ratsmitgliedern unterzeichnete fraktions\u00fcbergreifende Auftrag \u00abStellvertreterregelung im Kantonsrat bei Abwesenheiten aus zwingenden Gr\u00fcnden\u00bb (A 126/2023) eingereicht. Der Vorstoss verlangt, analog der Regelung im Kanton Aargau, die Stellvertretung \u00fcber den Fall der Mutterschaft auf weitere F\u00e4lle wie Krankheit und Unfall auszuweiten. Auch bei diesem Vorstoss beantragt die Ratsleitung in der Stellungnahme vom 20. Dezember 2023, den Vorstoss nicht erheblich zu erkl\u00e4ren. Der Vorstoss wurde ebenfalls am 7. Mai 2024 vom Kantonsrat nicht erheblich erkl\u00e4rt."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.2 Zielsetzungen der Vorlage"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die hier unterbreitete Vorlage bezweckt die Einf\u00fchrung einer freiwilligen Stellvertretungsm\u00f6glichkeit, die auf den Fall der Mutterschaft begrenzt ist."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3 Grundz\u00fcge der Vorlage"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.1 Stellvertretung nur im Falle der Mutterschaft"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretungsm\u00f6glichkeit ist auf den Fall der Mutterschaft begrenzt. Bei anderen (zwingenden) Abwesenheitsgr\u00fcnden, wie beispielsweise Krankheit oder Unfall, ist weiterhin keine Stellvertretung m\u00f6glich."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.2 Dauer der Abwesenheit"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Stellvertretung setzt eine Mindestdauer der Vertretung von drei Monaten voraus und ist auf eine H\u00f6chstdauer von zw\u00f6lf Monaten begrenzt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.3 Freiwilligkeit der Vertretung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Ob sich ein Ratsmitglied vertreten lassen will, liegt im alleinigen Ermessen des jeweiligen Ratsmitglieds. Es besteht keine Pflicht, die Stellvertretung tats\u00e4chlich in Anspruch zu nehmen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.4 Bestimmung der Vertretung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Person, welche die Stellvertretung \u00fcbernimmt, bestimmt sich nach den f\u00fcr das Nachr\u00fccken geltenden Grunds\u00e4tzen. Damit kommt in der Regel die erste nicht gew\u00e4hlte Person auf der Wahlliste der Kantonsratswahlen zum Zug."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.5 Verfahren zur Einsetzung der Stellvertretung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Das Verfahren zur Einsetzung der Stellvertretung wird mit einer schriftlichen Erkl\u00e4rung (Willenskundgabe) der sich vertreten lassenden Person eingeleitet. Die Vertretung beginnt mit der Leistung des Amtsgel\u00f6bnisses der durch die Vertretung bestimmten Person vor dem Kantonsratspr\u00e4sidenten. Falls die zur Vertretung bestimmte Person zus\u00e4tzlich auch die Stellvertretung in einer Kommission \u00fcbernehmen will, ist hierf\u00fcr ein zus\u00e4tzlicher Ratsleitungsbeschluss notwendig."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.3.6 Stellung der vertretenden Person und der vertretenen Person"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Der zur Vertretung bestimmten Person stehen w\u00e4hrend der Dauer der Vertretung dieselben Rechte und Pflichten wie dem vertretenen Ratsmitglied zu. Demgegen\u00fcber ruhen die Rechte und Pflichten des vertretenen Ratsmitglieds w\u00e4hrend der Dauer der Vertretung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.4 Vernehmlassungsverfahren"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "..."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "1.5 Erw\u00e4gungen, Alternativen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Das geltende Recht steht einem Weiterbestand der bisherigen Regelung nicht entgegen. Die Einf\u00fchrung einer Vertretungsm\u00f6glichkeit ist rechtlich nicht zwingend. Wie in Ziffer 1.1.4 ausgef\u00fchrt, f\u00fchrt die Teilnahme an Parlamentssitzungen nicht mehr automatisch zum Erl\u00f6schen des Anspruchs auf Mutterschaftsentsch\u00e4digung."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "2. Verh\u00e4ltnis zur Planung"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Das Vorhaben ist im Legislaturplan 2021-2025 nicht enthalten, ebenso nicht im IAFP 2024-2027."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "3. Auswirkungen"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "3.1 Personelle und finanzielle Konsequenzen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Mit der Einsetzung einer Stellvertretung f\u00e4llt auf Seiten Parlamentsdienste jeweils etwas administrativer Aufwand an. Weil die F\u00e4lle aller Voraussicht nach \u00fcberschaubar sind, d\u00fcrfte dieser Zusatzaufwand vernachl\u00e4ssigbar sein und keine sp\u00fcrbaren unmittelbaren personellen und finanziellen Konsequenzen haben."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Auch beim allgemeinen Kredit des Kantonsrats fallen keine zus\u00e4tzlichen Kosten an. Die Vertretung f\u00fchrt zu einem Nullsummenspiel: Weil die Rechte des sich vertreten lassenden Mitglieds w\u00e4hrend der Vertretung ruhen, hat es keinen Anspruch auf die Grundentsch\u00e4digung oder Sitzungsgelder in diesem Zeitraum. Diese fallen in diesem Zeitraum der zur Vertretung bestimmten Person zu."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "3.2 Vollzugsmassnahmen"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die zur Umsetzung der Vorlage notwendigen Vollzugsmassnahmen sind geringf\u00fcgig. Auf Seiten Parlamentsdienste ist ein Prozess zur Einsetzung der Stellvertretung (inkl. Regelung des Aktenzugriffs) zu definieren und etablieren."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "3.3 Folgen f\u00fcr die Einwohnergemeinden"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vorlage ist ausschliesslich eine ratseigene Angelegenheit und hat keine Auswirkungen f\u00fcr die Gemeinden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "3.4 Nachhaltigkeit"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Vorlagen an den Kantonsrat sind hinsichtlich ihrer Nachhaltigkeit in den Bereichen Wirtschaft (\u00f6konomisch), Gesellschaft (sozial) und Umwelt (\u00f6kologisch) zu beurteilen (RRB Nr. 2009/2293 vom 7.12.2009). Die Vertretung beg\u00fcnstigt eine bessere Vereinbarkeit von Politik und Familie und erh\u00f6ht die Attraktivit\u00e4t des Kantonsratsmandats. Zudem gew\u00e4hrleistet die Vertretungsm\u00f6glichkeit, dass bestimmte Fraktionen oder regionale oder soziale Gruppierungen durch eine l\u00e4ngere Abwesenheit eines ihrer Kantonsratsmitglieder nicht benachteiligt werden."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "4. Erl\u00e4uterungen zu einzelnen Bestimmungen der Vorlage"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "4.1 \u00c4nderung der Verfassung des Kantons Solothurn (Beschlussesentwurf 1)"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00dcberschrift zu Art. 66, Abs. 2 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Bestimmung schafft die verfassungsm\u00e4ssige Grundlage, die f\u00fcr die Einf\u00fchrung der Vertretungsm\u00f6glichkeit notwendig ist. Nach geltendem Recht geh\u00f6ren zum Kantonsrat die 100 gew\u00e4hlten Mitglieder. Mitglieder auf Zeit bzw. Stellvertretungen werden im Art. 66 in seiner heutigen Fassung nicht erw\u00e4hnt. Entsprechend sind die Vertretungen explizit auf Verfassungsstufe zu erw\u00e4hnen, was auch der herrschenden schweizerischen Rechtsauffassung entspricht, wonach die Einf\u00fchrung des Stellvertretungsmodells eine Verfassungsgrundlage voraussetzt. Eine zus\u00e4tzliche explizite Erw\u00e4hnung, dass die Ausgestaltung der Stellvertretung auf Gesetzesstufe konkretisiert wird, er\u00fcbrigt sich. Gem\u00e4ss Art. 69 Abs. 1 KV besteht bereits heute die verfassungsm\u00e4ssige Grundlage, dass das Gesetz unter anderem die Grundz\u00fcge der Organisation des Kantonsrats regelt. Da es sich bei der Stellvertretung infolge Mutterschaft ebenfalls um eine organisatorische Frage handelt, ist die oben erw\u00e4hnte Bestimmung als verfassungsm\u00e4ssige Delegationsnorm ausreichend."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is a summary of the key points from the German legal document:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "The document discusses changes to laws regarding representation in the cantonal parliament due to maternity."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "The term \"maternity\" is specifically defined and limited to biological mothers, excluding adoption or foster care situations."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Representation is only allowed for female members due to maternity, not for fathers or other parents."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "There are minimum and maximum time limits set for the representation period."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "The document outlines changes to the Cantonal Council Act, including:"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Updating the title to include \"representation due to maternity\""
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Adding new sections (\u00a7 2bis and following) to regulate maternity representation"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "Specifying that only regular council members can use a representative, not substitutes"
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "The representation is meant to be an exception with limits to maintain legitimacy."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "The document provides rationale for the minimum representation period, citing the complexity of parliamentary business and administrative effort involved."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "It clarifies that the constitutional norm already implies this only applies to female members, so that specification is not needed in the law text."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is a summary of the key points from the German legal document:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 2:**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Regelt die Bestimmung der Person, die die Vertretung \u00fcbernimmt"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die vertretene Person hat kein Auswahlrecht"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung wird gem\u00e4\u00df den Bestimmungen f\u00fcr Nachr\u00fccken bei einer Demission bestimmt (\u00a7 126 GpR)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Eine Vertretung kann nicht \u00fcber Nachnomination oder Ersatzwahlen bestimmt werden"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Anwendung der GpR-Bestimmungen erfolgt analog, ohne formelles Nachr\u00fcckverfahren"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Parlamentsdienste stellen die zur Vertretung berufene Person fest"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 3:**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Regelt die Rechtsstellung der Stellvertreterin bzw. des Stellvertreters"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung hat dieselben Rechte und Pflichten wie ein Ratsmitglied"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Dies umfasst Informationsrechte, Verg\u00fctungsanspr\u00fcche, Teilnahmerechte, Antragsrecht etc."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Auch alle Pflichten wie Geheimhaltung und Offenlegung von Interessen gelten"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Einsetzung zur Vertretung f\u00fchrt nicht automatisch zur Kommissionsmitgliedschaft"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr Kommissionsmitgliedschaft ist ein gesonderter Beschluss der Ratsleitung n\u00f6tig"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 4:**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Regelt die Rechtsstellung der vertretenen Person w\u00e4hrend der Vertretungsdauer"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Rechte und Pflichten der vertretenen Person ruhen in diesem Zeitraum"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Keine Einsichtnahme in Kommissionsakten und keine Entsch\u00e4digung "
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Weiterhin Zugang zu allgemeinen Informationen des Kantonsrats"
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00a72ter (neu)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 1:** Dieser Absatz beinhaltet den Grundsatz der Freiwilligkeit der Stellvertretung: Der Entscheid, sich im Verhinderungsfall vertreten zu lassen, obliegt ausschliesslich dem betroffenen Ratsmitglied. Niemand ist gezwungen, sich im Falle der Mutterschaft vertreten lassen zu m\u00fcssen. Entsprechend tritt die Stellvertretung nicht automatisch ein, sondern es bedarf hierf\u00fcr einer ausdr\u00fccklichen schriftlichen Erkl\u00e4rung des Ratsmitglieds, die Stellvertretung in Anspruch nehmen zu wollen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Willenskundgabe ist zugleich die einzige Voraussetzung, die f\u00fcr die Einsetzung der Stellvertretung notwendig ist. Es liegt ein reines Meldeverfahren ohne Pr\u00fcfung vor. Im Unterschied zu Regelungen in anderen Parlamenten er\u00fcbrigt sich ein Pr\u00fcfungs- und/oder Bewilligungsverfahren, da die hier vorgeschlagene Regelung neben der Mutterschaft keine weiteren Stellvertretungstatbest\u00e4nde vorsieht, die \u2013 wie beispielsweise bei Krankheitsabsenzen \u2013 entsprechende Abkl\u00e4rungen nach sich ziehen w\u00fcrden. Die Willenserkl\u00e4rung des vertretenen Ratsmitglieds ist zwecks Planbarkeit und Ordnungsm\u00e4ssigkeit des Sitzungsbetriebs unwiderruflich und mindestens zwei Monate vor dem anvisierten Beginn der Stellvertretung mitzuteilen. Eine versp\u00e4tete Abgabe der Erkl\u00e4rung bewirkt, dass die Vertretung nicht bereits zum gew\u00fcnschten Zeitpunkt, sondern erst nach Ablauf der Meldefrist eingesetzt werden kann."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 2:** Dieser Absatz regelt den Beginn der Vertretung. Der Beginn ist massgebend in Bezug auf die Berechnung der Minimal- und Maximaldauer gem\u00e4ss \u00a7 2bis Abs. 1, sowie f\u00fcr den Zeitpunkt, ab welchem die zur Vertretung bestimmte Person die Stellung eines Ratsmitglieds und die damit einhergehenden Rechte und Pflichten hat (\u00a7 2bis Abs. 5). Vorwiegend wird es dabei in der Praxis um die Frage gehen, zu welchem Zeitpunkt ein Aktenzugang (Informationsrechte) besteht. Im Unterschied zu einem nachr\u00fcckenden Ratsmitglied legt die zur Vertretung bestimmte Person ausserhalb der Sessionen das Amtsgel\u00f6bnis ab. Diese Besonderheit ist durch den Stellvertretungszweck bedingt, der erfordert, dass sich die zur Vertretung bestimmte Person m\u00f6glichst schnell in die Akten einlesen muss, um die Vertretung von Beginn an effektiv wahrnehmen zu k\u00f6nnen. In Anlehnung an den bestehenden \u00a7 20 Gesch\u00e4ftsreglement ist der Rat \u2013 analog der Stellvertretung in Kommissionen \u2013 \u00fcber die Vertretung und die Leistung des Amtsgel\u00f6bnisses zu informieren."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Absatz 3:** Dieser Absatz enth\u00e4lt im Sinne einer abschliessenden Aufz\u00e4hlung die (alternativen) Tatbest\u00e4nde, die zur Beendigung der Vertretung von Gesetzes wegen f\u00fchren. Die Beendigung der Vertretung bewirkt, dass bei der vertretenden Person die (analoge) Rechtsstellung als Ratsmitglieds endet und die Rechte und Pflichten der vertretenen Person wieder aufleben. Basierend auf dem Grundprinzip, dass das jeweilige Ratsmitglied durch eine einfache Willenserkl\u00e4rung bestimmt, ob eine Vertretung bestellt wird, soll es ihm auch m\u00f6glich sein, den Zeitpunkt enden zu lassen. Sofern die Mindestdauer der Vertretung abgelaufen ist, kann das vertretene Ratsmitglied die Stellvertretung jederzeit durch Erkl\u00e4rung enden lassen. Ohne Erkl\u00e4rung erlischt die Vertretung von Gesetzes wegen bei Erreichen der Maximaldauer von 12 Monaten oder vorzeitig bei Legislaturende. Bei einer den Legislaturwechsel \u00fcberdauernden Abwesenheit infolge Mutterschaft kann damit die Vertretung nicht fortgesetzt werden: Eine Vertretung an der konstituierenden Sitzung, bei welcher der Gesamtkantonsrat neu vereidigt wird und die Wahlergebnisse erwahrt werden, w\u00e4re systemwidrig. Buchstabe d regelt den Spezialfall, dass eine zur Vertretung bestimmte Person \u2013 w\u00e4hrend der Vertretungszeit \u2013 infolge Demission eines anderen Ratsmitglieds zum ordentlichen Ratsmitglied wird. In diesem Fall soll die Vertretung durch die Bestimmung eines neuen Stellvertreters bzw. einer neuen Stellvertreterin ausnahmsweise fortgesetzt werden k\u00f6nnen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "4.3 \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn (Beschlussesentwurf 3)"
+            ],
+            "children": []
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 20 Abs. 2 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Dieser neue Absatz kn\u00fcpft an den neuen \u00a7 2bis Abs. 3 des Kantonsratsgesetzes an. Er dient der Klarstellung, dass die zur Vertretung bestimmte Person mit Aufnahme der Vertretungst\u00e4tigkeit nicht automatisch Einsitz in die Kommission erh\u00e4lt, welcher das vertretene Mitglied angeh\u00f6rt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "F\u00fcr die Aufnahme der Kommissionst\u00e4tigkeit ist zus\u00e4tzlich ein Ratsleitungsbeschluss notwendig, und zwar im gleichen Verfahren wie die bereits heute bestehende ratsinterne Stellvertretung."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Dies bietet den Fraktionen die M\u00f6glichkeit selbst zu entscheiden, ob die zur Vertretung bestimmte Person oder ein anderes Ratsmitglied die Stellvertretung in der Kommission \u00fcbernimmt."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Zur Notwendigkeit dieser Regelung und des Bewilligungsverfahrens wird auf die obigen Ausf\u00fchrungen zu \u00a7 2bis Abs. 3 des Kantonsratsgesetzes verwiesen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "5. Rechtliches"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Vorlage hat eine \u00abratseigene Angelegenheit\u00bb zum Gegenstand, weshalb in analoger Anwendung von Art. 79 Abs. 1 der Kantonsverfassung i.V.m. \u00a7 10 Abs. 1 Bst. d Kantonsratsgesetz die Ratsleitung f\u00fcr den Erlass von Bericht und Antrag zu Handen des Kantonsrats zust\u00e4ndig ist."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Beschlussesentwurf 1:** Die \u00c4nderung der Verfassung des Kantons Solothurn unterliegt dem obligatorischen Referendum (Art. 35 Abs. 1 Bst. a KV)."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Beschlussesentwurf 2:** Bez\u00fcglich der \u00c4nderung des Kantonsratsgesetzes gilt Art. 35 Abs. 1 Bst. d der Kantonsverfassung: Demnach unterliegen der Erlass und die \u00c4nderung von Gesetzen, die der Kantonsrat mit weniger als zwei Dritteln der anwesenden Mitglieder beschliesst, der obligatorischen Volksabstimmung. Werden Gesetze von zwei Dritteln oder mehr der anwesenden Mitglieder beschlossen, unterliegen sie dem fakultativen Referendum (Art. 36 Abs. 1 Bst. b KV)."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Beschlussesentwurf 3:** Bez\u00fcglich der \u00c4nderung des Gesch\u00e4ftsreglements gilt Art. 36 Abs. 1 Bst. b der Kantonsverfassung und der Beschlussesentwurf unterliegt dem fakultativen Referendum."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "6. Antrag"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Wir bitten Sie, auf die Vorlage einzutreten und den Beschlussesentw\u00fcrfen zuzustimmen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Im Namen der Ratsleitung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Kantonsratspr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Verteiler KRB"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Staatskanzlei (eng, sca, rol)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Kantonale Finanzkontrolle"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Amtsblatt (Referendum)"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Parlamentsdienste"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "GS, BGS"
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 1: \u00c4nderung der Verfassung des Kantons Solothurn (KV)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom [Datum]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Artikel 137 Absatz 1 und Artikel 138 Absatz 2 der Verfassung des Kantons Solothurn (KV) vom 8. Juni 1986[^BGS 111.1.]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Kenntnisnahme von Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Verfassung des Kantons Solothurn (KV) vom 8. Juni 1986[^2] (Stand 1. August 2022) wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Art. 66 Abs. 2 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Stellung, Zusammensetzung und Vertretung** (Sach\u00fcberschrift ge\u00e4ndert)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Mitglieder, die infolge Mutterschaft verhindert sind, k\u00f6nnen sich vertreten lassen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Ratsleitung bestimmt das Inkrafttreten."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024                                        Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "KRB Nr. .... vom ...."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieser Beschluss unterliegt dem obligatorischen Referendum."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is the full document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Synopse"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Stellvertretung bei Mutterschaft: 1. \u00c4nderung der Verfassung des Kantons Solothurn (KV)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (BGS Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:              \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:         111.1"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben: \u2013"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 1: \u00c4nderung der Verfassung des Kantons Solothurn (KV)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Artikel 137 Absatz 1 und Artikel 138 Absatz 2 der Verfassung des Kantons Solothurn (KV) vom 8. Juni 1986[^1]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Kenntnisnahme von Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Verfassung des Kantons Solothurn (KV) vom 8. Juni 1986 (Stand 1. August 2022) wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "Art. 66"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Stellung, Zusammensetzung und Vertretung**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Der Kantonsrat ist die gesetzgebende und oberste aufsichtf\u00fchrende Beh\u00f6rde des Kantons. Er z\u00e4hlt 100 Mitglieder."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Mitglieder, die infolge Mutterschaft verhindert sind, k\u00f6nnen sich vertreten lassen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is the document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Keine Fremdaufhebungen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ratsleitung bestimmt das Inkrafttreten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Here is the full document content formatted as markdown:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 2: \u00c4nderung des Kantonsratsgesetzes"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom [Datum]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Artikel 69 der Kantonsverfassung vom 8. Juni 1986[^BGS 111.1.]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Kenntnisnahme von Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Kantonsratsgesetz vom 24. September 1989[^2] (Stand 1. September 2022) wird wie folgt ge\u00e4ndert:"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Titel am Anfang des Dokuments (ge\u00e4ndert)**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**1. Wahl, Konstituierung und Vertretung infolge Mutterschaft**"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 2bis (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**Vertretung infolge Mutterschaft**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**a) Grunds\u00e4tze**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Mitglieder des Kantonsrats k\u00f6nnen sich bei Verhinderung infolge Mutterschaft w\u00e4hrend drei bis zw\u00f6lf Monaten vertreten lassen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Bestimmung der vertretenden Person erfolgt in analoger Anwendung der f\u00fcr das Nachr\u00fccken geltenden Bestimmungen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Der vertretenden Person kommen w\u00e4hrend der Dauer der Vertretung dieselben Rechte und Pflichten wie dem vertretenen Ratsmitglied zu. Die Einsitznahme in Kommissionen richtet sich nach dem Gesch\u00e4ftsreglement."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "W\u00e4hrend der Vertretung ruhen die Rechte und Pflichten des vertretenen Ratsmitglieds. Der Zugang zu den allgemeinen Informationen f\u00fcr Kantonsratsmitglieder bleibt bestehen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 2ter (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "**b) Verfahren**"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Das Kantonsratsmitglied, das sich vertreten lassen will, hat diesen Willen dem Kantonsratspr\u00e4sidenten mit schriftlicher Erkl\u00e4rung mindestens zwei Monate vor dem beabsichtigten Vertretungsbeginn mitzuteilen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung beginnt mit der Leistung des Amtsgel\u00f6bnisses durch die vertretende Person vor dem Kantonsratspr\u00e4sidenten. Der Rat ist umgehend \u00fcber die Vertretung zu informieren."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung endet,"
+                            ],
+                            "children": [
+                                {
+                                    "label": "",
+                                    "type": "list",
+                                    "children": [
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "a) sobald das vertretene Kantonsratsmitglied schriftlich erkl\u00e4rt, die Mandatst\u00e4tigkeit wieder aufzunehmen und die Vertretung mindestens drei Monate gedauert hat;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "b) mit Erreichen der Maximaldauer der Vertretung von 12 Monaten;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "c) bei Legislaturende;"
+                                            ],
+                                            "children": []
+                                        },
+                                        {
+                                            "label": "",
+                                            "type": "list_item",
+                                            "content": [
+                                                "d) sofern die vertretende Person infolge Ausscheidens eines anderen Kantonsratsmitglieds als ordentliches Mitglied in den Kantonsrat nachr\u00fcckt; in diesem Fall kann eine neue Vertretung eingesetzt werden, sofern die verbleibende Vertretungsdauer mindestens drei Monate betr\u00e4gt."
+                                            ],
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Ratsleitung bestimmt das Inkrafttreten."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024                                              Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "KRB Nr. .... vom ...."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieser Beschluss unterliegt dem obligatorischen / fakultativen Referendum."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Synopse"
+            ],
+            "children": []
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Stellvertretung bei Mutterschaft: 2. \u00c4nderung des Kantonsratsgesetzes"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (BGS Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:              \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:         121.1"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben: \u2013"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 2: \u00c4nderung des Kantonsratsgesetzes"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf Artikel 69 der Kantonsverfassung vom 8. Juni 1986[BGS 111.1.]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "nach Kenntnisnahme von Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Kantonsratsgesetz vom 24. September 1989 (Stand 1. September 2022) wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "4",
+            "type": "heading",
+            "content": [
+                "1. Wahl, Konstituierung und Vertretung infolge Mutterschaft"
+            ],
+            "children": []
+        },
+        {
+            "label": "5",
+            "type": "heading",
+            "content": [
+                "\u00a7 2bis"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Vertretung infolge Mutterschaft"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "a) Grunds\u00e4tze"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Mitglieder des Kantonsrats k\u00f6nnen sich bei Verhinderung infolge Mutterschaft w\u00e4hrend drei bis zw\u00f6lf Monaten vertreten lassen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Bestimmung der vertretenden Person erfolgt in analoger Anwendung der f\u00fcr das Nachr\u00fccken geltenden Bestimmungen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Der vertretenden Person kommen w\u00e4hrend der Dauer der Vertretung dieselben Rechte und Pflichten wie dem vertretenen Ratsmitglied zu. Die Einsitznahme in Kommissionen richtet sich nach dem Gesch\u00e4ftsreglement."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "4.",
+                            "type": "list_item",
+                            "content": [
+                                "W\u00e4hrend der Vertretung ruhen die Rechte und Pflichten des vertretenen Ratsmitglieds. Der Zugang zu den allgemeinen Informationen f\u00fcr Kantonsratsmitglieder bleibt bestehen."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 2ter"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "b) Verfahren"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Das Kantonsratsmitglied, das sich vertreten lassen will, hat diesen Willen dem Kantonsratspr\u00e4sidenten mit schriftlicher Erkl\u00e4rung mindestens zwei Monate vor dem beabsichtigten Vertretungsbeginn mitzuteilen."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung beginnt mit der Leistung des Amtsgel\u00f6bnisses durch die vertretende Person vor dem Kantonsratspr\u00e4sidenten. Der Rat ist umgehend \u00fcber die Vertretung zu informieren."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "3.",
+                            "type": "list_item",
+                            "content": [
+                                "Die Vertretung endet,"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "a) sobald das vertretene Kantonsratsmitglied schriftlich erkl\u00e4rt, die Mandatst\u00e4tigkeit wieder aufzunehmen und die Vertretung mindestens drei Monate gedauert hat;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "b) mit Erreichen der Maximaldauer der Vertretung von 12 Monaten;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "c) bei Legislaturende;"
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "d) sofern die vertretende Person infolge Ausscheidens eines anderen Kantonsratsmitglieds als ordentliches Mitglied in den Kantonsrat nachr\u00fcckt; in diesem Fall kann eine neue Vertretung eingesetzt werden, sofern die verbleibende Vertretungsdauer mindestens drei Monate betr\u00e4gt."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "",
+                            "type": "list_item",
+                            "content": [
+                                "Die Ratsleitung bestimmt das Inkrafttreten."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 3: \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "\u00c4nderung vom [Datum]"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf \u00a7 55 des Kantonsratsgesetzes vom 24. September 1989[^BGS 121.1.] nach Kenntnisnahme von"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Gesch\u00e4ftsreglement des Kantonsrates von Solothurn vom 10. September 1991[^BGS 121.2.] (Stand"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "1. Januar 2023) wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 20 Abs. 2 (neu)"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Absatz 1 gilt auch in F\u00e4llen der Vertretung gem\u00e4ss \u00a7 2bis des Kantonsratsgesetzes vom 24."
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "September 1989."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Ratsleitung bestimmt das Inkrafttreten."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024                                       Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "KRB Nr. .... vom ...."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Dieser Beschluss unterliegt dem fakultativen Referendum."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "Synopse"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Stellvertretung bei Mutterschaft: 3. \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Von diesem Gesch\u00e4ft tangierte Erlasse (BGS Nummern)"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Neu:             \u2013"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ge\u00e4ndert:        121.2"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Aufgehoben: \u2013"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "2",
+            "type": "heading",
+            "content": [
+                "Beschlussesentwurf 3: \u00c4nderung des Gesch\u00e4ftsreglements des Kantonsrates von Solothurn"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Kantonsrat von Solothurn"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "gest\u00fctzt auf \u00a7 55 des Kantonsratsgesetzes vom 24. September 1989[BGS 121.1.] nach Kenntnisnahme von Bericht und Antrag der Ratsleitung vom 19. M\u00e4rz 2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "beschliesst:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "I."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Der Erlass Gesch\u00e4ftsreglement des Kantonsrates von Solothurn vom 10. September 1991 (Stand 1. Januar 2023) wird wie folgt ge\u00e4ndert:"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "\u00a7 20"
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Stellvertretung"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "list",
+                    "children": [
+                        {
+                            "label": "1.",
+                            "type": "list_item",
+                            "content": [
+                                "Kann ein Kommissionsmitglied aus zwingenden Gr\u00fcnden w\u00e4hrend l\u00e4ngerer Zeit an den Kommissionssitzungen nicht teilnehmen, bestimmt die Ratsleitung auf Vorschlag der betreffenden Fraktion einen Stellvertreter. Der Rat ist dar\u00fcber zu informieren."
+                            ],
+                            "children": []
+                        },
+                        {
+                            "label": "2.",
+                            "type": "list_item",
+                            "content": [
+                                "Absatz 1 gilt auch in F\u00e4llen der Vertretung gem\u00e4ss \u00a7 2bis des Kantonsratsgesetzes vom 24. September 1989."
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "3",
+            "type": "heading",
+            "content": [
+                "II."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremd\u00e4nderungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "III."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Keine Fremdaufhebungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "1",
+            "type": "heading",
+            "content": [
+                "IV."
+            ],
+            "children": [
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Die Ratsleitung bestimmt das Inkrafttreten."
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Solothurn, xx.xx.2024"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Im Namen des Kantonsrates"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Marco Lupi"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Pr\u00e4sident"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Markus Ballmer"
+                    ]
+                },
+                {
+                    "label": "",
+                    "type": "content",
+                    "content": [
+                        "Ratssekret\u00e4r"
+                    ]
+                }
+            ]
+        }
+    ]
+}
