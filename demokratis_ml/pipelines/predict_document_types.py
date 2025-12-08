@@ -21,7 +21,7 @@ def predict_document_types(  # noqa: PLR0913
     data_files_version: datetime.date,
     store_dataframes_remotely: bool,
     model_name: str = "document_type_classifier",
-    model_version: int | str = 7,
+    model_version: int | str = 8,
     embedding_model_name: str = "openai/text-embedding-3-large",
     only_consultations_since: datetime.date = datetime.date(2019, 1, 1),
     only_languages: Iterable[str] | None = ("de",),
