@@ -2,7 +2,6 @@
 
 import datetime
 import functools
-import io
 import os
 import pathlib
 import re
@@ -145,7 +144,7 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
     retries=3,
     retry_delay_seconds=[10, 60, 120],
 )
-def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float = 180.0) -> str:
+def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float = 180.0) -> dict:
     """Make an authenticated request to the Demokratis API and return the JSON response."""
     credentials = blocks.DemokratisAPICredentials.load("demokratis-api-credentials")
     response = httpx.get(
@@ -154,7 +153,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
         timeout=timeout,
     )
     response.raise_for_status()
-    return response.text
+    return response.json()
 
 
 @prefect.task
@@ -166,8 +165,8 @@ def load_consultation_document_metadata() -> pd.DataFrame:  # noqa: PLR0915
     Make sure the dataframe types match the schema and drop a few known invalid rows.
     """
     logger = prefect.logging.get_run_logger()
-    raw = demokratis_api_request("documents-metadata")
-    df = pd.read_json(io.StringIO(raw))
+    parsed_response = demokratis_api_request("documents-metadata")
+    df = pd.DataFrame(parsed_response)
 
     # Drop legacy columns to ensure we're not relying on them any more.
     df = df.drop(columns=["document_id", "organisation_id", "latest_stored_file_id"])
@@ -304,8 +303,8 @@ def load_consultation_document_contents() -> pd.Series:
     Not all documents are available (typically only those from openparldata).
     """
     logger = prefect.logging.get_run_logger()
-    raw = demokratis_api_request("documents-content", timeout=180.0)
-    df = pd.read_json(io.StringIO(raw))
+    parsed_response = demokratis_api_request("documents-content", timeout=180.0)
+    df = pd.DataFrame(parsed_response)
     logger.info("Loaded %d documents with fields: %r", len(df), df.columns.tolist())
     df = df[["document_uuid", "document_content"]]
     assert df["document_uuid"].is_unique
@@ -324,8 +323,8 @@ def load_consultation_document_stored_files() -> pd.DataFrame:
     Returns a dataframe indexed by stored file UUID.
     """
     logger = prefect.logging.get_run_logger()
-    raw = demokratis_api_request("stored-files", timeout=180.0)
-    df = pd.read_json(io.StringIO(raw))
+    parsed_response = demokratis_api_request("stored-files", timeout=180.0)
+    df = pd.DataFrame(parsed_response)
     df = df.loc[df["type"] == "consultation_document"]
     logger.info("Loaded %d stored files with fields: %r", len(df), df.columns.tolist())
     assert {"uuid", "path", "size", "mime_type", "file_hash", "file_name"} <= set(df.columns), repr(df.columns)
