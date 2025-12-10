@@ -15,7 +15,7 @@ COPY --chown=appuser:appuser pyproject.toml ../../uv.lock ./
 
 # Install dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen
+    uv sync --no-dev --frozen
 
 # Copy the code
 COPY --chown=appuser:appuser demokratis_ml demokratis_ml
