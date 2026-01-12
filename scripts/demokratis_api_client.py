@@ -14,7 +14,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
     password = os.environ["DEMOKRATIS_API_PASSWORD"]
 
     url = f"https://www.demokratis.ch/api/{version}/{endpoint}"
-    print(url)
+    print(url, file=sys.stderr)
     response = httpx.get(url, auth=(username, password), timeout=timeout)
     response.raise_for_status()
     return response.json()
@@ -22,15 +22,17 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:  # noqa: PLR2004
-        print("Usage: python demokratis_api_client.py <documents-metadata|documents-content|stored-files>")
+        print(
+            "Usage: python demokratis_api_client.py <documents-metadata|documents-content|stored-files>",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     endpoint = sys.argv[1]
 
     response_data = demokratis_api_request(endpoint)
     if response_data:
-        print(f"{len(response_data)} records returned from the API.")
-        print("Record 0:")
-        print(json.dumps(response_data[0], indent=4))
+        print(f"{len(response_data)} records returned from the API.", file=sys.stderr)
+        print(json.dumps(response_data, indent=2))
     else:
-        print("No data returned from the API.")
+        print("No data returned from the API.", file=sys.stderr)
