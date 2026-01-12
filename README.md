@@ -93,6 +93,24 @@ Our preprocessed dataset is automatically published to HuggingFace and you can d
 [🤗 demokratis/consultation-documents](https://huggingface.co/datasets/demokratis/consultation-documents).
 Don't hesitate to [talk to us on Slack #ml](https://join.slack.com/t/demokratispublic/shared_invite/zt-2r5uyt4j8-6U22Z53XkJakFkNYgpMm_A) if you have any questions about the data!
 
+Quickstart: this is how you can directly read our document dataframe and start filtering and exploring it straight away:
+
+```python
+import pandas as pd
+
+df = pd.read_parquet(
+    "https://huggingface.co/datasets/demokratis/consultation-documents/resolve/main/consultation-documents-preprocessed.parquet",
+)
+df = df.loc[
+    (df["document_language"] == "de")  # "fr" and "it" are also available
+    & (df["political_body"] == "ch")  # filter for federal documents
+    # & (df["political_body"] == "zh")  # (or filter for a particular canton)
+    & (df["document_type"].isin(["DRAFT", "OPINION"]))  # filter for the text of the law and the statements
+    & (df["consultation_start_date"].dt.year >= 2010)  # look at recent documents only
+]
+
+```
+
 <!--
 ### The federal dataset: Fedlex
 TODO - explain this data source
