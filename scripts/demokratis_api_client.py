@@ -17,6 +17,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
     print(url, file=sys.stderr)
     response = httpx.get(url, auth=(username, password), timeout=timeout)
     response.raise_for_status()
+    print(f"Response status code: {response.status_code}", file=sys.stderr)
     return response.json()
 
 
@@ -35,4 +36,4 @@ if __name__ == "__main__":
         print(f"{len(response_data)} records returned from the API.", file=sys.stderr)
         print(json.dumps(response_data, indent=2))
     else:
-        print("No data returned from the API.", file=sys.stderr)
+        print(f"No data returned from the API: {response_data!r}", file=sys.stderr)
