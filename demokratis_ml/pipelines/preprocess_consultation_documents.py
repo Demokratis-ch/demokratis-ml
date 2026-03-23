@@ -281,6 +281,36 @@ def load_consultation_document_metadata() -> pd.DataFrame:  # noqa: PLR0915
         )
         df.loc[invalid_publication_date, "document_publication_date"] = pd.NaT
 
+    # Temporary: drop documents that fail basic field validation. This should eventually be
+    # handled upstream (in the API or data ingestion layer) rather than here.
+    df = _drop_invalid_documents(df)
+
+    return df
+
+
+def _drop_invalid_documents(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop documents with invalid document_source_url or consultation_title and log warnings.
+
+    Temporary: this should eventually be handled upstream (API / data ingestion layer).
+    See https://github.com/Demokratis-ch/demokratis/issues/1594
+    """
+    logger = prefect.logging.get_run_logger()
+    invalid_url = ~df["document_source_url"].str.match(r"^https?://", na=False)
+    if len(invalid := df[invalid_url]) > 0:
+        logger.warning(
+            "Dropping %d documents with invalid document_source_url:\n%r",
+            len(invalid),
+            invalid[["document_uuid", "document_source", "document_source_url"]],
+        )
+        df = df[~invalid_url]
+    invalid_title = df["consultation_title"].str.len().fillna(0) < 3  # noqa: PLR2004
+    if len(invalid := df[invalid_title]) > 0:
+        logger.warning(
+            "Dropping %d documents with invalid consultation_title:\n%r",
+            len(invalid),
+            invalid[["document_uuid", "document_source", "consultation_title"]],
+        )
+        df = df[~invalid_title]
     return df
 
 
