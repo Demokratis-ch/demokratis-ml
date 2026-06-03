@@ -13,7 +13,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
     username = os.environ["DEMOKRATIS_API_USERNAME"]
     password = os.environ["DEMOKRATIS_API_PASSWORD"]
 
-    url = f"https://www.demokratis.ch/api/{version}/{endpoint}"
+    url = f"https://demokratis.ch/api/{version}/{endpoint}"
     print(url, file=sys.stderr)
     response = httpx.get(url, auth=(username, password), timeout=timeout)
     response.raise_for_status()

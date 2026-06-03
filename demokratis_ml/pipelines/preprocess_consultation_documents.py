@@ -38,11 +38,11 @@ def preprocess_data(
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
-    - Load metadata and contents of consultation documents.
+    - Load the metadata of consultation documents.
     - Detect the language of cantonal documents (the Demokratis platform is unreliable at detecting them).
-    - Optionally bootstrap missing document content by finding a previously preprocessed dataframe and taking
+    - Optionally bootstrap document content by finding a previously preprocessed dataframe and taking
       document_content_plain from there.
-    - Extract any missing plain text from Fedlex documents (not provided by the API).
+    - Extract any missing plain text from original documents (PDFs) as document contents is not provided by the API.
     - Store the resulting dataframe in a Parquet file.
 
     The dataframe is either stored remotely in Exoscale object storage (S3-compatible) or on the local filesystem,
@@ -68,14 +68,7 @@ def preprocess_data(
 def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata.FullConsultationDocumentV1:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
-    Main steps:
-    - Load metadata and contents of consultation documents.
-    - Detect the language of cantonal documents (the Demokratis platform is unreliable at detecting them).
-    - Optionally bootstrap missing document content by finding a previously preprocessed dataframe and taking
-      document_content_plain from there.
-    - Extract any missing plain text from Fedlex documents (not provided by the API).
-
-    Only documents with non-empty content are kept in the final dataframe.
+    See the `preprocess_data` flow for details.
 
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
@@ -90,36 +83,24 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
 
     # Load raw data from Demokratis API. Takes a few minutes but we do it sequentially to be nice to the API.
     metadata = load_consultation_document_metadata()
-    contents = load_consultation_document_contents()
     stored_files = load_consultation_document_stored_files()
-    df = metadata.join(contents, on="document_uuid")
-    assert not df["document_content_plain"].isna().all(), "At least some documents should have content"
-    df = df.join(stored_files, on="latest_stored_file_uuid")
+    df = metadata.join(stored_files, on="latest_stored_file_uuid")
     assert not df["stored_file_path"].isna().all(), "At least some documents should have stored files"
 
-    # Language is unreliable for cantonal documents => detect it.
-    # This assumes that we do have the content of cantonal documents retrieved from the API.
-    openparldata_index = df["document_source"] == "openparldata"
-    detected_languages = detect_document_language(df.loc[openparldata_index])
-    # TODO: log the % difference between detected_languages and df.loc[openparldata_index, "document_language"]
-    df.loc[openparldata_index, "document_language"] = detected_languages
-
-    # Extract text from Fedlex documents
-    missing_content_index = df["document_source"] == "fedlex"
-    assert df.loc[missing_content_index, "document_content_plain"].isna().all(), (
-        "Fedlex documents should not have content yet"
-    )
-    logger.info("Need content for %d Fedlex documents", missing_content_index.sum())
+    # Extract text from documents
+    df["document_content_plain"] = pd.NA
     if bootstrap_extracted_content:
         assert previously_extracted_content_future is not None
         previously_extracted_content = previously_extracted_content_future.result()
-        usable_content = df.loc[missing_content_index].join(
-            previously_extracted_content, on="document_uuid", rsuffix="_previous"
-        )["document_content_plain_previous"]
+        usable_content = df.join(previously_extracted_content, on="document_uuid", rsuffix="_previous")[
+            "document_content_plain_previous"
+        ]
         df.loc[usable_content.index, "document_content_plain"] = usable_content
-        missing_content_index &= df["document_content_plain"].isna()
-        logger.info("After bootstrapping, %d documents still have missing content", missing_content_index.sum())
+        logger.info(
+            "After bootstrapping, %d documents still have missing content", df["document_content_plain"].isna().sum()
+        )
 
+    missing_content_index = df["document_content_plain"].isna()
     extracted_content = extract_document_content(df.loc[missing_content_index])
     df.loc[missing_content_index, "document_content_plain"] = extracted_content
 
@@ -133,6 +114,12 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
             missing_content.groupby("document_source", observed=False).size(),
         )
         df = df[~df["document_content_plain"].isna()]
+
+    # Language is unreliable for cantonal documents => detect it.
+    openparldata_index = df["document_source"] == "openparldata"
+    detected_languages = detect_document_language(df.loc[openparldata_index])
+    # TODO: log the % difference between detected_languages and df.loc[openparldata_index, "document_language"]
+    df.loc[openparldata_index, "document_language"] = detected_languages
 
     return cast("schemata.FullConsultationDocumentV1", df)  # Pandera validation makes this cast safe
 
@@ -148,7 +135,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
     """Make an authenticated request to the Demokratis API and return the JSON response."""
     credentials = blocks.DemokratisAPICredentials.load("demokratis-api-credentials")
     response = httpx.get(
-        f"https://www.demokratis.ch/api/{version}/{endpoint}",
+        f"https://demokratis.ch/api/{version}/{endpoint}",
         auth=(credentials.username, credentials.password.get_secret_value()),
         timeout=timeout,
     )
@@ -323,24 +310,6 @@ def _find_internal_tag_date(
     except StopIteration:
         return pd.NaT
     return tag_object["created_at"]
-
-
-@prefect.task
-def load_consultation_document_contents() -> pd.Series:
-    """Load the content of consultation documents from the Demokratis API.
-
-    Returns a series indexed by document UUID.
-    Not all documents are available (typically only those from openparldata).
-    """
-    logger = prefect.logging.get_run_logger()
-    parsed_response = demokratis_api_request("documents-content", timeout=180.0)
-    df = pd.DataFrame(parsed_response)
-    logger.info("Loaded %d documents with fields: %r", len(df), df.columns.tolist())
-    df = df[["document_uuid", "document_content"]]
-    assert df["document_uuid"].is_unique
-    df = df.rename(columns={"document_content": "document_content_plain"})
-    series = df.set_index("document_uuid")["document_content_plain"]
-    return series
 
 
 @prefect.task
