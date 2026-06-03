@@ -135,7 +135,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
     """Make an authenticated request to the Demokratis API and return the JSON response."""
     credentials = blocks.DemokratisAPICredentials.load("demokratis-api-credentials")
     response = httpx.get(
-        f"https://www.demokratis.ch/api/{version}/{endpoint}",
+        f"https://demokratis.ch/api/{version}/{endpoint}",
         auth=(credentials.username, credentials.password.get_secret_value()),
         timeout=timeout,
     )
