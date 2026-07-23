@@ -23,6 +23,7 @@ from demokratis_ml.data import schemata
 from demokratis_ml.pipelines.lib import blocks, pdf_extraction, utils
 
 OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
+METADATA_DATAFRAME_PREFIX = "consultation-documents-metadata"
 
 
 @prefect.flow(
@@ -34,7 +35,7 @@ OUTPUT_DATAFRAME_PREFIX = "consultation-documents-preprocessed"
 def preprocess_data(
     store_dataframes_remotely: bool,
     bootstrap_extracted_content: bool = True,
-) -> pathlib.Path:
+) -> tuple[pathlib.Path, pathlib.Path]:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     Main steps:
@@ -43,29 +44,34 @@ def preprocess_data(
     - Optionally bootstrap document content by finding a previously preprocessed dataframe and taking
       document_content_plain from there.
     - Extract any missing plain text from original documents (PDFs) as document contents is not provided by the API.
-    - Store the resulting dataframe in a Parquet file.
+    - Store the resulting dataframe and metadata dataframe in Parquet files.
 
-    The dataframe is either stored remotely in Exoscale object storage (S3-compatible) or on the local filesystem,
+    The dataframes are either stored remotely in Exoscale object storage (S3-compatible) or on the local filesystem,
     depending on the ``store_dataframes_remotely`` parameter.
 
     Only documents with non-empty content are kept in the final dataframe.
 
-    :param store_dataframes_remotely: If true, store the resulting dataframe in Exoscale object storage.
+    :param store_dataframes_remotely: If true, store the resulting dataframes in Exoscale object storage.
     :param bootstrap_extracted_content: If true, try to find a previously extracted dataframe and use the
         document_content_plain from there to fill in missing content for Fedlex documents.
+    :return: Paths to the stored Parquet files for the full dataframe and the metadata dataframe.
     """
     # Choose where to store the resulting dataframe
     fs_dataframe_storage = utils.get_dataframe_storage(store_dataframes_remotely)
     # Run the actual preprocessing
-    df = create_preprocessed_dataframe(bootstrap_extracted_content=bootstrap_extracted_content)
-    # Store the dataframe
-    output_path, _ = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
-    return output_path
+    metadata = load_consultation_document_metadata()
+    df = create_preprocessed_dataframe(metadata=metadata, bootstrap_extracted_content=bootstrap_extracted_content)
+    # Store the dataframes
+    output_path_full, _ = utils.store_dataframe(df, OUTPUT_DATAFRAME_PREFIX, fs_dataframe_storage)
+    output_path_metadata, _ = utils.store_dataframe(metadata, METADATA_DATAFRAME_PREFIX, fs_dataframe_storage)
+    return output_path_full, output_path_metadata
 
 
 @prefect.task
 @pandera.check_types
-def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata.FullConsultationDocumentV1:
+def create_preprocessed_dataframe(
+    metadata: schemata.ConsultationDocumentMetadataV1, bootstrap_extracted_content: bool
+) -> schemata.FullConsultationDocumentV1:
     """Retrieve all available consultation documents from the Demokratis API and preprocess them.
 
     See the `preprocess_data` flow for details.
@@ -82,7 +88,6 @@ def create_preprocessed_dataframe(bootstrap_extracted_content: bool) -> schemata
         previously_extracted_content_future = None
 
     # Load raw data from Demokratis API. Takes a few minutes but we do it sequentially to be nice to the API.
-    metadata = load_consultation_document_metadata()
     stored_files = load_consultation_document_stored_files()
     df = metadata.join(stored_files, on="latest_stored_file_uuid")
     assert not df["stored_file_path"].isna().all(), "At least some documents should have stored files"
@@ -146,7 +151,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
 @prefect.task
 @utils.print_validation_failure_cases()
 @pandera.check_output(schemata.ConsultationDocumentMetadataSchemaV1.to_schema(), lazy=True)
-def load_consultation_document_metadata() -> pd.DataFrame:  # noqa: PLR0915
+def load_consultation_document_metadata() -> schemata.ConsultationDocumentMetadataV1:  # noqa: PLR0915
     """Load the metadata of all consultation documents from the Demokratis API.
 
     Make sure the dataframe types match the schema and drop a few known invalid rows.
@@ -272,7 +277,7 @@ def load_consultation_document_metadata() -> pd.DataFrame:  # noqa: PLR0915
     # handled upstream (in the API or data ingestion layer) rather than here.
     df = _drop_invalid_documents(df)
 
-    return df
+    return cast("schemata.ConsultationDocumentMetadataV1", df)  # Pandera validation makes this cast safe
 
 
 def _drop_invalid_documents(df: pd.DataFrame) -> pd.DataFrame:

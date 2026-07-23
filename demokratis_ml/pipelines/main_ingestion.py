@@ -35,11 +35,13 @@ def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_fro
     #
     # ================= Preprocessing =================
     #
-    consultation_documents_file = preprocess_consultation_documents.preprocess_data(
-        store_dataframes_remotely=store_dataframes_remotely,
-        bootstrap_extracted_content=bootstrap_from_previous_output,
+    consultation_documents_file, consultation_documents_metadata_file = (
+        preprocess_consultation_documents.preprocess_data(
+            store_dataframes_remotely=store_dataframes_remotely,
+            bootstrap_extracted_content=bootstrap_from_previous_output,
+        )
     )
-    logger.info("preprocess_data() -> %r", consultation_documents_file)
+    logger.info("preprocess_data() -> %r, %r", consultation_documents_file, consultation_documents_metadata_file)
     features_file = extract_document_features.extract_document_features(
         consultation_documents_file=str(consultation_documents_file),
         store_dataframes_remotely=store_dataframes_remotely,
@@ -73,6 +75,7 @@ def main_ingestion(publish: bool, store_dataframes_remotely: bool, bootstrap_fro
     if publish:
         files = {
             consultation_documents_file: f"{preprocess_consultation_documents.OUTPUT_DATAFRAME_PREFIX}.parquet",
+            consultation_documents_metadata_file: f"{preprocess_consultation_documents.METADATA_DATAFRAME_PREFIX}.parquet",  # noqa: E501
             features_file: f"{extract_document_features.OUTPUT_DATAFRAME_PREFIX}.parquet",
             document_embeddings_file: f"{embed_documents.get_output_dataframe_prefix(document_embedding_model_name)}.parquet",  # noqa: E501
             consultation_embeddings_file: f"{embed_consultations.get_output_dataframe_prefix(consultation_embedding_model_name)}.parquet",  # noqa: E501
