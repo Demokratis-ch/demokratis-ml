@@ -5,7 +5,7 @@ import os
 import sys
 from typing import Any
 
-import httpx
+import httpx2
 
 
 def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float = 180.0) -> list[dict[str, Any]]:
@@ -15,7 +15,7 @@ def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float 
 
     url = f"https://demokratis.ch/api/{version}/{endpoint}"
     print(url, file=sys.stderr)
-    response = httpx.get(url, auth=(username, password), timeout=timeout)
+    response = httpx2.get(url, auth=(username, password), timeout=timeout)
     response.raise_for_status()
     print(f"Response status code: {response.status_code}", file=sys.stderr)
     return response.json()

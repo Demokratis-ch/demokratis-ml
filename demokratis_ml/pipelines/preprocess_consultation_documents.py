@@ -7,7 +7,7 @@ import pathlib
 import re
 from typing import cast
 
-import httpx
+import httpx2
 import lingua
 import numpy as np
 import pandas as pd
@@ -139,7 +139,7 @@ def create_preprocessed_dataframe(
 def demokratis_api_request(endpoint: str, version: str = "v0.1", timeout: float = 180.0) -> dict:
     """Make an authenticated request to the Demokratis API and return the JSON response."""
     credentials = blocks.DemokratisAPICredentials.load("demokratis-api-credentials")
-    response = httpx.get(
+    response = httpx2.get(
         f"https://demokratis.ch/api/{version}/{endpoint}",
         auth=(credentials.username, credentials.password.get_secret_value()),
         timeout=timeout,

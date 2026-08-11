@@ -5,7 +5,6 @@ description = "Machine learning for Swiss consultation procedures"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "httpx>=0.27.2",
     "huggingface-hub>=0.26.3",
     "iterative-stratification>=0.1.9",
     "lingua-language-detector>=2.0.2",
@@ -34,6 +33,7 @@ dependencies = [
     "nltk>=3.9.1",
     "duckdb>=1.3.2",
     "xgboost>=3.1.1",
+    "httpx2>=2.10.0",
 ]
 
 [dependency-groups]
